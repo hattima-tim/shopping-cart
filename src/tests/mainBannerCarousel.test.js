@@ -56,3 +56,26 @@ describe('auto slide', () => {
     expect(firstImage).toBeVisible();
   });
 })
+
+describe("second image in carousel", () => {
+
+  test("clicking first dot shows first image", () => {
+    render(<MainBannerCarousel />);
+    const secondDot = screen.getAllByRole("listitem")[1];
+    userEvent.click(secondDot);
+    const firstDot = screen.getAllByRole("listitem")[0];
+    userEvent.click(firstDot);
+    const firstImage = screen.getByAltText("shop_image");
+    expect(firstImage).toBeVisible();
+  });
+
+  test("prev button shows first image", () => {
+    render(<MainBannerCarousel />);
+    const secondDot = screen.getAllByRole("listitem")[1];
+    userEvent.click(secondDot);
+    const prevButton = screen.getByRole("button", { name: "<" });
+    userEvent.click(prevButton);
+    const firstImage = screen.getByAltText("shop_image");
+    expect(firstImage).toBeVisible();
+  });
+});
