@@ -31,3 +31,28 @@ describe("first image in carousel", () => {
     expect(secondImage).toBeVisible();
   });
 });
+
+describe('auto slide', () => { 
+  test('after 5 seconds, the second image should be visible', async() => {
+    jest.useFakeTimers();
+    render(<MainBannerCarousel />);
+    
+    act(() => {
+      jest.advanceTimersByTime(5000);
+    });
+
+    const secondImage = await screen.findByAltText('white_background');
+    expect(secondImage).toBeVisible();
+  });
+  test('after 10 seconds, the first image should be visible', async () => {
+    jest.useFakeTimers();
+    render(<MainBannerCarousel />);
+    
+    act(() => {
+      jest.advanceTimersByTime(10000);
+    });
+    
+    const firstImage = await screen.findByAltText('shop_image');
+    expect(firstImage).toBeVisible();
+  });
+})
