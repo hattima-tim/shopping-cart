@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "../styles/mainBannerCarousel.css";
 
 function MainBannerCarousel() {
@@ -10,9 +10,19 @@ function MainBannerCarousel() {
     setActiveIndex(0);
   };
 
+  const navArrowContainer = useRef(null);
+  const showNavArrows = () => {
+    navArrowContainer.current.style.display = "block";
+  };
+  const hideNavArrows = () => {
+    navArrowContainer.current.style.display = "none";
+  };
+
   return (
     <div
       id="carousel_container"
+      onMouseOver={showNavArrows}
+      onMouseLeave={hideNavArrows}
     >
       {activeIndex === 0 && (
         <>
@@ -58,6 +68,14 @@ function MainBannerCarousel() {
           <button className="shop_all_btn">SHOP ALL {"> >"}</button>
         </div>
       )}
+      <div id="nav_arrow" ref={navArrowContainer}>
+        <button id="prev_arrow" onClick={showPrevImage}>
+          {"<"}
+        </button>
+        <button id="next_arrow" onClick={showNextImage}>
+          {">"}
+        </button>
+      </div>
     </div>
   );
 }
