@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../styles/mainBannerCarousel.css";
 
 function MainBannerCarousel() {
@@ -17,6 +17,22 @@ function MainBannerCarousel() {
   const hideNavArrows = () => {
     navArrowContainer.current.style.display = "none";
   };
+
+  let currentImageNumberInSlider = useRef(0);
+  useEffect(() => {
+    let intervalId=setInterval(() => {
+      if (currentImageNumberInSlider.current === 0) {
+        setActiveIndex(1);
+        currentImageNumberInSlider.current = 1;
+      } else if(currentImageNumberInSlider.current===1){
+        setActiveIndex(0);
+        currentImageNumberInSlider.current = 0;
+      }
+    }, 5000)
+    return () => {
+      clearInterval(intervalId);
+    }
+  },[])
 
   return (
     <div
