@@ -1,0 +1,22 @@
+.breadCrumbs{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    list-style: none;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+a{
+    color: #9B9392;
+    text-decoration: none;
+}
+a:hover{
+    color: #000000;
+    text-decoration: none;
+}
