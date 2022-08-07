@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with correct texts 1`] = `
+<div>
+  <div
+    class="breadCrumbs"
+  >
+    <a
+      href="/"
+    >
+      Home
+    </a>
+     / Half Sleeve Cut T-Shirts
+  </div>
+  <div
+    class="productCards"
+  >
+    <div
+      class="productCard"
+    >
+      <div
+        class="productImg"
+      >
+        <img
+          alt="Half Sleeve Cut and Sew Solid(pattern 15)"
+          src="https://res.cloudinary.com/du3oueesv/image/upload/v1659873489/shopping%20cart/half%20sleeve%20cut/mthcssp10-solid-350x435_zvwuma.jpg"
+        />
+      </div>
+      <div
+        class="productCard__info"
+      >
+        <h3>
+          Half Sleeve Cut and Sew Solid(pattern 15)
+        </h3>
+        <p>
+          $450
+        </p>
+      </div>
+    </div>
+    <div
+      class="productCard"
+    >
+      <div
+        class="productImg"
+      >
+        <img
+          alt="Half Sleeve Cut and Sew Solid(pattern 14)"
+          src="https://res.cloudinary.com/du3oueesv/image/upload/v1659873473/shopping%20cart/half%20sleeve%20cut/mthcssp11-solid-350x435_jooe3k.jpg"
+        />
+      </div>
+      <div
+        class="productCard__info"
+      >
+        <h3>
+          Half Sleeve Cut and Sew Solid(pattern 14)
+        </h3>
+        <p>
+          $450
+        </p>
+      </div>
+    </div>
+    <div
+      class="productCard"
+    >
+      <div
+        class="productImg"
+      >
+        <img
+          alt="Half Sleeve Cut and Sew Solid(pattern 13)"
+          src="https://res.cloudinary.com/du3oueesv/image/upload/v1659873453/shopping%20cart/half%20sleeve%20cut/mthcssp12-solid-350x435_zkricr.jpg"
+        />
+      </div>
+      <div
+        class="productCard__info"
+      >
+        <h3>
+          Half Sleeve Cut and Sew Solid(pattern 13)
+        </h3>
+        <p>
+          $450
+        </p>
+      </div>
+    </div>
+    <div
+      class="productCard"
+    >
+      <div
+        class="productImg"
+      >
+        <img
+          alt="Half Sleeve Cut and Sew Solid(pattern 12)"
+          src="https://res.cloudinary.com/du3oueesv/image/upload/v1659873413/shopping%20cart/half%20sleeve%20cut/mthcssp13-solid-350x435_zutbr0.jpg"
+        />
+      </div>
+      <div
+        class="productCard__info"
+      >
+        <h3>
+          Half Sleeve Cut and Sew Solid(pattern 12)
+        </h3>
+        <p>
+          $450
+        </p>
+      </div>
+    </div>
+    <div
+      class="productCard"
+    >
+      <div
+        class="productImg"
+      >
+        <img
+          alt="Half Sleeve Cut and Sew Solid(pattern 11)"
+          src="https://res.cloudinary.com/du3oueesv/image/upload/v1659873393/shopping%20cart/half%20sleeve%20cut/mthcssp14-solid-350x435_sc3l07.jpg"
+        />
+      </div>
+      <div
+        class="productCard__info"
+      >
+        <h3>
+          Half Sleeve Cut and Sew Solid(pattern 11)
+        </h3>
+        <p>
+          $450
+        </p>
+      </div>
+    </div>
+    <div
+      class="productCard"
+    >
+      <div
+        class="productImg"
+      >
+        <img
+          alt="Half Sleeve Cut and Sew Solid(pattern 10)"
+          src="https://res.cloudinary.com/du3oueesv/image/upload/v1659873363/shopping%20cart/half%20sleeve%20cut/mthcssp15-solid-350x435_mz8sws.jpg"
+        />
+      </div>
+      <div
+        class="productCard__info"
+      >
+        <h3>
+          Half Sleeve Cut and Sew Solid(pattern 10)
+        </h3>
+        <p>
+          $450
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
