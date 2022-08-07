@@ -1,11 +1,20 @@
 import { Link } from "react-router-dom";
-import '../../styles/productsPage.css';
+import ProductCards from "./productCards";
+import products from "./halfSleeveTShirts/products";
+
+import "../../styles/productsPage.css";
+import '../../styles/productCards.css';
+
 const HalfSleeveCutTShirts = () => {
-    return (
-        <div className='breadCrumbs'>
-           <Link to='/'>Home</Link> / Half Sleeve Cut T-Shirts
-        </div>
-    )
-}
+
+  return (
+    <>
+      <div className="breadCrumbs">
+        <Link to="/">Home</Link> / Half Sleeve Cut T-Shirts
+      </div>
+      <ProductCards products={products} />
+    </>
+  );
+};
 
 export default HalfSleeveCutTShirts;
