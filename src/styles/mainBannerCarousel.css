@@ -42,7 +42,7 @@ h4{
   color: rgb(24, 30, 36);
 }
 
-.view_collection_btn{
+.view_collection_link{
   position: absolute;
   margin-top:20px;
   top: 50%;
@@ -54,9 +54,10 @@ h4{
   padding: 10px 20px;
   font-size: 1em;
   cursor: pointer;
+  text-decoration: none;
 }
 
-.view_collection_btn:hover{
+.view_collection_link:hover{
   background-color: #ffffff;
   color: #666666;
   border-color: #ffffff;
