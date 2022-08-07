@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "../App";
-import HalfSleeveCutTShirts from "./products/halfSleeveCutTShirts";
+import HalfSleeveCutTShirts from "./products/halfSleeveTShirts/main";
 
 function RouteSwitch() {
   return (
