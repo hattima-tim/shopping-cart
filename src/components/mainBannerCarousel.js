@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/mainBannerCarousel.css";
 
 function MainBannerCarousel() {
@@ -54,15 +55,18 @@ function MainBannerCarousel() {
           </div>
 
           <div className="overlay"></div>
-          
+
           <div className="text">
             <h4>SUMMER ARRIVAL</h4>
             <h4>NEW CUT & SEW T-SHIRTS</h4>
           </div>
-          
-          <button className="view_collection_btn">
+
+          <Link
+            to="/half-sleeve-cut-and-sew-solid"
+            className="view_collection_link"
+          >
             VIEW COLLECTION {"> >"}
-          </button>
+          </Link>
         </>
       )}
       {activeIndex === 1 && (
@@ -71,16 +75,16 @@ function MainBannerCarousel() {
             src="https://res.cloudinary.com/du3oueesv/image/upload/v1659707440/shopping%20cart/Rectangle_loxvc7.png"
             alt="white_background"
           ></img>
-          
+
           <ul className="nav_dots">
             <li className="dot" onClick={showPrevImage}></li>
             <li className="dot" style={{ backgroundColor: "#fff" }}></li>
           </ul>
-          
-          <div className="text">
+
+          <Link to='/dress-for-men' className="text">
             <h4>USE FLAT5 TO GET 5% OFF</h4>
-          </div>
-          
+          </Link>
+
           <button className="shop_all_btn">SHOP ALL {"> >"}</button>
         </div>
       )}
