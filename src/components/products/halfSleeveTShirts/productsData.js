@@ -33,4 +33,11 @@ function productsData() {
   ];
 }
 
+function getProductData(searchPath) {
+  return productsData().find((product) => {
+    const productPath = product.path.split("/").pop();
+    return productPath === searchPath;
+  });
+}
 
+export default getProductData;
