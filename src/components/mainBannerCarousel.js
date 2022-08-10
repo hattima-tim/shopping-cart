@@ -45,6 +45,7 @@ function MainBannerCarousel() {
         <>
           <div id="carousel_item_1" className="carousel_item">
             <img
+              className="main_carousel_image"
               src="https://res.cloudinary.com/du3oueesv/image/upload/v1659705449/shopping%20cart/Rectangle_1_yxbsci.png"
               alt="shop_image"
             ></img>
