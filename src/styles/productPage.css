@@ -1,0 +1,9 @@
+.main{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.productImage{
+    object-fit: cover;
+}
+
