@@ -22,16 +22,16 @@ h3 {
   padding: 0px;
 }
 
-.productImg img {
+.productCardImg img {
   object-fit: cover;
   width: 350px;
   height: 435px;
 }
 
-.productImg img:hover {
+.productCardImg img:hover {
   transform: scale(1.1);
 }
 
-.productImg {
+.productCardImg {
   overflow: hidden;
 }
