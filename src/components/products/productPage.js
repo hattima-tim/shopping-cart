@@ -29,6 +29,15 @@ function ProductPage() {
     }
   };
 
+  const [currentlyShowingAdditionalInfo, setCurrentlyShowingAdditionalInfo] =
+    useState("description");
+  const showDescription = () => {
+    setCurrentlyShowingAdditionalInfo("description");
+  };
+  const showAdditionalInfo = () => {
+    setCurrentlyShowingAdditionalInfo("additionalInfo");
+  };
+
   const params = useParams();
   const productData = getProductData(params.name);
   return (
@@ -84,6 +93,55 @@ function ProductPage() {
             <button className="addToCartButton">Add to Cart</button>
           </div>
         </div>
+      </div>
+      <div className="additional_info">
+        <div className="additional_info_tabs">
+          <button className="additional_info_tab" onClick={showDescription}>
+            Description
+          </button>
+
+          <button className="additional_info_tab" onClick={showAdditionalInfo}>
+            Additional Information
+          </button>
+        </div>
+
+        {currentlyShowingAdditionalInfo === "description" && (
+          <div className="additional_info_content">
+            <p>
+              <strong>Size Measurement (in inch/centimeter):</strong>
+            </p>
+
+            <ul>
+              {productData.description.map((description, index) => {
+                return <li key={index}>{description}</li>;
+              })}
+            </ul>
+
+            <p>
+              ডিভাইসের ভিন্নতা অনুযায়ী কালার ডেভিয়েশন এবং ফটোশপ এডিটিং কালার
+              ডেভিয়েশনের কারনে বাস্তব ছবি ও সফটকপির মাঝে অনেক সময় পার্থক্য থেকে
+              যায়
+            </p>
+          </div>
+        )}
+        {currentlyShowingAdditionalInfo === "additionalInfo" && (
+          <table className="additional_info_table">
+            <tbody>
+              <tr>
+                <th>Weight</th>
+                <td>{productData.additionalInfo.weight}</td>
+              </tr>
+              <tr>
+                <th>Fabric</th>
+                <td>{productData.additionalInfo.fabric}</td>
+              </tr>
+              <tr>
+                <th>Size</th>
+                <td>{productData.additionalInfo.size}</td>
+              </tr>
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );
