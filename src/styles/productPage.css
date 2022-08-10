@@ -24,3 +24,33 @@
     border: 2px solid black;
 }
 
+.additional_info_tabs{
+    display: flex;
+    gap: 10px;
+}
+
+.additional_info_tab{
+    background-color: transparent;
+    border: none;
+}
+
+.additional_info_tab:hover{
+    border-top: 2px solid black;
+}
+
+table{
+    width:100%;
+}
+
+th{
+    text-align: left;
+    line-height: 1.05;
+    letter-spacing: .05em;
+}
+
+th,td{
+    padding: .5em;
+    text-align: left;
+    border-bottom: 2px solid #ececec;
+    font-size: .9em;
+}
