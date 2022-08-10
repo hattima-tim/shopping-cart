@@ -7,3 +7,8 @@
     object-fit: cover;
 }
 
+.mainInfo{
+    flex: 1;
+    padding: 0 1rem;
+}
+
