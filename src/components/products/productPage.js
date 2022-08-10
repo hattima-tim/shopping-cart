@@ -37,6 +37,26 @@ function ProductPage() {
               }
             })}
           </div>
+          <h1>{productData.name}</h1>
+          <h2>{productData.price}</h2>
+
+          <ul className="details">
+            {productData.details.map((detail, index) => {
+              return <li key={index}>{detail}</li>;
+            })}
+          </ul>
+
+          <div className="fabricButtons">
+            {productData.fabric.map((fabric, index) => {
+              return <button key={index} className='productOptionBtn'>{fabric}</button>;
+            })}
+          </div>
+
+          <div className="sizeButtons">
+            {productData.size.map((size, index) => {
+              return <button key={index} className='productOptionBtn'>{size}</button>;
+            })}
+          </div>
         </div>
       </div>
     </div>
