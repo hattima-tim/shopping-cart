@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Outlet, useParams, Link } from "react-router-dom";
 import uniqid from "uniqid";
 import getProductData from "./halfSleeveTShirts/productsData";
@@ -12,6 +13,21 @@ export function Product() {
 }
 
 function ProductPage() {
+  const [itemNumber, setItemNumber] = useState(1);
+  const itemNumberIncrement = () => {
+    setItemNumber(itemNumber + 1);
+  };
+  const itemNumberDecrement = () => {
+    if (itemNumber > 1) {
+      setItemNumber(itemNumber - 1);
+    }
+  };
+  const handleChange = (e) => {
+    if (e.target.value > 0) {
+      const value = parseInt(e.target.value);
+      setItemNumber(value);
+    }
+  };
 
   const params = useParams();
   const productData = getProductData(params.name);
@@ -56,6 +72,16 @@ function ProductPage() {
             {productData.size.map((size, index) => {
               return <button key={index} className='productOptionBtn'>{size}</button>;
             })}
+          </div>
+
+          <div className="addToCart">
+            <div className="quantity">
+              <button onClick={itemNumberDecrement}>-</button>
+              <input type="number" onChange={handleChange} value={itemNumber} />
+              <button onClick={itemNumberIncrement}>+</button>
+            </div>
+
+            <button className="addToCartButton">Add to Cart</button>
           </div>
         </div>
       </div>
