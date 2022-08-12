@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet, useParams, Link } from "react-router-dom";
+import { Outlet, useParams, Link, useOutletContext } from "react-router-dom";
 import uniqid from "uniqid";
 import getProductData from "./halfSleeveTShirts/productsData";
 import "../../styles/productPage.css";
@@ -7,12 +7,15 @@ import "../../styles/productPage.css";
 export function Product() {
   return (
     <>
-      <Outlet />
+      <Outlet context={useOutletContext()} />
     </>
   );
 }
 
 function ProductPage() {
+  const params = useParams();
+  const productData = getProductData(params.name);
+
   const [itemNumber, setItemNumber] = useState(1);
   const itemNumberIncrement = () => {
     setItemNumber(itemNumber + 1);
@@ -38,12 +41,14 @@ function ProductPage() {
     setCurrentlyShowingAdditionalInfo("additionalInfo");
   };
 
-  const params = useParams();
-  const productData = getProductData(params.name);
   return (
     <div>
       <div className="main">
-        <img className="productImage" src={productData.img} alt={productData.name} />
+        <img
+          className="productImage"
+          src={productData.img}
+          alt={productData.name}
+        />
         <div className="mainInfo">
           <div className="breadcrumbs">
             {productData.breadCrumbs.map((breadCrumb, index) => {
@@ -73,13 +78,21 @@ function ProductPage() {
 
           <div className="fabricButtons">
             {productData.fabric.map((fabric, index) => {
-              return <button key={index} className='productOptionBtn'>{fabric}</button>;
+              return (
+                <button key={index} className="productOptionBtn">
+                  {fabric}
+                </button>
+              );
             })}
           </div>
 
           <div className="sizeButtons">
             {productData.size.map((size, index) => {
-              return <button key={index} className='productOptionBtn'>{size}</button>;
+              return (
+                <button key={index} className="productOptionBtn">
+                  {size}
+                </button>
+              );
             })}
           </div>
 
