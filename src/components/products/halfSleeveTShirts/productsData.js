@@ -14,7 +14,7 @@ function productsData() {
         },
       ],
       name: "Half Sleeve Cut and Sew Solid(pattern 15)",
-      price: "$450",
+      price: "৳450",
       details: ["Fabric: 100% Cotton", "GSM: 160-165"],
       fabric: ["COMBED COTTON"],
       size: ["M", "L", "XL", "XXL"],
