@@ -41,9 +41,48 @@ function ProductPage() {
     setCurrentlyShowingAdditionalInfo("additionalInfo");
   };
 
-  const [fabric, setFabric] = useState("");
 
-  const [size, setSize] = useState("");
+  const [fabric, setFabric] = useState('');
+
+  const handleFabricBtnClick = (e) => {
+    const currentBtn = e.target;
+    const isButtonActive=currentBtn.classList.contains("active");
+    
+    const fabricBtns = document.querySelectorAll(".fabric-btn");
+    fabricBtns.forEach((btn) => {
+      if (btn !== currentBtn) {
+        btn.classList.remove("active");
+      }
+    });
+    
+    if (isButtonActive) {
+      currentBtn.classList.remove("active");
+    } else {
+      currentBtn.classList.add("active");
+    }
+    setFabric(currentBtn.textContent);
+  };
+
+  const [size, setSize] = useState('');
+
+  const handleSizeBtnClick = (e) => {
+    const currentBtn = e.target;
+    const isButtonActive=currentBtn.classList.contains("active");
+    
+    const sizeBtns = document.querySelectorAll(".size-btn");
+    sizeBtns.forEach((btn) => {
+      if (btn !== currentBtn) {
+        btn.classList.remove("active");
+      }
+    });
+    
+    if (isButtonActive) {
+      currentBtn.classList.remove("active");
+    } else {
+      currentBtn.classList.add("active");
+    }
+    setSize(currentBtn.textContent);
+  };
 
   let product = {
     name: productData.name,
@@ -92,7 +131,11 @@ function ProductPage() {
           <div className="fabricButtons">
             {productData.fabric.map((fabric, index) => {
               return (
-                <button key={index} className="productOptionBtn">
+                <button
+                  key={index}
+                  className="productOptionBtn fabric-btn"
+                  onClick={handleFabricBtnClick}
+                >
                   {fabric}
                 </button>
               );
@@ -102,7 +145,11 @@ function ProductPage() {
           <div className="sizeButtons">
             {productData.size.map((size, index) => {
               return (
-                <button key={index} className="productOptionBtn">
+                <button
+                  key={index}
+                  className="productOptionBtn size-btn"
+                  onClick={handleSizeBtnClick}
+                >
                   {size}
                 </button>
               );
@@ -116,7 +163,9 @@ function ProductPage() {
               <button onClick={itemNumberIncrement}>+</button>
             </div>
 
-            <button className="addToCartButton">Add to Cart</button>
+            <button className="addToCartButton">
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>
