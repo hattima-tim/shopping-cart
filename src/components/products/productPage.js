@@ -41,6 +41,7 @@ function ProductPage() {
     setCurrentlyShowingAdditionalInfo("additionalInfo");
   };
 
+  const [productsInCart, setProductsInCart] = useOutletContext();
 
   const [fabric, setFabric] = useState('');
 
@@ -91,6 +92,11 @@ function ProductPage() {
     totalPrice: itemNumber * (productData.price.split("৳")[1] * 1),
     fabric: fabric,
     size: size,
+  };
+
+  const handleAddToCart = () => {
+    const newProduct = { ...product };
+    setProductsInCart([...productsInCart, newProduct]);
   };
 
   return (
@@ -163,7 +169,7 @@ function ProductPage() {
               <button onClick={itemNumberIncrement}>+</button>
             </div>
 
-            <button className="addToCartButton">
+            <button className="addToCartButton" onClick={handleAddToCart}>
               Add to Cart
             </button>
           </div>
