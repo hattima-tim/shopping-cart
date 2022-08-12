@@ -1,0 +1,42 @@
+.header {
+    background-color: transparent;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.companyLogo{
+    max-height: 60px;
+    margin: 15px auto;
+    align-self: center;
+}
+
+.shopping-cart-icon {
+    display: flex;
+    border: 1px solid #C0C0C0;
+    height: fit-content;
+    padding: 0.3em;
+    border-radius: 4px;
+    align-self: center;
+    margin-right: 10px;
+}
+
+.price{
+    align-self: center;
+}
+
+svg{
+    width: 30px;
+    margin: 10px;
+}
+
+.fa-fw {
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+}
+
+.fa-layers-counter {
+    --fa-counter-line-height: 100px;
+    transform: scale(.7);
+}
