@@ -1,6 +1,9 @@
+import {useState} from 'react';
 import { Outlet } from "react-router-dom";
 import "../styles/header.css";
 function Header() {
+  const [productsInCart, setProductsInCart] = useState([]);
+
   return (
     <div className="header">
       <img
@@ -19,7 +22,7 @@ function Header() {
           </span>
         </span>
       </div>
-      <Outlet />
+      <Outlet context={[productsInCart,setProductsInCart]} />
     </div>
   );
 }
