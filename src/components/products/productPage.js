@@ -41,6 +41,19 @@ function ProductPage() {
     setCurrentlyShowingAdditionalInfo("additionalInfo");
   };
 
+  const [fabric, setFabric] = useState("");
+
+  const [size, setSize] = useState("");
+
+  let product = {
+    name: productData.name,
+    price: productData.price,
+    quantity: itemNumber,
+    totalPrice: itemNumber * (productData.price.split("৳")[1] * 1),
+    fabric: fabric,
+    size: size,
+  };
+
   return (
     <div>
       <div className="main">
