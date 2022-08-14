@@ -74,10 +74,13 @@
 }
 
 .remove_item_btn{
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 22px;
     height: 20px;
     border-radius: 50%;
+    background-color: white;
     color: #ccc;
     font-weight: 700;
     text-align: center;
