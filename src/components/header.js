@@ -12,6 +12,15 @@ function Header() {
     return acc + product.totalPrice;
   }, 0);
 
+  const removeItemFromCart = (e) => {
+    const id =Number(e.target.dataset.id);
+    const newProductsInCart = productsInCart.filter(
+      (product, index) => index !== id
+    );
+    console.log(newProductsInCart)
+    setProductsInCart(newProductsInCart);
+  };
+
   return (
     <>
       <div className="header">
@@ -49,7 +58,13 @@ function Header() {
                       <div className="product_tooltip_item_info">
                         <div className="tooltip_header">
                           <h3>{product.name}</h3>
-                          <span className="remove_item_btn">x</span>
+                          <button
+                            data-id={index}
+                            className="remove_item_btn"
+                            onClick={removeItemFromCart}
+                          >
+                            x
+                          </button>
                         </div>
 
                         <p>FABRIC: {product.fabric}</p>
