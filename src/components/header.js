@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import "../styles/header.css";
 function Header() {
   const [productsInCart, setProductsInCart] = useState([]);
@@ -20,6 +20,11 @@ function Header() {
     setProductsInCart(newProductsInCart);
   };
 
+  const handleCheckout = () => {
+    alert("Thank you for your purchase!");
+    setProductsInCart([]);
+  }
+  
   return (
     <>
       <div className="header">
@@ -47,7 +52,7 @@ function Header() {
           <div className="products_tooltip">
             {productsInCart.toString() !== "" && (
               <>
-                <div className="products_container"> 
+                <div className="products_container">
                   {productsInCart.map((product, index) => {
                     return (
                       <div className="product_tooltip_item" key={index}>
@@ -82,8 +87,12 @@ function Header() {
                   {totalPrice}
                 </p>
 
-                <button className="view_cart">VIEW CART</button>
-                <button className="checkout_btn">CHECKOUT</button>
+                <Link to="/cart" className="view_cart">
+                  VIEW CART
+                </Link>
+                <button className="checkout_btn" onClick={handleCheckout}>
+                  CHECKOUT
+                </button>
               </>
             )}
 
