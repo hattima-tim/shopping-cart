@@ -53,6 +53,11 @@
     border-color: transparent transparent black transparent;
 }
 
+.products_container{
+    overflow: auto;
+    max-height: 19.8em;
+}
+
 .product_tooltip_item{
     display: flex;
     margin-bottom: 5px;
