@@ -13,11 +13,10 @@ function Header() {
   }, 0);
 
   const removeItemFromCart = (e) => {
-    const id =Number(e.target.dataset.id);
+    const id = Number(e.target.dataset.id);
     const newProductsInCart = productsInCart.filter(
       (product, index) => index !== id
     );
-    console.log(newProductsInCart)
     setProductsInCart(newProductsInCart);
   };
 
@@ -48,35 +47,36 @@ function Header() {
           <div className="products_tooltip">
             {productsInCart.toString() !== "" && (
               <>
-                {productsInCart.map((product, index) => {
-                  return (
-                    <div className="product_tooltip_item" key={index}>
-                      <div className="product_tooltip_item_img">
-                        <img src={product.img} alt={product.name} />
-                      </div>
-
-                      <div className="product_tooltip_item_info">
-                        <div className="tooltip_header">
-                          <h3>{product.name}</h3>
-                          <button
-                            data-id={index}
-                            className="remove_item_btn"
-                            onClick={removeItemFromCart}
-                          >
-                            x
-                          </button>
+                <div className="products_container"> 
+                  {productsInCart.map((product, index) => {
+                    return (
+                      <div className="product_tooltip_item" key={index}>
+                        <div className="product_tooltip_item_img">
+                          <img src={product.img} alt={product.name} />
                         </div>
 
-                        <p>FABRIC: {product.fabric}</p>
-                        <p>SIZE: {product.size}</p>
-                        <p>
-                          {product.quantity} x {product.price}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
+                        <div className="product_tooltip_item_info">
+                          <div className="tooltip_header">
+                            <h3>{product.name}</h3>
+                            <button
+                              data-id={index}
+                              className="remove_item_btn"
+                              onClick={removeItemFromCart}
+                            >
+                              x
+                            </button>
+                          </div>
 
+                          <p>FABRIC: {product.fabric}</p>
+                          <p>SIZE: {product.size}</p>
+                          <p>
+                            {product.quantity} x {product.price}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
                 <p className="subTotal">
                   <span>Subtotal: ৳</span>
                   {totalPrice}
