@@ -128,7 +128,15 @@
     margin-top: 10px;
     cursor: pointer;
 }
-.
+.view_cart{
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
+
+.view_cart:hover{
+    color:white;
+}
 
 .price{
     align-self: center;
