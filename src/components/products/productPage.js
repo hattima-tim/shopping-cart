@@ -87,6 +87,7 @@ function ProductPage() {
 
   let product = {
     name: productData.name,
+    img: productData.img,
     price: productData.price,
     quantity: itemNumber,
     totalPrice: itemNumber * (productData.price.split("৳")[1] * 1),
