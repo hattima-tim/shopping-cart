@@ -1,8 +1,41 @@
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter, Routes, Route } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
 import Header from "../components/header";
+import { Product } from "../components/products/productPage";
+import ProductPage from "../components/products/productPage";
 
 test("logo image is visible", () => {
   render(<Header />);
   const logo = screen.getByRole("img", { name: "one ummah logo" });
   expect(logo).toBeInTheDocument();
 });
+
+const setup = () => {
+  render(
+    <MemoryRouter
+      initialEntries={["/product/half-sleeve-cut-and-sew-solid-pattern-15"]}
+    >
+      <Routes>
+        <Route path="/" element={<Header />}>
+          <Route path="product" element={<Product />}>
+            <Route path=":name" element={<ProductPage />} />
+          </Route>
+        </Route>
+      </Routes>
+    </MemoryRouter>
+  );
+
+  const fabricBtn = screen.getByRole("button", { name: "COMBED COTTON" });
+  userEvent.click(fabricBtn);
+
+  const sizeBtn = screen.getByRole("button", { name: "M" });
+  userEvent.click(sizeBtn);
+
+  const quantityBtn = screen.getByRole("button", { name: "+" });
+  userEvent.click(quantityBtn);
+  userEvent.click(quantityBtn);
+
+  const addToCartBtn = screen.getByRole("button", { name: "Add to Cart" });
+  userEvent.click(addToCartBtn);
+};
