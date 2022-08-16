@@ -23,8 +23,8 @@ function Header() {
   const handleCheckout = () => {
     alert("Thank you for your purchase!");
     setProductsInCart([]);
-  }
-  
+  };
+
   return (
     <>
       <div className="header">
@@ -44,6 +44,7 @@ function Header() {
             <span
               className="fa-layers-counter"
               style={{ background: "Tomato" }}
+              data-testid="cart-item-count"
             >
               {totalItem}
             </span>
