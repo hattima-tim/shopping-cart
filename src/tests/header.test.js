@@ -39,3 +39,9 @@ const setup = () => {
   const addToCartBtn = screen.getByRole("button", { name: "Add to Cart" });
   userEvent.click(addToCartBtn);
 };
+
+test("totalItems count is correct", () => {
+  setup();
+  const totalItem = screen.getByTestId("cart-item-count");
+  expect(totalItem).toHaveTextContent("3");
+});
