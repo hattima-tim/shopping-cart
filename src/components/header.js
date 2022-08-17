@@ -2,7 +2,9 @@ import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import "../styles/header.css";
 function Header() {
-  const [productsInCart, setProductsInCart] = useState([]);
+  const [productsInCart, setProductsInCart] = useState(
+    JSON.parse(localStorage.getItem("productsInCart")) || []
+  );
 
   const totalItem = productsInCart.reduce((acc, curr) => {
     return acc + curr.quantity;

@@ -43,19 +43,19 @@ function ProductPage() {
 
   const [productsInCart, setProductsInCart] = useOutletContext();
 
-  const [fabric, setFabric] = useState('');
+  const [fabric, setFabric] = useState("");
 
   const handleFabricBtnClick = (e) => {
     const currentBtn = e.target;
-    const isButtonActive=currentBtn.classList.contains("active");
-    
+    const isButtonActive = currentBtn.classList.contains("active");
+
     const fabricBtns = document.querySelectorAll(".fabric-btn");
     fabricBtns.forEach((btn) => {
       if (btn !== currentBtn) {
         btn.classList.remove("active");
       }
     });
-    
+
     if (isButtonActive) {
       currentBtn.classList.remove("active");
     } else {
@@ -64,19 +64,19 @@ function ProductPage() {
     setFabric(currentBtn.textContent);
   };
 
-  const [size, setSize] = useState('');
+  const [size, setSize] = useState("");
 
   const handleSizeBtnClick = (e) => {
     const currentBtn = e.target;
-    const isButtonActive=currentBtn.classList.contains("active");
-    
+    const isButtonActive = currentBtn.classList.contains("active");
+
     const sizeBtns = document.querySelectorAll(".size-btn");
     sizeBtns.forEach((btn) => {
       if (btn !== currentBtn) {
         btn.classList.remove("active");
       }
     });
-    
+
     if (isButtonActive) {
       currentBtn.classList.remove("active");
     } else {
@@ -97,6 +97,10 @@ function ProductPage() {
 
   const handleAddToCart = () => {
     const newProduct = { ...product };
+    localStorage.setItem(
+      "productsInCart",
+      JSON.stringify([...productsInCart, newProduct])
+    );
     setProductsInCart([...productsInCart, newProduct]);
   };
 
