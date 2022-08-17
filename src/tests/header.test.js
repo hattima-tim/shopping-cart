@@ -45,3 +45,24 @@ test("totalItems count is correct", () => {
   const totalItem = screen.getByTestId("cart-item-count");
   expect(totalItem).toHaveTextContent("3");
 });
+
+describe("products in cart", () => {
+  test("remove button removes product from cart", () => {
+    setup();
+
+    const productRemoveBtn = screen.getByRole("button", {
+      name: "x",
+    });
+    const productName = screen.getByRole(
+      "heading",
+      { level: 3 },
+      { name: "Half Sleeve Cut and Sew Solid(pattern 15)" }
+    );
+
+    userEvent.click(productRemoveBtn);
+
+    expect(productRemoveBtn).not.toBeInTheDocument();
+    expect(productName).not.toBeInTheDocument();
+  });
+
+});
