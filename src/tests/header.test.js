@@ -59,3 +59,13 @@ test("remove button removes product from cart", () => {
   expect(productRemoveBtn).not.toBeInTheDocument();
   expect(productName).not.toBeInTheDocument();
 });
+
+test("alert is called on checkout button click", () => {
+  setup();
+  const alertMock = jest.spyOn(window, "alert").mockImplementation(() => {});
+  const checkoutBtn = screen.getByRole("button", { name: "CHECKOUT" });
+
+  userEvent.click(checkoutBtn);
+
+  expect(alertMock).toBeCalledTimes(1);
+});
