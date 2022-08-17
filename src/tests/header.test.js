@@ -5,14 +5,8 @@ import Header from "../components/header";
 import { Product } from "../components/products/productPage";
 import ProductPage from "../components/products/productPage";
 
-test("logo image is visible", () => {
-  render(<Header />);
-  const logo = screen.getByRole("img", { name: "one ummah logo" });
-  expect(logo).toBeInTheDocument();
-});
-
 const setup = () => {
-  const {container} = render(
+  const { container } = render(
     <MemoryRouter
       initialEntries={["/product/half-sleeve-cut-and-sew-solid-pattern-15"]}
     >
@@ -42,35 +36,26 @@ const setup = () => {
   return container;
 };
 
-test('header and product page', () => {
+test("header and product page", () => {
   const container = setup();
   expect(container).toMatchSnapshot(); // the snapshot contains both
   // Header and ProductPage
-})
-
-test("totalItems count is correct", () => {
-  setup();
-  const totalItem = screen.getByTestId("cart-item-count");
-  expect(totalItem).toHaveTextContent("3");
 });
 
-describe("products in cart", () => {
-  test("remove button removes product from cart", () => {
-    setup();
+test("remove button removes product from cart", () => {
+  setup();
 
-    const productRemoveBtn = screen.getByRole("button", {
-      name: "x",
-    });
-    const productName = screen.getByRole(
-      "heading",
-      { level: 3 },
-      { name: "Half Sleeve Cut and Sew Solid(pattern 15)" }
-    );
-
-    userEvent.click(productRemoveBtn);
-
-    expect(productRemoveBtn).not.toBeInTheDocument();
-    expect(productName).not.toBeInTheDocument();
+  const productRemoveBtn = screen.getByRole("button", {
+    name: "x",
   });
+  const productName = screen.getByRole(
+    "heading",
+    { level: 3 },
+    { name: "Half Sleeve Cut and Sew Solid(pattern 15)" }
+  );
 
+  userEvent.click(productRemoveBtn);
+
+  expect(productRemoveBtn).not.toBeInTheDocument();
+  expect(productName).not.toBeInTheDocument();
 });
