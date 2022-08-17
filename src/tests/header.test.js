@@ -12,7 +12,7 @@ test("logo image is visible", () => {
 });
 
 const setup = () => {
-  render(
+  const {container} = render(
     <MemoryRouter
       initialEntries={["/product/half-sleeve-cut-and-sew-solid-pattern-15"]}
     >
@@ -38,7 +38,15 @@ const setup = () => {
 
   const addToCartBtn = screen.getByRole("button", { name: "Add to Cart" });
   userEvent.click(addToCartBtn);
+
+  return container;
 };
+
+test('header and product page', () => {
+  const container = setup();
+  expect(container).toMatchSnapshot(); // the snapshot contains both
+  // Header and ProductPage
+})
 
 test("totalItems count is correct", () => {
   setup();
