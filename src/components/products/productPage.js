@@ -90,7 +90,7 @@ function ProductPage() {
     img: productData.img,
     price: productData.price,
     quantity: itemNumber,
-    totalPrice: itemNumber * (productData.price.split("৳")[1] * 1),
+    subTotal: itemNumber * (productData.price.split("৳")[1] * 1),
     fabric: fabric,
     size: size,
   };

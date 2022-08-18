@@ -10,8 +10,8 @@ function Header() {
     return acc + curr.quantity;
   }, 0);
 
-  const totalPrice = productsInCart.reduce((acc, product) => {
-    return acc + product.totalPrice;
+  const subTotal = productsInCart.reduce((acc, product) => {
+    return acc + product.subTotal;
   }, 0);
 
   const removeItemFromCart = (e) => {
@@ -37,7 +37,7 @@ function Header() {
         ></img>
 
         <div className="shopping-cart-icon">
-          <span className="price">৳ {totalPrice}</span>
+          <span className="price">৳ {subTotal}</span>
 
           <span className="fa-layers fa-fw">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
@@ -87,7 +87,7 @@ function Header() {
                 </div>
                 <p className="subTotal">
                   <span>Subtotal: ৳</span>
-                  {totalPrice}
+                  {subTotal}
                 </p>
 
                 <Link to="/cart" className="view_cart">

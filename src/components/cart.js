@@ -6,8 +6,8 @@ import "../styles/cart.css";
 function Cart() {
   const [productsInCart, setProductsInCart] = useOutletContext();
 
-  const totalPrice = productsInCart.reduce((acc, product) => {
-    return acc + product.totalPrice;
+  const subTotal = productsInCart.reduce((acc, product) => {
+    return acc + product.subTotal;
   }, 0);
 
   const productsQuantityStorage = productsInCart.map((product) => {
@@ -45,9 +45,9 @@ function Cart() {
     const newProductsInCart = [...productsInCart];
     newProductsInCart.forEach((product, index) => {
       product.quantity = productsQuantities[index];
-      product.totalPrice = product.quantity * (product.price.split("৳")[1] * 1);
+      product.subTotal = product.quantity * (product.price.split("৳")[1] * 1);
     });
-    
+
     localStorage.setItem("productsInCart", JSON.stringify(newProductsInCart));
     setProductsInCart(newProductsInCart);
   };
@@ -124,7 +124,7 @@ function Cart() {
                 </td>
 
                 <td className="product-subtotal">
-                  <p>৳{totalPrice}</p>
+                  <p>৳{subTotal}</p>
                 </td>
               </tr>
             </tbody>
