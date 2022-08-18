@@ -1,3 +1,4 @@
+import { useState } from "react";
 import uniqid from "uniqid";
 import "../styles/cart.css";
 
@@ -7,6 +8,37 @@ function Cart() {
   const totalPrice = productsInCart.reduce((acc, product) => {
     return acc + product.totalPrice;
   }, 0);
+
+  const productsQuantityStorage = productsInCart.map((product) => {
+    return product.quantity;
+  });
+
+  const [productsQuantities, setProductsQuantities] = useState(
+    productsQuantityStorage
+  );
+
+  const increment = (e) => {
+    const id = e.target.dataset.id;
+    const newProductsQuantities = [...productsQuantities];
+    newProductsQuantities[id] += 1;
+    setProductsQuantities(newProductsQuantities);
+  };
+
+  const decrement = (e) => {
+    const id = e.target.dataset.id;
+    const newProductsQuantities = [...productsQuantities];
+    if (newProductsQuantities[id] > 1) {
+      newProductsQuantities[id] -= 1;
+    }
+    setProductsQuantities(newProductsQuantities);
+  };
+
+  const handleInputChange = (e) => {
+    const id = e.target.dataset.id;
+    const newProductsQuantities = [...productsQuantities];
+    newProductsQuantities[id] = Number(e.target.value);
+    setProductsQuantities(newProductsQuantities);
+  };
 
   return (
     <div>
@@ -22,7 +54,7 @@ function Cart() {
           </tr>
         </thead>
 
-        {productsInCart.map((product) => {
+        {productsInCart.map((product, index) => {
           return (
             <tbody key={uniqid()}>
               <tr>
@@ -50,9 +82,32 @@ function Cart() {
 
                 <td>
                   <div className="product-quantity">
-                    <button className="decrementBtn">-</button>
-                    <input type="number" value={product.quantity} />
-                    <button className="incrementBtn">+</button>
+                    <button
+                      data-id={index}
+                      className="decrementBtn"
+                      onClick={decrement}
+                    >
+                      -
+                    </button>
+
+                    <input
+                      type="number"
+                      data-id={index}
+                      step="1"
+                      min="0"
+                      max="27"
+                      onChange={handleInputChange}
+                      value={productsQuantities[index]}
+                      size="4"
+                    ></input>
+                    
+                    <button
+                      data-id={index}
+                      className="incrementBtn"
+                      onClick={increment}
+                    >
+                      +
+                    </button>
                   </div>
                 </td>
 
