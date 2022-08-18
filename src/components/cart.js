@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import uniqid from "uniqid";
 import "../styles/cart.css";
 
 function Cart() {
-  const productsInCart = JSON.parse(localStorage.getItem("productsInCart"));
+  const [productsInCart, setProductsInCart] = useOutletContext();
 
   const totalPrice = productsInCart.reduce((acc, product) => {
     return acc + product.totalPrice;
@@ -38,6 +39,17 @@ function Cart() {
     const newProductsQuantities = [...productsQuantities];
     newProductsQuantities[id] = Number(e.target.value);
     setProductsQuantities(newProductsQuantities);
+  };
+
+  const updateCart = (e) => {
+    const newProductsInCart = [...productsInCart];
+    newProductsInCart.forEach((product, index) => {
+      product.quantity = productsQuantities[index];
+      product.totalPrice = product.quantity * (product.price.split("৳")[1] * 1);
+    });
+    
+    localStorage.setItem("productsInCart", JSON.stringify(newProductsInCart));
+    setProductsInCart(newProductsInCart);
   };
 
   return (
@@ -100,7 +112,7 @@ function Cart() {
                       value={productsQuantities[index]}
                       size="4"
                     ></input>
-                    
+
                     <button
                       data-id={index}
                       className="incrementBtn"
@@ -122,7 +134,9 @@ function Cart() {
 
       <div className="continue-update-btn-container">
         <button className="continue-shopping-btn">← Continue Shopping</button>
-        <button className="update-cart-btn">Update Cart</button>
+        <button className="update-cart-btn" onClick={updateCart}>
+          Update Cart
+        </button>
       </div>
     </div>
   );
