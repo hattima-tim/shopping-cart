@@ -44,6 +44,17 @@ td p{
     text-align: center;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    appearance: textfield; /* Firefox */
+}
+
 .continue-update-btn-container{
     display: flex;
     gap: 2em;
