@@ -236,6 +236,16 @@ function Cart() {
             <span className="price">৳{totalPrice} </span>
           </p>
         </div>
+        <button
+          className="checkout_btn"
+          onClick={() => {
+            alert(
+              "Thanks for clicking me! Currently I have no functionality. Feel free to explore rest of the website."
+            );
+          }}
+        >
+          PROCEED TO CHECKOUT
+        </button>
       </div>
     </div>
   );
