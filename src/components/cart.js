@@ -6,6 +6,16 @@ import "../styles/cart.css";
 function Cart() {
   const [productsInCart, setProductsInCart] = useOutletContext();
 
+  const removeItemFromCart = (e) => {
+    const id = e.target.dataset.id;
+    const newProductsInCart = productsInCart.filter(
+      (product) => product.id !== id
+    );
+
+    setProductsInCart(newProductsInCart);
+    localStorage.setItem("productsInCart", JSON.stringify(newProductsInCart));
+  };
+
   const subTotal = productsInCart.reduce((acc, product) => {
     return acc + product.subTotal;
   }, 0);
@@ -82,7 +92,13 @@ function Cart() {
               <tbody key={uniqid()}>
                 <tr>
                   <td>
-                    <button className="remove-product-btn">x</button>
+                    <button
+                      className="remove-product-btn"
+                      data-id={product.id}
+                      onClick={removeItemFromCart}
+                    >
+                      x
+                    </button>
                   </td>
 
                   <td className="product-thumbnail">
