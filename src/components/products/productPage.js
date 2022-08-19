@@ -86,6 +86,7 @@ function ProductPage() {
   };
 
   let product = {
+    id: uniqid(),
     name: productData.name,
     img: productData.img,
     price: productData.price,
