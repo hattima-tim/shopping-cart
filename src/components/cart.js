@@ -63,7 +63,7 @@ function Cart() {
   };
 
   return (
-    <div>
+    <div className="cart-page">
       <div className="product-section">
         <table>
           <thead>
@@ -100,7 +100,9 @@ function Cart() {
                   </td>
 
                   <td className="product-price">
-                    <p>{product.price}</p>
+                    <p>
+                      <span className="price">{product.price}</span>
+                    </p>
                   </td>
 
                   <td>
@@ -156,7 +158,9 @@ function Cart() {
 
         <div className="subTotal">
           <p>Subtotal</p>
-          <p> ৳{subTotal} </p>
+          <p>
+            <span className="price"> ৳{subTotal} </span>
+          </p>
         </div>
 
         <div className="shipping">
@@ -173,7 +177,9 @@ function Cart() {
                 ? { checked: true }
                 : { checked: false })}
             />
-            <label htmlFor="redx">REDX: ৳ 45.00</label>
+            <label htmlFor="redx">
+              REDX:<strong> ৳ 45.00</strong>
+            </label>
             <br />
 
             <input
@@ -187,7 +193,7 @@ function Cart() {
                 : { checked: false })}
             />
             <label htmlFor="sundorbanCourier">
-              Sundarban Courier: ৳ 130.00
+              Sundarban Courier:<strong> ৳ 130.00 </strong>
             </label>
             <br />
 
@@ -201,7 +207,9 @@ function Cart() {
                 ? { checked: true }
                 : { checked: false })}
             />
-            <label htmlFor="sa-poribohon">SA Paribahan: ৳ 170.00</label>
+            <label htmlFor="sa-poribohon">
+              SA Paribahan:<strong> ৳ 170.00</strong>
+            </label>
             <br />
 
             <input
@@ -214,7 +222,9 @@ function Cart() {
                 ? { checked: true }
                 : { checked: false })}
             />
-            <label htmlFor="jananiCourrier">Janani Courier: ৳ 120.00</label>
+            <label htmlFor="jananiCourrier">
+              Janani Courier:<strong> ৳ 120.00</strong>
+            </label>
           </form>
 
           <p>Shipping to Dhaka.</p>
@@ -222,7 +232,9 @@ function Cart() {
 
         <div className="total">
           <p>Total</p>
-          <p>৳{totalPrice}</p>
+          <p>
+            <span className="price">৳{totalPrice} </span>
+          </p>
         </div>
       </div>
     </div>
