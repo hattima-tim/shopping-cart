@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import uniqid from "uniqid";
 import "../styles/cart.css";
@@ -53,6 +53,14 @@ function Cart() {
   };
 
   const [totalPrice, setTotalPrice] = useState(subTotal + 45.0);
+
+  useEffect(() => {
+    setTotalPrice(subTotal + 45.0);
+  }, [subTotal]);
+
+  const handleShippingMethodChange = (e) => {
+    setTotalPrice(subTotal + Number(e.target.value));
+  };
 
   return (
     <div>
@@ -160,7 +168,10 @@ function Cart() {
               id="redx"
               name="shipping"
               value="45.00"
-              checked
+              onChange={handleShippingMethodChange}
+              {...(totalPrice === subTotal + 45.0
+                ? { checked: true }
+                : { checked: false })}
             />
             <label htmlFor="redx">REDX: ৳ 45.00</label>
             <br />
@@ -170,6 +181,10 @@ function Cart() {
               id="sundorbanCourier"
               name="shipping"
               value="130.00"
+              onChange={handleShippingMethodChange}
+              {...(totalPrice === subTotal + 130.0
+                ? { checked: true }
+                : { checked: false })}
             />
             <label htmlFor="sundorbanCourier">
               Sundarban Courier: ৳ 130.00
@@ -181,6 +196,10 @@ function Cart() {
               id="sa-poribohon"
               name="shipping"
               value="170.00"
+              onChange={handleShippingMethodChange}
+              {...(totalPrice === subTotal + 170.0
+                ? { checked: true }
+                : { checked: false })}
             />
             <label htmlFor="sa-poribohon">SA Paribahan: ৳ 170.00</label>
             <br />
@@ -190,6 +209,10 @@ function Cart() {
               id="jananiCourrier"
               name="shipping"
               value="120.00"
+              onChange={handleShippingMethodChange}
+              {...(totalPrice === subTotal + 120.0
+                ? { checked: true }
+                : { checked: false })}
             />
             <label htmlFor="jananiCourrier">Janani Courier: ৳ 120.00</label>
           </form>
@@ -201,7 +224,6 @@ function Cart() {
           <p>Total</p>
           <p>৳{totalPrice}</p>
         </div>
-      
       </div>
     </div>
   );
