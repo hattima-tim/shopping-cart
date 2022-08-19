@@ -107,10 +107,6 @@
     padding-left: 10px;
 }
 
-.subTotal span{
-    color: rgb(119, 119, 119);
-}
-
 .subTotal{
     margin-bottom: 5px;
     border-bottom: 1px solid #dcdcdc;
