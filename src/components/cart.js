@@ -52,91 +52,156 @@ function Cart() {
     setProductsInCart(newProductsInCart);
   };
 
+  const [totalPrice, setTotalPrice] = useState(subTotal + 45.0);
+
   return (
     <div>
-      <table>
-        <thead>
-          <tr>
-            <th className="product-name" colSpan="3">
-              Product
-            </th>
-            <th className="product-price">Price</th>
-            <th className="product-quantity">Quantity</th>
-            <th className="product-subtotal">Subtotal</th>
-          </tr>
-        </thead>
+      <div className="product-section">
+        <table>
+          <thead>
+            <tr>
+              <th className="product-name" colSpan="3">
+                Product
+              </th>
+              <th className="product-price">Price</th>
+              <th className="product-quantity">Quantity</th>
+              <th className="product-subtotal">Subtotal</th>
+            </tr>
+          </thead>
 
-        {productsInCart.map((product, index) => {
-          return (
-            <tbody key={uniqid()}>
-              <tr>
-                <td>
-                  <button className="remove-product-btn">x</button>
-                </td>
+          {productsInCart.map((product, index) => {
+            return (
+              <tbody key={uniqid()}>
+                <tr>
+                  <td>
+                    <button className="remove-product-btn">x</button>
+                  </td>
 
-                <td className="product-thumbnail">
-                  <img src={product.img} alt={product.name} />
-                </td>
+                  <td className="product-thumbnail">
+                    <img src={product.img} alt={product.name} />
+                  </td>
 
-                <td className="product-name">
-                  {product.name}
-                  <dl className="variation">
-                    <dt>FABRIC: </dt>
-                    <dd>{product.fabric}</dd>
-                    <dt>SIZE: </dt>
-                    <dd>{product.size}</dd>
-                  </dl>
-                </td>
+                  <td className="product-name">
+                    {product.name}
+                    <dl className="variation">
+                      <dt>FABRIC: </dt>
+                      <dd>{product.fabric}</dd>
+                      <dt>SIZE: </dt>
+                      <dd>{product.size}</dd>
+                    </dl>
+                  </td>
 
-                <td className="product-price">
-                  <p>{product.price}</p>
-                </td>
+                  <td className="product-price">
+                    <p>{product.price}</p>
+                  </td>
 
-                <td>
-                  <div className="product-quantity">
-                    <button
-                      data-id={index}
-                      className="decrementBtn"
-                      onClick={decrement}
-                    >
-                      -
-                    </button>
+                  <td>
+                    <div className="product-quantity">
+                      <button
+                        data-id={index}
+                        className="decrementBtn"
+                        onClick={decrement}
+                      >
+                        -
+                      </button>
 
-                    <input
-                      type="number"
-                      data-id={index}
-                      step="1"
-                      min="0"
-                      max="27"
-                      onChange={handleInputChange}
-                      value={productsQuantities[index]}
-                      size="4"
-                    ></input>
+                      <input
+                        type="number"
+                        data-id={index}
+                        step="1"
+                        min="0"
+                        max="27"
+                        onChange={handleInputChange}
+                        value={productsQuantities[index]}
+                        size="4"
+                      ></input>
 
-                    <button
-                      data-id={index}
-                      className="incrementBtn"
-                      onClick={increment}
-                    >
-                      +
-                    </button>
-                  </div>
-                </td>
+                      <button
+                        data-id={index}
+                        className="incrementBtn"
+                        onClick={increment}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </td>
 
-                <td className="product-subtotal">
-                  <p>৳{subTotal}</p>
-                </td>
-              </tr>
-            </tbody>
-          );
-        })}
-      </table>
+                  <td className="product-subtotal">
+                    <p>৳{subTotal}</p>
+                  </td>
+                </tr>
+              </tbody>
+            );
+          })}
+        </table>
 
-      <div className="continue-update-btn-container">
-        <button className="continue-shopping-btn">← Continue Shopping</button>
-        <button className="update-cart-btn" onClick={updateCart}>
-          Update Cart
-        </button>
+        <div className="continue-update-btn-container">
+          <button className="continue-shopping-btn">← Continue Shopping</button>
+          <button className="update-cart-btn" onClick={updateCart}>
+            Update Cart
+          </button>
+        </div>
+      </div>
+
+      <div className="checkout-section">
+        <h3>CART TOTALS</h3>
+
+        <div className="subTotal">
+          <p>Subtotal</p>
+          <p> ৳{subTotal} </p>
+        </div>
+
+        <div className="shipping">
+          <p>Shipping</p>
+
+          <form>
+            <input
+              type="radio"
+              id="redx"
+              name="shipping"
+              value="45.00"
+              checked
+            />
+            <label htmlFor="redx">REDX: ৳ 45.00</label>
+            <br />
+
+            <input
+              type="radio"
+              id="sundorbanCourier"
+              name="shipping"
+              value="130.00"
+            />
+            <label htmlFor="sundorbanCourier">
+              Sundarban Courier: ৳ 130.00
+            </label>
+            <br />
+
+            <input
+              type="radio"
+              id="sa-poribohon"
+              name="shipping"
+              value="170.00"
+            />
+            <label htmlFor="sa-poribohon">SA Paribahan: ৳ 170.00</label>
+            <br />
+
+            <input
+              type="radio"
+              id="jananiCourrier"
+              name="shipping"
+              value="120.00"
+            />
+            <label htmlFor="jananiCourrier">Janani Courier: ৳ 120.00</label>
+          </form>
+
+          <p>Shipping to Dhaka.</p>
+        </div>
+
+        <div className="total">
+          <p>Total</p>
+          <p>৳{totalPrice}</p>
+        </div>
+      
       </div>
     </div>
   );
