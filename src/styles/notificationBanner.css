@@ -1,0 +1,23 @@
+.status-update p {
+  display: flex;
+  align-items: center;
+  padding: 0.8em;
+  padding-left: 2em;
+  background: white;
+  margin: 0 3em;
+  border-left: 4px solid green;
+  gap: 2px;
+}
+
+.success-status {
+  color: green;
+}
+
+.status-update svg {
+  fill: green;
+}
+
+.undo-btn {
+  color: #3965e7;
+  cursor: pointer;
+}
