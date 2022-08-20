@@ -5,8 +5,8 @@ import NotificationBanner from "./notificationBanner";
 import "../styles/cart.css";
 
 function Cart() {
-  const [resultOfUserAction, setResultOfUserAction] = useState('');
-  
+  const [resultOfUserAction, setResultOfUserAction] = useState("");
+
   let userAction = useRef(null);
 
   const [productsInCart, setProductsInCart] = useOutletContext();
@@ -24,17 +24,19 @@ function Cart() {
     userAction.current = "product removal";
   };
 
+  const [productsQuantities, setProductsQuantities] = useState([]);
+
+  useEffect(() => {
+    const allProductsQuantities = productsInCart.map((product) => {
+      return product.quantity;
+    });
+
+    setProductsQuantities(allProductsQuantities);
+  }, [productsInCart]);
+
   const subTotal = productsInCart.reduce((acc, product) => {
     return acc + product.subTotal;
   }, 0);
-
-  const productsQuantityStorage = productsInCart.map((product) => {
-    return product.quantity;
-  });
-
-  const [productsQuantities, setProductsQuantities] = useState(
-    productsQuantityStorage
-  );
 
   const increment = (e) => {
     const id = e.target.dataset.id;
