@@ -6,12 +6,14 @@ import "../styles/cart.css";
 
 function Cart() {
   const [resultOfUserAction, setResultOfUserAction] = useState("");
-
   let userAction = useRef(null);
 
   const [productsInCart, setProductsInCart] = useOutletContext();
+  const backup = useRef(productsInCart);
 
   const removeItemFromCart = (e) => {
+    backup.current = productsInCart;
+    
     const id = e.target.dataset.id;
     const newProductsInCart = productsInCart.filter(
       (product) => product.id !== id
@@ -22,6 +24,20 @@ function Cart() {
 
     setResultOfUserAction(`${e.target.dataset.name} removed`);
     userAction.current = "product removal";
+  };
+
+  const undoProductRemoval = () => {
+    setProductsInCart(backup.current);
+    localStorage.setItem("productsInCart", JSON.stringify(backup.current));
+    
+    setResultOfUserAction("");
+    userAction.current = null;
+  };
+
+  const closeNotificationBanner = () => {
+    backup.current = productsInCart;
+    setResultOfUserAction("");
+    userAction.current = null;
   };
 
   const [productsQuantities, setProductsQuantities] = useState([]);
@@ -89,10 +105,9 @@ function Cart() {
     <>
       <NotificationBanner
         resultOfUserAction={resultOfUserAction}
-        setResultOfUserAction={setResultOfUserAction}
+        undoProductRemoval={undoProductRemoval}
+        closeNotificationBanner={closeNotificationBanner}
         userAction={userAction}
-        productsInCart={productsInCart}
-        setProductsInCart={setProductsInCart}
       />
 
       <div className="cart-page">
