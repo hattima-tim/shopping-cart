@@ -5,7 +5,8 @@ import NotificationBanner from "./notificationBanner";
 import "../styles/cart.css";
 
 function Cart() {
-  let statusUpdate = useRef(null);
+  const [resultOfUserAction, setResultOfUserAction] = useState('');
+  
   let userAction = useRef(null);
 
   const [productsInCart, setProductsInCart] = useOutletContext();
@@ -19,7 +20,7 @@ function Cart() {
     setProductsInCart(newProductsInCart);
     localStorage.setItem("productsInCart", JSON.stringify(newProductsInCart));
 
-    statusUpdate.current = `${e.target.dataset.name} removed`;
+    setResultOfUserAction(`${e.target.dataset.name} removed`);
     userAction.current = "product removal";
   };
 
@@ -68,7 +69,7 @@ function Cart() {
     localStorage.setItem("productsInCart", JSON.stringify(newProductsInCart));
     setProductsInCart(newProductsInCart);
 
-    statusUpdate.current = `Cart has been updated`;
+    setResultOfUserAction(`Cart has been updated`);
     userAction.current = "cart update";
   };
 
@@ -85,8 +86,11 @@ function Cart() {
   return (
     <>
       <NotificationBanner
-        statusUpdate={statusUpdate}
-        userAction={userAction.current}
+        resultOfUserAction={resultOfUserAction}
+        setResultOfUserAction={setResultOfUserAction}
+        userAction={userAction}
+        productsInCart={productsInCart}
+        setProductsInCart={setProductsInCart}
       />
 
       <div className="cart-page">
