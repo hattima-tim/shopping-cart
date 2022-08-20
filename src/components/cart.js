@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import uniqid from "uniqid";
+import NotificationBanner from "./notificationBanner";
 import "../styles/cart.css";
 
 function Cart() {
+  let statusUpdate = useRef(null);
+  let userAction = useRef(null);
+
   const [productsInCart, setProductsInCart] = useOutletContext();
 
   const removeItemFromCart = (e) => {
@@ -14,6 +18,9 @@ function Cart() {
 
     setProductsInCart(newProductsInCart);
     localStorage.setItem("productsInCart", JSON.stringify(newProductsInCart));
+
+    statusUpdate.current = `${e.target.dataset.name} removed`;
+    userAction.current = "product removal";
   };
 
   const subTotal = productsInCart.reduce((acc, product) => {
@@ -60,6 +67,9 @@ function Cart() {
 
     localStorage.setItem("productsInCart", JSON.stringify(newProductsInCart));
     setProductsInCart(newProductsInCart);
+
+    statusUpdate.current = `Cart has been updated`;
+    userAction.current = "cart update";
   };
 
   const [totalPrice, setTotalPrice] = useState(subTotal + 45.0);
@@ -73,197 +83,207 @@ function Cart() {
   };
 
   return (
-    <div className="cart-page">
-      <div className="product-section">
-        <table>
-          <thead>
-            <tr>
-              <th className="product-name" colSpan="3">
-                Product
-              </th>
-              <th className="product-price">Price</th>
-              <th className="product-quantity">Quantity</th>
-              <th className="product-subtotal">Subtotal</th>
-            </tr>
-          </thead>
+    <>
+      <NotificationBanner
+        statusUpdate={statusUpdate}
+        userAction={userAction.current}
+      />
 
-          {productsInCart.map((product, index) => {
-            return (
-              <tbody key={uniqid()}>
-                <tr>
-                  <td>
-                    <button
-                      className="remove-product-btn"
-                      data-id={product.id}
-                      onClick={removeItemFromCart}
-                    >
-                      x
-                    </button>
-                  </td>
+      <div className="cart-page">
+        <div className="product-section">
+          <table>
+            <thead>
+              <tr>
+                <th className="product-name" colSpan="3">
+                  Product
+                </th>
+                <th className="product-price">Price</th>
+                <th className="product-quantity">Quantity</th>
+                <th className="product-subtotal">Subtotal</th>
+              </tr>
+            </thead>
 
-                  <td className="product-thumbnail">
-                    <img src={product.img} alt={product.name} />
-                  </td>
-
-                  <td className="product-name">
-                    {product.name}
-                    <dl className="variation">
-                      <dt>FABRIC: </dt>
-                      <dd>{product.fabric}</dd>
-                      <dt>SIZE: </dt>
-                      <dd>{product.size}</dd>
-                    </dl>
-                  </td>
-
-                  <td className="product-price">
-                    <p>
-                      <span className="price">{product.price}</span>
-                    </p>
-                  </td>
-
-                  <td>
-                    <div className="product-quantity">
+            {productsInCart.map((product, index) => {
+              return (
+                <tbody key={uniqid()}>
+                  <tr>
+                    <td>
                       <button
-                        data-id={index}
-                        className="decrementBtn"
-                        onClick={decrement}
+                        className="remove-product-btn"
+                        data-id={product.id}
+                        data-name={product.name}
+                        onClick={removeItemFromCart}
                       >
-                        -
+                        x
                       </button>
+                    </td>
 
-                      <input
-                        type="number"
-                        data-id={index}
-                        step="1"
-                        min="0"
-                        max="27"
-                        onChange={handleInputChange}
-                        value={productsQuantities[index]}
-                        size="4"
-                      ></input>
+                    <td className="product-thumbnail">
+                      <img src={product.img} alt={product.name} />
+                    </td>
 
-                      <button
-                        data-id={index}
-                        className="incrementBtn"
-                        onClick={increment}
-                      >
-                        +
-                      </button>
-                    </div>
-                  </td>
+                    <td className="product-name">
+                      {product.name}
+                      <dl className="variation">
+                        <dt>FABRIC: </dt>
+                        <dd>{product.fabric}</dd>
+                        <dt>SIZE: </dt>
+                        <dd>{product.size}</dd>
+                      </dl>
+                    </td>
 
-                  <td className="product-subtotal">
-                    <p>৳{subTotal}</p>
-                  </td>
-                </tr>
-              </tbody>
-            );
-          })}
-        </table>
+                    <td className="product-price">
+                      <p>
+                        <span className="price">{product.price}</span>
+                      </p>
+                    </td>
 
-        <div className="continue-update-btn-container">
-          <button className="continue-shopping-btn">← Continue Shopping</button>
-          <button className="update-cart-btn" onClick={updateCart}>
-            Update Cart
+                    <td>
+                      <div className="product-quantity">
+                        <button
+                          data-id={index}
+                          className="decrementBtn"
+                          onClick={decrement}
+                        >
+                          -
+                        </button>
+
+                        <input
+                          type="number"
+                          data-id={index}
+                          step="1"
+                          min="0"
+                          max="27"
+                          onChange={handleInputChange}
+                          value={productsQuantities[index]}
+                          size="4"
+                        ></input>
+
+                        <button
+                          data-id={index}
+                          className="incrementBtn"
+                          onClick={increment}
+                        >
+                          +
+                        </button>
+                      </div>
+                    </td>
+
+                    <td className="product-subtotal">
+                      <p>৳{subTotal}</p>
+                    </td>
+                  </tr>
+                </tbody>
+              );
+            })}
+          </table>
+
+          <div className="continue-update-btn-container">
+            <button className="continue-shopping-btn">
+              ← Continue Shopping
+            </button>
+            <button className="update-cart-btn" onClick={updateCart}>
+              Update Cart
+            </button>
+          </div>
+        </div>
+
+        <div className="checkout-section">
+          <h3>CART TOTALS</h3>
+
+          <div className="subTotal">
+            <p>Subtotal</p>
+            <p>
+              <span className="price"> ৳{subTotal} </span>
+            </p>
+          </div>
+
+          <div className="shipping">
+            <p>Shipping</p>
+
+            <form>
+              <input
+                type="radio"
+                id="redx"
+                name="shipping"
+                value="45.00"
+                onChange={handleShippingMethodChange}
+                {...(totalPrice === subTotal + 45.0
+                  ? { checked: true }
+                  : { checked: false })}
+              />
+              <label htmlFor="redx">
+                REDX:<strong> ৳ 45.00</strong>
+              </label>
+              <br />
+
+              <input
+                type="radio"
+                id="sundorbanCourier"
+                name="shipping"
+                value="130.00"
+                onChange={handleShippingMethodChange}
+                {...(totalPrice === subTotal + 130.0
+                  ? { checked: true }
+                  : { checked: false })}
+              />
+              <label htmlFor="sundorbanCourier">
+                Sundarban Courier:<strong> ৳ 130.00 </strong>
+              </label>
+              <br />
+
+              <input
+                type="radio"
+                id="sa-poribohon"
+                name="shipping"
+                value="170.00"
+                onChange={handleShippingMethodChange}
+                {...(totalPrice === subTotal + 170.0
+                  ? { checked: true }
+                  : { checked: false })}
+              />
+              <label htmlFor="sa-poribohon">
+                SA Paribahan:<strong> ৳ 170.00</strong>
+              </label>
+              <br />
+
+              <input
+                type="radio"
+                id="jananiCourrier"
+                name="shipping"
+                value="120.00"
+                onChange={handleShippingMethodChange}
+                {...(totalPrice === subTotal + 120.0
+                  ? { checked: true }
+                  : { checked: false })}
+              />
+              <label htmlFor="jananiCourrier">
+                Janani Courier:<strong> ৳ 120.00</strong>
+              </label>
+            </form>
+
+            <p>Shipping to Dhaka.</p>
+          </div>
+
+          <div className="total">
+            <p>Total</p>
+            <p>
+              <span className="price">৳{totalPrice} </span>
+            </p>
+          </div>
+          <button
+            className="checkout_btn"
+            onClick={() => {
+              alert(
+                "Thanks for clicking me! Currently I have no functionality. Feel free to explore rest of the website."
+              );
+            }}
+          >
+            PROCEED TO CHECKOUT
           </button>
         </div>
       </div>
-
-      <div className="checkout-section">
-        <h3>CART TOTALS</h3>
-
-        <div className="subTotal">
-          <p>Subtotal</p>
-          <p>
-            <span className="price"> ৳{subTotal} </span>
-          </p>
-        </div>
-
-        <div className="shipping">
-          <p>Shipping</p>
-
-          <form>
-            <input
-              type="radio"
-              id="redx"
-              name="shipping"
-              value="45.00"
-              onChange={handleShippingMethodChange}
-              {...(totalPrice === subTotal + 45.0
-                ? { checked: true }
-                : { checked: false })}
-            />
-            <label htmlFor="redx">
-              REDX:<strong> ৳ 45.00</strong>
-            </label>
-            <br />
-
-            <input
-              type="radio"
-              id="sundorbanCourier"
-              name="shipping"
-              value="130.00"
-              onChange={handleShippingMethodChange}
-              {...(totalPrice === subTotal + 130.0
-                ? { checked: true }
-                : { checked: false })}
-            />
-            <label htmlFor="sundorbanCourier">
-              Sundarban Courier:<strong> ৳ 130.00 </strong>
-            </label>
-            <br />
-
-            <input
-              type="radio"
-              id="sa-poribohon"
-              name="shipping"
-              value="170.00"
-              onChange={handleShippingMethodChange}
-              {...(totalPrice === subTotal + 170.0
-                ? { checked: true }
-                : { checked: false })}
-            />
-            <label htmlFor="sa-poribohon">
-              SA Paribahan:<strong> ৳ 170.00</strong>
-            </label>
-            <br />
-
-            <input
-              type="radio"
-              id="jananiCourrier"
-              name="shipping"
-              value="120.00"
-              onChange={handleShippingMethodChange}
-              {...(totalPrice === subTotal + 120.0
-                ? { checked: true }
-                : { checked: false })}
-            />
-            <label htmlFor="jananiCourrier">
-              Janani Courier:<strong> ৳ 120.00</strong>
-            </label>
-          </form>
-
-          <p>Shipping to Dhaka.</p>
-        </div>
-
-        <div className="total">
-          <p>Total</p>
-          <p>
-            <span className="price">৳{totalPrice} </span>
-          </p>
-        </div>
-        <button
-          className="checkout_btn"
-          onClick={() => {
-            alert(
-              "Thanks for clicking me! Currently I have no functionality. Feel free to explore rest of the website."
-            );
-          }}
-        >
-          PROCEED TO CHECKOUT
-        </button>
-      </div>
-    </div>
+    </>
   );
 }
 
