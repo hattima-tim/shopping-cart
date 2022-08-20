@@ -1,121 +1,121 @@
-.cart-page{
-    display: flex;
-    gap: 3em;
-    margin: 1em 3em;
+.cart-page {
+  display: flex;
+  gap: 3em;
+  margin: 1em 3em;
 }
 
-.product-section{
-    flex:1;
+.product-section {
+  flex: 1;
 }
 
-.checkout-section{
-    margin-right: 3em;
-    max-width: 20em;
-    flex:1;
+.checkout-section {
+  margin-right: 3em;
+  max-width: 20em;
+  flex: 1;
 }
 
-.checkout-section h3{
-    border: 2px solid #ececec;
+.checkout-section h3 {
+  border: 2px solid #ececec;
 }
 
 .subTotal,
-.total{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .total {
-    border-bottom: 2px solid #777777;
+  border-bottom: 2px solid #777777;
 }
 
-.remove-product-btn{
-    border-radius: 50%;
-    width: 25px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    color: #ccc;
-    height: 25px;
-    background-color: #fff;
-    border: 2px solid #ccc;
+.remove-product-btn {
+  border-radius: 50%;
+  width: 25px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: #ccc;
+  height: 25px;
+  background-color: #fff;
+  border: 2px solid #ccc;
 }
 
-.remove-product-btn:hover{
-    color: black;
-    border-color: black;
+.remove-product-btn:hover {
+  color: black;
+  border-color: black;
 }
 
-.product-thumbnail img{
-    max-width: 5em;
+.product-thumbnail img {
+  max-width: 5em;
 }
 
-.variation dt{
-    float: left;
+.variation dt {
+  float: left;
 }
 
-dl{
-    font-size: .85em;
+dl {
+  font-size: 0.85em;
 }
 
-td{
-    color: rgb(168, 160, 149);
+td {
+  color: rgb(109, 109, 109);
 }
 
-td p{
-    color: black;
+td p {
+  color: black;
 }
 
-.product-quantity{
-    display:flex;
+.product-quantity {
+  display: flex;
 }
 
-.product-quantity input{
-    max-width: 2em;
-    text-align: center;
+.product-quantity input {
+  max-width: 2em;
+  text-align: center;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  /* display: none; <- Crashes Chrome on hover */
+  appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-input[type=number] {
-    appearance: textfield; /* Firefox */
+input[type="number"] {
+  appearance: textfield; /* Firefox */
 }
 
-.continue-update-btn-container{
-    display: flex;
-    gap: 2em;
-    max-width: 25em;
-    margin-left: 1em;
+.continue-update-btn-container {
+  display: flex;
+  gap: 2em;
+  max-width: 25em;
+  margin-left: 1em;
 }
 
-.continue-shopping-btn{
-    margin-top: 1em;
-    padding: .5em 1em;
-    border: 1px solid black;
-    color: black;
-    background-color: transparent;
-    font-size: .85em;
-    cursor: pointer;
-    flex:1;
+.continue-shopping-btn {
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  border: 1px solid black;
+  color: black;
+  background-color: transparent;
+  font-size: 0.85em;
+  cursor: pointer;
+  flex: 1;
 }
 
-.continue-shopping-btn:hover{
-    background-color: black;
-    color: white;
+.continue-shopping-btn:hover {
+  background-color: black;
+  color: white;
 }
 
-.update-cart-btn{
-    margin-top: 1em;
-    padding: .5em 1em;
-    border: 1px solid #6d6d6d;
-    color: white;
-    background-color: #6d6d6d;
-    font-size: .85em;
-    cursor: pointer;
-    flex:1;
+.update-cart-btn {
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  border: 1px solid #6d6d6d;
+  color: white;
+  background-color: #6d6d6d;
+  font-size: 0.85em;
+  cursor: pointer;
+  flex: 1;
 }
