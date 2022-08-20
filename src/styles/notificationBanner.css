@@ -1,12 +1,20 @@
-.status-update p {
+.status-update{
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 0.8em;
+  padding: 0.6em;
   padding-left: 2em;
   background: white;
   margin: 0 3em;
   border-left: 4px solid green;
+}
+
+.status-update p {
+  display: flex;
+  align-items: center;
   gap: 2px;
+  margin:0px;
+  padding: 0px;
 }
 
 .success-status {
@@ -15,6 +23,16 @@
 
 .status-update svg {
   fill: green;
+}
+
+.undo-btn{
+  cursor: pointer;
+}
+
+.remove-banner-btn{
+  font-size: 1.2em;
+  color: black;
+  cursor: pointer;
 }
 
 .undo-btn {
