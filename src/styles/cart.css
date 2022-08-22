@@ -8,16 +8,6 @@
   flex: 1;
 }
 
-.checkout-section {
-  margin-right: 3em;
-  max-width: 20em;
-  flex: 1;
-}
-
-.checkout-section h3 {
-  border: 2px solid #ececec;
-}
-
 .subTotal,
 .total {
   display: flex;
