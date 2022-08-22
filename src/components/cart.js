@@ -76,7 +76,7 @@ function Cart() {
     newProductsQuantities[id] = Number(e.target.value);
     setProductsQuantities(newProductsQuantities);
   };
-  
+
   const updateCart = (e) => {
     const newProductsInCart = [...productsInCart];
     newProductsInCart.forEach((product, index) => {
@@ -161,10 +161,10 @@ function Cart() {
                       </td>
 
                       <td>
-                        <div className="product-quantity">
+                        <div className="flex w-fit border-2 border-solid border-slate-200">
                           <button
                             data-id={index}
-                            className="decrementBtn"
+                            className="w-5 bg-slate-200 hover:bg-slate-300"
                             onClick={decrement}
                           >
                             -
@@ -179,11 +179,12 @@ function Cart() {
                             onChange={handleInputChange}
                             value={productsQuantities[index]}
                             size="4"
+                            className="w-8 text-center"
                           ></input>
 
                           <button
                             data-id={index}
-                            className="incrementBtn"
+                            className="w-5 bg-slate-200 hover:bg-slate-300"
                             onClick={increment}
                           >
                             +
