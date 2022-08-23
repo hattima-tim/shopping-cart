@@ -170,9 +170,7 @@ function Cart() {
                       </td>
 
                       <td className="product-price hidden md:table-cell">
-                        <p>
-                          <span className="price">{product.price}</span>
-                        </p>
+                        <p className="text-black">{product.price}</p>
                       </td>
 
                       <td>
@@ -220,7 +218,7 @@ function Cart() {
               <Link to="/" className="continue-shopping-btn">
                 ← Continue Shopping
               </Link>
-              
+
               <button className="update-cart-btn" onClick={updateCart}>
                 Update Cart
               </button>
