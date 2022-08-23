@@ -94,6 +94,7 @@ function ProductPage() {
     subTotal: itemNumber * (productData.price.split("৳")[1] * 1),
     fabric: fabric,
     size: size,
+    path: params.name,
   };
 
   const handleAddToCart = () => {
