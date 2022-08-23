@@ -155,9 +155,9 @@ function Cart() {
                         </Link>
 
                         <dl className="variation">
-                          <dt>FABRIC: </dt>
+                          <dt className="mr-1">FABRIC: </dt>
                           <dd>{product.fabric}</dd>
-                          <dt>SIZE: </dt>
+                          <dt className="mr-1">SIZE: </dt>
                           <dd>{product.size}</dd>
 
                           <dd className="md:hidden">
@@ -220,7 +220,7 @@ function Cart() {
               <Link to="/" className="continue-shopping-btn">
                 ← Continue Shopping
               </Link>
-
+              
               <button className="update-cart-btn" onClick={updateCart}>
                 Update Cart
               </button>
