@@ -1,11 +1,6 @@
 .cart-page {
   display: flex;
   gap: 3em;
-  margin: 1em 3em;
-}
-
-.product-section {
-  flex: 1;
 }
 
 .subTotal,
@@ -80,18 +75,16 @@ input[type="number"] {
   display: flex;
   gap: 2em;
   max-width: 25em;
-  margin-left: 1em;
 }
 
 .continue-shopping-btn {
   margin-top: 1em;
   padding: 0.5em 1em;
-  border: 1px solid black;
+  border: 2px solid black;
   color: black;
   background-color: transparent;
   font-size: 0.85em;
   cursor: pointer;
-  flex: 1;
 }
 
 .continue-shopping-btn:hover {

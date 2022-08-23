@@ -111,17 +111,19 @@ function Cart() {
         userAction={userAction}
       />
       {productsInCart.length > 0 && (
-        <div className="cart-page">
-          <div className="product-section">
+        <div className="cart-page m-4 flex flex-wrap lg:flex-nowrap lg:m-16">
+          <div className="product-section w-full lg:w-3/6 lg:flex-1">
             <table>
               <thead>
                 <tr>
                   <th className="product-name" colSpan="3">
                     Product
                   </th>
-                  <th className="product-price">Price</th>
+                  <th className="product-price hidden md:table-cell">Price</th>
                   <th className="product-quantity">Quantity</th>
-                  <th className="product-subtotal">Subtotal</th>
+                  <th className="product-subtotal hidden md:table-cell">
+                    Subtotal
+                  </th>
                 </tr>
               </thead>
 
@@ -129,7 +131,7 @@ function Cart() {
                 return (
                   <tbody key={uniqid()}>
                     <tr>
-                      <td>
+                      <td className="absolute left-0 border-b-0 md:static">
                         <button
                           className="remove-product-btn"
                           data-id={product.id}
@@ -151,10 +153,17 @@ function Cart() {
                           <dd>{product.fabric}</dd>
                           <dt>SIZE: </dt>
                           <dd>{product.size}</dd>
+
+                          <dd className="md:hidden">
+                            {product.quantity}x
+                            <strong className="text-black">
+                              {product.price}
+                            </strong>
+                          </dd>
                         </dl>
                       </td>
 
-                      <td className="product-price">
+                      <td className="product-price hidden md:table-cell">
                         <p>
                           <span className="price">{product.price}</span>
                         </p>
@@ -192,7 +201,7 @@ function Cart() {
                         </div>
                       </td>
 
-                      <td className="product-subtotal">
+                      <td className="product-subtotal hidden md:table-cell">
                         <p>৳{subTotal}</p>
                       </td>
                     </tr>
@@ -211,8 +220,8 @@ function Cart() {
             </div>
           </div>
 
-          <div className="max-w-xs flex-1">
-            <h3 className="my-4 w-full mx-0 border-2">CART TOTALS</h3>
+          <div id="checkout-section" className="w-full lg:w-2/6">
+            <h3 className="my-4 mx-0 w-full border-2">CART TOTALS</h3>
 
             <div className="subTotal my-4">
               <p>Subtotal</p>
@@ -234,7 +243,7 @@ function Cart() {
                   {...(totalPrice === subTotal + 45.0
                     ? { checked: true }
                     : { checked: false })}
-                  className='my-2'
+                  className="my-2"
                 />
                 <label htmlFor="redx">
                   REDX:<strong> ৳ 45.00</strong>
@@ -250,7 +259,7 @@ function Cart() {
                   {...(totalPrice === subTotal + 130.0
                     ? { checked: true }
                     : { checked: false })}
-                  className='my-2'
+                  className="my-2"
                 />
                 <label htmlFor="sundorbanCourier">
                   Sundarban Courier:<strong> ৳ 130.00 </strong>
@@ -266,7 +275,7 @@ function Cart() {
                   {...(totalPrice === subTotal + 170.0
                     ? { checked: true }
                     : { checked: false })}
-                  className='my-2'
+                  className="my-2"
                 />
                 <label htmlFor="sa-poribohon">
                   SA Paribahan:<strong> ৳ 170.00</strong>
@@ -282,14 +291,14 @@ function Cart() {
                   {...(totalPrice === subTotal + 120.0
                     ? { checked: true }
                     : { checked: false })}
-                  className='my-2'
+                  className="my-2"
                 />
                 <label htmlFor="jananiCourrier">
                   Janani Courier:<strong> ৳ 120.00</strong>
                 </label>
               </form>
 
-              <p className='my-2'>Shipping to Dhaka.</p>
+              <p className="my-2">Shipping to Dhaka.</p>
             </div>
 
             <div className="total">
