@@ -208,7 +208,7 @@ function Cart() {
                       </td>
 
                       <td className="product-subtotal hidden md:table-cell">
-                        <p>৳{subTotal}</p>
+                        <p>৳{product.subTotal}</p>
                       </td>
                     </tr>
                   </tbody>
