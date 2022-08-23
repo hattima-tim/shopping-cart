@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import Header from "../components/header";
 import { Product } from "../components/products/productPage";
@@ -21,3 +22,36 @@ const setupRoute = () => {
     </MemoryRouter>
   );
 };
+
+describe("product table", () => {
+  test("table header is in the document", async () => {
+    const user = userEvent.setup();
+
+    setupRoute();
+
+    // we are on product page now
+    const fabricBtn = screen.getByRole("button", { name: "COMBED COTTON" });
+    await user.click(fabricBtn);
+
+    const sizeBtn = screen.getByRole("button", { name: "M" });
+    await user.click(sizeBtn);
+
+    const quantityBtn = screen.getByRole("button", { name: "+" });
+    await user.click(quantityBtn);
+
+    const addToCartBtn = screen.getByRole("button", { name: "Add to Cart" });
+    await user.click(addToCartBtn);
+
+    const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
+    await user.click(viewCartBtn);
+    // we are on cart page now
+
+    const productTableHeaders = screen.getAllByRole("columnheader");
+    const headersValueList = ["Product", "Price", "Quantity", "Subtotal"];
+
+    productTableHeaders.forEach((header, index) => {
+      expect(header).toBeInTheDocument();
+      expect(header.textContent).toEqual(headersValueList[index]);
+    });
+  });
+});
