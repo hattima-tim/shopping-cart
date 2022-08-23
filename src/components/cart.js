@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, Link } from "react-router-dom";
 import uniqid from "uniqid";
 import NotificationBanner from "./notificationBanner";
 import "../styles/cart.css";
@@ -111,7 +111,7 @@ function Cart() {
         userAction={userAction}
       />
       {productsInCart.length > 0 && (
-        <div className="cart-page m-4 flex flex-wrap lg:flex-nowrap lg:m-16">
+        <div className="cart-page m-4 flex flex-wrap lg:m-16 lg:flex-nowrap">
           <div className="product-section w-full lg:w-3/6 lg:flex-1">
             <table>
               <thead>
@@ -147,7 +147,13 @@ function Cart() {
                       </td>
 
                       <td className="product-name">
-                        {product.name}
+                        <Link
+                          to={`/product/${product.path}`}
+                          className="text-gray-600"
+                        >
+                          {product.name}
+                        </Link>
+
                         <dl className="variation">
                           <dt>FABRIC: </dt>
                           <dd>{product.fabric}</dd>
@@ -211,9 +217,10 @@ function Cart() {
             </table>
 
             <div className="continue-update-btn-container">
-              <button className="continue-shopping-btn">
+              <Link to="/" className="continue-shopping-btn">
                 ← Continue Shopping
-              </button>
+              </Link>
+
               <button className="update-cart-btn" onClick={updateCart}>
                 Update Cart
               </button>
@@ -307,6 +314,7 @@ function Cart() {
                 <span className="price">৳{totalPrice} </span>
               </p>
             </div>
+
             <button
               className="checkout_btn"
               onClick={() => {

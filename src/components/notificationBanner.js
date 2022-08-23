@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/notificationBanner.css";
 
 function NotificationBanner({
@@ -35,9 +36,9 @@ function NotificationBanner({
             <p>Your cart is currently empty.</p>
           </div>
 
-          <button class="mx-auto my-2 block bg-black p-2 text-base font-semibold text-white">
+          <Link to='/' class="mx-auto my-2 block bg-black py-2 px-4 text-base font-semibold text-white w-fit hover:text-white">
             RETURN TO SHOP
-          </button>
+          </Link>
         </>
       )}
     </>
