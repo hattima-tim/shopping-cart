@@ -73,4 +73,16 @@ describe("product table", () => {
     await user.click(removeProductBtn);
     expect(productName).not.toBeInTheDocument();
   });
+
+  test("product image is available", async () => {
+    const user = userEvent.setup();
+
+    setupRoute();
+
+    const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
+    await user.click(viewCartBtn);
+
+    const productImage = screen.getByTestId("productTableProductImage");
+    expect(productImage).toBeInTheDocument();
+  });
 });
