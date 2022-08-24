@@ -54,4 +54,23 @@ describe("product table", () => {
       expect(header.textContent).toEqual(headersValueList[index]);
     });
   });
+
+  test("remove product button removes product", async () => {
+    const user = userEvent.setup();
+
+    setupRoute();
+
+    const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
+    await user.click(viewCartBtn);
+
+    const productName = screen.getByRole("link", {
+      name: "Half Sleeve Cut and Sew Solid(pattern 15)",
+    });
+    expect(productName).toBeInTheDocument()
+
+    const removeProductBtn = screen.getByTestId("productTableRemoveProductBtn");
+
+    await user.click(removeProductBtn);
+    expect(productName).not.toBeInTheDocument();
+  });
 });
