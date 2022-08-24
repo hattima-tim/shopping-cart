@@ -135,6 +135,7 @@ function Cart() {
                         <button
                           className="remove-product-btn"
                           data-id={product.id}
+                          data-testid='productTableRemoveProductBtn'
                           data-name={product.name}
                           onClick={removeItemFromCart}
                         >
@@ -143,13 +144,14 @@ function Cart() {
                       </td>
 
                       <td className="product-thumbnail">
-                        <img src={product.img} alt={product.name} />
+                        <img src={product.img} alt={product.name} data-testid='productTableProductImage' />
                       </td>
 
                       <td className="product-name">
                         <Link
                           to={`/product/${product.path}`}
                           className="text-gray-600"
+                          data-testid='productTableProductName'
                         >
                           {product.name}
                         </Link>
