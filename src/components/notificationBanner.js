@@ -36,7 +36,7 @@ function NotificationBanner({
             <p>Your cart is currently empty.</p>
           </div>
 
-          <Link to='/' class="mx-auto my-2 block bg-black py-2 px-4 text-base font-semibold text-white w-fit hover:text-white">
+          <Link to='/' className="mx-auto my-2 block bg-black py-2 px-4 text-base font-semibold text-white w-fit hover:text-white">
             RETURN TO SHOP
           </Link>
         </>
