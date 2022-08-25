@@ -99,4 +99,20 @@ describe("product table", () => {
       expect(quantityXpriceDefinition).toHaveClass("md:hidden");
     });
   });
+
+  test("product price column is available on large screens", () => {
+    const productPriceColumn = screen.getByRole("columnheader", {
+      name: "Price",
+    });
+    expect(productPriceColumn).toHaveClass("hidden md:table-cell");
+  });
+
+  test("product price cell is available on large screens", () => {
+    const productPriceCell = screen.getByRole("cell", { name: "৳450" });
+    expect(productPriceCell).toHaveClass("hidden md:table-cell");
+  });
+  // above I am not using toBeVisible for testing because
+  // it is not working for unknown reason
+  // I tried many things to get it working
+  // but it is not working, so I decided to move on without it
 });
