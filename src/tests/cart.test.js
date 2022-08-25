@@ -66,7 +66,7 @@ describe("product table", () => {
     const productName = screen.getByRole("link", {
       name: "Half Sleeve Cut and Sew Solid(pattern 15)",
     });
-    expect(productName).toBeInTheDocument()
+    expect(productName).toBeInTheDocument();
 
     const removeProductBtn = screen.getByTestId("productTableRemoveProductBtn");
 
@@ -84,5 +84,39 @@ describe("product table", () => {
 
     const productImage = screen.getByTestId("productTableProductImage");
     expect(productImage).toBeInTheDocument();
+  });
+
+  describe("variation", () => {
+    test("fabric data is available", async () => {
+      const user = userEvent.setup();
+      setupRoute();
+
+      const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
+      await user.click(viewCartBtn);
+
+      const dataTermsInTable = screen.getAllByRole("term");
+      const fabricTerm = dataTermsInTable[0];
+      expect(fabricTerm.textContent).toBe("FABRIC: ");
+
+      const dataDefinitionsInTable = screen.getAllByRole("definition");
+      const fabricDefinition = dataDefinitionsInTable[0];
+      expect(fabricDefinition.textContent).toBe("COMBED COTTON");
+    });
+
+    test("size data is available", async () => {
+      const user = userEvent.setup();
+      setupRoute();
+
+      const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
+      await user.click(viewCartBtn);
+
+      const dataTermsInTable = screen.getAllByRole("term");
+      const sizeTerm = dataTermsInTable[1];
+      expect(sizeTerm.textContent).toBe("SIZE: ");
+
+      const dataDefinitionsInTable = screen.getAllByRole("definition");
+      const sizeDefinition = dataDefinitionsInTable[1];
+      expect(sizeDefinition.textContent).toBe("M");
+    });
   });
 });
