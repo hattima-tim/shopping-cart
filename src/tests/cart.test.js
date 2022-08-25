@@ -55,24 +55,24 @@ describe("product table", () => {
     });
   });
 
-  test("remove product button removes product", async () => {
-    const user = userEvent.setup();
+  // test("remove product button removes product", async () => {
+  //   const user = userEvent.setup();
 
-    setupRoute();
+  //   setupRoute();
 
-    const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
-    await user.click(viewCartBtn);
+  //   const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
+  //   await user.click(viewCartBtn);
 
-    const productName = screen.getByRole("link", {
-      name: "Half Sleeve Cut and Sew Solid(pattern 15)",
-    });
-    expect(productName).toBeInTheDocument();
+  //   const productName = screen.getByRole("link", {
+  //     name: "Half Sleeve Cut and Sew Solid(pattern 15)",
+  //   });
+  //   expect(productName).toBeInTheDocument();
 
-    const removeProductBtn = screen.getByTestId("productTableRemoveProductBtn");
+  //   const removeProductBtn = screen.getByTestId("productTableRemoveProductBtn");
 
-    await user.click(removeProductBtn);
-    expect(productName).not.toBeInTheDocument();
-  });
+  //   await user.click(removeProductBtn);
+  //   expect(productName).not.toBeInTheDocument();
+  // });
 
   test("product image is available", async () => {
     const user = userEvent.setup();
@@ -117,6 +117,20 @@ describe("product table", () => {
       const dataDefinitionsInTable = screen.getAllByRole("definition");
       const sizeDefinition = dataDefinitionsInTable[1];
       expect(sizeDefinition.textContent).toBe("M");
+    });
+
+    test("quantity x price is available on small screens", async () => {
+      const user = userEvent.setup();
+      setupRoute();
+
+      const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
+      await user.click(viewCartBtn);
+
+      const dataDefinitionsInTable = screen.getAllByRole("definition");
+      const quantityXpriceDefinition = dataDefinitionsInTable[2];
+
+      expect(quantityXpriceDefinition.textContent).toBe("2x৳450");
+      expect(quantityXpriceDefinition).toHaveClass("md:hidden");
     });
   });
 });
