@@ -24,7 +24,7 @@ const setupRoute = () => {
 };
 
 describe("product table", () => {
-  test("table header is in the document", async () => {
+  beforeEach(async () => {
     const user = userEvent.setup();
 
     setupRoute();
@@ -45,7 +45,17 @@ describe("product table", () => {
     const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
     await user.click(viewCartBtn);
     // we are on cart page now
+  });
 
+  afterEach(async () => {
+    const user = userEvent.setup();
+    const removeProductBtn = screen.getByTestId("productTableRemoveProductBtn");
+
+    await user.click(removeProductBtn);
+    // this operation is necessary to remove product from local storage
+  });
+
+  test("table header is in the document", async () => {
     const productTableHeaders = screen.getAllByRole("columnheader");
     const headersValueList = ["Product", "Price", "Quantity", "Subtotal"];
 
@@ -55,45 +65,13 @@ describe("product table", () => {
     });
   });
 
-  // test("remove product button removes product", async () => {
-  //   const user = userEvent.setup();
-
-  //   setupRoute();
-
-  //   const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
-  //   await user.click(viewCartBtn);
-
-  //   const productName = screen.getByRole("link", {
-  //     name: "Half Sleeve Cut and Sew Solid(pattern 15)",
-  //   });
-  //   expect(productName).toBeInTheDocument();
-
-  //   const removeProductBtn = screen.getByTestId("productTableRemoveProductBtn");
-
-  //   await user.click(removeProductBtn);
-  //   expect(productName).not.toBeInTheDocument();
-  // });
-
   test("product image is available", async () => {
-    const user = userEvent.setup();
-
-    setupRoute();
-
-    const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
-    await user.click(viewCartBtn);
-
     const productImage = screen.getByTestId("productTableProductImage");
     expect(productImage).toBeInTheDocument();
   });
 
   describe("variation", () => {
     test("fabric data is available", async () => {
-      const user = userEvent.setup();
-      setupRoute();
-
-      const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
-      await user.click(viewCartBtn);
-
       const dataTermsInTable = screen.getAllByRole("term");
       const fabricTerm = dataTermsInTable[0];
       expect(fabricTerm.textContent).toBe("FABRIC: ");
@@ -104,12 +82,6 @@ describe("product table", () => {
     });
 
     test("size data is available", async () => {
-      const user = userEvent.setup();
-      setupRoute();
-
-      const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
-      await user.click(viewCartBtn);
-
       const dataTermsInTable = screen.getAllByRole("term");
       const sizeTerm = dataTermsInTable[1];
       expect(sizeTerm.textContent).toBe("SIZE: ");
@@ -120,12 +92,6 @@ describe("product table", () => {
     });
 
     test("quantity x price is available on small screens", async () => {
-      const user = userEvent.setup();
-      setupRoute();
-
-      const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
-      await user.click(viewCartBtn);
-
       const dataDefinitionsInTable = screen.getAllByRole("definition");
       const quantityXpriceDefinition = dataDefinitionsInTable[2];
 
