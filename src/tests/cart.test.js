@@ -115,4 +115,28 @@ describe("product table", () => {
   // it is not working for unknown reason
   // I tried many things to get it working
   // but it is not working, so I decided to move on without it
+
+  describe("update cart button", () => {
+
+    test('product quantity change, changes Subtotal price on update cart btn click', async () => {
+      const user = userEvent.setup();
+      
+      // beforeEach function puts a product
+      // in the cart with a quantity of 2 . So subTotal
+      // for that product is ৳450 + ৳450 =৳900
+      const subtotalPrice = screen.getByRole("cell", { name: "৳900" });
+      expect(subtotalPrice).toBeInTheDocument();
+
+      const quantityBtn = screen.getByRole("button", { name: "+" });
+      await user.click(quantityBtn); // increase quantity to 3 
+      
+      const updateCartBtn = screen.getByRole("button", { name: "Update Cart" });
+      await user.click(updateCartBtn);
+      
+      const updatedSubtotalPrice = screen.getByRole('cell',{name:'৳1350'});
+      
+      expect(updatedSubtotalPrice).toBeInTheDocument()
+      expect(subtotalPrice).not.toBeInTheDocument()
+    })
+  });
 });
