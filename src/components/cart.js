@@ -111,7 +111,7 @@ function Cart() {
         userAction={userAction}
       />
       {productsInCart.length > 0 && (
-        <div className="cart-page m-4 flex flex-wrap lg:m-16 lg:flex-nowrap">
+        <div data-testid='cartPage' className="cart-page m-4 flex flex-wrap lg:m-16 lg:flex-nowrap">
           <div className="product-section w-full lg:w-3/6 lg:flex-1">
             <table>
               <thead>
