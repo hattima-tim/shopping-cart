@@ -162,6 +162,19 @@ describe("product table", () => {
       // available. Maybe because of rerender caused by state update
     });
 
+    test("changed quantity remains changed after updateBtn click", async () => {
+      const user = userEvent.setup();
+
+      const quantityBtn = screen.getByRole("button", { name: "+" });
+      await user.click(quantityBtn); // quantity 3, beforeEach adds 2
+
+      const updateCartBtn = screen.getByRole("button", { name: "Update Cart" });
+      await user.click(updateCartBtn);
+
+      const inputField = screen.getByRole("spinbutton");
+      expect(inputField.value).toBe("3");
+    });
+
     test("different product's subTotal price can be different", async () => {
       const user = userEvent.setup();
 
