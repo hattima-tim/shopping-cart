@@ -49,9 +49,12 @@ describe("product table", () => {
 
   afterEach(async () => {
     const user = userEvent.setup();
-    const removeProductBtn = screen.getByTestId("productTableRemoveProductBtn");
-
-    await user.click(removeProductBtn);
+    const removeProductBtns = screen.getAllByTestId(
+      "productTableRemoveProductBtn"
+    );
+    for (let i = 0; i < removeProductBtns.length; i++) {
+      await user.click(removeProductBtns[i]);
+    }
     // this operation is necessary to remove product from local storage
   });
 
@@ -148,7 +151,7 @@ describe("product table", () => {
 
       const quantityBtn = screen.getByRole("button", { name: "+" });
       await user.click(quantityBtn);
-      
+
       const updateCartBtn = screen.getByRole("button", { name: "Update Cart" });
       await user.click(updateCartBtn);
 
@@ -157,6 +160,43 @@ describe("product table", () => {
       expect(updatedMainPrice).toBeInTheDocument();
       // not asserting about main price because it is not
       // available. Maybe because of rerender caused by state update
+    });
+
+    test("different product's subTotal price can be different", async () => {
+      const user = userEvent.setup();
+
+      const productName = screen.getByRole("link", {
+        name: "Half Sleeve Cut and Sew Solid(pattern 15)",
+      });
+      await user.click(productName);
+      // we are on product page now
+
+      const sizeBtn = screen.getByRole("button", { name: "M" });
+      await user.click(sizeBtn);
+
+      const fabricBtn = screen.getByRole("button", { name: "COMBED COTTON" });
+      await user.click(fabricBtn);
+
+      const quantityBtn = screen.getByRole("button", { name: "+" });
+      await user.click(quantityBtn); // quantity 2
+      await user.click(quantityBtn); // quantity 3
+
+      const addToCartBtn = screen.getByRole("button", { name: "Add to Cart" });
+      await user.click(addToCartBtn);
+
+      const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
+      await user.click(viewCartBtn);
+      // we are on cart page now
+
+      const firstProductSubtotalPrice = screen.getByRole("cell", {
+        name: "৳900",
+      });
+      expect(firstProductSubtotalPrice).toBeInTheDocument();
+
+      const secondProductSubtotalPrice = screen.getByRole("cell", {
+        name: "৳1350",
+      });
+      expect(secondProductSubtotalPrice).toBeInTheDocument();
     });
   });
 });
