@@ -215,6 +215,19 @@ describe("product table", () => {
       });
       expect(secondProductSubtotalPrice).toBeInTheDocument();
     });
+
+    test('clicking update button shows a success banner', async () => {
+      const user = userEvent.setup();
+
+      const successBannerBeforeBtnClick = screen.queryByText('Cart has been updated.');
+      expect(successBannerBeforeBtnClick).not.toBeInTheDocument();
+
+      const updateBtn = screen.getByRole("button", { name: "Update Cart" });
+      await user.click(updateBtn);
+
+      const successBannerAfterBtnClick = screen.getByText('Cart has been updated.');
+      expect(successBannerAfterBtnClick).toBeInTheDocument();
+    })
   });
 });
 
