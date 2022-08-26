@@ -264,10 +264,27 @@ describe("checkout section", () => {
     });
     await user.click(sundarbanCourier);
 
-    const totalPrice = screen.getByText("৳1030"); // product price ৳900 + courier ৳130 = ৳1030
+    const totalPrice = screen.getByText("৳1030"); // product subTotal ৳900 + courier ৳130 = ৳1030
     const prevTotalPrice = screen.queryByText("৳945");
 
     expect(totalPrice).toBeInTheDocument();
     expect(prevTotalPrice).not.toBeInTheDocument();
+  });
+
+  test("shipping method change does not effect main price and subTotal", async () => {
+    const user = userEvent.setup();
+    const sundarbanCourier = screen.getByRole("radio", {
+      name: "Sundarban Courier: ৳ 130.00",
+    });
+    await user.click(sundarbanCourier);
+
+    const totalPrice = screen.getByText("৳1030"); // product subTotal ৳900 + courier ৳130 = ৳1030
+    expect(totalPrice).toBeInTheDocument();
+    
+    const mainPrice = screen.getByRole("cell", { name: "৳450" });
+    expect(mainPrice).toBeInTheDocument();
+    
+    const subTotalPrice = screen.getByRole("cell", { name: "৳900" });
+    expect(subTotalPrice).toBeInTheDocument();
   });
 });
