@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { logRoles, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import Header from "../components/header";
@@ -56,6 +56,10 @@ describe("product table", () => {
       await user.click(removeProductBtns[i]);
     }
     // this operation is necessary to remove product from local storage
+  });
+
+  afterAll(() => {
+    localStorage.clear();
   });
 
   test("table header is in the document", async () => {
@@ -211,5 +215,59 @@ describe("product table", () => {
       });
       expect(secondProductSubtotalPrice).toBeInTheDocument();
     });
+  });
+});
+
+describe("checkout section", () => {
+  beforeEach(async () => {
+    const user = userEvent.setup();
+
+    setupRoute();
+    // we are on product page now
+    const fabricBtn = screen.getByRole("button", { name: "COMBED COTTON" });
+    await user.click(fabricBtn);
+
+    const sizeBtn = screen.getByRole("button", { name: "M" });
+    await user.click(sizeBtn);
+
+    const quantityBtn = screen.getByRole("button", { name: "+" });
+    await user.click(quantityBtn); // quantity 2
+
+    const addToCartBtn = screen.getByRole("button", { name: "Add to Cart" });
+    await user.click(addToCartBtn);
+    // only one product is added to cart with a quantity 2.
+    //So subTotal for that product is ৳450+৳450=৳900
+
+    const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
+    await user.click(viewCartBtn);
+  });
+
+  afterEach(async () => {
+    const user = userEvent.setup();
+    const removeProductBtns = screen.getAllByTestId(
+      "productTableRemoveProductBtn"
+    );
+    for (let i = 0; i < removeProductBtns.length; i++) {
+      await user.click(removeProductBtns[i]);
+    }
+    // this operation is necessary to remove product from local storage
+  });
+
+  test("shipping method change,changes Total price", async () => {
+    const user = userEvent.setup();
+
+    const defaultTotalPriceWithRedXCourier = screen.getByText("৳945"); // redX has price ৳ 45.00.
+    expect(defaultTotalPriceWithRedXCourier).toBeInTheDocument();
+
+    const sundarbanCourier = screen.getByRole("radio", {
+      name: "Sundarban Courier: ৳ 130.00",
+    });
+    await user.click(sundarbanCourier);
+
+    const totalPrice = screen.getByText("৳1030"); // product price ৳900 + courier ৳130 = ৳1030
+    const prevTotalPrice = screen.queryByText("৳945");
+
+    expect(totalPrice).toBeInTheDocument();
+    expect(prevTotalPrice).not.toBeInTheDocument();
   });
 });
