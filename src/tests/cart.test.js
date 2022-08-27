@@ -49,7 +49,7 @@ describe("product table", () => {
 
   afterEach(async () => {
     const user = userEvent.setup();
-    const removeProductBtns = screen.getAllByTestId(
+    const removeProductBtns = screen.queryAllByTestId(
       "productTableRemoveProductBtn"
     );
     for (let i = 0; i < removeProductBtns.length; i++) {
@@ -216,18 +216,22 @@ describe("product table", () => {
       expect(secondProductSubtotalPrice).toBeInTheDocument();
     });
 
-    test('clicking update button shows a success banner', async () => {
+    test("clicking update button shows a success banner", async () => {
       const user = userEvent.setup();
 
-      const successBannerBeforeBtnClick = screen.queryByText('Cart has been updated.');
+      const successBannerBeforeBtnClick = screen.queryByText(
+        "Cart has been updated."
+      );
       expect(successBannerBeforeBtnClick).not.toBeInTheDocument();
 
       const updateBtn = screen.getByRole("button", { name: "Update Cart" });
       await user.click(updateBtn);
 
-      const successBannerAfterBtnClick = screen.getByText('Cart has been updated.');
+      const successBannerAfterBtnClick = screen.getByText(
+        "Cart has been updated."
+      );
       expect(successBannerAfterBtnClick).toBeInTheDocument();
-    })
+    });
   });
 });
 
@@ -293,10 +297,10 @@ describe("checkout section", () => {
 
     const totalPrice = screen.getByText("৳1030"); // product subTotal ৳900 + courier ৳130 = ৳1030
     expect(totalPrice).toBeInTheDocument();
-    
+
     const mainPrice = screen.getByRole("cell", { name: "৳450" });
     expect(mainPrice).toBeInTheDocument();
-    
+
     const subTotalPrice = screen.getByRole("cell", { name: "৳900" });
     expect(subTotalPrice).toBeInTheDocument();
   });
