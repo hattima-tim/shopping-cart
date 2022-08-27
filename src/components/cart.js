@@ -50,7 +50,7 @@ function Cart() {
     setProductsQuantities(allProductsQuantities);
   }, [productsInCart]);
 
-  const subTotal = productsInCart.reduce((acc, product) => {
+  const sumOfAllSubTotal = productsInCart.reduce((acc, product) => {
     return acc + product.subTotal;
   }, 0);
 
@@ -91,14 +91,14 @@ function Cart() {
     userAction.current = "cart update";
   };
 
-  const [totalPrice, setTotalPrice] = useState(subTotal + 45.0);
+  const [totalPrice, setTotalPrice] = useState(sumOfAllSubTotal + 45.0);
 
   useEffect(() => {
-    setTotalPrice(subTotal + 45.0);
-  }, [subTotal]);
+    setTotalPrice(sumOfAllSubTotal + 45.0);
+  }, [sumOfAllSubTotal]);
 
   const handleShippingMethodChange = (e) => {
-    setTotalPrice(subTotal + Number(e.target.value));
+    setTotalPrice(sumOfAllSubTotal + Number(e.target.value));
   };
 
   return (
@@ -233,7 +233,7 @@ function Cart() {
             <div className="subTotal my-4">
               <p>Subtotal</p>
               <p>
-                <span className="price my-4"> ৳{subTotal} </span>
+                <span className="price my-4"> ৳{sumOfAllSubTotal} </span>
               </p>
             </div>
 
@@ -247,7 +247,7 @@ function Cart() {
                   name="shipping"
                   value="45.00"
                   onChange={handleShippingMethodChange}
-                  {...(totalPrice === subTotal + 45.0
+                  {...(totalPrice === sumOfAllSubTotal + 45.0
                     ? { checked: true }
                     : { checked: false })}
                   className="my-2"
@@ -263,7 +263,7 @@ function Cart() {
                   name="shipping"
                   value="130.00"
                   onChange={handleShippingMethodChange}
-                  {...(totalPrice === subTotal + 130.0
+                  {...(totalPrice === sumOfAllSubTotal + 130.0
                     ? { checked: true }
                     : { checked: false })}
                   className="my-2"
@@ -279,7 +279,7 @@ function Cart() {
                   name="shipping"
                   value="170.00"
                   onChange={handleShippingMethodChange}
-                  {...(totalPrice === subTotal + 170.0
+                  {...(totalPrice === sumOfAllSubTotal + 170.0
                     ? { checked: true }
                     : { checked: false })}
                   className="my-2"
@@ -295,7 +295,7 @@ function Cart() {
                   name="shipping"
                   value="120.00"
                   onChange={handleShippingMethodChange}
-                  {...(totalPrice === subTotal + 120.0
+                  {...(totalPrice === sumOfAllSubTotal + 120.0
                     ? { checked: true }
                     : { checked: false })}
                   className="my-2"
