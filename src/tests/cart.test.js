@@ -77,6 +77,23 @@ describe("product table", () => {
     expect(productImage).toBeInTheDocument();
   });
 
+  test("clicking product remove button shows a success banner", async () => {
+    const user = userEvent.setup();
+
+    const successBannerBeforeBtnClick = screen.queryByText(
+      "Half Sleeve Cut and Sew Solid(pattern 15) removed."
+    );
+    expect(successBannerBeforeBtnClick).not.toBeInTheDocument();
+
+    const removeProductBtn = screen.getByTestId("productTableRemoveProductBtn");
+    await user.click(removeProductBtn);
+
+    const successBannerAfterBtnClick = screen.getByText(
+      "Half Sleeve Cut and Sew Solid(pattern 15) removed."
+    );
+    expect(successBannerAfterBtnClick).toBeInTheDocument();
+  });
+
   describe("variation", () => {
     test("fabric data is available", async () => {
       const dataTermsInTable = screen.getAllByRole("term");
