@@ -94,6 +94,34 @@ describe("product table", () => {
     expect(successBannerAfterBtnClick).toBeInTheDocument();
   });
 
+  test("clicking undo button returns removed product", async () => {
+    const user = userEvent.setup();
+
+    const undoBtnBeforeRemoveBtnClick = screen.queryByText("Undo?");
+    expect(undoBtnBeforeRemoveBtnClick).not.toBeInTheDocument();
+
+    const productNameBeforeRemoveBtnClick = screen.getByRole("link", {
+      name: "Half Sleeve Cut and Sew Solid(pattern 15)",
+    });
+    expect(productNameBeforeRemoveBtnClick).toBeInTheDocument();
+
+    const removeProductBtn = screen.getByTestId("productTableRemoveProductBtn");
+    await user.click(removeProductBtn);
+
+    const productNameAfterRemoveBtnClick = screen.queryByRole("link", {
+      name: "Half Sleeve Cut and Sew Solid(pattern 15)",
+    });
+    expect(productNameAfterRemoveBtnClick).not.toBeInTheDocument();
+
+    const undoBtn = screen.getByText("Undo?");
+    await user.click(undoBtn);
+
+    const productNameAfterUndoClick = screen.getByRole("link", {
+      name: "Half Sleeve Cut and Sew Solid(pattern 15)",
+    });
+    expect(productNameAfterUndoClick).toBeInTheDocument();
+  });
+
   describe("variation", () => {
     test("fabric data is available", async () => {
       const dataTermsInTable = screen.getAllByRole("term");
@@ -199,10 +227,10 @@ describe("product table", () => {
     test("different product's subTotal price can be different", async () => {
       const user = userEvent.setup();
 
-      const productName = screen.getByRole("link", {
+      const productNameBeforeRemoveBtnClick = screen.getByRole("link", {
         name: "Half Sleeve Cut and Sew Solid(pattern 15)",
       });
-      await user.click(productName);
+      await user.click(productNameBeforeRemoveBtnClick);
       // we are on product page now
 
       const sizeBtn = screen.getByRole("button", { name: "M" });
