@@ -224,17 +224,17 @@ function ProductPage() {
         </div>
       </div>
       <div className="additional_info m-4">
-        <div className="additional_info_tabs">
+        <div className="additional_info_tabs md:flex md:gap-2 md:border-t md:border-top-gray-400">
           <button
             onClick={showDescription}
-            className="description active-tab peer border-t border-t-gray-400 p-2 text-start font-bold hover:border-t-2 hover:border-t-black peer-hover:border-t peer-hover:border-t-gray-400"
+            className="description active-tab peer border-t p-2 text-start font-bold hover:border-t-2 hover:border-t-black peer-hover:border-t peer-hover:border-t-gray-400"
           >
             Description
           </button>
           <br />
           <button
             onClick={showAdditionalInfo}
-            className="additional-info border-t peer border-t-gray-400 p-2 text-start font-bold hover:border-t-2 hover:border-t-black "
+            className="additional-info border-t peer p-2 text-start font-bold hover:border-t-2 hover:border-t-black "
           >
             Additional Information
           </button>
