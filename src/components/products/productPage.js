@@ -119,14 +119,15 @@ function ProductPage() {
 
   return (
     <div>
-      <div className="main mx-4 mb-12 mt-4 flex">
+      <div className="main mx-4 mb-12 mt-4 lg:flex">
         <img
-          className="h-auto w-full"
+          className="h-auto w-full lg:flex-1"
           src={productData.img}
           alt={productData.name}
         />
-        <div className="mainInfo">
-          <div className="breadcrumbs text-sm">
+
+        <div className="mainInfo lg:ml-8">
+          <div className="breadcrumbs text-sm lg:text-base">
             {productData.breadCrumbs.map((breadCrumb, index) => {
               if (index === productData.breadCrumbs.length - 1) {
                 return (
@@ -143,7 +144,8 @@ function ProductPage() {
               }
             })}
           </div>
-          <h1 className="mt-2 mb-6 text-xl font-bold text-gray-600">
+        
+          <h1 className="lg:text-3xl mt-2 mb-6 text-xl font-bold text-gray-600">
             {productData.name}
           </h1>
           <h2 className="mb-4 text-2xl font-bold text-slate-800">
@@ -153,7 +155,7 @@ function ProductPage() {
           <ul className="details">
             {productData.details.map((detail, index) => {
               return (
-                <li key={index} className="mb-4">
+                <li key={index} className="mb-5">
                   {detail}
                 </li>
               );
@@ -167,7 +169,7 @@ function ProductPage() {
               return (
                 <button
                   key={index}
-                  className="fabric-btn mb-1 mr-2 w-fit rounded-sm border border-gray-400 bg-white p-1 text-base text-black"
+                  className="hover:bg-black hover:text-white hover:border-black fabric-btn mb-1 mr-2 w-fit rounded-sm border border-gray-400 bg-white p-1 text-base text-black"
                   onClick={handleFabricBtnClick}
                 >
                   {fabric}
@@ -183,7 +185,7 @@ function ProductPage() {
               return (
                 <button
                   key={index}
-                  className="size-btn mb-8 mr-2 w-fit rounded-sm border border-gray-400 bg-white p-1 text-base text-black"
+                  className="hover:bg-black hover:text-white hover:border-black size-btn mb-8 mr-2 w-fit rounded-sm border border-gray-400 bg-white p-1 text-base text-black"
                   onClick={handleSizeBtnClick}
                 >
                   {size}
