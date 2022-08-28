@@ -34,11 +34,22 @@ function ProductPage() {
 
   const [currentlyShowingAdditionalInfo, setCurrentlyShowingAdditionalInfo] =
     useState("description");
+
+  const styleTabAsActive = () => {
+    const descriptionTab = document.querySelector(".description");
+    descriptionTab.classList.toggle("active-tab");
+
+    const additionalInfoTab = document.querySelector(".additional-info");
+    additionalInfoTab.classList.toggle("active-tab");
+  };
+
   const showDescription = () => {
     setCurrentlyShowingAdditionalInfo("description");
+    styleTabAsActive();
   };
   const showAdditionalInfo = () => {
     setCurrentlyShowingAdditionalInfo("additionalInfo");
+    styleTabAsActive();
   };
 
   const [productsInCart, setProductsInCart] = useOutletContext();
@@ -108,14 +119,14 @@ function ProductPage() {
 
   return (
     <div>
-      <div className="main">
+      <div className="main mx-4 mb-12 mt-4 flex">
         <img
-          className="productImage"
+          className="h-auto w-full"
           src={productData.img}
           alt={productData.name}
         />
         <div className="mainInfo">
-          <div className="breadcrumbs">
+          <div className="breadcrumbs text-sm">
             {productData.breadCrumbs.map((breadCrumb, index) => {
               if (index === productData.breadCrumbs.length - 1) {
                 return (
@@ -132,21 +143,31 @@ function ProductPage() {
               }
             })}
           </div>
-          <h1>{productData.name}</h1>
-          <h2>{productData.price}</h2>
+          <h1 className="mt-2 mb-6 text-xl font-bold text-gray-600">
+            {productData.name}
+          </h1>
+          <h2 className="mb-4 text-2xl font-bold text-slate-800">
+            {productData.price}
+          </h2>
 
           <ul className="details">
             {productData.details.map((detail, index) => {
-              return <li key={index}>{detail}</li>;
+              return (
+                <li key={index} className="mb-4">
+                  {detail}
+                </li>
+              );
             })}
           </ul>
 
           <div className="fabricButtons">
+            <span className="text-sm font-bold text-slate-800">FABRIC</span>
+            <br />
             {productData.fabric.map((fabric, index) => {
               return (
                 <button
                   key={index}
-                  className="productOptionBtn fabric-btn"
+                  className="fabric-btn mb-1 mr-2 w-fit rounded-sm border border-gray-400 bg-white p-1 text-base text-black"
                   onClick={handleFabricBtnClick}
                 >
                   {fabric}
@@ -156,11 +177,13 @@ function ProductPage() {
           </div>
 
           <div className="sizeButtons">
+            <span className="text-sm font-bold text-slate-800">SIZE</span>
+            <br />
             {productData.size.map((size, index) => {
               return (
                 <button
                   key={index}
-                  className="productOptionBtn size-btn"
+                  className="size-btn mb-8 mr-2 w-fit rounded-sm border border-gray-400 bg-white p-1 text-base text-black"
                   onClick={handleSizeBtnClick}
                 >
                   {size}
@@ -169,43 +192,71 @@ function ProductPage() {
             })}
           </div>
 
-          <div className="addToCart">
+          <div className="addToCart flex gap-4">
             <div className="quantity">
-              <button onClick={itemNumberDecrement}>-</button>
-              <input type="number" onChange={handleChange} value={itemNumber} />
-              <button onClick={itemNumberIncrement}>+</button>
+              <button
+                onClick={itemNumberDecrement}
+                className="h-10 w-8 bg-gray-200 hover:bg-slate-300"
+              >
+                -
+              </button>
+              <input
+                type="number"
+                onChange={handleChange}
+                value={itemNumber}
+                className="h-10 w-8 border border-y-gray-200 text-center"
+              />
+              <button
+                onClick={itemNumberIncrement}
+                className="h-10 w-8 bg-gray-200 hover:bg-slate-300"
+              >
+                +
+              </button>
             </div>
 
-            <button className="addToCartButton" onClick={handleAddToCart}>
+            <button
+              onClick={handleAddToCart}
+              className="w-fit bg-black px-6 py-2 font-bold text-white "
+            >
               Add to Cart
             </button>
           </div>
         </div>
       </div>
-      <div className="additional_info">
+      <div className="additional_info m-4">
         <div className="additional_info_tabs">
-          <button className="additional_info_tab" onClick={showDescription}>
+          <button
+            onClick={showDescription}
+            className="description active-tab peer border-t border-t-gray-400 p-2 text-start font-bold hover:border-t-2 hover:border-t-black peer-hover:border-t peer-hover:border-t-gray-400"
+          >
             Description
           </button>
-
-          <button className="additional_info_tab" onClick={showAdditionalInfo}>
+          <br />
+          <button
+            onClick={showAdditionalInfo}
+            className="additional-info border-t peer border-t-gray-400 p-2 text-start font-bold hover:border-t-2 hover:border-t-black "
+          >
             Additional Information
           </button>
         </div>
 
         {currentlyShowingAdditionalInfo === "description" && (
-          <div className="additional_info_content">
+          <div className="additional_info_content my-4">
             <p>
               <strong>Size Measurement (in inch/centimeter):</strong>
             </p>
 
             <ul>
               {productData.description.map((description, index) => {
-                return <li key={index}>{description}</li>;
+                return (
+                  <li key={index} className="my-4">
+                    {description}
+                  </li>
+                );
               })}
             </ul>
 
-            <p>
+            <p className="my-4">
               ডিভাইসের ভিন্নতা অনুযায়ী কালার ডেভিয়েশন এবং ফটোশপ এডিটিং কালার
               ডেভিয়েশনের কারনে বাস্তব ছবি ও সফটকপির মাঝে অনেক সময় পার্থক্য থেকে
               যায়
@@ -213,7 +264,7 @@ function ProductPage() {
           </div>
         )}
         {currentlyShowingAdditionalInfo === "additionalInfo" && (
-          <table className="additional_info_table">
+          <table className="additional_info_table my-4">
             <tbody>
               <tr>
                 <th>Weight</th>
