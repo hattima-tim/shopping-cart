@@ -2,7 +2,7 @@ function productsData() {
   return [
     {
       path: "/half-sleeve-cut-and-sew-solid-pattern-15",
-      img: "https://res.cloudinary.com/du3oueesv/image/upload/v1659873489/shopping%20cart/half%20sleeve%20cut/mthcssp10-solid-350x435_zvwuma.jpg",
+      img: "https://res.cloudinary.com/du3oueesv/image/upload/v1661588492/shopping%20cart/half%20sleeve%20cut/mthcssp15-solid-920x920_him69g.jpg",
       breadCrumbs: [
         {
           name: "HOME",
@@ -14,7 +14,7 @@ function productsData() {
         },
       ],
       name: "Half Sleeve Cut and Sew Solid(pattern 15)",
-      price: "৳450",
+      price: "৳450.00",
       details: ["Fabric: 100% Cotton", "GSM: 160-165"],
       fabric: ["COMBED COTTON"],
       size: ["M", "L", "XL", "XXL"],
