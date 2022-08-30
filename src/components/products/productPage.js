@@ -73,6 +73,7 @@ function ProductPage() {
     } else {
       currentBtn.classList.add("active");
     }
+
     setFabric(currentBtn.textContent);
   };
 
@@ -94,6 +95,7 @@ function ProductPage() {
     } else {
       currentBtn.classList.add("active");
     }
+    
     setSize(currentBtn.textContent);
   };
 
@@ -110,6 +112,10 @@ function ProductPage() {
   };
 
   const handleAddToCart = () => {
+    if (size === "" || fabric === "") { 
+      alert("Please select both fabric and size");
+      return;
+    }
     const newProduct = { ...product };
     localStorage.setItem(
       "productsInCart",
