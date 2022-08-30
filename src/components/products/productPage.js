@@ -69,12 +69,13 @@ function ProductPage() {
     });
 
     if (isButtonActive) {
+      // means that this button is pressed twice to deselect it
       currentBtn.classList.remove("active");
+      setFabric("");
     } else {
       currentBtn.classList.add("active");
+      setFabric(currentBtn.textContent);
     }
-
-    setFabric(currentBtn.textContent);
   };
 
   const [size, setSize] = useState("");
@@ -91,12 +92,13 @@ function ProductPage() {
     });
 
     if (isButtonActive) {
+      // means that this button is pressed twice to deselect it
       currentBtn.classList.remove("active");
+      setSize("");
     } else {
       currentBtn.classList.add("active");
+      setSize(currentBtn.textContent);
     }
-    
-    setSize(currentBtn.textContent);
   };
 
   let product = {
