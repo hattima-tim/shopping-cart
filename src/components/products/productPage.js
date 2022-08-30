@@ -172,7 +172,7 @@ function ProductPage() {
               return (
                 <button
                   key={index}
-                  className="fabric-btn mb-1 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black hover:border-2 hover:border-black hover:bg-black hover:text-white"
+                  className="fabric-btn mb-1 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
                   onClick={handleFabricBtnClick}
                 >
                   {fabric}
@@ -188,7 +188,7 @@ function ProductPage() {
               return (
                 <button
                   key={index}
-                  className="size-btn mb-8 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black hover:border-2 hover:border-black hover:bg-black hover:text-white"
+                  className="size-btn mb-8 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
                   onClick={handleSizeBtnClick}
                 >
                   {size}
