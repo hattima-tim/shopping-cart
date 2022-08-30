@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Outlet, useParams, Link, useOutletContext } from "react-router-dom";
 import uniqid from "uniqid";
 import getProductData from "./halfSleeveTShirts/productsData";
+import ImageMagnifier from "../imageMagnifier";
 import "../../styles/productPage.css";
 
 export function Product() {
@@ -118,14 +119,10 @@ function ProductPage() {
   };
 
   return (
-    <div>
+    <div className="lg:mx-20">
       <div className="main mx-4 mb-12 mt-4 lg:flex">
-        <img
-          className="h-auto w-full lg:flex-1"
-          src={productData.img}
-          alt={productData.name}
-        />
 
+        <ImageMagnifier src={productData.img} alt={productData.name} />
         <div className="mainInfo lg:ml-8">
           <div className="breadcrumbs text-sm lg:text-base">
             {productData.breadCrumbs.map((breadCrumb, index) => {
