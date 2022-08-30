@@ -121,7 +121,6 @@ function ProductPage() {
   return (
     <div className="lg:mx-20">
       <div className="main mx-4 mb-12 mt-4 lg:flex">
-
         <ImageMagnifier src={productData.img} alt={productData.name} />
         <div className="mainInfo lg:ml-8">
           <div className="breadcrumbs text-sm lg:text-base">
@@ -141,8 +140,8 @@ function ProductPage() {
               }
             })}
           </div>
-        
-          <h1 className="lg:text-3xl mt-2 mb-6 text-xl font-bold text-gray-600">
+
+          <h1 className="mt-2 mb-6 text-xl font-bold text-gray-600 lg:text-3xl">
             {productData.name}
           </h1>
           <h2 className="mb-4 text-2xl font-bold text-slate-800">
@@ -166,7 +165,7 @@ function ProductPage() {
               return (
                 <button
                   key={index}
-                  className="hover:bg-black hover:text-white hover:border-black fabric-btn mb-1 mr-2 w-fit rounded-sm border border-gray-400 bg-white p-1 text-base text-black"
+                  className="fabric-btn mb-1 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black hover:border-2 hover:border-black hover:bg-black hover:text-white"
                   onClick={handleFabricBtnClick}
                 >
                   {fabric}
@@ -182,7 +181,7 @@ function ProductPage() {
               return (
                 <button
                   key={index}
-                  className="hover:bg-black hover:text-white hover:border-black size-btn mb-8 mr-2 w-fit rounded-sm border border-gray-400 bg-white p-1 text-base text-black"
+                  className="size-btn mb-8 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black hover:border-2 hover:border-black hover:bg-black hover:text-white"
                   onClick={handleSizeBtnClick}
                 >
                   {size}
@@ -223,7 +222,7 @@ function ProductPage() {
         </div>
       </div>
       <div className="additional_info m-4">
-        <div className="additional_info_tabs md:flex md:gap-2 md:border-t md:border-top-gray-400">
+        <div className="additional_info_tabs md:border-top-gray-400 md:flex md:gap-2 md:border-t">
           <button
             onClick={showDescription}
             className="description active-tab peer border-t py-2 text-start font-bold hover:border-t-2 hover:border-t-black peer-hover:border-t peer-hover:border-t-gray-400"
@@ -233,7 +232,7 @@ function ProductPage() {
           <br />
           <button
             onClick={showAdditionalInfo}
-            className="additional-info border-t peer py-2 text-start font-bold hover:border-t-2 hover:border-t-black "
+            className="additional-info peer border-t py-2 text-start font-bold hover:border-t-2 hover:border-t-black "
           >
             Additional Information
           </button>
