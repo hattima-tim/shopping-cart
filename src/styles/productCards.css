@@ -5,7 +5,6 @@
 
 .productCard {
   text-align: center;
-  transition: 0.3s;
   cursor: pointer;
 }
 
@@ -14,8 +13,14 @@ h3 {
   padding: 0px;
 }
 
+.productCardImg img{
+  transition: 0.3s ease-in;
+  transform: scale(1);
+}
+
 .productCardImg img:hover {
   transform: scale(1.1);
+  transition: 0.3s ease-in;
 }
 
 .productCardImg {
