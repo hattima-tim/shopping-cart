@@ -9,8 +9,8 @@ const HalfSleeveCutTShirts = () => {
 
   return (
     <>
-      <div className="breadCrumbs">
-        <Link to="/">Home</Link> / Half Sleeve Cut T-Shirts
+      <div className="text-xl font-normal text-center my-4">
+        <Link to="/">HOME /</Link><span className="text-black">Half Sleeve Cut T-Shirts</span>
       </div>
       <ProductCards products={products} />
     </>
