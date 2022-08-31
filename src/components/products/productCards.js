@@ -4,13 +4,13 @@ function ProductCards({ products }) {
   return (
     <div className="productCards ">
       {products.map((product, index) => (
-        <div className="productCard w-40 mb-7" key={index}>
+        <div key={index} className="productCard mb-7 w-40 md:w-60">
           <div className="productCardImg">
             <Link to={`/product/${product.pathName}`}>
-              <img src={product.img} alt={product.name}/>
+              <img src={product.img} alt={product.name} />
             </Link>
           </div>
-          <div className="productCard__info text-sm pt-2 text-[#565656]">
+          <div className="productCard__info pt-2 text-sm text-[#565656]">
             <h3>{product.name}</h3>
             <p className="font-bold text-black">{product.price}</p>
           </div>
