@@ -1,0 +1,46 @@
+.main_carousel_image {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 450px;
+  left: -1px;
+  right: -1px;
+  color: rgb(119, 119, 119);
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.text {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 25%;
+  font-size: 25px;
+  color: #ffffff;
+}
+.view_collection_link {
+  position: absolute;
+  margin-top: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.view_collection_link:hover {
+  background-color: #ffffff;
+  color: #666666;
+  border-color: #ffffff;
+}
