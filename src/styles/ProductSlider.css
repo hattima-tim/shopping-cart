@@ -1,0 +1,36 @@
+.splide__arrow {
+  display: none;
+  border: 1px solid black;
+  background: transparent;
+}
+
+.splide__arrow svg {
+  height: 1rem;
+  width: 1rem;
+  margin: 0 auto;
+}
+
+.splide__arrow:hover {
+  background: black;
+}
+
+.splide__arrow:hover svg {
+  fill: white;
+}
+
+@media (max-width: 640px) {
+  .splide {
+    gap: 0.1rem;
+  }
+
+  .splide__arrow {
+    display: block;
+    border: none;
+  }
+  .splide__arrow--prev {
+    left: 0px;
+  }
+  .splide__arrow--next {
+    right: 0px;
+  }
+}
