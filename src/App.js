@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./App.css";
+import ProductBanner from "./components/ProductBanner";
 
 function App() {
   return (
@@ -24,6 +25,12 @@ function App() {
           VIEW COLLECTION {"> >"}
         </Link>
       </div>
+
+      <ProductBanner
+        src="https://res.cloudinary.com/du3oueesv/image/upload/v1662269049/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/dawah-banner-scaled_gpzrjy.jpg"
+        alt="Half Sleeve Dawa T-Shirts"
+        productPageLink="/product/half-sleeve-dawah-tshirts-for-men"
+      />
     </div>
   );
 }
