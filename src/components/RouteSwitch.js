@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "../App";
-import HalfSleeveCutTShirts from "./products/halfSleeveTShirts/main";
+import ProductCategoryHomePage from "./ProductCategoryHome";
 import { Product } from "./ProductPage";
 import ProductPage from "./ProductPage";
 import Header from "./header";
 import Cart from "./cart";
+import halfSleeveCutTShirts from "./products/halfSleeveTShirts/products";
 import getHalfSleeveCutTShirt from "./products/halfSleeveTShirts/productsData";
 
 function RouteSwitch() {
@@ -16,7 +17,14 @@ function RouteSwitch() {
 
           <Route
             path="/half-sleeve-cut-and-sew-solid"
-            element={<HalfSleeveCutTShirts />}
+            element={
+              <ProductCategoryHomePage
+                products={halfSleeveCutTShirts}
+                // products will be used to create product cards
+                productType={"half-sleeve-cut-and-sew-solid"}
+                // productType is used to create product url
+              />
+            }
           />
 
           <Route
