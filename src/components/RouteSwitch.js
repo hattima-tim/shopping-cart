@@ -8,6 +8,7 @@ import Cart from "./cart";
 import halfSleeveCutTShirts from "./products/halfSleeveTShirts/products";
 import getHalfSleeveCutTShirt from "./products/halfSleeveTShirts/productsData";
 import getAllHalfSleeveDawaTShirtsData from "./products/halfSleeveDawah/productsData";
+import { getSpecificHalfSleeveDawaTShirtData } from "./products/halfSleeveDawah/productsData";
 
 function RouteSwitch() {
   return (
@@ -49,6 +50,17 @@ function RouteSwitch() {
               />
             }
           />
+
+          <Route
+            path="/half-sleeve-dawah-tshirts-for-men/product"
+            element={<Product />}
+          >
+            <Route
+              path=":name"
+              element={<ProductPage getProductData={getSpecificHalfSleeveDawaTShirtData} />}
+            />
+          </Route>
+
           <Route path="/cart" element={<Cart />} />
         </Route>
       </Routes>
