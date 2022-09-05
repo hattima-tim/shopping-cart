@@ -128,7 +128,7 @@ function ProductPage({getProductData}) {
   return (
     <div className="lg:mx-16">
       <div className="main mx-4 mb-12 mt-4 lg:flex">
-        <ImageMagnifier src={productData.img} alt={productData.name} />
+        <ImageMagnifier src={productData.imgForProductPage} alt={productData.name} />
         
         <div className="mainInfo lg:ml-8">
           <div className="breadcrumbs text-sm lg:text-base">

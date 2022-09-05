@@ -8,7 +8,7 @@ function ProductCards({productType, products }) {
           <div key={index} className="productCard mb-7 w-40 md:w-60 lg:w-72">
             <div className="productCardImg">
               <Link to={`/${productType}/product/${product.pathName}`}>
-                <img src={product.img} alt={product.name} />
+                <img src={product.imgForProductCard} alt={product.name} />
               </Link>
             </div>
             <div className="productCard__info pt-2 text-sm text-[#565656]">
