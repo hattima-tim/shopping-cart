@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { Outlet, useParams, Link, useOutletContext } from "react-router-dom";
 import uniqid from "uniqid";
-import getProductData from "./halfSleeveTShirts/productsData";
-import ImageMagnifier from "../imageMagnifier";
-import "../../styles/productPage.css";
+import ImageMagnifier from "./imageMagnifier";
+import "../styles/productPage.css";
 
 export function Product() {
   return (
@@ -13,7 +12,7 @@ export function Product() {
   );
 }
 
-function ProductPage() {
+function ProductPage({getProductData}) {
   const params = useParams();
   const productData = getProductData(params.name);
 
