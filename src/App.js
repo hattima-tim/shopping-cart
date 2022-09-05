@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
 import "./App.css";
+import ProductSlider from "./components/ProductSlider";
 import ProductBanner from "./components/ProductBanner";
-import getAllHalfSleeveDawaTShirtsData from './components/products/halfSleeveDawah/productsData'
+import getAllHalfSleeveDawaTShirtsData from "./components/products/halfSleeveDawah/productsData";
 
 function App() {
+  const firstHalfOfDawahTShirts = getAllHalfSleeveDawaTShirtsData().slice(0, 5);
+  const secondHalfOfDawahTShirts = getAllHalfSleeveDawaTShirtsData().slice(
+    5,
+    10
+  );
+  // these will be used to create two product sliders
+
   return (
     <div className="App">
       <div className="relative">
@@ -32,6 +40,9 @@ function App() {
         alt="Half Sleeve Dawa T-Shirts"
         productCategoryHomePageLink="/half-sleeve-dawah-tshirts-for-men"
       />
+
+      <ProductSlider products={firstHalfOfDawahTShirts} />
+      <ProductSlider products={secondHalfOfDawahTShirts} />
     </div>
   );
 }
