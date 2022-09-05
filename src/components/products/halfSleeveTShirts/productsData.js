@@ -2,7 +2,7 @@ function productsData() {
   return [
     {
       path: "/half-sleeve-cut-and-sew-solid-pattern-15",
-      img: "https://res.cloudinary.com/du3oueesv/image/upload/v1661588492/shopping%20cart/half%20sleeve%20cut/mthcssp15-solid-920x920_him69g.jpg",
+      imgForProductPage: "https://res.cloudinary.com/du3oueesv/image/upload/v1661588492/shopping%20cart/half%20sleeve%20cut/mthcssp15-solid-920x920_him69g.jpg",
       breadCrumbs: [
         {
           name: "HOME",
