@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ProductCards from "../productCards";
+import ProductCards from "../../ProductCards";
 import products from "./products";
 
 import "../../../styles/productsPage.css";
@@ -10,9 +10,15 @@ const HalfSleeveCutTShirts = () => {
     <>
       <div className="my-4 text-center text-xl font-normal lg:ml-20 lg:text-left">
         <Link to="/">HOME /</Link>
-        <span className="text-black">Half Sleeve Cut T-Shirts</span>
+        <span className="uppercase text-black">
+          Half Sleeve Cut and Sew Solid
+        </span>
       </div>
-      <ProductCards products={products} />
+
+      <ProductCards
+        products={products}
+        productType="half-sleeve-cut-and-sew-solid"
+      />
     </>
   );
 };
