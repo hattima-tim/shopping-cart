@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import products from "./products/halfSleeveTShirts/products";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "../styles/ProductSlider.css";
 
-function ProductSlider() {
+function ProductSlider({ products }) {
   const handleMouseOver = () => {
     const arrows = document.querySelectorAll(".splide__arrow");
     console.log(arrows);
@@ -27,7 +26,7 @@ function ProductSlider() {
       onMouseLeave={handleMouseLeave}
       options={{
         type: "loop",
-        gap: "0.8rem",
+        gap: "1.35rem",
         autoplay: true,
         pauseOnHover: true,
         resetProgress: false,
@@ -47,7 +46,7 @@ function ProductSlider() {
         >
           <div className="productCardImg">
             <Link to={`/product/${product.pathName}`}>
-              <img src={product.img} alt={product.name} />
+              <img src={product.imgForProductCard} alt={product.name} />
             </Link>
           </div>
 
