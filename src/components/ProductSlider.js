@@ -21,7 +21,7 @@ function ProductSlider({ products }) {
 
   return (
     <Splide
-      className="mx-4 overflow-hidden lg:mx-20"
+      className="mx-4 overflow-hidden lg:mx-20 my-8"
       onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
       options={{
