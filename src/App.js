@@ -71,6 +71,12 @@ function App() {
         products={secondHalfOfAllRegularTShirts}
         productType="half-sleeve-regular-tshirts-for-men"
       />
+
+      <ProductBanner
+        src="https://res.cloudinary.com/du3oueesv/image/upload/v1662471920/shopping%20cart/polo%20t%20shirts/polo-web-banner-2-scaled_gxzb7g.jpg"
+        alt="PREMIUM LAYCOST POLO T-SHIRT"
+        showViewCollectionButton={false}
+      />
     </div>
   );
 }
