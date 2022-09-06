@@ -155,11 +155,11 @@ function ProductPage({getProductData}) {
           <h2 className="mb-4 text-2xl font-bold text-slate-800">
             {productData.price}
           </h2>
-
-          <ul className="details">
+          <p className="mb-6"><strong>Detailed Specification</strong></p>  
+          <ul className="details list-disc">
             {productData.details.map((detail, index) => {
               return (
-                <li key={index} className="mb-5">
+                <li key={index} className="mx-4 my-3">
                   {detail}
                 </li>
               );
