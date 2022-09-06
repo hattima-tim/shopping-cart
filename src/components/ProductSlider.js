@@ -3,7 +3,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "../styles/ProductSlider.css";
 
-function ProductSlider({ products }) {
+function ProductSlider({ products,productType }) {
   const handleMouseOver = () => {
     const arrows = document.querySelectorAll(".splide__arrow");
     console.log(arrows);
@@ -45,7 +45,7 @@ function ProductSlider({ products }) {
           className="productCard mb-7 w-40 flex-none md:w-60 lg:w-72"
         >
           <div className="productCardImg">
-            <Link to={`/product/${product.pathName}`}>
+            <Link to={`/${productType}/product/${product.pathName}`}>
               <img src={product.imgForProductCard} alt={product.name} />
             </Link>
           </div>

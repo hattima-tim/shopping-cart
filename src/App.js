@@ -41,8 +41,8 @@ function App() {
         productCategoryHomePageLink="/half-sleeve-dawah-tshirts-for-men"
       />
 
-      <ProductSlider products={firstHalfOfDawahTShirts} />
-      <ProductSlider products={secondHalfOfDawahTShirts} />
+      <ProductSlider products={firstHalfOfDawahTShirts} productType="half-sleeve-dawah-tshirts-for-men" />
+      <ProductSlider products={secondHalfOfDawahTShirts} productType="half-sleeve-dawah-tshirts-for-men"/>
     </div>
   );
 }
