@@ -3,13 +3,22 @@ import "./App.css";
 import ProductSlider from "./components/ProductSlider";
 import ProductBanner from "./components/ProductBanner";
 import getAllHalfSleeveDawaTShirtsData from "./components/products/halfSleeveDawah/productsData";
+import getAllHalfSleeveRegularTShirtsData from "./components/products/halfSleeveRegular/productsData";
 
 function App() {
-  const firstHalfOfAllDawahTShirts = getAllHalfSleeveDawaTShirtsData().slice(0, 7);
+  const firstHalfOfAllDawahTShirts = getAllHalfSleeveDawaTShirtsData().slice(
+    0,
+    7
+  );
   const secondHalfOfAllDawahTShirts = getAllHalfSleeveDawaTShirtsData().slice(
     7,
     14
   );
+
+  const firstHalfOfAllRegularTShirts =
+    getAllHalfSleeveRegularTShirtsData().slice(0, 8);
+  const secondHalfOfAllRegularTShirts =
+    getAllHalfSleeveRegularTShirtsData().slice(8, 16);
   // these will be used to create two product sliders
 
   return (
@@ -40,13 +49,27 @@ function App() {
         alt="Half Sleeve Dawa T-Shirts"
         productCategoryHomePageLink="/half-sleeve-dawah-tshirts-for-men"
       />
-      <ProductSlider products={firstHalfOfAllDawahTShirts} productType="half-sleeve-dawah-tshirts-for-men" />
-      <ProductSlider products={secondHalfOfAllDawahTShirts} productType="half-sleeve-dawah-tshirts-for-men" />
-      
+      <ProductSlider
+        products={firstHalfOfAllDawahTShirts}
+        productType="half-sleeve-dawah-tshirts-for-men"
+      />
+      <ProductSlider
+        products={secondHalfOfAllDawahTShirts}
+        productType="half-sleeve-dawah-tshirts-for-men"
+      />
+
       <ProductBanner
         src="https://res.cloudinary.com/du3oueesv/image/upload/v1662435399/shopping%20cart/half%20sleeve%20regular/regular-banner-scaled_k1is6b.jpg"
         alt="HALF SLEEVE REGULAR T-SHIRTS"
         productCategoryHomePageLink="/half-sleeve-regular-tshirts-for-men"
+      />
+      <ProductSlider
+        products={firstHalfOfAllRegularTShirts}
+        productType="half-sleeve-regular-tshirts-for-men"
+      />
+      <ProductSlider
+        products={secondHalfOfAllRegularTShirts}
+        productType="half-sleeve-regular-tshirts-for-men"
       />
     </div>
   );
