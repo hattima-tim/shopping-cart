@@ -5,8 +5,8 @@ import ProductBanner from "./components/ProductBanner";
 import getAllHalfSleeveDawaTShirtsData from "./components/products/halfSleeveDawah/productsData";
 
 function App() {
-  const firstHalfOfDawahTShirts = getAllHalfSleeveDawaTShirtsData().slice(0, 7);
-  const secondHalfOfDawahTShirts = getAllHalfSleeveDawaTShirtsData().slice(
+  const firstHalfOfAllDawahTShirts = getAllHalfSleeveDawaTShirtsData().slice(0, 7);
+  const secondHalfOfAllDawahTShirts = getAllHalfSleeveDawaTShirtsData().slice(
     7,
     14
   );
@@ -40,8 +40,8 @@ function App() {
         alt="Half Sleeve Dawa T-Shirts"
         productCategoryHomePageLink="/half-sleeve-dawah-tshirts-for-men"
       />
-      <ProductSlider products={firstHalfOfDawahTShirts} productType="half-sleeve-dawah-tshirts-for-men" />
-      <ProductSlider products={secondHalfOfDawahTShirts} productType="half-sleeve-dawah-tshirts-for-men" />
+      <ProductSlider products={firstHalfOfAllDawahTShirts} productType="half-sleeve-dawah-tshirts-for-men" />
+      <ProductSlider products={secondHalfOfAllDawahTShirts} productType="half-sleeve-dawah-tshirts-for-men" />
       
       <ProductBanner
         src="https://res.cloudinary.com/du3oueesv/image/upload/v1662435399/shopping%20cart/half%20sleeve%20regular/regular-banner-scaled_k1is6b.jpg"
