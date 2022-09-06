@@ -9,6 +9,7 @@ import halfSleeveCutTShirts from "./products/halfSleeveTShirts/products";
 import getHalfSleeveCutTShirt from "./products/halfSleeveTShirts/productsData";
 import getAllHalfSleeveDawaTShirtsData from "./products/halfSleeveDawah/productsData";
 import { getSpecificHalfSleeveDawaTShirtData } from "./products/halfSleeveDawah/productsData";
+import getAllHalfSleeveRegularTShirtsData from "./products/halfSleeveRegular/productsData";
 
 function RouteSwitch() {
   return (
@@ -60,6 +61,18 @@ function RouteSwitch() {
               element={<ProductPage getProductData={getSpecificHalfSleeveDawaTShirtData} />}
             />
           </Route>
+
+          <Route
+            path="/half-sleeve-regular-tshirts-for-men"
+            element={
+              <ProductCategoryHomePage
+                products={getAllHalfSleeveRegularTShirtsData()}
+                // products will be used to create product cards
+                productType={"half-sleeve-regular-tshirts-for-men"}
+                // productType is used to create product url
+              />
+            }
+          />
 
           <Route path="/cart" element={<Cart />} />
         </Route>
