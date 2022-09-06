@@ -40,9 +40,14 @@ function App() {
         alt="Half Sleeve Dawa T-Shirts"
         productCategoryHomePageLink="/half-sleeve-dawah-tshirts-for-men"
       />
-
       <ProductSlider products={firstHalfOfDawahTShirts} productType="half-sleeve-dawah-tshirts-for-men" />
-      <ProductSlider products={secondHalfOfDawahTShirts} productType="half-sleeve-dawah-tshirts-for-men"/>
+      <ProductSlider products={secondHalfOfDawahTShirts} productType="half-sleeve-dawah-tshirts-for-men" />
+      
+      <ProductBanner
+        src="https://res.cloudinary.com/du3oueesv/image/upload/v1662435399/shopping%20cart/half%20sleeve%20regular/regular-banner-scaled_k1is6b.jpg"
+        alt="HALF SLEEVE REGULAR T-SHIRTS"
+        productCategoryHomePageLink="/half-sleeve-regular-tshirts-for-men"
+      />
     </div>
   );
 }
