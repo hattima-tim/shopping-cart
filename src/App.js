@@ -5,10 +5,10 @@ import ProductBanner from "./components/ProductBanner";
 import getAllHalfSleeveDawaTShirtsData from "./components/products/halfSleeveDawah/productsData";
 
 function App() {
-  const firstHalfOfDawahTShirts = getAllHalfSleeveDawaTShirtsData().slice(0, 5);
+  const firstHalfOfDawahTShirts = getAllHalfSleeveDawaTShirtsData().slice(0, 7);
   const secondHalfOfDawahTShirts = getAllHalfSleeveDawaTShirtsData().slice(
-    5,
-    10
+    7,
+    14
   );
   // these will be used to create two product sliders
 
