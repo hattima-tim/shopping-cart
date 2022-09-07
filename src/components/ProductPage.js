@@ -145,7 +145,7 @@ function ProductPage({ getProductData }) {
               } else {
                 return (
                   <Link key={uniqid()} to={breadCrumb.path}>
-                    {breadCrumb.name + "/"}
+                    {breadCrumb.name + ' / '}
                   </Link>
                 );
               }
