@@ -11,6 +11,7 @@ import getAllHalfSleeveDawaTShirtsData from "./products/halfSleeveDawah/products
 import { getSpecificHalfSleeveDawaTShirtData } from "./products/halfSleeveDawah/productsData";
 import getAllHalfSleeveRegularTShirtsData from "./products/halfSleeveRegular/productsData";
 import {getSpecificHalfSleeveRegularTShirtData} from "./products/halfSleeveRegular/productsData";
+import { getSpecificPoloTShirtData } from "./products/poloTShirts/productsData";
 
 function RouteSwitch() {
   return (
@@ -85,6 +86,16 @@ function RouteSwitch() {
             />
           </Route>
 
+          <Route
+            path="/polo-t-shirt/product"
+            element={<Product />}
+          >
+            <Route
+              path=":name"
+              element={<ProductPage getProductData={getSpecificPoloTShirtData} />}
+            />
+          </Route>
+          
           <Route path="/cart" element={<Cart />} />
         </Route>
       </Routes>
