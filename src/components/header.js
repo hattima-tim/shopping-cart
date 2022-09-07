@@ -29,12 +29,14 @@ function Header() {
 
   return (
     <>
-      <div className="header">
-        <img
-          src="https://res.cloudinary.com/du3oueesv/image/upload/v1660122044/shopping%20cart/oubd-logo-with-tm-black-1-1400x642_se0t70.png"
-          className="companyLogo"
-          alt="one ummah logo"
-        ></img>
+      <div className="header bg-[#f0f0f0]">
+        <Link to="/" className="my-3">
+          <img
+            src="https://res.cloudinary.com/du3oueesv/image/upload/v1660122044/shopping%20cart/oubd-logo-with-tm-black-1-1400x642_se0t70.png"
+            className="companyLogo w-24"
+            alt="one ummah logo"
+          ></img>
+        </Link>
 
         <div className="shopping-cart-icon">
           <span className="price">৳ {subTotal}</span>

@@ -1,13 +1,10 @@
 .header {
-    background-color: transparent;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
 .companyLogo{
-    max-height: 60px;
-    margin: 15px auto;
     align-self: center;
 }
 
