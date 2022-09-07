@@ -4,6 +4,7 @@ import ProductSlider from "./components/ProductSlider";
 import ProductBanner from "./components/ProductBanner";
 import getAllHalfSleeveDawaTShirtsData from "./components/products/halfSleeveDawah/productsData";
 import getAllHalfSleeveRegularTShirtsData from "./components/products/halfSleeveRegular/productsData";
+import getAllPoloTShirtsData from "./components/products/poloTShirts/productsData";
 
 function App() {
   const firstHalfOfAllDawahTShirts = getAllHalfSleeveDawaTShirtsData().slice(
@@ -19,6 +20,8 @@ function App() {
     getAllHalfSleeveRegularTShirtsData().slice(0, 8);
   const secondHalfOfAllRegularTShirts =
     getAllHalfSleeveRegularTShirtsData().slice(8, 16);
+
+  const poloTShirts = getAllPoloTShirtsData();
   // these will be used to create two product sliders
 
   return (
@@ -76,6 +79,10 @@ function App() {
         src="https://res.cloudinary.com/du3oueesv/image/upload/v1662471920/shopping%20cart/polo%20t%20shirts/polo-web-banner-2-scaled_gxzb7g.jpg"
         alt="PREMIUM LAYCOST POLO T-SHIRT"
         showViewCollectionButton={false}
+      />
+      <ProductSlider
+        products={poloTShirts}
+        productType="polo-t-shirt"
       />
     </div>
   );
