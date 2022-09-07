@@ -12,7 +12,7 @@ export function Product() {
   );
 }
 
-function ProductPage({getProductData}) {
+function ProductPage({ getProductData }) {
   const params = useParams();
   const productData = getProductData(params.name);
 
@@ -113,7 +113,7 @@ function ProductPage({getProductData}) {
   };
 
   const handleAddToCart = () => {
-    if (size === "" || fabric === "") { 
+    if (size === "" || fabric === "") {
       alert("Please select both fabric and size");
       return;
     }
@@ -128,8 +128,11 @@ function ProductPage({getProductData}) {
   return (
     <div className="lg:mx-16">
       <div className="main mx-4 mb-12 mt-4 lg:flex">
-        <ImageMagnifier src={productData.imgForProductPage} alt={productData.name} />
-        
+        <ImageMagnifier
+          src={productData.imgForProductPage}
+          alt={productData.name}
+        />
+
         <div className="mainInfo lg:ml-8">
           <div className="breadcrumbs text-sm lg:text-base">
             {productData.breadCrumbs.map((breadCrumb, index) => {
@@ -155,7 +158,9 @@ function ProductPage({getProductData}) {
           <h2 className="mb-4 text-2xl font-bold text-slate-800">
             {productData.price}
           </h2>
-          <p className="mb-6"><strong>Detailed Specification</strong></p>  
+          <p className="mb-6">
+            <strong>Detailed Specification</strong>
+          </p>
           <ul className="details list-disc">
             {productData.details.map((detail, index) => {
               return (
@@ -166,21 +171,23 @@ function ProductPage({getProductData}) {
             })}
           </ul>
 
-          <div className="fabricButtons">
-            <span className="text-sm font-bold text-slate-800">FABRIC</span>
-            <br />
-            {productData.fabric.map((fabric, index) => {
-              return (
-                <button
-                  key={index}
-                  className="fabric-btn mb-1 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
-                  onClick={handleFabricBtnClick}
-                >
-                  {fabric}
-                </button>
-              );
-            })}
-          </div>
+          {productData.fabric.toString() !== "" && ( // for some products fabric data is not present
+            <div className="fabricButtons">
+              <span className="text-sm font-bold text-slate-800">FABRIC</span>
+              <br />
+              {productData.fabric.map((fabric, index) => {
+                return (
+                  <button
+                    key={index}
+                    className="fabric-btn mb-1 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
+                    onClick={handleFabricBtnClick}
+                  >
+                    {fabric}
+                  </button>
+                );
+              })}
+            </div>
+          )}
 
           <div className="sizeButtons">
             <span className="text-sm font-bold text-slate-800">SIZE</span>
