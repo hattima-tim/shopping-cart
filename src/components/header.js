@@ -29,7 +29,7 @@ function Header() {
 
   return (
     <>
-      <div className="header bg-[#f0f0f0]">
+      <div className="header bg-[#f0f0f0] fixed z-10 w-full">
         <Link to="/" className="my-3">
           <img
             src="https://res.cloudinary.com/du3oueesv/image/upload/v1660122044/shopping%20cart/oubd-logo-with-tm-black-1-1400x642_se0t70.png"
