@@ -80,10 +80,13 @@ function App() {
         alt="PREMIUM LAYCOST POLO T-SHIRT"
         showViewCollectionButton={false}
       />
-      <ProductSlider
-        products={poloTShirts}
-        productType="polo-t-shirt"
-      />
+      <ProductSlider products={poloTShirts} productType="polo-t-shirt" />
+      <Link
+        to="/polo-t-shirt"
+        className="my-8 mx-auto block w-fit border-2 border-black py-2 px-8 text-sm font-semibold text-black hover:bg-black hover:text-white"
+      >
+        ALL POLO COLLECTION {"> >"}
+      </Link>
     </div>
   );
 }
