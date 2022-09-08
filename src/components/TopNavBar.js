@@ -11,7 +11,7 @@ function TopNavBar() {
         HOME
       </Link>
 
-      <div id="mens-collection" className="relative flex items-center">
+      <div className="group relative flex items-center">
         <Link
           to="/"
           className="text-sm font-medium text-[#f0f0f0] hover:text-[#f0f0f0]"
@@ -26,7 +26,7 @@ function TopNavBar() {
           <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
         </svg>
 
-        <div className="tooltip-mens-collection absolute flex gap-4">
+        <div className="tooltip absolute flex gap-4 group-hover:visible">
           <div className="flex flex-col">
             <h2 className="m-0 border-b py-2 text-sm font-medium text-black">
               HALF SLEEVE T SHIRT
@@ -93,8 +93,11 @@ function TopNavBar() {
         </div>
       </div>
 
-      <div id="Kid’s-&-Boy’s-Collection" className="flex items-center">
-        <Link to="/" className="text-sm font-medium text-[#f0f0f0]">
+      <div className="group relative flex items-center">
+        <Link
+          to="/"
+          className="text-sm font-medium text-[#f0f0f0] hover:text-[#f0f0f0]"
+        >
           KID'S & BOY'S COLLECTION
         </Link>
         <svg
@@ -104,6 +107,21 @@ function TopNavBar() {
         >
           <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
         </svg>
+
+        <div className="tooltip absolute flex gap-4 group-hover:visible">
+          <div className="flex flex-col">
+            <h2 className="m-0 border-b py-2 text-sm font-medium text-black">
+              HALF SLEEVE T SHIRT
+            </h2>
+
+            <Link
+              to="/half-sleeve-dawah-tshirts-for-men"
+              className="m-0 border-b py-2 text-base"
+            >
+              Half Sleeve Dawah T-Shirt
+            </Link>
+          </div>
+        </div>
       </div>
 
       <div id="sunnah-essential" className="flex items-center">
