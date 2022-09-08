@@ -24,6 +24,72 @@ function TopNavBar() {
         >
           <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
         </svg>
+
+        <div className="tooltip-mens-collection absolute flex gap-4">
+          <div className="flex flex-col">
+            <h2 className="m-0 border-b py-2 text-sm font-medium text-black">
+              HALF SLEEVE T SHIRT
+            </h2>
+
+            <Link
+              to="/half-sleeve-dawah-tshirts-for-men"
+              className="m-0 border-b py-2 text-base"
+            >
+              Half Sleeve Dawah T-Shirt
+            </Link>
+
+            <Link
+              to="/half-sleeve-regular-tshirts-for-men"
+              className="m-0 border-b py-2 text-base"
+            >
+              Half Sleeve Regular T-Shirt
+            </Link>
+
+            <Link
+              to="/half-sleeve-cut-and-sew-solid"
+              className="m-0 border-b py-2 text-base"
+            >
+              Half Sleeve Cut & Sew T-Shirt
+            </Link>
+
+            <Link to="/polo-t-shirt" className="m-0 border-b py-2 text-base">
+              Premium Lascot Polo T-Shirts
+            </Link>
+          </div>
+
+          <div className="flex flex-col">
+            <h2 className="m-0 border-b py-2 text-sm font-medium text-black">
+              Polo T-Shirt
+            </h2>
+            <Link
+              to="/solid-polo-t-shirt"
+              className="m-0 border-b py-2 text-base"
+            >
+              Solid Polo T-Shirt
+            </Link>
+            <Link
+              to="/round-neck-logo-t-shirt"
+              className="m-0 border-b py-2 text-base"
+            >
+              Round Neck Logo Style
+            </Link>
+            <Link
+              to="/cut-and-sew-logo-t-shirt"
+              className="m-0 border-b py-2 text-base"
+            >
+              Cut & Sew Logo Style
+            </Link>
+          </div>
+
+          <div className="flex flex-col">
+            <h2 className="m-0 border-b py-2 text-sm font-medium text-black">
+              Joggers Collection
+            </h2>
+            <Link to="/joggers" className="m-0 border-b py-2 text-base">
+              Mash Joggers
+            </Link>
+          </div>
+        </div>
       </div>
 
       <div id="Kid’s-&-Boy’s-Collection" className="flex items-center">
