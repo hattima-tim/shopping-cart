@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+import TopNavBar from "./TopNavBar";
 import "../styles/header.css";
 function Header() {
   const [productsInCart, setProductsInCart] = useState(
@@ -125,6 +126,7 @@ function Header() {
         </div>
       </div>
 
+      <TopNavBar />
       <Outlet context={[productsInCart, setProductsInCart]} />
     </>
   );
