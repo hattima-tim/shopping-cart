@@ -1,0 +1,31 @@
+.tooltip-mens-collection{
+    visibility: hidden;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-30%);
+    transition: 0.3s;
+    background: white;
+    padding: 1rem;
+    width:max-content;
+    margin-top: .5rem;
+    box-shadow: 0 6px 10px 0 rgb(0 0 0 / 20%);
+}
+
+#mens-collection:hover .tooltip-mens-collection{
+    visibility: visible;
+}
+
+.tooltip-mens-collection:after{
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 28%;
+    margin-left: -5px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+  
+}
