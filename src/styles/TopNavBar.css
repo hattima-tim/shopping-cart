@@ -1,4 +1,4 @@
-.tooltip-mens-collection{
+.tooltip {
     visibility: hidden;
     border-radius: 6px;
     position: absolute;
@@ -14,11 +14,7 @@
     box-shadow: 0 6px 10px 0 rgb(0 0 0 / 20%);
 }
 
-#mens-collection:hover .tooltip-mens-collection{
-    visibility: visible;
-}
-
-.tooltip-mens-collection:after{
+.tooltip:after{
     content: "";
     position: absolute;
     bottom: 100%;
