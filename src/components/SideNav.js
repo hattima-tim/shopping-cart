@@ -20,6 +20,8 @@ function SideNav() {
     sideNavRef.current.style.transform = "translateX(0)";
   };
 
+  const rotateIcon = () => {};
+
   return (
     <>
       <div
@@ -37,17 +39,14 @@ function SideNav() {
         </svg>
       </div>
 
-      <div
-        ref={sideNavRef}
-        className="sidenav z-50 block w-4/6 overflow-y-hidden"
-      >
+      <div ref={sideNavRef} className="sidenav overflow-y-hidden z-50 block w-4/6">
         <div
           className="closebtn cursor-pointer hover:text-black"
           onClick={closeNav}
         >
           &times;
         </div>
-
+        
         <ul>
           <li className="flex border-b p-3">
             <Link to="/" className=" text-sm font-semibold">
@@ -59,24 +58,60 @@ function SideNav() {
             <Link to="/" className="text-sm font-semibold">
               MEN'S COLLECTION
             </Link>
+
+            <svg
+              className="my-0 mx-1 w-4 cursor-pointer fill-[#9b9392]"
+              onClick={rotateIcon}
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+            >
+              <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+            </svg>
           </li>
 
           <li className="flex justify-between border-b p-3">
             <Link to="/" className="text-sm font-semibold ">
               KID'S & BOY'S COLLECTION
             </Link>
+
+            <svg
+              className="my-0 mx-1 w-4 cursor-pointer fill-[#9b9392]"
+              onClick={rotateIcon}
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+            >
+              <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+            </svg>
           </li>
 
           <li className="flex justify-between border-b p-3">
             <Link to="/" className="text-sm font-semibold">
               SUNNAH ESSENTIAL
             </Link>
+
+            <svg
+              className="my-0 mx-1 w-4 cursor-pointer fill-[#9b9392]"
+              onClick={rotateIcon}
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+            >
+              <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+            </svg>
           </li>
 
           <li className="flex justify-between border-b p-3">
             <Link to="/" className="text-sm font-semibold">
               FABRIC MASK
             </Link>
+
+            <svg
+              className="my-0 mx-1 w-4 cursor-pointer fill-[#9b9392]"
+              onClick={rotateIcon}
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+            >
+              <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+            </svg>
           </li>
         </ul>
       </div>
