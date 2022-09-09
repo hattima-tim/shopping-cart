@@ -17,3 +17,8 @@
   font-size: 36px;
   margin-left: 50px;
 }
+
+.down-arrow{
+  transform: rotate(0deg);
+  transition: transform 0.2s ease-in;
+}
