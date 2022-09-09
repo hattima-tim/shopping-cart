@@ -20,7 +20,18 @@ function SideNav() {
     sideNavRef.current.style.transform = "translateX(0)";
   };
 
-  const rotateIcon = () => {};
+  const rotateIcon = (e) => {
+    const downArrow = e.target;
+    console.log(downArrow.classList);
+    console.log(downArrow);
+    if (!downArrow.classList.contains("rotated")) {
+      console.log(true);
+      downArrow.style.transform = "rotate(180deg)";
+    } else {
+      downArrow.style.transform = "rotate(0deg)";
+    }
+    downArrow.classList.toggle("rotated");
+  };
 
   return (
     <>
@@ -39,14 +50,17 @@ function SideNav() {
         </svg>
       </div>
 
-      <div ref={sideNavRef} className="sidenav overflow-y-hidden z-50 block w-4/6">
+      <div
+        ref={sideNavRef}
+        className="sidenav z-50 block w-4/6 overflow-y-hidden"
+      >
         <div
           className="closebtn cursor-pointer hover:text-black"
           onClick={closeNav}
         >
           &times;
         </div>
-        
+
         <ul>
           <li className="flex border-b p-3">
             <Link to="/" className=" text-sm font-semibold">
@@ -59,14 +73,12 @@ function SideNav() {
               MEN'S COLLECTION
             </Link>
 
-            <svg
-              className="my-0 mx-1 w-4 cursor-pointer fill-[#9b9392]"
+            <img
+              src="https://res.cloudinary.com/du3oueesv/image/upload/v1662729992/shopping%20cart/polo%20t%20shirts/product%20card%20image/Mask_group_1_mkkawx.png"
+              alt="down arrow icon"
+              className="down-arrow w-6 cursor-pointer"
               onClick={rotateIcon}
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-            >
-              <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
-            </svg>
+            />
           </li>
 
           <li className="flex justify-between border-b p-3">
@@ -74,14 +86,12 @@ function SideNav() {
               KID'S & BOY'S COLLECTION
             </Link>
 
-            <svg
-              className="my-0 mx-1 w-4 cursor-pointer fill-[#9b9392]"
+            <img
+              src="https://res.cloudinary.com/du3oueesv/image/upload/v1662729992/shopping%20cart/polo%20t%20shirts/product%20card%20image/Mask_group_1_mkkawx.png"
+              alt="down arrow icon"
+              className="down-arrow w-6 cursor-pointer"
               onClick={rotateIcon}
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-            >
-              <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
-            </svg>
+            />
           </li>
 
           <li className="flex justify-between border-b p-3">
@@ -89,14 +99,12 @@ function SideNav() {
               SUNNAH ESSENTIAL
             </Link>
 
-            <svg
-              className="my-0 mx-1 w-4 cursor-pointer fill-[#9b9392]"
+            <img
+              src="https://res.cloudinary.com/du3oueesv/image/upload/v1662729992/shopping%20cart/polo%20t%20shirts/product%20card%20image/Mask_group_1_mkkawx.png"
+              alt="down arrow icon"
+              className="down-arrow w-6 cursor-pointer"
               onClick={rotateIcon}
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-            >
-              <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
-            </svg>
+            />
           </li>
 
           <li className="flex justify-between border-b p-3">
@@ -104,14 +112,12 @@ function SideNav() {
               FABRIC MASK
             </Link>
 
-            <svg
-              className="my-0 mx-1 w-4 cursor-pointer fill-[#9b9392]"
+            <img
+              src="https://res.cloudinary.com/du3oueesv/image/upload/v1662729992/shopping%20cart/polo%20t%20shirts/product%20card%20image/Mask_group_1_mkkawx.png"
+              alt="down arrow icon"
+              className="down-arrow w-6 cursor-pointer"
               onClick={rotateIcon}
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-            >
-              <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
-            </svg>
+            />
           </li>
         </ul>
       </div>
