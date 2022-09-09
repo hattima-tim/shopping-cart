@@ -22,3 +22,21 @@
   transform: rotate(0deg);
   transition: transform 0.2s ease-in;
 }
+
+.child-sidenav{
+  position:absolute;
+  z-index: 10;
+  transform: translateX(-110%) ;
+  transition: transform 0.0s ease-in;
+}
+
+.active-child-sidenav-container{
+  background-color: #e8e8e7;
+}
+
+.active-child-sidenav{
+  position:relative;
+  display: flex;
+  transform: translateX(0) ;
+  transition: transform 0.1s ease-in;
+}
