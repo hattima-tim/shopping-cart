@@ -118,6 +118,43 @@ function SideNav() {
               >
                 Premium Lascot Polo T-Shirts
               </Link>
+
+              <h2 className="mx-6 border-b py-2 text-sm font-medium text-black">
+                POLO T-SHIRT
+              </h2>
+
+              <Link
+                to="/solid-polo-t-shirt"
+                className="mx-8 border-b py-2 text-base font-normal"
+              >
+                Solid Polo T-Shirt
+              </Link>
+
+              <Link
+                to="/round-neck-logo-t-shirt"
+                className="mx-8 border-b py-2 text-base font-normal"
+              >
+                Round Neck Logo Style
+              </Link>
+
+              <Link
+                to="/cut-and-sew-logo-t-shirt"
+                className="mx-8 border-b py-2 text-base font-normal"
+              >
+              Cut & Sew Logo Style
+              </Link>
+
+              <h2 className="mx-6 border-b py-2 text-sm font-medium text-black">
+                JOGGERS COLLECTION
+              </h2>
+
+              <Link
+                to="/joggers"
+                className="mx-8 border-b py-2 text-base font-normal"
+              >
+                Mash Joggers
+              </Link>
+
             </div>
           </li>
 
@@ -134,10 +171,11 @@ function SideNav() {
                 onClick={rotateIcon}
               />
             </div>
+            
             <div className="child-sidenav flex flex-col">
               <Link
                 to="/half-sleeve-t-shirt"
-                className="mx-8 border-b py-2 text-base font-normal"
+                className="mx-6 border-b py-2 text-base font-normal"
               >
                 Half Sleeve T-Shirt
               </Link>
@@ -157,24 +195,25 @@ function SideNav() {
                 onClick={rotateIcon}
               />
             </div>
+            
             <div className="child-sidenav flex flex-col">
               <Link
                 to="/perfume"
-                className="mx-8 border-b py-2 text-base font-normal"
+                className="mx-6 border-b py-2 text-base font-normal"
               >
                 Perfume
               </Link>
 
               <Link
                 to="/combo-perfume-box"
-                className="mx-8 border-b py-2 text-base font-normal"
+                className="mx-6 border-b py-2 text-base font-normal"
               >
                 Combo Perfume Box
               </Link>
 
               <Link
                 to="/prayermat"
-                className="mx-8 border-b py-2 text-base font-normal"
+                className="mx-6 border-b py-2 text-base font-normal"
               >
                 PrayerMat
               </Link>
