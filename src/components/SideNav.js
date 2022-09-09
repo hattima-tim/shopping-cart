@@ -22,7 +22,7 @@ function SideNav() {
 
   const rotateIcon = (e) => {
     const downArrow = e.target;
-    
+
     if (!downArrow.classList.contains("rotated")) {
       downArrow.style.transform = "rotate(180deg)";
     } else {
@@ -74,7 +74,7 @@ function SideNav() {
           </li>
 
           <li className="border-b py-2 px-3 hover:bg-[#e8e8e7]">
-            <div className="flex justify-between cursor-pointer ">
+            <div className="flex cursor-pointer justify-between ">
               <Link to="/" className="text-sm font-semibold">
                 MEN'S COLLECTION
               </Link>
@@ -86,7 +86,7 @@ function SideNav() {
                 onClick={rotateIcon}
               />
             </div>
-            <div className="flex flex-col child-sidenav">
+            <div className="child-sidenav flex flex-col">
               <h2 className="mx-6 border-b py-2 text-sm font-medium text-black">
                 HALF SLEEVE T SHIRT
               </h2>
@@ -112,23 +112,36 @@ function SideNav() {
                 Half Sleeve Cut & Sew T-Shirt
               </Link>
 
-              <Link to="/polo-t-shirt" className="mx-8 border-b py-2 font-normal text-base">
+              <Link
+                to="/polo-t-shirt"
+                className="mx-8 border-b py-2 text-base font-normal"
+              >
                 Premium Lascot Polo T-Shirts
               </Link>
             </div>
           </li>
 
-          <li className="flex justify-between border-b p-3">
-            <Link to="/" className="text-sm font-semibold ">
-              KID'S & BOY'S COLLECTION
-            </Link>
+          <li className="border-b py-2 px-3 hover:bg-[#e8e8e7]">
+            <div className="flex cursor-pointer justify-between ">
+              <Link to="/" className="text-sm font-semibold">
+                KID'S & BOY'S COLLECTION
+              </Link>
 
-            <img
-              src="https://res.cloudinary.com/du3oueesv/image/upload/v1662729992/shopping%20cart/polo%20t%20shirts/product%20card%20image/Mask_group_1_mkkawx.png"
-              alt="down arrow icon"
-              className="down-arrow w-6 cursor-pointer"
-              onClick={rotateIcon}
-            />
+              <img
+                src="https://res.cloudinary.com/du3oueesv/image/upload/v1662729992/shopping%20cart/polo%20t%20shirts/product%20card%20image/Mask_group_1_mkkawx.png"
+                alt="down arrow icon"
+                className="down-arrow w-6 cursor-pointer"
+                onClick={rotateIcon}
+              />
+            </div>
+            <div className="child-sidenav flex flex-col">
+              <Link
+                to="/half-sleeve-t-shirt"
+                className="mx-8 border-b py-2 text-base font-normal"
+              >
+                Half Sleeve T-Shirt
+              </Link>
+            </div>
           </li>
 
           <li className="flex justify-between border-b p-3">
