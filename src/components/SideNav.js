@@ -144,17 +144,41 @@ function SideNav() {
             </div>
           </li>
 
-          <li className="flex justify-between border-b p-3">
-            <Link to="/" className="text-sm font-semibold">
-              SUNNAH ESSENTIAL
-            </Link>
+          <li className="border-b py-2 px-3 hover:bg-[#e8e8e7]">
+            <div className="flex cursor-pointer justify-between ">
+              <Link to="/" className="text-sm font-semibold">
+                SUNNAH ESSENTIAL
+              </Link>
 
-            <img
-              src="https://res.cloudinary.com/du3oueesv/image/upload/v1662729992/shopping%20cart/polo%20t%20shirts/product%20card%20image/Mask_group_1_mkkawx.png"
-              alt="down arrow icon"
-              className="down-arrow w-6 cursor-pointer"
-              onClick={rotateIcon}
-            />
+              <img
+                src="https://res.cloudinary.com/du3oueesv/image/upload/v1662729992/shopping%20cart/polo%20t%20shirts/product%20card%20image/Mask_group_1_mkkawx.png"
+                alt="down arrow icon"
+                className="down-arrow w-6 cursor-pointer"
+                onClick={rotateIcon}
+              />
+            </div>
+            <div className="child-sidenav flex flex-col">
+              <Link
+                to="/perfume"
+                className="mx-8 border-b py-2 text-base font-normal"
+              >
+                Perfume
+              </Link>
+
+              <Link
+                to="/combo-perfume-box"
+                className="mx-8 border-b py-2 text-base font-normal"
+              >
+                Combo Perfume Box
+              </Link>
+
+              <Link
+                to="/prayermat"
+                className="mx-8 border-b py-2 text-base font-normal"
+              >
+                PrayerMat
+              </Link>
+            </div>
           </li>
 
           <li className="flex justify-between border-b p-3">
