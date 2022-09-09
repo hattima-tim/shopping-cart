@@ -1,0 +1,19 @@
+.sidenav {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%) ;
+  transition: transform 0.2s ease-in;
+  background-color: #f0f0f0;
+  padding-top: 60px;
+}
+
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
