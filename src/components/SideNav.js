@@ -185,13 +185,6 @@ function SideNav() {
             <Link to="/" className="text-sm font-semibold">
               FABRIC MASK
             </Link>
-
-            <img
-              src="https://res.cloudinary.com/du3oueesv/image/upload/v1662729992/shopping%20cart/polo%20t%20shirts/product%20card%20image/Mask_group_1_mkkawx.png"
-              alt="down arrow icon"
-              className="down-arrow w-6 cursor-pointer"
-              onClick={rotateIcon}
-            />
           </li>
         </ul>
       </div>
