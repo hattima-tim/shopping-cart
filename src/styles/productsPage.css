@@ -12,11 +12,11 @@
     letter-spacing: 0.5px;
     margin-bottom: 20px;
 }
-a{
+.breadCrumbs a{
     color: #9B9392;
     text-decoration: none;
 }
-a:hover{
+.breadCrumbs a:hover{
     color: #000000;
     text-decoration: none;
 }
