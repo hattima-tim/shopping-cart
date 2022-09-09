@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import TopNavBar from "./TopNavBar";
+import SideNav from "./SideNav";
 import "../styles/header.css";
+
 function Header() {
   const [productsInCart, setProductsInCart] = useState(
     JSON.parse(localStorage.getItem("productsInCart")) || []
@@ -40,7 +42,9 @@ function Header() {
   });
   return (
     <>
-      <div className="header z-10 w-full bg-[#f0f0f0]">
+      <div className="header z-10 w-full items-center bg-[#f0f0f0]">
+        <SideNav />
+
         <Link to="/" className="my-3">
           <img
             src="https://res.cloudinary.com/du3oueesv/image/upload/v1660122044/shopping%20cart/oubd-logo-with-tm-black-1-1400x642_se0t70.png"
