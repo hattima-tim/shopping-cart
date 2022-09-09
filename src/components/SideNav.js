@@ -22,15 +22,20 @@ function SideNav() {
 
   const rotateIcon = (e) => {
     const downArrow = e.target;
-    console.log(downArrow.classList);
-    console.log(downArrow);
+    
     if (!downArrow.classList.contains("rotated")) {
-      console.log(true);
       downArrow.style.transform = "rotate(180deg)";
     } else {
       downArrow.style.transform = "rotate(0deg)";
     }
+
     downArrow.classList.toggle("rotated");
+
+    const downArrowContainerParent = downArrow.parentElement.parentElement;
+    downArrowContainerParent.classList.toggle("active-child-sidenav-container");
+
+    const childSideNav = downArrow.parentElement.nextElementSibling;
+    childSideNav.classList.toggle("active-child-sidenav");
   };
 
   return (
@@ -68,17 +73,49 @@ function SideNav() {
             </Link>
           </li>
 
-          <li className="flex justify-between border-b p-3 ">
-            <Link to="/" className="text-sm font-semibold">
-              MEN'S COLLECTION
-            </Link>
+          <li className="border-b py-2 px-3 hover:bg-[#e8e8e7]">
+            <div className="flex justify-between cursor-pointer ">
+              <Link to="/" className="text-sm font-semibold">
+                MEN'S COLLECTION
+              </Link>
 
-            <img
-              src="https://res.cloudinary.com/du3oueesv/image/upload/v1662729992/shopping%20cart/polo%20t%20shirts/product%20card%20image/Mask_group_1_mkkawx.png"
-              alt="down arrow icon"
-              className="down-arrow w-6 cursor-pointer"
-              onClick={rotateIcon}
-            />
+              <img
+                src="https://res.cloudinary.com/du3oueesv/image/upload/v1662729992/shopping%20cart/polo%20t%20shirts/product%20card%20image/Mask_group_1_mkkawx.png"
+                alt="down arrow icon"
+                className="down-arrow w-6 cursor-pointer"
+                onClick={rotateIcon}
+              />
+            </div>
+            <div className="flex flex-col child-sidenav">
+              <h2 className="mx-6 border-b py-2 text-sm font-medium text-black">
+                HALF SLEEVE T SHIRT
+              </h2>
+
+              <Link
+                to="/half-sleeve-dawah-tshirts-for-men"
+                className="mx-8 border-b py-2 text-base font-normal"
+              >
+                Half Sleeve Dawah T-Shirt
+              </Link>
+
+              <Link
+                to="/half-sleeve-regular-tshirts-for-men"
+                className="mx-8 border-b py-2 text-base font-normal"
+              >
+                Half Sleeve Regular T-Shirt
+              </Link>
+
+              <Link
+                to="/half-sleeve-cut-and-sew-solid"
+                className="mx-8 border-b py-2 text-base font-normal"
+              >
+                Half Sleeve Cut & Sew T-Shirt
+              </Link>
+
+              <Link to="/polo-t-shirt" className="mx-8 border-b py-2 font-normal text-base">
+                Premium Lascot Polo T-Shirts
+              </Link>
+            </div>
           </li>
 
           <li className="flex justify-between border-b p-3">
