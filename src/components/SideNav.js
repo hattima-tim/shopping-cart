@@ -39,7 +39,7 @@ function SideNav() {
   };
 
   return (
-    <>
+    <div className="lg:hidden">
       <div
         onClick={() => {
           showNav();
@@ -226,7 +226,7 @@ function SideNav() {
           </li>
         </ul>
       </div>
-    </>
+    </div>
   );
 }
 
