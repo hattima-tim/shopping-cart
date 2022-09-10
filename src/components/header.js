@@ -42,7 +42,7 @@ function Header() {
   });
   return (
     <>
-      <div className="header justify-between px-3 md:px-8 lg:px-8 z-10 w-full items-center bg-[#f0f0f0]">
+      <div className="header z-10 w-full items-center justify-between bg-[#f0f0f0] px-3 md:px-8 lg:px-8">
         <SideNav />
 
         <Link to="/" className="my-3">
@@ -53,8 +53,11 @@ function Header() {
           ></img>
         </Link>
 
-        <div className="shopping-cart-icon cursor-pointer py-1 px-2">
-          <span id="subTotal" className="self-center text-sm text-black">
+        <div className="shopping-cart-icon cursor-pointer py-2 px-2 lg:py-1">
+          <span
+            id="subTotal"
+            className="hidden self-center text-sm text-black lg:inline-block"
+          >
             ৳ {subTotal}.00
           </span>
 
