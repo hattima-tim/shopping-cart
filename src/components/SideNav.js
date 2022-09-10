@@ -47,7 +47,7 @@ function SideNav() {
         className="group flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-gray-500 p-3 hover:bg-black md:p-0"
       >
         <svg
-          className="m-[.1rem] w-3 fill-gray-500 group-hover:fill-white"
+          className="m-[-1rem] w-3 fill-gray-500 group-hover:fill-white md:m-[.1rem]"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
         >
