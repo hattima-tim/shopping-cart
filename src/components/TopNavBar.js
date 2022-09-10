@@ -34,26 +34,26 @@ function TopNavBar() {
 
             <Link
               to="/half-sleeve-dawah-tshirts-for-men"
-              className="m-0 border-b py-2 text-base"
+              className="m-0 border-b py-2 text-gray-500 text-base"
             >
               Half Sleeve Dawah T-Shirt
             </Link>
 
             <Link
               to="/half-sleeve-regular-tshirts-for-men"
-              className="m-0 border-b py-2 text-base"
+              className="m-0 border-b py-2 text-base text-gray-500"
             >
               Half Sleeve Regular T-Shirt
             </Link>
 
             <Link
               to="/half-sleeve-cut-and-sew-solid"
-              className="m-0 border-b py-2 text-base"
+              className="m-0 border-b py-2 text-base text-gray-500" 
             >
               Half Sleeve Cut & Sew T-Shirt
             </Link>
 
-            <Link to="/polo-t-shirt" className="m-0 border-b py-2 text-base">
+            <Link to="/polo-t-shirt" className="m-0 border-b py-2 text-gray-500 text-base">
               Premium Lascot Polo T-Shirts
             </Link>
           </div>
@@ -64,19 +64,19 @@ function TopNavBar() {
             </h2>
             <Link
               to="/solid-polo-t-shirt"
-              className="m-0 border-b py-2 text-base"
+              className="m-0 border-b py-2 text-base text-gray-500"
             >
               Solid Polo T-Shirt
             </Link>
             <Link
               to="/round-neck-logo-t-shirt"
-              className="m-0 border-b py-2 text-base"
+              className="m-0 border-b py-2 text-base text-gray-500"
             >
               Round Neck Logo Style
             </Link>
             <Link
               to="/cut-and-sew-logo-t-shirt"
-              className="m-0 border-b py-2 text-base"
+              className="m-0 border-b py-2 text-base text-gray-500"
             >
               Cut & Sew Logo Style
             </Link>
@@ -86,7 +86,7 @@ function TopNavBar() {
             <h2 className="m-0 border-b py-2 text-sm font-medium text-black">
               Joggers Collection
             </h2>
-            <Link to="/joggers" className="m-0 border-b py-2 text-base">
+            <Link to="/joggers" className="m-0 border-b py-2 text-gray-500 text-base">
               Mash Joggers
             </Link>
           </div>
@@ -116,7 +116,7 @@ function TopNavBar() {
 
             <Link
               to="/half-sleeve-dawah-tshirts-for-men"
-              className="m-0 border-b py-2 text-base"
+              className="m-0 border-b py-2 text-base text-gray-500"
             >
               Half Sleeve Dawah T-Shirt
             </Link>
@@ -147,21 +147,21 @@ function TopNavBar() {
 
             <Link
               to="/perfume"
-              className="m-0 border-b py-2 text-base"
+              className="m-0 border-b py-2 text-base text-gray-500"
             >
               Perfume
             </Link>
 
             <Link
               to="/combo-perfume-box"
-              className="m-0 border-b py-2 text-base"
+              className="m-0 border-b py-2 text-base text-gray-500"
             >
               Combo Perfume Box
             </Link>
 
             <Link
               to="/prayermat"
-              className="m-0 border-b py-2 text-base"
+              className="m-0 border-b py-2 text-base text-gray-500"
             >
               Prayermat
             </Link>
