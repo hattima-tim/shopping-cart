@@ -42,7 +42,7 @@ function Header() {
   });
   return (
     <>
-      <div className="header z-10 w-full items-center bg-[#f0f0f0]">
+      <div className="header justify-between px-3 md:px-8 lg:px-8 z-10 w-full items-center bg-[#f0f0f0]">
         <SideNav />
 
         <Link to="/" className="my-3">
