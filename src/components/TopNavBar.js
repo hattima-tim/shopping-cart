@@ -5,7 +5,7 @@ function TopNavBar() {
   return (
     <div
       id="top-nav-bar"
-      className="align-center flex w-full items-center justify-center gap-4 bg-black p-5 text-white"
+      className="align-center hidden w-full items-center justify-center gap-4 bg-black p-5 text-white lg:flex"
     >
       <Link to="/" className="text-sm font-medium text-[#f0f0f0]">
         HOME
@@ -34,7 +34,7 @@ function TopNavBar() {
 
             <Link
               to="/half-sleeve-dawah-tshirts-for-men"
-              className="m-0 border-b py-2 text-gray-500 text-base"
+              className="m-0 border-b py-2 text-base text-gray-500"
             >
               Half Sleeve Dawah T-Shirt
             </Link>
@@ -48,12 +48,15 @@ function TopNavBar() {
 
             <Link
               to="/half-sleeve-cut-and-sew-solid"
-              className="m-0 border-b py-2 text-base text-gray-500" 
+              className="m-0 border-b py-2 text-base text-gray-500"
             >
               Half Sleeve Cut & Sew T-Shirt
             </Link>
 
-            <Link to="/polo-t-shirt" className="m-0 border-b py-2 text-gray-500 text-base">
+            <Link
+              to="/polo-t-shirt"
+              className="m-0 border-b py-2 text-base text-gray-500"
+            >
               Premium Lascot Polo T-Shirts
             </Link>
           </div>
@@ -86,7 +89,10 @@ function TopNavBar() {
             <h2 className="m-0 border-b py-2 text-sm font-medium text-black">
               Joggers Collection
             </h2>
-            <Link to="/joggers" className="m-0 border-b py-2 text-gray-500 text-base">
+            <Link
+              to="/joggers"
+              className="m-0 border-b py-2 text-base text-gray-500"
+            >
               Mash Joggers
             </Link>
           </div>
