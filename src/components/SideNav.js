@@ -6,8 +6,8 @@ function SideNav() {
   const sideNavRef = useRef(null);
 
   const closeNav = () => {
-    const body = document.querySelector("body");
-    body.style.overflow = "auto";
+    const root = document.querySelector("#root");
+    root.style.overflow = "visible";
 
     sideNavRef.current.style.transform = "translateX(-100%)";
   };
