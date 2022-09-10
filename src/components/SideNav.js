@@ -57,7 +57,7 @@ function SideNav() {
 
       <div
         ref={sideNavRef}
-        className="sidenav z-50 block w-4/6 overflow-auto"
+        className="sidenav z-50 block w-4/6 md:w-7/12 overflow-auto"
       >
         <div
           className="closebtn cursor-pointer hover:text-black"
