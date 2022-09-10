@@ -44,7 +44,7 @@ function SideNav() {
         onClick={() => {
           showNav();
         }}
-        className="group cursor-pointer rounded-full border border-gray-500 p-3 hover:bg-black"
+        className="group flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-gray-500 p-3 hover:bg-black md:p-0"
       >
         <svg
           className="m-[.1rem] w-3 fill-gray-500 group-hover:fill-white"
@@ -57,7 +57,7 @@ function SideNav() {
 
       <div
         ref={sideNavRef}
-        className="sidenav z-50 block w-4/6 md:w-7/12 overflow-auto"
+        className="sidenav z-50 block w-4/6 overflow-auto md:w-7/12"
       >
         <div
           className="closebtn cursor-pointer hover:text-black"
@@ -141,7 +141,7 @@ function SideNav() {
                 to="/cut-and-sew-logo-t-shirt"
                 className="mx-8 border-b py-2 text-base font-normal"
               >
-              Cut & Sew Logo Style
+                Cut & Sew Logo Style
               </Link>
 
               <h2 className="mx-6 border-b py-2 text-sm font-medium text-black">
@@ -154,7 +154,6 @@ function SideNav() {
               >
                 Mash Joggers
               </Link>
-
             </div>
           </li>
 
@@ -171,7 +170,7 @@ function SideNav() {
                 onClick={rotateIcon}
               />
             </div>
-            
+
             <div className="child-sidenav flex flex-col">
               <Link
                 to="/half-sleeve-t-shirt"
@@ -195,7 +194,7 @@ function SideNav() {
                 onClick={rotateIcon}
               />
             </div>
-            
+
             <div className="child-sidenav flex flex-col">
               <Link
                 to="/perfume"
