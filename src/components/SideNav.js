@@ -6,16 +6,15 @@ function SideNav() {
   const sideNavRef = useRef(null);
 
   const closeNav = () => {
-    const root = document.querySelector("#root");
-    root.style.overflow = "visible";
+    const body = document.querySelector("body");
+    body.style.overflow = "visible";
 
     sideNavRef.current.style.transform = "translateX(-100%)";
   };
 
   const showNav = () => {
-    const root = document.querySelector("#root");
-    root.style.height = "100vh";
-    root.style.overflow = "hidden";
+    const body = document.querySelector("body");
+    body.style.overflow = "hidden";
 
     sideNavRef.current.style.transform = "translateX(0)";
   };
