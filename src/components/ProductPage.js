@@ -134,7 +134,7 @@ function ProductPage({ getProductData }) {
         />
 
         <div className="mainInfo lg:ml-8">
-          <div className="breadcrumbs text-sm lg:text-base">
+          <div className="breadcrumbs text-sm mt-2 lg:mt-0 lg:text-base">
             {productData.breadCrumbs.map((breadCrumb, index) => {
               if (index === productData.breadCrumbs.length - 1) {
                 return (
@@ -152,7 +152,7 @@ function ProductPage({ getProductData }) {
             })}
           </div>
 
-          <h1 className="mt-2 mb-6 text-xl font-bold text-gray-600 lg:text-3xl">
+          <h1 className="mt-2 mb-6 text-xl font-bold text-[#555555] lg:text-3xl">
             {productData.name}
           </h1>
           <h2 className="mb-4 text-2xl font-bold text-slate-800">
