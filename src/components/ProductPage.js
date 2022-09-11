@@ -103,7 +103,7 @@ function ProductPage({ getProductData }) {
   let product = {
     id: uniqid(),
     name: productData.name,
-    img: productData.img,
+    img: productData.imgForProductPage,
     price: productData.price,
     quantity: itemNumber,
     subTotal: itemNumber * (productData.price.split("৳")[1] * 1),
