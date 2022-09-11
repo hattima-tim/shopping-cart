@@ -34,28 +34,28 @@ function TopNavBar() {
 
             <Link
               to="/half-sleeve-dawah-tshirts-for-men"
-              className="m-0 border-b py-2 text-base text-gray-500"
+              className="m-0 border-b py-2 text-base text-[#555555]"
             >
               Half Sleeve Dawah T-Shirt
             </Link>
 
             <Link
               to="/half-sleeve-regular-tshirts-for-men"
-              className="m-0 border-b py-2 text-base text-gray-500"
+              className="m-0 border-b py-2 text-base text-[#555555]"
             >
               Half Sleeve Regular T-Shirt
             </Link>
 
             <Link
               to="/half-sleeve-cut-and-sew-solid"
-              className="m-0 border-b py-2 text-base text-gray-500"
+              className="m-0 border-b py-2 text-base text-[#555555]"
             >
               Half Sleeve Cut & Sew T-Shirt
             </Link>
 
             <Link
               to="/polo-t-shirt"
-              className="m-0 border-b py-2 text-base text-gray-500"
+              className="m-0 border-b py-2 text-base text-[#555555]"
             >
               Premium Lascot Polo T-Shirts
             </Link>
@@ -67,19 +67,19 @@ function TopNavBar() {
             </h2>
             <Link
               to="/solid-polo-t-shirt"
-              className="m-0 border-b py-2 text-base text-gray-500"
+              className="m-0 border-b py-2 text-base text-[#555555]"
             >
               Solid Polo T-Shirt
             </Link>
             <Link
               to="/round-neck-logo-t-shirt"
-              className="m-0 border-b py-2 text-base text-gray-500"
+              className="m-0 border-b py-2 text-base text-[#555555]"
             >
               Round Neck Logo Style
             </Link>
             <Link
               to="/cut-and-sew-logo-t-shirt"
-              className="m-0 border-b py-2 text-base text-gray-500"
+              className="m-0 border-b py-2 text-base text-[#555555]"
             >
               Cut & Sew Logo Style
             </Link>
@@ -91,7 +91,7 @@ function TopNavBar() {
             </h2>
             <Link
               to="/joggers"
-              className="m-0 border-b py-2 text-base text-gray-500"
+              className="m-0 border-b py-2 text-base text-[#555555]"
             >
               Mash Joggers
             </Link>
@@ -122,7 +122,7 @@ function TopNavBar() {
 
             <Link
               to="/half-sleeve-dawah-tshirts-for-men"
-              className="m-0 border-b py-2 text-base text-gray-500"
+              className="m-0 border-b py-2 text-base text-[#555555]"
             >
               Half Sleeve Dawah T-Shirt
             </Link>
@@ -153,21 +153,21 @@ function TopNavBar() {
 
             <Link
               to="/perfume"
-              className="m-0 border-b py-2 text-base text-gray-500"
+              className="m-0 border-b py-2 text-base text-[#555555]"
             >
               Perfume
             </Link>
 
             <Link
               to="/combo-perfume-box"
-              className="m-0 border-b py-2 text-base text-gray-500"
+              className="m-0 border-b py-2 text-base text-[#555555]"
             >
               Combo Perfume Box
             </Link>
 
             <Link
               to="/prayermat"
-              className="m-0 border-b py-2 text-base text-gray-500"
+              className="m-0 border-b py-2 text-base text-[#555555]"
             >
               Prayermat
             </Link>
