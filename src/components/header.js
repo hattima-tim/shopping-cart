@@ -32,12 +32,15 @@ function Header() {
 
   const cartDisplayer = useRef(null);
 
-  const showCartDrawer = () => {
+  const showCartDrawer = (event) => {
     cartDisplayer.current.style.transform = "translateX(0)";
+    document.body.addEventListener("click", hideCartDrawer);
+    event.stopPropagation();
   };
 
   const hideCartDrawer = () => {
     cartDisplayer.current.style.transform = "translateX(100%)";
+    document.body.removeEventListener("click", hideCartDrawer);
   };
 
   const showProductstooltip = () => {
@@ -112,7 +115,7 @@ function Header() {
             >
               &times;
             </div>
-            <h1 className="mb-2 lg:hidden text-center text-xl font-bold">Cart</h1>
+            <h1 className="my-2 lg:hidden text-center text-xl font-bold">Cart</h1>
             <div className="mx-auto mb-4  lg:hidden w-16 border-2 bg-[#7f7f7f]"></div>
             {productsInCart.toString() !== "" && (
               <>
