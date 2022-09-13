@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import TopNavBar from "./TopNavBar";
 import SideNav from "./SideNav";
@@ -30,6 +30,23 @@ function Header() {
     setProductsInCart([]);
   };
 
+  const cartDisplayer = useRef(null);
+
+  const showCartDrawer = () => {
+    cartDisplayer.current.style.transform = "translateX(0)";
+  };
+
+  const hideCartDrawer = () => {
+    cartDisplayer.current.style.transform = "translateX(100%)";
+  };
+
+  const showProductstooltip = () => {
+    cartDisplayer.current.style.visibility = "visible";
+  };
+
+  const hideProductstooltip = () => {
+    cartDisplayer.current.style.visibility = "hidden";
+  };
   return (
     <>
       <div className="header-container">
@@ -44,7 +61,15 @@ function Header() {
             ></img>
           </Link>
 
-          <div className="shopping-cart-icon cursor-pointer py-2 px-2 lg:py-1">
+          <div
+            {...(window.innerWidth > 1024
+              ? { onMouseOver: showProductstooltip }
+              : { onClick: showCartDrawer })}
+            {...(window.innerWidth > 1024
+              ? { onMouseLeave: hideProductstooltip }
+              : {})}
+            className="shopping-cart-icon cursor-pointer py-2 px-2 lg:py-1"
+          >
             <span
               id="subTotal"
               className="hidden self-center text-sm text-black lg:inline-block"
@@ -68,59 +93,77 @@ function Header() {
                 {totalItem}
               </span>
             </span>
-
-            <div className="products_tooltip cursor-auto">
-              {productsInCart.toString() !== "" && (
-                <>
-                  <div className="products_container">
-                    {productsInCart.map((product, index) => {
-                      return (
-                        <div className="product_tooltip_item" key={index}>
-                          <div className="product_tooltip_item_img">
-                            <img src={product.img} alt={product.name} />
-                          </div>
-
-                          <div className="product_tooltip_item_info">
-                            <div className="tooltip_header">
-                              <h3 className="text-[#4e4e4e]">{product.name}</h3>
-                              <button
-                                data-id={index}
-                                className="remove_item_btn p-2"
-                                onClick={removeItemFromCart}
-                              >
-                                x
-                              </button>
-                            </div>
-
-                            <p>FABRIC: {product.fabric}</p>
-                            <p>SIZE: {product.size}</p>
-                            <p>
-                              {product.quantity} x{" "}
-                              <span className="font-bold">{product.price}</span>
-                            </p>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <p className="flex justify-center border-t border-b-2 border-t-[#dcdcdc] border-b-[#dcdcdc] py-3">
-                    <span>Subtotal: ৳</span>
-                    <span className="text-black">{subTotal}</span>
-                  </p>
-
-                  <Link to="/cart" className="view_cart">
-                    VIEW CART
-                  </Link>
-                  <button className="checkout_btn" onClick={handleCheckout}>
-                    CHECKOUT
-                  </button>
-                </>
-              )}
-
-              {productsInCart.toString() === "" && (
-                <p className="empty_cart">Your cart is empty</p>
-              )}
+          </div>
+          <div
+            ref={cartDisplayer}
+            {...(window.innerWidth > 1024
+              ? { className: "products_tooltip" }
+              : { className: "cart-drawer" })}
+            {...(window.innerWidth > 1024
+              ? { onMouseOver: showProductstooltip }
+              : {})}
+            {...(window.innerWidth > 1024
+              ? { onMouseLeave: hideProductstooltip }
+              : {})}
+          >
+            <div
+              className="closebtn cursor-pointer hover:text-black lg:hidden"
+              onClick={hideCartDrawer}
+            >
+              &times;
             </div>
+            <h1 className="mb-2 lg:hidden text-center text-xl font-bold">Cart</h1>
+            <div className="mx-auto mb-4  lg:hidden w-16 border-2 bg-[#7f7f7f]"></div>
+            {productsInCart.toString() !== "" && (
+              <>
+                <div className="products_container">
+                  {productsInCart.map((product, index) => {
+                    return (
+                      <div className="product_tooltip_item" key={index}>
+                        <div className="product_tooltip_item_img">
+                          <img src={product.img} alt={product.name} />
+                        </div>
+
+                        <div className="product_tooltip_item_info">
+                          <div className="tooltip_header">
+                            <h3 className="text-[#4e4e4e]">{product.name}</h3>
+                            <button
+                              data-id={index}
+                              className="remove_item_btn p-2"
+                              onClick={removeItemFromCart}
+                            >
+                              x
+                            </button>
+                          </div>
+
+                          <p>FABRIC: {product.fabric}</p>
+                          <p>SIZE: {product.size}</p>
+                          <p>
+                            {product.quantity} x{" "}
+                            <span className="font-bold">{product.price}</span>
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                <p className="flex justify-center border-t border-b-2 border-t-[#dcdcdc] border-b-[#dcdcdc] py-3">
+                  <span>Subtotal: ৳</span>
+                  <span className="text-black">{subTotal}</span>
+                </p>
+
+                <Link to="/cart" className="view_cart">
+                  VIEW CART
+                </Link>
+                <button className="checkout_btn" onClick={handleCheckout}>
+                  CHECKOUT
+                </button>
+              </>
+            )}
+
+            {productsInCart.toString() === "" && (
+              <p className="empty_cart">Your cart is empty</p>
+            )}
           </div>
         </div>
 
