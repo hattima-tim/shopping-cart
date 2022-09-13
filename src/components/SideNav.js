@@ -2,12 +2,15 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import "../styles/sidenav.css";
 
-function SideNav() {
+function SideNav({ header }) {
   const sideNavRef = useRef(null);
 
   const closeNav = () => {
     const body = document.querySelector("body");
     body.style.overflow = "visible";
+
+    const headerSibling = header.nextElementSibling;
+    headerSibling.removeEventListener("click", closeNav);
 
     sideNavRef.current.style.transform = "translateX(-100%)";
   };
@@ -15,6 +18,9 @@ function SideNav() {
   const showNav = () => {
     const body = document.querySelector("body");
     body.style.overflow = "hidden";
+
+    const headerSibling = header.nextElementSibling;
+    headerSibling.addEventListener("click", closeNav);
 
     sideNavRef.current.style.transform = "translateX(0)";
   };

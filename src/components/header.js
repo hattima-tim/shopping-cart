@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import TopNavBar from "./TopNavBar";
 import SideNav from "./SideNav";
@@ -50,11 +50,19 @@ function Header() {
   const hideProductstooltip = () => {
     cartDisplayer.current.style.visibility = "hidden";
   };
+
+  const headerRef = useRef(null);
+  const [header, setHeader] = useState(null);
+
+  useEffect(() => {
+    setHeader(headerRef.current);
+  }, []);
+
   return (
     <>
-      <div className="header-container">
+      <div ref={headerRef} className="header-container">
         <div className="header z-10 w-full items-center justify-between bg-[#f0f0f0] px-3 md:px-8 lg:px-8">
-          <SideNav />
+          <SideNav header={header} />
 
           <Link to="/" className="my-3">
             <img
@@ -115,8 +123,10 @@ function Header() {
             >
               &times;
             </div>
-            <h1 className="my-2 lg:hidden text-center text-xl font-bold">Cart</h1>
-            <div className="mx-auto mb-4  lg:hidden w-16 border-2 bg-[#7f7f7f]"></div>
+            <h1 className="my-2 text-center text-xl font-bold lg:hidden">
+              Cart
+            </h1>
+            <div className="mx-auto mb-4  w-16 border-2 bg-[#7f7f7f] lg:hidden"></div>
             {productsInCart.toString() !== "" && (
               <>
                 <div className="products_container">
