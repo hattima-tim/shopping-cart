@@ -25,18 +25,18 @@ function SearchBar() {
     }
   };
   return (
-    <div className="search-bar">
+    <div className="search-bar ml-[10px]">
       <div className="relative">
         <input
           onChange={search}
           type="text"
           placeholder="Search"
-          className="w-80 rounded-full bg-[#e9e9e9] p-2 text-sm"
+          className="hidden w-80 rounded-full bg-[#e9e9e9] p-2 text-sm lg:block"
         />
         <img
           src="https://res.cloudinary.com/du3oueesv/image/upload/v1663124810/shopping%20cart/1890px-Vector_search_icon.svg_odyv9y.png"
           alt="search"
-          className="absolute right-2.5 top-[10px] h-4 w-4"
+          className="h-4 w-4 lg:absolute lg:right-2.5 lg:top-[10px]"
         />
       </div>
       <div className="search-results absolute z-10 w-80 bg-white">
