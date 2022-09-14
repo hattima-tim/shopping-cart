@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import getAllHalfSleeveDawaTShirtsData from "./products/halfSleeveDawah/productsData";
 import getAllHalfSleeveRegularTShirtsData from "./products/halfSleeveRegular/productsData";
 import getAllPoloTShirtsData from "./products/poloTShirts/productsData";
@@ -42,7 +43,7 @@ function SearchBar() {
       <div className="search-results absolute z-10 w-80 bg-white">
         {searchResults.map((product) => {
           return (
-            <div className="flex gap-2 p-3 hover:bg-[#e9e9e9]">
+            <Link to={`${product.breadCrumbs[1].path}/product/${product.pathName}`} className="flex gap-2 p-3 hover:bg-[#e9e9e9]">
               <img
                 src={product.imgForProductPage}
                 alt={product.name}
@@ -50,7 +51,7 @@ function SearchBar() {
               />
               <p className="flex-1 text-sm">{product.name}</p>
               <p className="text-sm text-black">{product.price}</p>
-            </div>
+            </Link>
           );
         })}
       </div>
