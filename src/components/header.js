@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import TopNavBar from "./TopNavBar";
 import SideNav from "./SideNav";
+import SearchBar from "./SearchBar";
 import "../styles/header.css";
 
 function Header() {
@@ -63,8 +64,9 @@ function Header() {
       <div ref={headerRef} className="header-container">
         <div className="header z-10 w-full items-center justify-between bg-[#f0f0f0] px-3 md:px-8 lg:px-8">
           <SideNav header={header} />
+          <SearchBar/>
 
-          <Link to="/" className="my-3">
+          <Link to="/" className="my-3 lg:ml-[-15%]">
             <img
               src="https://res.cloudinary.com/du3oueesv/image/upload/v1660122044/shopping%20cart/oubd-logo-with-tm-black-1-1400x642_se0t70.png"
               className="companyLogo w-24"
