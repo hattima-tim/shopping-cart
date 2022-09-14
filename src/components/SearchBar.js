@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import getAllHalfSleeveDawaTShirtsData from "./products/halfSleeveDawah/productsData";
 import getAllHalfSleeveRegularTShirtsData from "./products/halfSleeveRegular/productsData";
 import getAllPoloTShirtsData from "./products/poloTShirts/productsData";
+import uniqid from "uniqid";
 
 function SearchBar() {
   const halfSleeveDawahTShirts = getAllHalfSleeveDawaTShirtsData();
@@ -57,6 +58,7 @@ function SearchBar() {
         {searchResults.map((product) => {
           return (
             <Link
+              key={uniqid()}
               to={`${product.breadCrumbs[1].path}/product/${product.pathName}`}
               className="flex gap-2 p-3 hover:bg-[#e9e9e9]"
             >
