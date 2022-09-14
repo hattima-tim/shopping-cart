@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import getAllHalfSleeveDawaTShirtsData from "./products/halfSleeveDawah/productsData";
 import getAllHalfSleeveRegularTShirtsData from "./products/halfSleeveRegular/productsData";
@@ -25,6 +25,19 @@ function SearchBar() {
       setSearchResults([]);
     }
   };
+
+  useEffect(() => {
+    if (searchResults.length > 0) {
+      document.body.addEventListener("click", () => {
+        setSearchResults([]);
+      });
+    } else {
+      document.body.removeEventListener("click", () => {
+        setSearchResults([]);
+      });
+    }
+  }, [searchResults]);
+
   return (
     <div className="search-bar ml-[10px]">
       <div className="relative">
@@ -43,7 +56,10 @@ function SearchBar() {
       <div className="search-results absolute z-10 w-80 bg-white">
         {searchResults.map((product) => {
           return (
-            <Link to={`${product.breadCrumbs[1].path}/product/${product.pathName}`} className="flex gap-2 p-3 hover:bg-[#e9e9e9]">
+            <Link
+              to={`${product.breadCrumbs[1].path}/product/${product.pathName}`}
+              className="flex gap-2 p-3 hover:bg-[#e9e9e9]"
+            >
               <img
                 src={product.imgForProductPage}
                 alt={product.name}
