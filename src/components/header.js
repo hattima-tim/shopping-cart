@@ -62,11 +62,11 @@ function Header() {
   return (
     <>
       <div ref={headerRef} className="header-container">
-        <div className="header z-10 w-full items-center justify-between bg-[#f0f0f0] px-3 md:px-8 lg:px-8">
+        <div className="header z-10 w-full items-center bg-[#f0f0f0] px-3 md:px-8 lg:justify-between lg:px-8">
           <SideNav header={header} />
-          <SearchBar/>
+          <SearchBar />
 
-          <Link to="/" className="my-3 lg:ml-[-15%]">
+          <Link to="/" className="my-3 ml-auto mr-[2.5rem] lg:mr-64">
             <img
               src="https://res.cloudinary.com/du3oueesv/image/upload/v1660122044/shopping%20cart/oubd-logo-with-tm-black-1-1400x642_se0t70.png"
               className="companyLogo w-24"
@@ -81,7 +81,7 @@ function Header() {
             {...(window.innerWidth > 1024
               ? { onMouseLeave: hideProductstooltip }
               : {})}
-            className="shopping-cart-icon cursor-pointer py-2 px-2 lg:py-1"
+            className="shopping-cart-icon ml-auto cursor-pointer py-2 px-2 lg:py-1"
           >
             <span
               id="subTotal"
