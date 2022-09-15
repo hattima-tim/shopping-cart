@@ -101,7 +101,7 @@ function SearchBar() {
           </div>
         )}
       </div>
-      <div className="search-results absolute z-10 w-full bg-white lg:w-80">
+      <div className="search-results absolute z-10 max-h-[100vh] w-full overflow-auto bg-white lg:w-80">
         {searchResults.map((product) => {
           return (
             <Link
