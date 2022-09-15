@@ -39,22 +39,63 @@ function SearchBar() {
     }
   }, [searchResults]);
 
+  const [onSmallScreen, setOnSmallScreen] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth < 1024) {
+      setOnSmallScreen(true);
+    } else {
+      setOnSmallScreen(false);
+    }
+  }, []);
+
+  const [showSearchPage, setShowSearchPage] = useState(false);
+
   return (
-    <div className="search-bar ml-[10px]">
+    <div
+      {...(showSearchPage
+        ? { className: "fixed left-0 bottom-0 w-full h-full bg-gray-100 z-50" }
+        : { className: "search-bar ml-[10px]" })}
+    >
       <div className="relative">
         <input
           onChange={search}
           type="text"
           placeholder="Search"
-          className="hidden w-80 rounded-full bg-[#e9e9e9] p-2 text-sm lg:block"
+          {...(showSearchPage
+            ? {
+                className:
+                  "w-full h-14 pl-8 pr-10 text-lg focus:outline-none focus:shadow-outline border border-gray-300 bg-white",
+              }
+            : {
+                className:
+                  "hidden w-80 rounded-full bg-[#e9e9e9] p-2 text-sm lg:block",
+              })}
         />
         <img
           src="https://res.cloudinary.com/du3oueesv/image/upload/v1663124810/shopping%20cart/1890px-Vector_search_icon.svg_odyv9y.png"
           alt="search"
-          className="h-4 w-4 lg:absolute lg:right-2.5 lg:top-[10px]"
+          {...(onSmallScreen && {
+            onClick: () => {
+              setShowSearchPage(true);
+            },
+          })}
+          {...(showSearchPage
+            ? {
+                className: "h-4 w-4 top-5 left-2 absolute",
+              }
+            : {
+                className:
+                  "h-4 cursor-pointer w-4 lg:absolute lg:right-2.5 lg:top-[10px]",
+              })}
         />
+        {showSearchPage && (
+          <div className="absolute top-2 right-2.5 cursor-pointer text-3xl">
+            &times;
+          </div>
+        )}
       </div>
-      <div className="search-results absolute z-10 w-80 bg-white">
+      <div className="search-results absolute z-10 w-full bg-white lg:w-80">
         {searchResults.map((product) => {
           return (
             <Link
