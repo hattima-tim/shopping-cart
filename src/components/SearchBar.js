@@ -50,6 +50,9 @@ function SearchBar() {
   }, []);
 
   const [showSearchPage, setShowSearchPage] = useState(false);
+  const closeSearchPage = () => {
+    setShowSearchPage(false);
+  };
 
   return (
     <div
@@ -90,7 +93,10 @@ function SearchBar() {
               })}
         />
         {showSearchPage && (
-          <div className="absolute top-2 right-2.5 cursor-pointer text-3xl">
+          <div
+            onClick={closeSearchPage}
+            className="absolute top-2 right-2.5 cursor-pointer text-3xl"
+          >
             &times;
           </div>
         )}
