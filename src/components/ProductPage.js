@@ -166,29 +166,39 @@ function ProductPage({ getProductData }) {
     <div className="lg:mx-16">
       <div className="main mx-4 mb-12 mt-4 lg:flex">
         <div className="w-full lg:w-1/2">
-          <Splide
-            onMouseOver={handleMouseOver}
-            onMouseLeave={handleMouseLeave}
-            ref={mainRef}
-            options={mainOptions}
-          >
-            {productData.imagesForProductPage.map((imgSrc) => {
-              return (
-                <SplideSlide key={uniqid()} className="">
-                  <ImageMagnifier src={imgSrc} alt={productData.name} />
-                </SplideSlide>
-              );
-            })}
-          </Splide>
-          <Splide ref={thumbsRef} options={thumbsOptions}>
-            {productData.imagesForProductPage.map((imgSrc) => {
-              return (
-                <SplideSlide key={uniqid()} className="thumbnail">
-                  <img src={imgSrc} alt={productData.name} />
-                </SplideSlide>
-              );
-            })}
-          </Splide>
+          {productData.imagesForProductPage.length > 1 ? (
+            <Splide
+              onMouseOver={handleMouseOver}
+              onMouseLeave={handleMouseLeave}
+              ref={mainRef}
+              options={mainOptions}
+            >
+              {productData.imagesForProductPage.map((imgSrc) => {
+                return (
+                  <SplideSlide key={uniqid()} className="">
+                    <ImageMagnifier src={imgSrc} alt={productData.name} />
+                  </SplideSlide>
+                );
+              })}
+            </Splide>
+          ) : (
+            <ImageMagnifier
+              src={productData.imagesForProductPage[0]}
+              alt={productData.name}
+            />
+          )}
+
+          {productData.imagesForProductPage.length > 1 && (
+            <Splide ref={thumbsRef} options={thumbsOptions}>
+              {productData.imagesForProductPage.map((imgSrc) => {
+                return (
+                  <SplideSlide key={uniqid()} className="thumbnail">
+                    <img src={imgSrc} alt={productData.name} />
+                  </SplideSlide>
+                );
+              })}
+            </Splide>
+          )}
         </div>
 
         <div className="mainInfo lg:ml-8">
