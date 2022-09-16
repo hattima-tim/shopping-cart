@@ -110,7 +110,7 @@ function SearchBar() {
               className="flex gap-2 p-3 hover:bg-[#e9e9e9]"
             >
               <img
-                src={product.imgForProductPage}
+                src={product.imagesForProductPage[0]}
                 alt={product.name}
                 className="h-10 w-10 rounded-full"
               />
