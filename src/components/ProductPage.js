@@ -79,6 +79,28 @@ function ProductPage({ getProductData }) {
     }
   };
 
+  const [color, setColor] = useState("");
+  const handleColorBtnClick = (e) => {
+    const currentBtn = e.target;
+    const isButtonActive = currentBtn.classList.contains("active");
+
+    const colorBtns = document.querySelectorAll(".color-btn");
+    colorBtns.forEach((btn) => {
+      if (btn !== currentBtn) {
+        btn.classList.remove("active");
+      }
+    });
+
+    if (isButtonActive) {
+      // means that this button is pressed twice to deselect it
+      currentBtn.classList.remove("active");
+      setColor("");
+    } else {
+      currentBtn.classList.add("active");
+      setColor(currentBtn.textContent);
+    }
+  };
+
   const [size, setSize] = useState("");
 
   const handleSizeBtnClick = (e) => {
@@ -110,6 +132,7 @@ function ProductPage({ getProductData }) {
     quantity: itemNumber,
     subTotal: itemNumber * (productData.price.split("৳")[1] * 1),
     fabric: fabric,
+    color: color,
     size: size,
     path: params.name,
   };
@@ -155,7 +178,7 @@ function ProductPage({ getProductData }) {
     cover: true,
     isNavigation: true,
   };
-  
+
   const handleMouseOver = () => {
     const arrows = document.querySelectorAll(".splide__arrow");
     console.log(arrows);
@@ -250,6 +273,24 @@ function ProductPage({ getProductData }) {
                     onClick={handleFabricBtnClick}
                   >
                     {fabric}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          {productData.color.toString() !== "" && ( // for some products color data is not present
+            <div className="colorButtons">
+              <span className="text-sm font-bold text-slate-800">COLOR</span>
+              <br />
+              {productData.color.map((color, index) => {
+                return (
+                  <button
+                    key={index}
+                    className="color-btn mb-1 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
+                    onClick={handleColorBtnClick}
+                  >
+                    {color}
                   </button>
                 );
               })}
