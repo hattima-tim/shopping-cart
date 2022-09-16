@@ -19,7 +19,7 @@ function getAllHalfSleeveDawaTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662393457/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/image%20for%20productCards/mthrsd210-turkish-350x435_xjvevu.jpg",
       name: "Behind Every Delay There Is Goodness",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -65,7 +65,7 @@ function getAllHalfSleeveDawaTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662393500/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/image%20for%20productCards/mthrsd196-black-350x435_lrnu0w.jpg",
       name: "Assalamu Alaikum V5",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -111,7 +111,7 @@ function getAllHalfSleeveDawaTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662393544/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/image%20for%20productCards/mthrsd197-turkish-blue-350x435_oodnh2.jpg",
       name: "Dua",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -157,7 +157,7 @@ function getAllHalfSleeveDawaTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662393621/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/image%20for%20productCards/mthrsd207-black-350x435_kp8nqc.jpg",
       name: "Made of dust",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -203,7 +203,7 @@ function getAllHalfSleeveDawaTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662393681/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/image%20for%20productCards/mthrsd31-turkish-blue-350x435_gbwqgg.jpg",
       name: "Prophet Muhammad(sm) My Hero",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -249,7 +249,7 @@ function getAllHalfSleeveDawaTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662393734/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/image%20for%20productCards/mthrsd209-black-350x435_glldxk.jpg",
       name: "What He got Losing His Rabb!",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -295,7 +295,7 @@ function getAllHalfSleeveDawaTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662393781/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/image%20for%20productCards/mthrsd206-navy-350x435_abtace.jpg",
       name: "God Is One",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -341,7 +341,7 @@ function getAllHalfSleeveDawaTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662393829/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/image%20for%20productCards/mthrsd205-black-350x435_kwx5un.jpg",
       name: "Salaf Ways",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -387,7 +387,7 @@ function getAllHalfSleeveDawaTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662393882/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/image%20for%20productCards/mthrsd203-navy-350x435_jjykoe.jpg",
       name: "I Am Muslim",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -433,7 +433,7 @@ function getAllHalfSleeveDawaTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662393924/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/image%20for%20productCards/mthrsd202-navy-350x435_bzevfg.jpg",
       name: "Nirob Thaka",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -479,7 +479,7 @@ function getAllHalfSleeveDawaTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662393977/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/image%20for%20productCards/mthrsd201-black-350x435_a07nom.jpg",
       name: "Assalamu Alaikum v6",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -525,7 +525,7 @@ function getAllHalfSleeveDawaTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662394049/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/image%20for%20productCards/mthrsd200-Turkish-blue-350x435_l4swby.jpg",
       name: "Muslim 24/7",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -571,7 +571,7 @@ function getAllHalfSleeveDawaTShirtsData() {
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663296343/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd212-bottle-green-scaled-920x920_h7pjpm.jpg",
       ],
       name: "People Forgets and Allah Forgives",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -617,7 +617,7 @@ function getAllHalfSleeveDawaTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662393384/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/image%20for%20productCards/mthrsd211-khaki-350x435_i3clje.jpg",
       name: "Pray Like It's Your Last Day",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [],
       fabric: ["CARD COTTON", "VISCOSE COTTON", "COMBED COTTON"],
       color: ["khaki", "anthra", "navy", "ardoise"],

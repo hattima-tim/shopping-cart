@@ -21,7 +21,7 @@ function getAllHalfSleeveRegularTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662464167/shopping%20cart/half%20sleeve%20regular/product%20card%20images/mthrsr74-black-350x435_y7ndbw.jpg",
       name: "Life Is Unstoppable",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -67,7 +67,7 @@ function getAllHalfSleeveRegularTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662464244/shopping%20cart/half%20sleeve%20regular/product%20card%20images/mthrsr75-anthra-350x435_ota22m.jpg",
       name: "Train Insane",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -113,7 +113,7 @@ function getAllHalfSleeveRegularTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662464294/shopping%20cart/half%20sleeve%20regular/product%20card%20images/mthrsr73-black-350x435_vny1ip.jpg",
       name: "Success Story",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -159,7 +159,7 @@ function getAllHalfSleeveRegularTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662464332/shopping%20cart/half%20sleeve%20regular/product%20card%20images/mthrsr72-anthra-350x435_uv7cio.jpg",
       name: "Over Load",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -205,7 +205,7 @@ function getAllHalfSleeveRegularTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662464371/shopping%20cart/half%20sleeve%20regular/product%20card%20images/mthrsr71-black-350x435_cdhajw.jpg",
       name: "Don’t follow the trend",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -251,7 +251,7 @@ function getAllHalfSleeveRegularTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662464413/shopping%20cart/half%20sleeve%20regular/product%20card%20images/mthrsr70-black-350x435_k1jghp.jpg",
       name: "Always Have An Attitude",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -297,7 +297,7 @@ function getAllHalfSleeveRegularTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662464458/shopping%20cart/half%20sleeve%20regular/product%20card%20images/69-Bottle-Green-350x435_fisgl4.jpg",
       name: "Relax",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -343,7 +343,7 @@ function getAllHalfSleeveRegularTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662464500/shopping%20cart/half%20sleeve%20regular/product%20card%20images/mthrsr68-black-350x435_dq3lj8.jpg",
       name: "Moonlight",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -389,7 +389,7 @@ function getAllHalfSleeveRegularTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662464564/shopping%20cart/half%20sleeve%20regular/product%20card%20images/mthrsr67-black-350x435_i6ffek.jpg",
       name: "The Worst Distance",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -435,7 +435,7 @@ function getAllHalfSleeveRegularTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662464626/shopping%20cart/half%20sleeve%20regular/product%20card%20images/mthrsr66-black-350x435_nudtdi.jpg",
       name: "Don’t Quit",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -481,7 +481,7 @@ function getAllHalfSleeveRegularTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662464689/shopping%20cart/half%20sleeve%20regular/product%20card%20images/mthrsr65-black-350x435_iwoypz.jpg",
       name: "Action Speaks Louder Than Words",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -527,7 +527,7 @@ function getAllHalfSleeveRegularTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662464774/shopping%20cart/half%20sleeve%20regular/product%20card%20images/mthrsr64-black-350x435_oju0ea.jpg",
       name: "Be Kind",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -573,7 +573,7 @@ function getAllHalfSleeveRegularTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662464824/shopping%20cart/half%20sleeve%20regular/product%20card%20images/mthrsr63-black-350x435_lzoqao.jpg",
       name: "One Day I’m Gonna make the Onions Cry",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -619,7 +619,7 @@ function getAllHalfSleeveRegularTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662465126/shopping%20cart/half%20sleeve%20regular/product%20card%20images/mthrsr62-black-350x435_itnpha.jpg",
       name: "Dare to be Different",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -665,7 +665,7 @@ function getAllHalfSleeveRegularTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662464972/shopping%20cart/half%20sleeve%20regular/product%20card%20images/mthrsr58-black-350x435_n9vjra.jpg",
       name: "Take a Hike",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
@@ -711,7 +711,7 @@ function getAllHalfSleeveRegularTShirtsData() {
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662465058/shopping%20cart/half%20sleeve%20regular/product%20card%20images/mthrsr29-black-350x435_jfjgxt.jpg",
       name: "Sohurey",
-      price: "৳ 320.00-৳ 490.00",
+      price: "৳ 320.00",
       details: [
         "Regular fit, Crew Neck, Comfortable to wear",
         "170 GSM",
