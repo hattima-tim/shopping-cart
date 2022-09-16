@@ -152,6 +152,7 @@ function Header() {
                           </div>
 
                           <p>FABRIC: {product.fabric}</p>
+                          <p className="uppercase">COLOR: {product.color }</p>
                           <p>SIZE: {product.size}</p>
                           <p>
                             {product.quantity} x{" "}
