@@ -56,14 +56,12 @@ function ProductPage({ getProductData }) {
 
   const [productsInCart, setProductsInCart] = useOutletContext();
 
-  const [fabric, setFabric] = useState("");
-
-  const handleFabricBtnClick = (e) => {
-    const currentBtn = e.target;
+  const handleClick = (event, buttonClassName, stateUpdater) => {
+    const currentBtn = event.target;
     const isButtonActive = currentBtn.classList.contains("active");
 
-    const fabricBtns = document.querySelectorAll(".fabric-btn");
-    fabricBtns.forEach((btn) => {
+    const sameBtns = document.querySelectorAll(buttonClassName);
+    sameBtns.forEach((btn) => {
       if (btn !== currentBtn) {
         btn.classList.remove("active");
       }
@@ -72,56 +70,26 @@ function ProductPage({ getProductData }) {
     if (isButtonActive) {
       // means that this button is pressed twice to deselect it
       currentBtn.classList.remove("active");
-      setFabric("");
+      stateUpdater("");
     } else {
       currentBtn.classList.add("active");
-      setFabric(currentBtn.textContent);
+      stateUpdater(currentBtn.textContent);
     }
+  };
+
+  const [fabric, setFabric] = useState("");
+  const handleFabricBtnClick = (e) => {
+    handleClick(e, ".fabric-btn", setFabric);
   };
 
   const [color, setColor] = useState("");
   const handleColorBtnClick = (e) => {
-    const currentBtn = e.target;
-    const isButtonActive = currentBtn.classList.contains("active");
-
-    const colorBtns = document.querySelectorAll(".color-btn");
-    colorBtns.forEach((btn) => {
-      if (btn !== currentBtn) {
-        btn.classList.remove("active");
-      }
-    });
-
-    if (isButtonActive) {
-      // means that this button is pressed twice to deselect it
-      currentBtn.classList.remove("active");
-      setColor("");
-    } else {
-      currentBtn.classList.add("active");
-      setColor(currentBtn.textContent);
-    }
+    handleClick(e, ".color-btn", setColor);
   };
 
   const [size, setSize] = useState("");
-
   const handleSizeBtnClick = (e) => {
-    const currentBtn = e.target;
-    const isButtonActive = currentBtn.classList.contains("active");
-
-    const sizeBtns = document.querySelectorAll(".size-btn");
-    sizeBtns.forEach((btn) => {
-      if (btn !== currentBtn) {
-        btn.classList.remove("active");
-      }
-    });
-
-    if (isButtonActive) {
-      // means that this button is pressed twice to deselect it
-      currentBtn.classList.remove("active");
-      setSize("");
-    } else {
-      currentBtn.classList.add("active");
-      setSize(currentBtn.textContent);
-    }
+    handleClick(e, ".size-btn", setSize);
   };
 
   let product = {
