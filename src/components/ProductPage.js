@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Outlet, useParams, Link, useOutletContext } from "react-router-dom";
 import uniqid from "uniqid";
 import ImageMagnifier from "./imageMagnifier";
 import "../styles/productPage.css";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
 
 export function Product() {
   return (
@@ -103,7 +105,7 @@ function ProductPage({ getProductData }) {
   let product = {
     id: uniqid(),
     name: productData.name,
-    img: productData.imgForProductPage,
+    img: productData.imagesForProductPage[0],
     price: productData.price,
     quantity: itemNumber,
     subTotal: itemNumber * (productData.price.split("৳")[1] * 1),
@@ -125,16 +127,81 @@ function ProductPage({ getProductData }) {
     setProductsInCart([...productsInCart, newProduct]);
   };
 
+  const mainRef = useRef(null);
+  const thumbsRef = useRef(null);
+
+  useEffect(() => {
+    if (mainRef.current && thumbsRef.current && thumbsRef.current.splide) {
+      mainRef.current.sync(thumbsRef.current.splide);
+    }
+  });
+
+  const mainOptions = {
+    type: "loop",
+    perMove: 1,
+    arrows: window.innerWidth > 768 ? true : false,
+    gap: ".5rem",
+    pagination: false,
+  };
+
+  const thumbsOptions = {
+    type: "slide",
+    perPage: productData.imagesForProductPage.length,
+    rewind: true,
+    gap: "1rem",
+    pagination: false,
+    fixedWidth: "5rem",
+    fixedHeight: "5rem",
+    cover: true,
+    isNavigation: true,
+  };
+  
+  const handleMouseOver = () => {
+    const arrows = document.querySelectorAll(".splide__arrow");
+    console.log(arrows);
+    arrows.forEach((arrow) => {
+      arrow.style.display = "block";
+    });
+  };
+
+  const handleMouseLeave = () => {
+    const arrows = document.querySelectorAll(".splide__arrow");
+    arrows.forEach((arrow) => {
+      arrow.style.display = "none";
+    });
+  };
+
   return (
     <div className="lg:mx-16">
       <div className="main mx-4 mb-12 mt-4 lg:flex">
-        <ImageMagnifier
-          src={productData.imgForProductPage}
-          alt={productData.name}
-        />
+        <div className="w-full lg:w-1/2">
+          <Splide
+            onMouseOver={handleMouseOver}
+            onMouseLeave={handleMouseLeave}
+            ref={mainRef}
+            options={mainOptions}
+          >
+            {productData.imagesForProductPage.map((imgSrc) => {
+              return (
+                <SplideSlide key={uniqid()} className="">
+                  <ImageMagnifier src={imgSrc} alt={productData.name} />
+                </SplideSlide>
+              );
+            })}
+          </Splide>
+          <Splide ref={thumbsRef} options={thumbsOptions}>
+            {productData.imagesForProductPage.map((imgSrc) => {
+              return (
+                <SplideSlide key={uniqid()} className="thumbnail">
+                  <img src={imgSrc} alt={productData.name} />
+                </SplideSlide>
+              );
+            })}
+          </Splide>
+        </div>
 
         <div className="mainInfo lg:ml-8">
-          <div className="breadcrumbs text-sm mt-2 lg:mt-0 lg:text-base">
+          <div className="breadcrumbs mt-2 text-sm lg:mt-0 lg:text-base">
             {productData.breadCrumbs.map((breadCrumb, index) => {
               if (index === productData.breadCrumbs.length - 1) {
                 return (
@@ -145,7 +212,7 @@ function ProductPage({ getProductData }) {
               } else {
                 return (
                   <Link key={uniqid()} to={breadCrumb.path}>
-                    {breadCrumb.name + ' / '}
+                    {breadCrumb.name + " / "}
                   </Link>
                 );
               }

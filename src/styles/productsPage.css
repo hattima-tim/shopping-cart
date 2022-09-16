@@ -1,22 +1,30 @@
-.breadCrumbs{
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
-    list-style: none;
-    font-size: 1.4rem;
-    line-height: 1.5;
-    color: #000000;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-family: "Open Sans", sans-serif;
-    letter-spacing: 0.5px;
-    margin-bottom: 20px;
+.breadCrumbs {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  list-style: none;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: #000000;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
 }
-.breadCrumbs a{
-    color: #9B9392;
-    text-decoration: none;
+.breadCrumbs a {
+  color: #9b9392;
+  text-decoration: none;
 }
-.breadCrumbs a:hover{
-    color: #000000;
-    text-decoration: none;
+.breadCrumbs a:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+.thumbnail {
+  opacity: 0.5;
+}
+
+.thumbnail.is-active {
+  opacity: 1;
 }
