@@ -14,9 +14,7 @@ function getAllHalfSleeveDawaTShirtsData() {
       pathName: "behind-every-delay-there-is-goodness",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662313395/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd210-turkish-920x920_dbt70q.jpg",
-        "https://res.cloudinary.com/du3oueesv/image/upload/v1663297128/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd212-navy-scaled-920x920_dk39ss.jpg",
-        "https://res.cloudinary.com/du3oueesv/image/upload/v1663297143/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd212-bottle-green-scaled-920x920_hei5z5.jpg",
-        "https://res.cloudinary.com/du3oueesv/image/upload/v1663297133/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd212-black-scaled-920x920_yeza8c.jpg",
+        "https://res.cloudinary.com/du3oueesv/image/upload/v1663306133/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd210-khaki-scaled-920x920_jpi24r.jpg",
       ],
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662393457/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/image%20for%20productCards/mthrsd210-turkish-350x435_xjvevu.jpg",
@@ -30,7 +28,7 @@ function getAllHalfSleeveDawaTShirtsData() {
         "Soft Hand feel and Compact Finished",
       ],
       fabric: ["CARD COTTON", "VISCOSE COTTON", "COMBED COTTON"],
-      color: ["Turkish Blue", "Navy Blue", "Bottle Green", "Black"],
+      color: ["TURKISH", "KHAKI"],
       size: ["S", "M", "L", "XL", "XXL"],
       description: [
         "S(Small): Chest 37.79″ inch/ 96 cm, Height 26.77″inch/ 68 cm",
