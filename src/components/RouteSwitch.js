@@ -4,6 +4,7 @@ import ProductCategoryHomePage from "./ProductCategoryHome";
 import { Product } from "./ProductPage";
 import ProductPage from "./ProductPage";
 import Header from "./header";
+import Footer from "./Footer";
 import Cart from "./cart";
 import halfSleeveCutTShirts from "./products/halfSleeveTShirts/products";
 import getHalfSleeveCutTShirt from "./products/halfSleeveTShirts/productsData";
@@ -18,7 +19,11 @@ function RouteSwitch() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Header />}>
+        <Route path="/" element={
+          <div>
+            <Header />
+            <Footer/>  
+          </div>}>
           <Route index element={<App />} />
 
           <Route
