@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Outlet, useParams, Link, useOutletContext } from "react-router-dom";
 import uniqid from "uniqid";
 import ImageMagnifier from "./imageMagnifier";
+import NotificationBanner from "./notificationBanner";
 import "../styles/productPage.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
@@ -105,6 +106,8 @@ function ProductPage({ getProductData }) {
     path: params.name,
   };
 
+  const [resultOfUserAction, setResultOfUserAction] = useState("");
+
   const handleAddToCart = () => {
     if (size === "" || fabric === "") {
       alert("Please select both fabric and size");
@@ -116,6 +119,8 @@ function ProductPage({ getProductData }) {
       JSON.stringify([...productsInCart, newProduct])
     );
     setProductsInCart([...productsInCart, newProduct]);
+    setResultOfUserAction(`"${product.name}" has been added to the cart`);
+    window.scrollTo(0, 0);
   };
 
   const mainRef = useRef(null);
@@ -161,9 +166,17 @@ function ProductPage({ getProductData }) {
     });
   };
 
+  const closeNotificationBanner = () => {
+    setResultOfUserAction("");
+  };
+
   return (
-    <div className="lg:mx-16">
-      <div className="main mx-4 mb-12 mt-4 lg:flex">
+    <div className="mx-8 md:mx-12 lg:mx-16">
+      <NotificationBanner
+        resultOfUserAction={resultOfUserAction}
+        closeNotificationBanner={closeNotificationBanner}
+      />
+      <div className="main mb-12 mt-4 lg:flex">
         <div className="w-full lg:w-1/2">
           {productData.imagesForProductPage.length > 1 ? (
             <Splide
