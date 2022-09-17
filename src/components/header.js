@@ -24,6 +24,7 @@ function Header() {
       (product, index) => index !== id
     );
     setProductsInCart(newProductsInCart);
+    localStorage.setItem("productsInCart", JSON.stringify(newProductsInCart));
   };
 
   const handleCheckout = () => {
