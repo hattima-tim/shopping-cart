@@ -24,6 +24,7 @@ function Cart() {
 
     setResultOfUserAction(`${e.target.dataset.name} removed`);
     userAction.current = "product removal";
+    window.scrollTo(0, 0);
   };
 
   const undoProductRemoval = () => {
@@ -89,6 +90,7 @@ function Cart() {
 
     setResultOfUserAction(`Cart has been updated`);
     userAction.current = "cart update";
+    window.scrollTo(0, 0);
   };
 
   const [totalPrice, setTotalPrice] = useState(sumOfAllSubTotal + 45.0);
