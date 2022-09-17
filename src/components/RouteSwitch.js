@@ -10,7 +10,7 @@ import getHalfSleeveCutTShirt from "./products/halfSleeveTShirts/productsData";
 import getAllHalfSleeveDawaTShirtsData from "./products/halfSleeveDawah/productsData";
 import { getSpecificHalfSleeveDawaTShirtData } from "./products/halfSleeveDawah/productsData";
 import getAllHalfSleeveRegularTShirtsData from "./products/halfSleeveRegular/productsData";
-import {getSpecificHalfSleeveRegularTShirtData} from "./products/halfSleeveRegular/productsData";
+import { getSpecificHalfSleeveRegularTShirtData } from "./products/halfSleeveRegular/productsData";
 import getAllPoloTShirtsData from "./products/poloTShirts/productsData";
 import { getSpecificPoloTShirtData } from "./products/poloTShirts/productsData";
 
@@ -61,7 +61,11 @@ function RouteSwitch() {
           >
             <Route
               path=":name"
-              element={<ProductPage getProductData={getSpecificHalfSleeveDawaTShirtData} />}
+              element={
+                <ProductPage
+                  getProductData={getSpecificHalfSleeveDawaTShirtData}
+                />
+              }
             />
           </Route>
 
@@ -83,7 +87,11 @@ function RouteSwitch() {
           >
             <Route
               path=":name"
-              element={<ProductPage getProductData={getSpecificHalfSleeveRegularTShirtData} />}
+              element={
+                <ProductPage
+                  getProductData={getSpecificHalfSleeveRegularTShirtData}
+                />
+              }
             />
           </Route>
 
@@ -99,17 +107,25 @@ function RouteSwitch() {
             }
           />
 
-          <Route
-            path="/polo-t-shirt/product"
-            element={<Product />}
-          >
+          <Route path="/polo-t-shirt/product" element={<Product />}>
             <Route
               path=":name"
-              element={<ProductPage getProductData={getSpecificPoloTShirtData} />}
+              element={
+                <ProductPage getProductData={getSpecificPoloTShirtData} />
+              }
             />
           </Route>
-          
+
           <Route path="/cart" element={<Cart />} />
+          <Route
+            path="*"
+            element={
+              <h1 className="mt-40 flex max-w-full items-center justify-center font-bold text-gray-900">
+                Thanks for exploring the site. The page you are looking for is
+                not built yet.
+              </h1>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>
