@@ -3,9 +3,9 @@ import "../styles/notificationBanner.css";
 
 function NotificationBanner({
   resultOfUserAction,
-  undoProductRemoval,
+  undoProductRemoval = null,
   closeNotificationBanner,
-  isCartEmpty,
+  isCartEmpty = null,
   userAction = null,
 }) {
   return (
@@ -19,7 +19,7 @@ function NotificationBanner({
             <span className="success-status text-green-600">
               {resultOfUserAction}.
             </span>
-            {userAction.current === "product removal" && (
+            {userAction !== null && userAction.current === "product removal" && (
               <span className="undo-btn" onClick={undoProductRemoval}>
                 Undo?
               </span>
