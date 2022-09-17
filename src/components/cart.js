@@ -103,15 +103,20 @@ function Cart() {
 
   return (
     <>
-      <NotificationBanner
-        resultOfUserAction={resultOfUserAction}
-        undoProductRemoval={undoProductRemoval}
-        closeNotificationBanner={closeNotificationBanner}
-        isCartEmpty={productsInCart.length === 0}
-        userAction={userAction}
-      />
+      <div className="m-4 lg:mx-16">
+        <NotificationBanner
+          resultOfUserAction={resultOfUserAction}
+          undoProductRemoval={undoProductRemoval}
+          closeNotificationBanner={closeNotificationBanner}
+          isCartEmpty={productsInCart.length === 0}
+          userAction={userAction}
+        />
+      </div>
       {productsInCart.length > 0 && (
-        <div data-testid='cartPage' className="cart-page m-4 flex flex-wrap lg:m-16 lg:flex-nowrap">
+        <div
+          data-testid="cartPage"
+          className="cart-page m-4 flex flex-wrap lg:m-16 lg:flex-nowrap"
+        >
           <div className="product-section w-full lg:w-3/6 lg:flex-1">
             <table>
               <thead>
@@ -135,7 +140,7 @@ function Cart() {
                         <button
                           className="remove-product-btn"
                           data-id={product.id}
-                          data-testid='productTableRemoveProductBtn'
+                          data-testid="productTableRemoveProductBtn"
                           data-name={product.name}
                           onClick={removeItemFromCart}
                         >
@@ -144,14 +149,18 @@ function Cart() {
                       </td>
 
                       <td className="product-thumbnail">
-                        <img src={product.img} alt={product.name} data-testid='productTableProductImage' />
+                        <img
+                          src={product.img}
+                          alt={product.name}
+                          data-testid="productTableProductImage"
+                        />
                       </td>
 
                       <td className="product-name">
                         <Link
                           to={`/product/${product.path}`}
                           className="text-gray-600"
-                          data-testid='productTableProductName'
+                          data-testid="productTableProductName"
                         >
                           {product.name}
                         </Link>
