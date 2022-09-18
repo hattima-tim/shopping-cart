@@ -60,6 +60,19 @@ function Header() {
     setHeader(headerRef.current);
   }, []);
 
+  useEffect(() => {
+    let prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      let currentScrollPos = window.pageYOffset;
+      if (currentScrollPos > prevScrollpos) {
+        header.style.top = "-100%";
+      } else {
+        header.style.top = "0";
+      }
+      prevScrollpos = currentScrollPos;
+    };
+  }, [header]);
+
   return (
     <>
       <div ref={headerRef} className="header-container">
