@@ -5,7 +5,6 @@ import ImageMagnifier from "./imageMagnifier";
 import NotificationBanner from "./notificationBanner";
 import "../styles/productPage.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
 
 export function Product() {
   return (
