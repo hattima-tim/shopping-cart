@@ -208,7 +208,7 @@ function ProductPage({ getProductData }) {
         resultOfUserAction={resultOfUserAction}
         closeNotificationBanner={closeNotificationBanner}
       />
-      <div className="main mb-12 mt-4 lg:flex">
+      <div className="main mb-12 mt-9 lg:flex">
         <div className="w-full lg:w-1/2">
           {productData.imagesForProductPage.length > 1 ? (
             <Splide
