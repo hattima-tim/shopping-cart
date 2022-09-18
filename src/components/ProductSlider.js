@@ -3,7 +3,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "../styles/ProductSlider.css";
 
-function ProductSlider({ products,productType }) {
+function ProductSlider({ products, productType }) {
   const handleMouseOver = () => {
     const arrows = document.querySelectorAll(".splide__arrow");
     console.log(arrows);
@@ -21,12 +21,12 @@ function ProductSlider({ products,productType }) {
 
   return (
     <Splide
-      className="mx-4 overflow-hidden lg:mx-20 my-8"
+      className="mx-4 my-8 overflow-hidden lg:mx-20"
       onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
       options={{
         type: "loop",
-        gap: "1.35rem",
+        gap: ".9rem",
         autoplay: true,
         pauseOnHover: true,
         resetProgress: false,
@@ -42,7 +42,7 @@ function ProductSlider({ products,productType }) {
       {products.map((product, index) => (
         <SplideSlide
           key={index}
-          className="productCard mb-7 w-40 flex-none md:w-60 lg:w-72"
+          className="productCard mb-7 w-40 flex-none md:w-64 lg:w-[18.5rem]"
         >
           <div className="productCardImg">
             <Link to={`/${productType}/product/${product.pathName}`}>
