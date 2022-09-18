@@ -203,7 +203,7 @@ function ProductPage({ getProductData }) {
   };
 
   return (
-    <div className="mx-8 md:mx-12 lg:mx-16">
+    <div className="mx-4 md:mx-12 lg:mx-16">
       <NotificationBanner
         resultOfUserAction={resultOfUserAction}
         closeNotificationBanner={closeNotificationBanner}
@@ -372,7 +372,7 @@ function ProductPage({ getProductData }) {
           </div>
         </div>
       </div>
-      <div className="additional_info m-4">
+      <div className="additional_info my-4">
         <div className="additional_info_tabs md:border-top-gray-400 md:flex md:gap-2 md:border-t">
           <button
             onClick={showDescription}
