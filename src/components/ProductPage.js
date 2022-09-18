@@ -106,13 +106,45 @@ function ProductPage({ getProductData }) {
     path: params.name,
   };
 
+  const productOptionsAvailable = useRef(null);
+  useEffect(() => {
+    productOptionsAvailable.current = [
+      ...document.querySelectorAll(".product-option"),
+    ].map((option) => {
+      return option.textContent.toLowerCase();
+    });
+  });
+
   const [resultOfUserAction, setResultOfUserAction] = useState("");
 
   const handleAddToCart = () => {
-    if (size === "" || fabric === "") {
-      alert("Please select both fabric and size");
+    let didUserInputProductOption = true;
+    productOptionsAvailable.current.forEach((option) => {
+      switch (option) {
+        case "fabric":
+          if (fabric === "") {
+            didUserInputProductOption = false;
+          }
+          break;
+        case "color":
+          if (color === "") {
+            didUserInputProductOption = false;
+          }
+          break;
+        case "size":
+          if (size === "") {
+            didUserInputProductOption = false;
+          }
+          break;
+        default:
+          break;
+      }
+    });
+    if (!didUserInputProductOption) {
+      alert("please select all product options");
       return;
     }
+
     const newProduct = { ...product };
     localStorage.setItem(
       "productsInCart",
@@ -253,7 +285,9 @@ function ProductPage({ getProductData }) {
 
           {productData.fabric.toString() !== "" && ( // for some products fabric data is not present
             <div className="fabricButtons">
-              <span className="text-sm font-bold text-slate-800">FABRIC</span>
+              <span className="product-option text-sm font-bold text-slate-800">
+                FABRIC
+              </span>
               <br />
               {productData.fabric.map((fabric, index) => {
                 return (
@@ -271,7 +305,9 @@ function ProductPage({ getProductData }) {
 
           {productData.color.toString() !== "" && ( // for some products color data is not present
             <div className="colorButtons">
-              <span className="text-sm font-bold text-slate-800">COLOR</span>
+              <span className="product-option text-sm font-bold text-slate-800">
+                COLOR
+              </span>
               <br />
               {productData.color.map((color, index) => {
                 return (
@@ -288,7 +324,9 @@ function ProductPage({ getProductData }) {
           )}
 
           <div className="sizeButtons">
-            <span className="text-sm font-bold text-slate-800">SIZE</span>
+            <span className="product-option text-sm font-bold text-slate-800">
+              SIZE
+            </span>
             <br />
             {productData.size.map((size, index) => {
               return (
