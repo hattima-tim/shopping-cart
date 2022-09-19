@@ -160,7 +160,7 @@ function Cart() {
 
                       <td className="product-name">
                         <Link
-                          to={`/product/${product.path}`}
+                          to={`${product.fullPath}`}
                           className="text-gray-600"
                           data-testid="productTableProductName"
                         >
