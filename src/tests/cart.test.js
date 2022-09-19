@@ -2,26 +2,44 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import Header from "../components/header";
-import { Product } from "../components/products/productPage";
-import ProductPage from "../components/products/productPage";
+import { Product } from "../components/ProductPage";
+import ProductPage from "../components/ProductPage";
 import Cart from "../components/cart";
-
+import getHalfSleeveCutTShirt from "../components/products/halfSleeveTShirts/productsData";
 const setupRoute = () => {
   render(
     <MemoryRouter
-      initialEntries={["/product/half-sleeve-cut-and-sew-solid-pattern-15"]}
+      initialEntries={[
+        "/half-sleeve-cut-and-sew-solid/product/half-sleeve-cut-and-sew-solid-pattern-15",
+      ]}
     >
       <Routes>
-        <Route path="/" element={<Header />}>
-          <Route path="product" element={<Product />}>
-            <Route path=":name" element={<ProductPage />} />
+        <Route
+          path="/"
+          element={
+            <div>
+              <Header />
+            </div>
+          }
+        >
+          <Route
+            path="/half-sleeve-cut-and-sew-solid/product"
+            element={<Product />}
+          >
+            <Route
+              path=":name"
+              element={<ProductPage getProductData={getHalfSleeveCutTShirt} />}
+            />
           </Route>
+
           <Route path="/cart" element={<Cart />} />
         </Route>
       </Routes>
     </MemoryRouter>
   );
 };
+
+window.scrollTo = jest.fn();
 
 describe("product table", () => {
   beforeEach(async () => {
@@ -60,6 +78,7 @@ describe("product table", () => {
 
   afterAll(() => {
     localStorage.clear();
+    jest.clearAllMocks();
   });
 
   test("table header is in the document", async () => {
@@ -147,7 +166,7 @@ describe("product table", () => {
       const dataDefinitionsInTable = screen.getAllByRole("definition");
       const quantityXpriceDefinition = dataDefinitionsInTable[2];
 
-      expect(quantityXpriceDefinition.textContent).toBe("2x৳450");
+      expect(quantityXpriceDefinition.textContent).toBe("2x৳450.00");
       expect(quantityXpriceDefinition).toHaveClass("md:hidden");
     });
   });
@@ -160,7 +179,7 @@ describe("product table", () => {
   });
 
   test("product price cell is available on large screens", () => {
-    const productPriceCell = screen.getByRole("cell", { name: "৳450" });
+    const productPriceCell = screen.getByRole("cell", { name: "৳450.00" });
     expect(productPriceCell).toHaveClass("hidden md:table-cell");
   });
   // above I am not using toBeVisible for testing because
@@ -195,7 +214,7 @@ describe("product table", () => {
 
       // right now only one cell has value ৳450, which is main price
       // so...
-      const mainPrice = screen.getByRole("cell", { name: "৳450" });
+      const mainPrice = screen.getByRole("cell", { name: "৳450.00" });
       expect(mainPrice).toBeInTheDocument();
 
       const quantityBtn = screen.getByRole("button", { name: "+" });
@@ -204,7 +223,7 @@ describe("product table", () => {
       const updateCartBtn = screen.getByRole("button", { name: "Update Cart" });
       await user.click(updateCartBtn);
 
-      const updatedMainPrice = screen.getByRole("cell", { name: "৳450" });
+      const updatedMainPrice = screen.getByRole("cell", { name: "৳450.00" });
 
       expect(updatedMainPrice).toBeInTheDocument();
       // not asserting about main price because it is not
@@ -343,7 +362,7 @@ describe("checkout section", () => {
     const totalPrice = screen.getByText("৳1030"); // product subTotal ৳900 + courier ৳130 = ৳1030
     expect(totalPrice).toBeInTheDocument();
 
-    const mainPrice = screen.getByRole("cell", { name: "৳450" });
+    const mainPrice = screen.getByRole("cell", { name: "৳450.00" });
     expect(mainPrice).toBeInTheDocument();
 
     const subTotalPrice = screen.getByRole("cell", { name: "৳900" });
