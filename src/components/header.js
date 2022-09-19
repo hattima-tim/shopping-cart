@@ -4,6 +4,7 @@ import TopNavBar from "./TopNavBar";
 import SideNav from "./SideNav";
 import SearchBar from "./SearchBar";
 import "../styles/header.css";
+import uniqid from "uniqid";
 
 function Header() {
   const [productsInCart, setProductsInCart] = useState(
@@ -148,7 +149,7 @@ function Header() {
                 <div className="products_container">
                   {productsInCart.map((product, index) => {
                     return (
-                      <div className="product_tooltip_item" key={index}>
+                      <div className="product_tooltip_item" key={uniqid()}>
                         <div className="product_tooltip_item_img">
                           <img src={product.img} alt={product.name} />
                         </div>

@@ -280,7 +280,7 @@ function ProductPage({ getProductData }) {
           <ul className="details list-disc">
             {productData.details.map((detail, index) => {
               return (
-                <li key={index} className="mx-4 my-3">
+                <li key={uniqid()} className="mx-4 my-3">
                   {detail}
                 </li>
               );
@@ -296,7 +296,7 @@ function ProductPage({ getProductData }) {
               {productData.fabric.map((fabric, index) => {
                 return (
                   <button
-                    key={index}
+                    key={uniqid()}
                     className="fabric-btn mb-1 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
                     onClick={handleFabricBtnClick}
                   >
@@ -316,7 +316,7 @@ function ProductPage({ getProductData }) {
               {productData.color.map((color, index) => {
                 return (
                   <button
-                    key={index}
+                    key={uniqid()}
                     className="color-btn mb-1 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
                     onClick={handleColorBtnClick}
                   >
@@ -335,7 +335,7 @@ function ProductPage({ getProductData }) {
             {productData.size.map((size, index) => {
               return (
                 <button
-                  key={index}
+                  key={uniqid()}
                   className="size-btn mb-8 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
                   onClick={handleSizeBtnClick}
                 >
@@ -402,7 +402,7 @@ function ProductPage({ getProductData }) {
             <ul>
               {productData.description.map((description, index) => {
                 return (
-                  <li key={index} className="my-4">
+                  <li key={uniqid()} className="my-4">
                     {description}
                   </li>
                 );

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "../styles/ProductSlider.css";
+import uniqid from "uniqid";
 
 function ProductSlider({ products, productType }) {
   const handleMouseOver = () => {
@@ -40,7 +41,7 @@ function ProductSlider({ products, productType }) {
     >
       {products.map((product, index) => (
         <SplideSlide
-          key={index}
+          key={uniqid()}
           className="productCard mb-7 w-40 flex-none md:w-64 lg:w-[18.5rem]"
         >
           <div className="productCardImg">
