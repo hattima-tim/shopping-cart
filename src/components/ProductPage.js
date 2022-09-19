@@ -15,6 +15,10 @@ export function Product() {
 }
 
 function ProductPage({ getProductData }) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const params = useParams();
   const productData = getProductData(params.name);
 
