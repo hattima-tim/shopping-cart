@@ -103,6 +103,7 @@ function ProductPage({ getProductData }) {
     color: color,
     size: size,
     path: params.name,
+    fullPath: productData.fullPath,
   };
 
   const productOptionsAvailable = useRef(null);
