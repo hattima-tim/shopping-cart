@@ -157,6 +157,7 @@ function Header() {
                           <div className="tooltip_header">
                             <h3 className="text-[#4e4e4e]">{product.name}</h3>
                             <button
+                              data-testid="remove-item-btn"
                               data-id={index}
                               className="remove_item_btn p-2"
                               onClick={removeItemFromCart}

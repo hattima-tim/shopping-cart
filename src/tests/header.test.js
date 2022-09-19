@@ -2,70 +2,94 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import Header from "../components/header";
-import { Product } from "../components/products/productPage";
-import ProductPage from "../components/products/productPage";
+import { Product } from "../components/ProductPage";
+import ProductPage from "../components/ProductPage";
+import getHalfSleeveCutTShirt from "../components/products/halfSleeveTShirts/productsData";
 
-const setup = () => {
+const setupRoute = () => {
   const { container } = render(
     <MemoryRouter
-      initialEntries={["/product/half-sleeve-cut-and-sew-solid-pattern-15"]}
+      initialEntries={[
+        "/half-sleeve-cut-and-sew-solid/product/half-sleeve-cut-and-sew-solid-pattern-15",
+      ]}
     >
       <Routes>
-        <Route path="/" element={<Header />}>
-          <Route path="product" element={<Product />}>
-            <Route path=":name" element={<ProductPage />} />
+        <Route
+          path="/"
+          element={
+            <div>
+              <Header />
+            </div>
+          }
+        >
+          <Route
+            path="/half-sleeve-cut-and-sew-solid/product"
+            element={<Product />}
+          >
+            <Route
+              path=":name"
+              element={<ProductPage getProductData={getHalfSleeveCutTShirt} />}
+            />
           </Route>
         </Route>
       </Routes>
     </MemoryRouter>
   );
-
-  const fabricBtn = screen.getByRole("button", { name: "COMBED COTTON" });
-  userEvent.click(fabricBtn);
-
-  const sizeBtn = screen.getByRole("button", { name: "M" });
-  userEvent.click(sizeBtn);
-
-  const quantityBtn = screen.getByRole("button", { name: "+" });
-  userEvent.click(quantityBtn);
-  userEvent.click(quantityBtn);
-
-  const addToCartBtn = screen.getByRole("button", { name: "Add to Cart" });
-  userEvent.click(addToCartBtn);
-
   return container;
 };
 
-test("header and product page", () => {
-  const container = setup();
-  expect(container).toMatchSnapshot(); // the snapshot contains both
-  // Header and ProductPage
-});
+window.scrollTo = jest.fn();
 
-test("remove button removes product from cart", () => {
-  setup();
+describe("header", () => {
+  beforeEach(async () => {
+    const user = userEvent.setup();
 
-  const productRemoveBtn = screen.getByRole("button", {
-    name: "x",
+    setupRoute();
+
+    // we are on product page now
+    const fabricBtn = screen.getByRole("button", { name: "COMBED COTTON" });
+    await user.click(fabricBtn);
+
+    const sizeBtn = screen.getByRole("button", { name: "M" });
+    await user.click(sizeBtn);
+
+    const addToCartBtn = screen.getByRole("button", { name: "Add to Cart" });
+    await user.click(addToCartBtn);
   });
-  const productName = screen.getByRole(
-    "heading",
-    { level: 3 },
-    { name: "Half Sleeve Cut and Sew Solid(pattern 15)" }
-  );
 
-  userEvent.click(productRemoveBtn);
+  afterEach(() => {
+    jest.clearAllMocks();
+    localStorage.clear();
+  });
 
-  expect(productRemoveBtn).not.toBeInTheDocument();
-  expect(productName).not.toBeInTheDocument();
-});
+  test("header and product page", () => {
+    const container = setupRoute();
+    expect(container).toMatchSnapshot(); // the snapshot contains both
+    // Header and ProductPage
+  });
 
-test("alert is called on checkout button click", () => {
-  setup();
-  const alertMock = jest.spyOn(window, "alert").mockImplementation(() => {});
-  const checkoutBtn = screen.getByRole("button", { name: "CHECKOUT" });
+  test("remove button removes product from cart", async () => {
+    const productRemoveBtn = screen.getByTestId("remove-item-btn");
 
-  userEvent.click(checkoutBtn);
+    const productName = screen.getByRole(
+      "heading",
+      { level: 3 },
+      { name: "Half Sleeve Cut and Sew Solid(pattern 15)" }
+    );
+    const user = userEvent.setup();
+    await user.click(productRemoveBtn);
 
-  expect(alertMock).toBeCalledTimes(1);
+    expect(productRemoveBtn).not.toBeInTheDocument();
+    expect(productName).not.toBeInTheDocument();
+  });
+
+  test("alert is called on checkout button click", async () => {
+    const user = userEvent.setup();
+    const alertMock = jest.spyOn(window, "alert").mockImplementation(() => {});
+    const checkoutBtn = screen.getByRole("button", { name: "CHECKOUT" });
+
+    await user.click(checkoutBtn);
+
+    expect(alertMock).toBeCalledTimes(1);
+  });
 });
