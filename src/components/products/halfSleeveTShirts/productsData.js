@@ -2,6 +2,7 @@ function productsData() {
   return [
     {
       path: "/half-sleeve-cut-and-sew-solid-pattern-15",
+      fullPath: `/half-sleeve-cut-and-sew-solid/product/half-sleeve-cut-and-sew-solid-pattern-15`,
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1661588492/shopping%20cart/half%20sleeve%20cut/mthcssp15-solid-920x920_him69g.jpg",
       ],
@@ -36,6 +37,7 @@ function productsData() {
 
     {
       path: "/half-sleeve-cut-and-sew-solid-pattern-14",
+      fullPath: `/half-sleeve-cut-and-sew-solid/product/half-sleeve-cut-and-sew-solid-pattern-14`,
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663328381/shopping%20cart/half%20sleeve%20cut/productPage/mthcssp14-solid-920x920_eguvr2.jpg",
       ],
@@ -70,6 +72,7 @@ function productsData() {
 
     {
       path: "/half-sleeve-cut-and-sew-solid-pattern-13",
+      fullPath: `/half-sleeve-cut-and-sew-solid/product/half-sleeve-cut-and-sew-solid-pattern-13`,
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663328399/shopping%20cart/half%20sleeve%20cut/productPage/mthcssp13-solid-920x920_meukku.jpg",
       ],
@@ -104,6 +107,7 @@ function productsData() {
 
     {
       path: "/half-sleeve-cut-and-sew-solid-pattern-12",
+      fullPath: `/half-sleeve-cut-and-sew-solid/product/half-sleeve-cut-and-sew-solid-pattern-12`,
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663328549/shopping%20cart/half%20sleeve%20cut/productPage/mthcssp12-solid-920x920_fldnp4.jpg",
       ],
@@ -138,6 +142,7 @@ function productsData() {
 
     {
       path: "/half-sleeve-cut-and-sew-solid-pattern-11",
+      fullPath: `/half-sleeve-cut-and-sew-solid/product/half-sleeve-cut-and-sew-solid-pattern-11`,
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663328545/shopping%20cart/half%20sleeve%20cut/productPage/mthcssp11-solid-920x920_fk9tcc.jpg",
       ],
@@ -172,6 +177,7 @@ function productsData() {
 
     {
       path: "/half-sleeve-cut-and-sew-solid-pattern-10",
+      fullPath: `/half-sleeve-cut-and-sew-solid/product/half-sleeve-cut-and-sew-solid-pattern-10`,
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663328541/shopping%20cart/half%20sleeve%20cut/productPage/mthcssp10-solid-920x920_omjbhg.jpg",
       ],

@@ -12,6 +12,7 @@ function getAllHalfSleeveRegularTShirtsData() {
         },
       ],
       pathName: "ife-is-unstoppable",
+      fullPath:'/half-sleeve-regular-tshirts-for-men/product/ife-is-unstoppable',
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662439510/shopping%20cart/half%20sleeve%20regular/mthrsr74-black-920x920_he5nud.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663298769/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsr74-biscuit-920x920_km9s2g.jpg",
@@ -58,6 +59,7 @@ function getAllHalfSleeveRegularTShirtsData() {
         },
       ],
       pathName: "train-insane",
+      fullPath:"/half-sleeve-regular-tshirts-for-men/product/train-insane",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662439762/shopping%20cart/half%20sleeve%20regular/mthrsr75-black-920x920_x9kdqr.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663298880/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsr75-turkish-blue-920x920_gicv9v.jpg",
@@ -104,6 +106,7 @@ function getAllHalfSleeveRegularTShirtsData() {
         },
       ],
       pathName: "success-story",
+      fullPath:"/half-sleeve-regular-tshirts-for-men/product/success-story",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662439869/shopping%20cart/half%20sleeve%20regular/mthrsr73-black-920x920_gcsqsh.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663298978/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsr73-ardoise-920x920_nyfju5.jpg",
@@ -150,6 +153,7 @@ function getAllHalfSleeveRegularTShirtsData() {
         },
       ],
       pathName: "thcr72-over-load",
+      fullPath:"/half-sleeve-regular-tshirts-for-men/product/thcr72-over-load",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662439968/shopping%20cart/half%20sleeve%20regular/mthrsr72-anthra-920x920_tyordu.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663303609/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsr72-black-920x920_pybc7m.jpg",
@@ -196,6 +200,7 @@ function getAllHalfSleeveRegularTShirtsData() {
         },
       ],
       pathName: "thcr71-dont-follow-the-trend",
+      fullPath:"/half-sleeve-regular-tshirts-for-men/product/thcr71-dont-follow-the-trend",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662440070/shopping%20cart/half%20sleeve%20regular/mthrsr71-black-920x920_qupl5z.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663303701/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsr71-anthra-920x920_u38ttu.jpg",
@@ -242,6 +247,7 @@ function getAllHalfSleeveRegularTShirtsData() {
         },
       ],
       pathName: "thcr70-always-have-an-attitude",
+      fullPath:"/half-sleeve-regular-tshirts-for-men/product/thcr70-always-have-an-attitude",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662440174/shopping%20cart/half%20sleeve%20regular/mthrsr70-black-920x920_tcoqkb.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663303783/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsr70-anthra-920x920_ns6ibo.jpg",
@@ -288,6 +294,7 @@ function getAllHalfSleeveRegularTShirtsData() {
         },
       ],
       pathName: "thcr69-relax",
+      fullPath:"/half-sleeve-regular-tshirts-for-men/product/thcr69-relax",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662440282/shopping%20cart/half%20sleeve%20regular/69-Bottle-Green-920x920_illto9.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663303862/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsr69-ardoise-920x920_eu5who.jpg",
@@ -334,6 +341,7 @@ function getAllHalfSleeveRegularTShirtsData() {
         },
       ],
       pathName: "thcr68-moonlight",
+      fullPath:"/half-sleeve-regular-tshirts-for-men/product/thcr68-moonlight",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662440366/shopping%20cart/half%20sleeve%20regular/mthrsr68-black-920x920_kvfgf8.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663303938/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsr68-black-920x920_ab0wir.jpg",
@@ -380,6 +388,7 @@ function getAllHalfSleeveRegularTShirtsData() {
         },
       ],
       pathName: "thcr67-the-worst-distance",
+      fullPath:"/half-sleeve-regular-tshirts-for-men/product/thcr67-the-worst-distance",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662440472/shopping%20cart/half%20sleeve%20regular/mthrsr67-black-920x920_upvroy.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663304033/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/67-Biscuit-920x920_mlxbos.jpg",
@@ -426,6 +435,7 @@ function getAllHalfSleeveRegularTShirtsData() {
         },
       ],
       pathName: "r66-dont-quit",
+      fullPath:"/half-sleeve-regular-tshirts-for-men/product/r66-dont-quit",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662440558/shopping%20cart/half%20sleeve%20regular/mthrsr66-black-920x920_oifm7d.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663304107/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsr66-ardoise-920x920_eixcbf.jpg",
@@ -472,6 +482,7 @@ function getAllHalfSleeveRegularTShirtsData() {
         },
       ],
       pathName: "r65-action-speaks-louder-than-words",
+      fullPath:"/half-sleeve-regular-tshirts-for-men/product/r65-action-speaks-louder-than-words",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662440736/shopping%20cart/half%20sleeve%20regular/mthrsr65-black-920x920_uuurat.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663304256/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsr65-black-920x920_zddzjt.jpg",
@@ -518,6 +529,7 @@ function getAllHalfSleeveRegularTShirtsData() {
         },
       ],
       pathName: "r64-be-kind",
+      fullPath:"/half-sleeve-regular-tshirts-for-men/product/r64-be-kind",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662463116/shopping%20cart/half%20sleeve%20regular/mthrsr64-black-920x920_hcttrp.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663304337/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsr64-ardoise-920x920_xn1ugf.jpg",
@@ -564,6 +576,7 @@ function getAllHalfSleeveRegularTShirtsData() {
         },
       ],
       pathName: "r63-one-day-im-gonna-make-the-onions-cry",
+      fullPath:"/half-sleeve-regular-tshirts-for-men/product/r63-one-day-im-gonna-make-the-onions-cry",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662463249/shopping%20cart/half%20sleeve%20regular/mthrsr63-black-920x920_nhrkll.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663304512/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsr63-ardoise-920x920_ep50rp.jpg",
@@ -610,6 +623,7 @@ function getAllHalfSleeveRegularTShirtsData() {
         },
       ],
       pathName: "r62-dare-to-be-different",
+      fullPath:"/half-sleeve-regular-tshirts-for-men/product/r62-dare-to-be-different",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662463363/shopping%20cart/half%20sleeve%20regular/mthrsr62-black-920x920_zuxqtu.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663304600/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsr62-royal-blue-1-920x920_dy8tk2.jpg",
@@ -656,6 +670,7 @@ function getAllHalfSleeveRegularTShirtsData() {
         },
       ],
       pathName: "r58-take-a-hike",
+      fullPath:"/half-sleeve-regular-tshirts-for-men/product/r58-take-a-hike",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662463462/shopping%20cart/half%20sleeve%20regular/mthrsr58-black-920x920_ld5370.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663304688/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsr58-ardoise-920x920_v0zq1n.jpg",
@@ -702,6 +717,7 @@ function getAllHalfSleeveRegularTShirtsData() {
         },
       ],
       pathName: "r29-sohurey",
+      fullPath:"/half-sleeve-regular-tshirts-for-men/product/r29-sohurey",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662463599/shopping%20cart/half%20sleeve%20regular/mthrsr29-black-920x920_oaqtoz.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663304841/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsr29-ardoise-920x920_avxt2v.jpg",

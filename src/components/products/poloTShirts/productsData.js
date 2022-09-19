@@ -12,6 +12,7 @@ function getAllPoloTShirtsData() {
         },
       ],
       pathName: "cut-and-sew-logo-style-7",
+      fullPath: `/polo-t-shirt/product/cut-and-sew-logo-style-7`,
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662481453/shopping%20cart/polo%20t%20shirts/mthpop07-920x815_ucb3q5.jpg",
       ],
@@ -54,6 +55,7 @@ function getAllPoloTShirtsData() {
         },
       ],
       pathName: "cut-and-sew-logo-style-6",
+      fullPath: `/polo-t-shirt/product/cut-and-sew-logo-style-6`,
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662481815/shopping%20cart/polo%20t%20shirts/MTHPOCSLSP6-920x920_a3dtxv.jpg",
       ],
@@ -96,6 +98,7 @@ function getAllPoloTShirtsData() {
         },
       ],
       pathName: "cut-and-sew-logo-style-5",
+      fullPath: `/polo-t-shirt/product/cut-and-sew-logo-style-5`,
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662481909/shopping%20cart/polo%20t%20shirts/MTHPOCSLSP5-920x920_lvqjax.jpg",
       ],
@@ -138,6 +141,7 @@ function getAllPoloTShirtsData() {
         },
       ],
       pathName: "cut-and-sew-logo-style-4",
+      fullPath: `/polo-t-shirt/product/cut-and-sew-logo-style-4`,
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662482006/shopping%20cart/polo%20t%20shirts/MTHPOCSLSP4-920x920_yqkba1.jpg",
       ],
@@ -180,6 +184,7 @@ function getAllPoloTShirtsData() {
         },
       ],
       pathName: "cut-and-sew-logo-style-3",
+      fullPath: `/polo-t-shirt/product/cut-and-sew-logo-style-3`,
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662482135/shopping%20cart/polo%20t%20shirts/MTHPOCSLSP3-920x920_an8t0y.jpg",
       ],
@@ -222,6 +227,7 @@ function getAllPoloTShirtsData() {
         },
       ],
       pathName: "cut-and-sew-logo-style-2",
+      fullPath: `/polo-t-shirt/product/cut-and-sew-logo-style-2`,
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662482224/shopping%20cart/polo%20t%20shirts/MTHPOCSLSP2-920x920_oispms.jpg",
       ],
@@ -264,6 +270,7 @@ function getAllPoloTShirtsData() {
         },
       ],
       pathName: "cut-and-sew-logo-style",
+      fullPath: `/polo-t-shirt/product/cut-and-sew-logo-style`,
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662482328/shopping%20cart/polo%20t%20shirts/MTHPOCSLSP1-920x920_qy5maj.jpg",
       ],
@@ -306,6 +313,7 @@ function getAllPoloTShirtsData() {
         },
       ],
       pathName: "polo-t-shirt-royale-blue",
+      fullPath: `/polo-t-shirt/product/polo-t-shirt-royale-blue`,
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662482416/shopping%20cart/polo%20t%20shirts/mthpos-royal-blue-920x815_o12p5x.jpg",
       ],
