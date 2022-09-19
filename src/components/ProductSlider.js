@@ -6,7 +6,6 @@ import "../styles/ProductSlider.css";
 function ProductSlider({ products, productType }) {
   const handleMouseOver = () => {
     const arrows = document.querySelectorAll(".splide__arrow");
-    console.log(arrows);
     arrows.forEach((arrow) => {
       arrow.style.display = "block";
     });
