@@ -2,7 +2,7 @@
   "name": "shopping-cart",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://hattima-tim.github.io",
+  "homepage": "http://hattima-tim.github.io/shopping-cart/",
   "dependencies": {
     "@splidejs/react-splide": "^0.7.8",
     "@testing-library/jest-dom": "^5.16.4",
