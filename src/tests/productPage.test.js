@@ -1,19 +1,35 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
-import { Product } from "../components/products/productPage";
-import ProductPage from "../components/products/productPage";
+import { Product } from "../components/ProductPage";
+import ProductPage from "../components/ProductPage";
 import Header from "../components/header";
+import getHalfSleeveCutTShirt from "../components/products/halfSleeveTShirts/productsData";
 
 const setup = () => {
   const { container } = render(
     <MemoryRouter
-      initialEntries={["/product/half-sleeve-cut-and-sew-solid-pattern-15"]}
+      initialEntries={[
+        "/half-sleeve-cut-and-sew-solid/product/half-sleeve-cut-and-sew-solid-pattern-15",
+      ]}
     >
       <Routes>
-        <Route path="/" element={<Header />}>
-          <Route path="product" element={<Product />}>
-            <Route path=":name" element={<ProductPage />} />
+        <Route
+          path="/"
+          element={
+            <div>
+              <Header />
+            </div>
+          }
+        >
+          <Route
+            path="/half-sleeve-cut-and-sew-solid/product"
+            element={<Product />}
+          >
+            <Route
+              path=":name"
+              element={<ProductPage getProductData={getHalfSleeveCutTShirt} />}
+            />
           </Route>
         </Route>
       </Routes>
@@ -28,40 +44,33 @@ test("Product page", () => {
 });
 
 describe("item counter", () => {
-  test("increment and decrement", () => {
+  test("increment and decrement", async() => {
     setup();
 
     const inputField = screen.getByDisplayValue("1");
     const decrementBtn = screen.getByRole("button", { name: "-" });
     const incrementBtn = screen.getByRole("button", { name: "+" });
 
-    userEvent.click(incrementBtn);
-    userEvent.click(incrementBtn);
-    userEvent.click(incrementBtn);
+    const user = userEvent.setup();
+    await user.click(incrementBtn);
+    await user.click(incrementBtn);
+    await user.click(incrementBtn);
 
-    userEvent.click(decrementBtn);
+    await user.click(decrementBtn);
 
     expect(inputField.value).toBe("3");
-  });
-
-  test("user can type in input field", () => {
-    setup();
-
-    const inputField = screen.getByDisplayValue("1");
-
-    userEvent.clear(inputField);
-    userEvent.type(inputField, "56");
-    expect(inputField.value).toBe("56");
   });
 });
 
 describe("description and additional info", () => {
-  test('additional info is shown when "additional info" button is clicked', () => {
+  test('additional info is shown when "additional info" button is clicked', async() => {
     setup();
+    const user = userEvent.setup();
+
     const additionalInfoBtn = screen.getByRole("button", {
       name: "Additional Information",
     });
-    userEvent.click(additionalInfoBtn);
+    await user.click(additionalInfoBtn);
 
     const additionalInfoTables = screen.getAllByRole("table");
     expect(additionalInfoTables.length).toBe(1);
@@ -76,7 +85,7 @@ describe("description and additional info", () => {
     expect(tableData3).toBeInTheDocument();
   });
 
-  test("description is shown when description tab is clicked", () => {
+  test("description is shown when description tab is clicked", async() => {
     setup();
 
     const additionalInfoBtn = screen.getByRole("button", {
@@ -86,8 +95,9 @@ describe("description and additional info", () => {
       name: "Description",
     });
 
-    userEvent.click(additionalInfoBtn);
-    userEvent.click(descriptionBtn);
+    const user = userEvent.setup();
+    await user.click(additionalInfoBtn);
+    await user.click(descriptionBtn);
 
     const para = screen.getByText("Size Measurement (in inch/centimeter):");
 
