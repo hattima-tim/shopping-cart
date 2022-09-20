@@ -81,7 +81,7 @@ function Header() {
           <SideNav header={header} />
           <SearchBar />
 
-          <Link to="/" className="my-3 ml-auto mr-[2.5rem] lg:mr-64">
+          <Link to="/" className="my-3 ml-auto mr-[1rem] lg:mr-64">
             <img
               src="https://res.cloudinary.com/du3oueesv/image/upload/v1660122044/shopping%20cart/oubd-logo-with-tm-black-1-1400x642_se0t70.png"
               className="companyLogo w-24"
