@@ -1,0 +1,25 @@
+{
+  "short_name": "One Ummah Bd",
+  "name": "One Ummah Bd",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/du3oueesv/image/upload/v1663653195/shopping%20cart/oubd-logo-with-tm-black-1-1400x642_se0t70_1_3_ag881g.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "https://res.cloudinary.com/du3oueesv/image/upload/v1663653271/shopping%20cart/oubd-logo-with-tm-black-1-1400x642_se0t70_1_4_kee6vu.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://res.cloudinary.com/du3oueesv/image/upload/v1663653328/shopping%20cart/oubd-logo-with-tm-black-1-1400x642_se0t70_1_5_aqtzym.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
