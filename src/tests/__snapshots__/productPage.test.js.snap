@@ -235,7 +235,7 @@ exports[`Product page 1`] = `
           />
         </div>
         <a
-          class="my-3 ml-auto mr-[2.5rem] lg:mr-64"
+          class="my-3 ml-auto mr-[1rem] lg:mr-64"
           href="/"
         >
           <img
