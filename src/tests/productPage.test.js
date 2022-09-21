@@ -38,6 +38,8 @@ const setup = () => {
   return { container };
 };
 
+window.scrollTo = jest.fn();
+
 test("Product page", () => {
   const { container } = setup();
   expect(container).toMatchSnapshot();
