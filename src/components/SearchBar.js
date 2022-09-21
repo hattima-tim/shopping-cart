@@ -65,6 +65,7 @@ function SearchBar() {
           onChange={search}
           type="text"
           placeholder="Search"
+          role="searchbox"
           {...(showSearchPage
             ? {
                 className:
@@ -101,11 +102,14 @@ function SearchBar() {
           </div>
         )}
       </div>
-      <div className="search-results absolute z-10 max-h-[100vh] w-full overflow-auto bg-white lg:w-80">
+      <div
+        className="search-results absolute z-10 max-h-[100vh] w-full overflow-auto bg-white lg:w-80"
+      > 
         {searchResults.map((product) => {
           return (
             <Link
               key={uniqid()}
+        data-testid="search-result"
               to={`${product.breadCrumbs[1].path}/product/${product.pathName}`}
               className="flex gap-2 p-3 hover:bg-[#e9e9e9]"
             >
