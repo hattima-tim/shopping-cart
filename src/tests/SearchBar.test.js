@@ -74,3 +74,15 @@ test("clicking a search result takes you to the product page", async () => {
   });
   expect(addToCartButton).toBeInTheDocument();
 });
+
+test('clicking a search result removes all search results from the page', async () => {
+  setupRoute();
+  const searchBar = screen.getByRole("searchbox");
+  const user = userEvent.setup();
+  await user.type(searchBar, "cut"); // search for cut and sew solid t-shirts
+  const searchResult = screen.getAllByTestId("search-result");
+  await user.click(searchResult[0]);
+
+  const searchResults = screen.queryAllByTestId("search-result");
+  expect(searchResults.length).toBe(0);
+})
