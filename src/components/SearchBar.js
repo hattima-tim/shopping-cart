@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import getAllHalfSleeveDawaTShirtsData from "./products/halfSleeveDawah/productsData";
 import getAllHalfSleeveRegularTShirtsData from "./products/halfSleeveRegular/productsData";
@@ -50,12 +50,27 @@ function SearchBar() {
   }, []);
 
   const [showSearchPage, setShowSearchPage] = useState(false);
+  const searchResultContainer = useRef(null);
+
   const closeSearchPage = () => {
     setShowSearchPage(false);
   };
 
+  useEffect(() => {
+    if (showSearchPage) {
+      searchResultContainer.current.addEventListener("click", () => {
+        setShowSearchPage(false);
+      });
+    } else {
+      searchResultContainer.current.removeEventListener("click", () => {
+        setShowSearchPage(false);
+      });
+    }
+  }, [showSearchPage]);
+
   return (
     <div
+      data-testid="searchContainer"
       {...(showSearchPage
         ? { className: "fixed left-0 bottom-0 w-full h-full bg-gray-100 z-50" }
         : { className: "search-bar ml-[10px]" })}
@@ -78,10 +93,11 @@ function SearchBar() {
         />
         <img
           src="https://res.cloudinary.com/du3oueesv/image/upload/v1663124810/shopping%20cart/1890px-Vector_search_icon.svg_odyv9y.png"
-          alt="search"
+          alt="searchIcon"
           {...(onSmallScreen && {
-            onClick: () => {
+            onClick: (e) => {
               setShowSearchPage(true);
+              e.stopPropagation();
             },
           })}
           {...(showSearchPage
@@ -103,14 +119,15 @@ function SearchBar() {
         )}
       </div>
       <div
+        ref={searchResultContainer}
         className="search-results absolute z-10 max-h-[100vh] w-full overflow-auto bg-white lg:w-80"
-      > 
+      >
         {searchResults.map((product) => {
           return (
             <Link
               key={uniqid()}
-        data-testid="search-result"
-              to={`${product.breadCrumbs[1].path}/product/${product.pathName}`}
+              data-testid="search-result"
+              to={`${product.fullPath}`}
               className="flex gap-2 p-3 hover:bg-[#e9e9e9]"
             >
               <img
