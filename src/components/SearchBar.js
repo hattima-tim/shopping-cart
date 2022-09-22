@@ -58,12 +58,12 @@ function SearchBar() {
 
   useEffect(() => {
     if (showSearchPage) {
-      searchResultContainer.current.addEventListener("click", () => {
-        setShowSearchPage(false);
+      document.body.addEventListener("click", (e) => {
+        return e.target.nodeName === "INPUT" ? true : setShowSearchPage(false);
       });
-    } else {
-      searchResultContainer.current.removeEventListener("click", () => {
-        setShowSearchPage(false);
+    }else{
+      document.body.removeEventListener("click", (e) => {
+        return e.target.nodeName === "INPUT" ? true : setShowSearchPage(false);
       });
     }
   }, [showSearchPage]);
