@@ -31,6 +31,7 @@ function Header() {
   const handleCheckout = () => {
     alert("Thank you for your purchase!");
     setProductsInCart([]);
+    localStorage.clear();
   };
 
   const cartDisplayer = useRef(null);
