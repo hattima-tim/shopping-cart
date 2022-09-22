@@ -52,19 +52,19 @@ function SearchBar() {
   const [showSearchPage, setShowSearchPage] = useState(false);
   const searchResultContainer = useRef(null);
 
-  const closeSearchPage = () => {
+  const closeSearchPageOnCloseBtnClick = () => {
     setShowSearchPage(false);
   };
 
+  const closeSearchPageOnBodyClick = (e) => {
+    return e.target.nodeName === "INPUT" ? true : setShowSearchPage(false);
+  }
+
   useEffect(() => {
     if (showSearchPage) {
-      document.body.addEventListener("click", (e) => {
-        return e.target.nodeName === "INPUT" ? true : setShowSearchPage(false);
-      });
+      document.body.addEventListener("click", closeSearchPageOnBodyClick);
     }else{
-      document.body.removeEventListener("click", (e) => {
-        return e.target.nodeName === "INPUT" ? true : setShowSearchPage(false);
-      });
+      document.body.removeEventListener("click", closeSearchPageOnBodyClick);
     }
   }, [showSearchPage]);
 
@@ -111,7 +111,7 @@ function SearchBar() {
         />
         {showSearchPage && (
           <div
-            onClick={closeSearchPage}
+            onClick={closeSearchPageOnCloseBtnClick}
             className="absolute top-2 right-2.5 cursor-pointer text-3xl"
           >
             &times;
