@@ -75,7 +75,7 @@ test("clicking a search result takes you to the product page", async () => {
   expect(addToCartButton).toBeInTheDocument();
 });
 
-test('clicking a search result removes all search results from the page', async () => {
+test("clicking a search result removes all search results from the page", async () => {
   setupRoute();
   const searchBar = screen.getByRole("searchbox");
   const user = userEvent.setup();
@@ -85,4 +85,23 @@ test('clicking a search result removes all search results from the page', async 
 
   const searchResults = screen.queryAllByTestId("search-result");
   expect(searchResults.length).toBe(0);
-})
+});
+
+describe("small screen", () => {
+  beforeEach(() => {
+    window.innerWidth = 375;
+    window.innerHeight = 667;
+    window.dispatchEvent(new Event("resize"));
+    setupRoute();
+  });
+
+  test("clicking search icon takes user to search page", async () => {
+    const user = userEvent.setup();
+    const searchIcon = screen.getByAltText("searchIcon");
+    await user.click(searchIcon);
+    const searchContainer = screen.getByTestId("searchContainer");
+
+    expect(searchContainer).toHaveClass("fixed left-0 bottom-0 w-full h-full");
+  });
+
+});
