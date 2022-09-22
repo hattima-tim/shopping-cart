@@ -104,4 +104,19 @@ describe("small screen", () => {
     expect(searchContainer).toHaveClass("fixed left-0 bottom-0 w-full h-full");
   });
 
+  test("clicking a search result removes search page", async () => {
+    const user = userEvent.setup();
+
+    const searchIcon = screen.getByAltText("searchIcon");
+    await user.click(searchIcon);
+
+    const searchBar = screen.getByRole("searchbox");
+    await user.type(searchBar, "cut"); // search for cut and sew solid t-shirts
+
+    const searchResult = screen.getAllByTestId("search-result");
+    await user.click(searchResult[0]);
+
+    const searchContainer = screen.getByTestId("searchContainer");
+    expect(searchContainer).toHaveClass("search-bar ml-[10px]");
+  });
 });
