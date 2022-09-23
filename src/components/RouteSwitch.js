@@ -17,7 +17,7 @@ import { getSpecificPoloTShirtData } from "./products/poloTShirts/productsData";
 
 function RouteSwitch() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/shopping-cart">
       <Routes>
         <Route path="/" element={
           <div>
@@ -25,7 +25,6 @@ function RouteSwitch() {
             <Footer/>  
           </div>}>
           <Route index element={<App />} />
-          <Route path='/shopping-cart' element={<App />} />
 
           <Route
             path="/half-sleeve-cut-and-sew-solid"
