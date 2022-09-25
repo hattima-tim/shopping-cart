@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { useState, useEffect, useRef } from "react";
 import { Outlet, useParams, Link, useOutletContext } from "react-router-dom";
 import uniqid from "uniqid";
@@ -434,6 +435,9 @@ function ProductPage({ getProductData }) {
       </div>
     </div>
   );
+}
+ProductPage.propTypes = {
+  getProductData: PropTypes.func.isRequired,
 }
 
 export default ProductPage;

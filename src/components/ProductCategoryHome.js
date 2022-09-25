@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import ProductCards from "./ProductCards";
 import "../styles/productsPage.css";
@@ -19,6 +20,10 @@ const ProductCategoryHomePage = ({productType,products}) => {
       />
     </>
   );
+};
+ProductCategoryHomePage.propTypes = {
+  productType: PropTypes.string.isRequired,
+  products: PropTypes.array.isRequired,
 };
 
 export default ProductCategoryHomePage;

@@ -1,10 +1,7 @@
 import { useRef, useState } from "react";
+import PropTypes from "prop-types";
 
-function ImageMagnifier({
-  src,
-  alt,
-  zoomLevel = 1.7
-}) {
+function ImageMagnifier({ src, alt, zoomLevel = 1.7 }) {
   const magnifierWidth = useRef(0);
   const magnifierHeight = useRef(0);
 
@@ -12,9 +9,7 @@ function ImageMagnifier({
   const [[imgWidth, imgHeight], setSize] = useState([0, 0]);
   const [showMagnifier, setShowMagnifier] = useState(false);
   return (
-    <div
-      className="relative lg:flex-1 w-full overflow-hidden"
-    >
+    <div className="relative w-full overflow-hidden lg:flex-1">
       <img
         src={src}
         onMouseEnter={(e) => {
@@ -22,18 +17,18 @@ function ImageMagnifier({
           const elem = e.currentTarget;
           const { width, height } = elem.getBoundingClientRect();
 
-          magnifierWidth.current = width*2;
-          magnifierHeight.current = height*2;
+          magnifierWidth.current = width * 2;
+          magnifierHeight.current = height * 2;
 
-          setSize([width, height]);          
+          setSize([width, height]);
 
           setShowMagnifier(true);
         }}
         onMouseMove={(e) => {
           // calculate cursor position on the image
-          const x = e.clientX-e.currentTarget.getBoundingClientRect().left;
+          const x = e.clientX - e.currentTarget.getBoundingClientRect().left;
           const y = e.clientY - e.target.getBoundingClientRect().top;
-        
+
           setXY([x, y]);
         }}
         onMouseLeave={() => {
@@ -49,7 +44,7 @@ function ImageMagnifier({
           position: "absolute",
 
           // prevent maginier blocks the mousemove event of img
-          pointerEvents: 'none',
+          pointerEvents: "none",
 
           // set size of magnifier
           height: `${magnifierHeight.current}px`,
@@ -69,13 +64,21 @@ function ImageMagnifier({
           }px`,
 
           //calculete position of zoomed image.
-          backgroundPositionX: `${-x * zoomLevel + magnifierWidth.current / 2}px`,
-          backgroundPositionY: `${-y * zoomLevel + magnifierHeight.current / 2}px`
+          backgroundPositionX: `${
+            -x * zoomLevel + magnifierWidth.current / 2
+          }px`,
+          backgroundPositionY: `${
+            -y * zoomLevel + magnifierHeight.current / 2
+          }px`,
         }}
       ></div>
     </div>
   );
 }
 
-
+ImageMagnifier.propTypes = {
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  zoomLevel: PropTypes.number,
+};
 export default ImageMagnifier;

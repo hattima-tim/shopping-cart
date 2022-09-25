@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import "../styles/sidenav.css";
@@ -233,6 +234,9 @@ function SideNav({ header }) {
       </div>
     </div>
   );
+}
+SideNav.propTypes = {
+  header: PropTypes.object,
 }
 
 export default SideNav;

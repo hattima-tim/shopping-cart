@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
@@ -58,6 +59,10 @@ function ProductSlider({ products, productType }) {
       ))}
     </Splide>
   );
+}
+ProductSlider.propTypes = {
+  products: PropTypes.array,
+  productType: PropTypes.string,
 }
 
 export default ProductSlider;

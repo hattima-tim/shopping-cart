@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
 import "../styles/notificationBanner.css";
 
@@ -46,6 +47,13 @@ function NotificationBanner({
       )}
     </>
   );
+}
+NotificationBanner.propTypes = {
+  resultOfUserAction: PropTypes.string.isRequired,
+  undoProductRemoval: PropTypes.func,
+  closeNotificationBanner: PropTypes.func.isRequired,
+  isCartEmpty: PropTypes.bool,
+  userAction: PropTypes.object
 }
 
 export default NotificationBanner;

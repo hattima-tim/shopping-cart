@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import uniqid from "uniqid";
 
@@ -22,5 +23,9 @@ function ProductCards({productType, products }) {
     </div>
   );
 }
+ProductCards.propTypes = {
+  productType: PropTypes.string.isRequired,
+  products: PropTypes.array.isRequired,
+};
 
 export default ProductCards;

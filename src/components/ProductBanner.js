@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const ProductBanner = ({
@@ -20,6 +21,13 @@ const ProductBanner = ({
       )}
     </div>
   );
+};
+
+ProductBanner.propTypes = {
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  productCategoryHomePageLink: PropTypes.string,
+  showViewCollectionButton: PropTypes.bool,
 };
 
 export default ProductBanner;
