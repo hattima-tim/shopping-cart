@@ -87,6 +87,38 @@ describe("product option buttons", () => {
     expect(clickedFabricBtn).toHaveClass("active");
     expect(clickedSizeBtn).toHaveClass("active");
   });
+
+  test("double clicking fabric button makes it deactive", async () => {
+    setup();
+    const user = userEvent.setup();
+
+    const cleanFabricBtn = screen.getByRole("button", {
+      name: "COMBED COTTON",
+    });
+    await user.click(cleanFabricBtn);
+    const clickedFabricBtn = screen.getByRole("button", {
+      name: "COMBED COTTON",
+    });
+    await user.click(clickedFabricBtn);
+
+    const cleanSizeBtn = screen.getByRole("button", {
+      name: "M",
+    });
+    await user.click(cleanSizeBtn);
+    const clickedSizeBtn = screen.getByRole("button", {
+      name: "M",
+    });
+    await user.click(clickedSizeBtn);
+
+    const doubleClickedFabricBtn = screen.getByRole("button", {
+      name: "COMBED COTTON",
+    });
+    const doubleClickedSizeBtn = screen.getByRole("button", {
+      name: "M",
+    });
+    expect(doubleClickedFabricBtn).not.toHaveClass("active");
+    expect(doubleClickedSizeBtn).not.toHaveClass("active");
+  });
 });
 
 describe("description and additional info", () => {
