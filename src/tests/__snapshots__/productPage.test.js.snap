@@ -589,7 +589,7 @@ exports[`Product page 1`] = `
             </span>
             <br />
             <button
-              class="fabric-btn mb-1 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
+              class=" mb-1 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
             >
               COMBED COTTON
             </button>
@@ -604,22 +604,22 @@ exports[`Product page 1`] = `
             </span>
             <br />
             <button
-              class="size-btn mb-8 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
+              class=" mb-8 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
             >
               M
             </button>
             <button
-              class="size-btn mb-8 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
+              class=" mb-8 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
             >
               L
             </button>
             <button
-              class="size-btn mb-8 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
+              class=" mb-8 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
             >
               XL
             </button>
             <button
-              class="size-btn mb-8 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
+              class=" mb-8 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
             >
               XXL
             </button>

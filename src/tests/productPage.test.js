@@ -46,7 +46,7 @@ test("Product page", () => {
 });
 
 describe("item counter", () => {
-  test("increment and decrement", async() => {
+  test("increment and decrement", async () => {
     setup();
 
     const inputField = screen.getByDisplayValue("1");
@@ -64,8 +64,33 @@ describe("item counter", () => {
   });
 });
 
+describe("product option buttons", () => {
+  test("clicking product option buttons make them active", async () => {
+    setup();
+    const user = userEvent.setup();
+
+    const cleanFabricBtn = screen.getByRole("button", {
+      name: "COMBED COTTON",
+    });
+    await user.click(cleanFabricBtn);
+    const cleanSizeBtn = screen.getByRole("button", {
+      name: "M",
+    });
+    await user.click(cleanSizeBtn);
+
+    const clickedFabricBtn = screen.getByRole("button", {
+      name: "COMBED COTTON",
+    });
+    const clickedSizeBtn = screen.getByRole("button", {
+      name: "M",
+    });
+    expect(clickedFabricBtn).toHaveClass("active");
+    expect(clickedSizeBtn).toHaveClass("active");
+  });
+});
+
 describe("description and additional info", () => {
-  test('additional info is shown when "additional info" button is clicked', async() => {
+  test('additional info is shown when "additional info" button is clicked', async () => {
     setup();
     const user = userEvent.setup();
 
@@ -87,7 +112,7 @@ describe("description and additional info", () => {
     expect(tableData3).toBeInTheDocument();
   });
 
-  test("description is shown when description tab is clicked", async() => {
+  test("description is shown when description tab is clicked", async () => {
     setup();
 
     const additionalInfoBtn = screen.getByRole("button", {
