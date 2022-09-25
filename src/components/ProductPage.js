@@ -60,40 +60,31 @@ function ProductPage({ getProductData }) {
 
   const [productsInCart, setProductsInCart] = useOutletContext();
 
-  const handleClick = (event, buttonClassName, stateUpdater) => {
+  const handleClick = (event, stateUpdater) => {
     const currentBtn = event.target;
     const isButtonActive = currentBtn.classList.contains("active");
 
-    const sameBtns = document.querySelectorAll(buttonClassName);
-    sameBtns.forEach((btn) => {
-      if (btn !== currentBtn) {
-        btn.classList.remove("active");
-      }
-    });
-
     if (isButtonActive) {
       // means that this button is pressed twice to deselect it
-      currentBtn.classList.remove("active");
       stateUpdater("");
     } else {
-      currentBtn.classList.add("active");
       stateUpdater(currentBtn.textContent);
     }
   };
 
-  const [fabric, setFabric] = useState("");
+  const [selectedFabric, setSelectedFabric] = useState("");
   const handleFabricBtnClick = (e) => {
-    handleClick(e, ".fabric-btn", setFabric);
+    handleClick(e, setSelectedFabric);
   };
 
-  const [color, setColor] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
   const handleColorBtnClick = (e) => {
-    handleClick(e, ".color-btn", setColor);
+    handleClick(e, setSelectedColor);
   };
 
-  const [size, setSize] = useState("");
+  const [selectedSize, setSelectedSize] = useState("");
   const handleSizeBtnClick = (e) => {
-    handleClick(e, ".size-btn", setSize);
+    handleClick(e, setSelectedSize);
   };
 
   let product = {
@@ -103,9 +94,9 @@ function ProductPage({ getProductData }) {
     price: productData.price,
     quantity: itemNumber,
     subTotal: itemNumber * (productData.price.split("৳")[1] * 1),
-    fabric: fabric,
-    color: color,
-    size: size,
+    fabric: selectedFabric,
+    color: selectedColor,
+    size: selectedSize,
     path: params.name,
     fullPath: productData.fullPath,
   };
@@ -126,17 +117,17 @@ function ProductPage({ getProductData }) {
     productOptionsAvailable.current.forEach((option) => {
       switch (option) {
         case "fabric":
-          if (fabric === "") {
+          if (selectedFabric === "") {
             didUserInputProductOption = false;
           }
           break;
-        case "color":
-          if (color === "") {
+        case "selectedColor":
+          if (selectedColor === "") {
             didUserInputProductOption = false;
           }
           break;
-        case "size":
-          if (size === "") {
+        case "selectedSize":
+          if (selectedSize === "") {
             didUserInputProductOption = false;
           }
           break;
@@ -297,7 +288,9 @@ function ProductPage({ getProductData }) {
                 return (
                   <button
                     key={uniqid()}
-                    className="fabric-btn mb-1 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
+                    className={`${
+                      selectedFabric === fabric ? "active" : ""
+                    } mb-1 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black`}
                     onClick={handleFabricBtnClick}
                   >
                     {fabric}
@@ -317,7 +310,9 @@ function ProductPage({ getProductData }) {
                 return (
                   <button
                     key={uniqid()}
-                    className="color-btn mb-1 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
+                    className={`${
+                      selectedColor === color ? "active" : ""
+                    } mb-1 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black`}
                     onClick={handleColorBtnClick}
                   >
                     {color}
@@ -336,7 +331,9 @@ function ProductPage({ getProductData }) {
               return (
                 <button
                   key={uniqid()}
-                  className="size-btn mb-8 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black"
+                  className={`${
+                    selectedSize === size ? "active" : ""
+                  } mb-8 mr-2 w-fit rounded-sm border-2 border-black bg-white p-1 text-base text-black`}
                   onClick={handleSizeBtnClick}
                 >
                   {size}
