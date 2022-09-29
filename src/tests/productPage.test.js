@@ -119,6 +119,19 @@ describe("product option buttons", () => {
     expect(doubleClickedFabricBtn).not.toHaveClass("active");
     expect(doubleClickedSizeBtn).not.toHaveClass("active");
   });
+
+  test('clicking a size button makes it active and other size buttons deactive', async () => { 
+    setup();
+    const user = userEvent.setup();
+
+    const sizeBtn1 = screen.getByRole('button', { name: 'M' });
+    await user.click(sizeBtn1);
+    const sizeBtn2 = screen.getByRole('button', { name: 'M' });
+    await user.click(sizeBtn2);
+
+    expect(sizeBtn1).not.toHaveClass('active');
+    expect(sizeBtn2).toHaveClass('active');
+  })
 });
 
 describe("description and additional info", () => {
