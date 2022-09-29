@@ -120,18 +120,36 @@ describe("product option buttons", () => {
     expect(doubleClickedSizeBtn).not.toHaveClass("active");
   });
 
-  test('clicking a size button makes it active and other size buttons deactive', async () => { 
+  test("clicking a size button makes it active and other size buttons deactive", async () => {
     setup();
     const user = userEvent.setup();
 
-    const sizeBtn1 = screen.getByRole('button', { name: 'M' });
+    const sizeBtn1 = screen.getByRole("button", { name: "M" });
     await user.click(sizeBtn1);
-    const sizeBtn2 = screen.getByRole('button', { name: 'M' });
+    const sizeBtn2 = screen.getByRole("button", { name: "M" });
     await user.click(sizeBtn2);
 
-    expect(sizeBtn1).not.toHaveClass('active');
-    expect(sizeBtn2).toHaveClass('active');
-  })
+    expect(sizeBtn1).not.toHaveClass("active");
+    expect(sizeBtn2).toHaveClass("active");
+  });
+
+  describe('clicking "add to cart" button', () => {
+    beforeEach(() => {
+      window.alert = jest.fn();
+      setup();
+    });
+
+    test("not selecting size gives alert message", async () => {
+      const user = userEvent.setup();
+
+      const fabricBtn = screen.getByRole("button", { name: "COMBED COTTON" });
+      await user.click(fabricBtn);
+      const addToCartBtn = screen.getByRole("button", { name: "Add to Cart" });
+      await user.click(addToCartBtn);
+
+      expect(window.alert).toHaveBeenCalledTimes(1);
+    });
+  });
 });
 
 describe("description and additional info", () => {
