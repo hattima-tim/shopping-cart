@@ -520,7 +520,7 @@ exports[`Product page 1`] = `
           class="w-full lg:w-1/2"
         >
           <div
-            class="relative lg:flex-1 w-full overflow-hidden"
+            class="relative w-full overflow-hidden lg:flex-1"
           >
             <img
               alt="Half Sleeve Cut and Sew Solid(pattern 15)"
