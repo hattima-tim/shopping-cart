@@ -149,6 +149,17 @@ describe("product option buttons", () => {
 
       expect(window.alert).toHaveBeenCalledTimes(1);
     });
+
+    test("not selecting fabric gives alert message", async () => {
+      const user = userEvent.setup();
+
+      const sizeBtn = screen.getByRole("button", { name: "M" });
+      await user.click(sizeBtn);
+      const addToCartBtn = screen.getByRole("button", { name: "Add to Cart" });
+      await user.click(addToCartBtn);
+
+      expect(window.alert).toHaveBeenCalledTimes(1);
+    });
   });
 });
 
