@@ -1,3 +1,4 @@
+# Shopping-Cart-Project
 Built as an assignment for [The Odin Project](https://github.com/TheOdinProject/curriculum)
 
 Details of the assignment can be found [here](https://www.theodinproject.com/lessons/node-path-javascript-shopping-cart)
