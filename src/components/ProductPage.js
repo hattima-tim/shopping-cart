@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import { useState, useEffect, useRef } from "react";
 import { Outlet, useParams, Link, useOutletContext } from "react-router-dom";
 import uniqid from "uniqid";
@@ -111,32 +111,37 @@ function ProductPage({ getProductData }) {
     });
   });
 
-  const [resultOfUserAction, setResultOfUserAction] = useState("");
-
-  const handleAddToCart = () => {
-    let didUserInputProductOption = true;
+  const checkProductOptionSelection = () => {
+    let userInputtedProductOption = true;
     productOptionsAvailable.current.forEach((option) => {
       switch (option) {
         case "fabric":
           if (selectedFabric === "") {
-            didUserInputProductOption = false;
+            userInputtedProductOption = false;
           }
           break;
-        case "selectedColor":
+        case "color":
           if (selectedColor === "") {
-            didUserInputProductOption = false;
+            userInputtedProductOption = false;
           }
           break;
-        case "selectedSize":
+        case "size":
           if (selectedSize === "") {
-            didUserInputProductOption = false;
+            userInputtedProductOption = false;
           }
           break;
         default:
           break;
       }
     });
-    if (!didUserInputProductOption) {
+    return userInputtedProductOption;
+  };
+
+  const [resultOfUserAction, setResultOfUserAction] = useState("");
+
+  const handleAddToCart = () => {
+    let userInputtedProductOption = checkProductOptionSelection();
+    if (!userInputtedProductOption) {
       alert("please select all product options");
       return;
     }
@@ -438,6 +443,6 @@ function ProductPage({ getProductData }) {
 }
 ProductPage.propTypes = {
   getProductData: PropTypes.func.isRequired,
-}
+};
 
 export default ProductPage;
