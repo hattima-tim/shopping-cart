@@ -1,33 +1,39 @@
-import PropTypes from 'prop-types';
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import "../styles/sidenav.css";
+import { MouseEvent } from "react";
 
-function SideNav({ header }) {
-  const sideNavRef = useRef(null);
+type SideNavProps = {
+  header: HTMLElement;
+};
+
+function SideNav({ header }: SideNavProps) {
+  const sideNavRef = useRef<HTMLDivElement>(null);
 
   const closeNav = () => {
     const body = document.querySelector("body");
-    body.style.overflow = "visible";
+    if (body) body.style.overflow = "visible";
 
     const headerSibling = header.nextElementSibling;
-    headerSibling.removeEventListener("click", closeNav);
+    if (headerSibling) headerSibling.removeEventListener("click", closeNav);
 
-    sideNavRef.current.style.transform = "translateX(-100%)";
+    if (sideNavRef.current)
+      sideNavRef.current.style.transform = "translateX(-100%)";
   };
 
   const showNav = () => {
     const body = document.querySelector("body");
-    body.style.overflow = "hidden";
+    if (body) body.style.overflow = "hidden";
 
     const headerSibling = header.nextElementSibling;
-    headerSibling.addEventListener("click", closeNav);
+    if (headerSibling) headerSibling.addEventListener("click", closeNav);
 
-    sideNavRef.current.style.transform = "translateX(0)";
+    if (sideNavRef.current)
+      sideNavRef.current.style.transform = "translateX(0)";
   };
 
-  const rotateIcon = (e) => {
-    const downArrow = e.target;
+  const rotateIcon = (e: MouseEvent) => {
+    const downArrow = e.target as HTMLElement;
 
     if (!downArrow.classList.contains("rotated")) {
       downArrow.style.transform = "rotate(180deg)";
@@ -37,11 +43,13 @@ function SideNav({ header }) {
 
     downArrow.classList.toggle("rotated");
 
-    const downArrowContainerParent = downArrow.parentElement.parentElement;
-    downArrowContainerParent.classList.toggle("active-child-sidenav-container");
+    const downArrowContainerParent = downArrow.parentElement?.parentElement;
+    downArrowContainerParent?.classList.toggle(
+      "active-child-sidenav-container"
+    );
 
-    const childSideNav = downArrow.parentElement.nextElementSibling;
-    childSideNav.classList.toggle("active-child-sidenav");
+    const childSideNav = downArrow.parentElement?.nextElementSibling;
+    childSideNav?.classList.toggle("active-child-sidenav");
   };
 
   return (
@@ -79,7 +87,7 @@ function SideNav({ header }) {
             </Link>
           </li>
 
-          <li className="border-b py-2 px-3 hover:bg-[#e8e8e7]">
+          <li className="border-b px-3 py-2 hover:bg-[#e8e8e7]">
             <div className="flex cursor-pointer justify-between ">
               <Link to="/" className="text-sm font-semibold">
                 MEN'S COLLECTION
@@ -163,7 +171,7 @@ function SideNav({ header }) {
             </div>
           </li>
 
-          <li className="border-b py-2 px-3 hover:bg-[#e8e8e7]">
+          <li className="border-b px-3 py-2 hover:bg-[#e8e8e7]">
             <div className="flex cursor-pointer justify-between ">
               <Link to="/" className="text-sm font-semibold">
                 KID'S & BOY'S COLLECTION
@@ -187,7 +195,7 @@ function SideNav({ header }) {
             </div>
           </li>
 
-          <li className="border-b py-2 px-3 hover:bg-[#e8e8e7]">
+          <li className="border-b px-3 py-2 hover:bg-[#e8e8e7]">
             <div className="flex cursor-pointer justify-between ">
               <Link to="/" className="text-sm font-semibold">
                 SUNNAH ESSENTIAL
@@ -234,9 +242,6 @@ function SideNav({ header }) {
       </div>
     </div>
   );
-}
-SideNav.propTypes = {
-  header: PropTypes.object,
 }
 
 export default SideNav;
