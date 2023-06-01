@@ -1,4 +1,6 @@
-function getAllHalfSleeveRegularTShirtsData() {
+import { Product } from "../productsData";
+
+function getAllHalfSleeveRegularTShirtsData():Product[] {
   return [
     {
       breadCrumbs: [
@@ -756,7 +758,7 @@ function getAllHalfSleeveRegularTShirtsData() {
 
 export default getAllHalfSleeveRegularTShirtsData;
 
-function getSpecificHalfSleeveRegularTShirtData(searchPath) {
+function getSpecificHalfSleeveRegularTShirtData(searchPath:string) {
   return getAllHalfSleeveRegularTShirtsData().find((product) => {
     const productPath = product.pathName;
     return productPath === searchPath;

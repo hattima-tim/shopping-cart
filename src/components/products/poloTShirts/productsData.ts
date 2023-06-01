@@ -1,4 +1,6 @@
-function getAllPoloTShirtsData() {
+import { Product } from "../productsData";
+
+function getAllPoloTShirtsData():Product[] {
   return [
     {
       breadCrumbs: [
@@ -348,7 +350,7 @@ function getAllPoloTShirtsData() {
 
 export default getAllPoloTShirtsData;
 
-function getSpecificPoloTShirtData(searchPath) {
+function getSpecificPoloTShirtData(searchPath:string) {
   return getAllPoloTShirtsData().find((product) => {
     const productPath = product.pathName;
     return productPath === searchPath;

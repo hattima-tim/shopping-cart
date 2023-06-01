@@ -1,4 +1,6 @@
-function getAllHalfSleeveDawaTShirtsData() {
+import { Product } from "../productsData";
+
+function getAllHalfSleeveDawaTShirtsData():Product[] {
   return [
     {
       breadCrumbs: [
@@ -654,7 +656,7 @@ function getAllHalfSleeveDawaTShirtsData() {
 
 export default getAllHalfSleeveDawaTShirtsData;
 
-function getSpecificHalfSleeveDawaTShirtData(searchPath) {
+function getSpecificHalfSleeveDawaTShirtData(searchPath:string) {
   return getAllHalfSleeveDawaTShirtsData().find((product) => {
     const productPath = product.pathName;
     return productPath === searchPath;
