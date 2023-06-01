@@ -47,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@types/uniqid": "^5.3.2",
     "autoprefixer": "^10.4.8",
     "gh-pages": "^4.0.0",
     "postcss": "^8.4.16",
