@@ -4,6 +4,7 @@ import getAllHalfSleeveDawaTShirtsData from "./products/halfSleeveDawah/products
 import getAllHalfSleeveRegularTShirtsData from "./products/halfSleeveRegular/productsData";
 import getAllPoloTShirtsData from "./products/poloTShirts/productsData";
 import uniqid from "uniqid";
+import { Product } from "./products/productsData";
 
 function SearchBar() {
   const halfSleeveDawahTShirts = getAllHalfSleeveDawaTShirtsData();
@@ -14,8 +15,8 @@ function SearchBar() {
     ...halfSleeveRegularTShirts,
     ...poloTShirts,
   ];
-  const [searchResults, setSearchResults] = useState([]);
-  const search = (event) => {
+  const [searchResults, setSearchResults] = useState<Product[]>([]);
+  const search = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchTerm = event.target.value;
     if (searchTerm !== "") {
       const results = allProducts.filter((product) => {
@@ -56,14 +57,15 @@ function SearchBar() {
     setShowSearchPage(false);
   };
 
-  const closeSearchPageOnBodyClick = (e) => {
-    return e.target.nodeName === "INPUT" ? true : setShowSearchPage(false);
-  }
+  const closeSearchPageOnBodyClick = (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    return target.nodeName === "INPUT" ? true : setShowSearchPage(false);
+  };
 
   useEffect(() => {
     if (showSearchPage) {
       document.body.addEventListener("click", closeSearchPageOnBodyClick);
-    }else{
+    } else {
       document.body.removeEventListener("click", closeSearchPageOnBodyClick);
     }
   }, [showSearchPage]);
@@ -112,7 +114,7 @@ function SearchBar() {
         {showSearchPage && (
           <div
             onClick={closeSearchPageOnCloseBtnClick}
-            className="absolute top-2 right-2.5 cursor-pointer text-3xl"
+            className="absolute right-2.5 top-2 cursor-pointer text-3xl"
           >
             &times;
           </div>
