@@ -4,17 +4,23 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "../styles/ProductSlider.css";
 import uniqid from "uniqid";
+import { Product } from './products/productsData';
 
-function ProductSlider({ products, productType }) {
+type ProductSliderProps = {
+  products:Product[],
+  productType:string
+}
+
+function ProductSlider({ products, productType }:ProductSliderProps) {
   const handleMouseOver = () => {
-    const arrows = document.querySelectorAll(".splide__arrow");
+    const arrows = document.querySelectorAll<HTMLElement>(".splide__arrow");
     arrows.forEach((arrow) => {
       arrow.style.display = "block";
     });
   };
 
   const handleMouseLeave = () => {
-    const arrows = document.querySelectorAll(".splide__arrow");
+    const arrows = document.querySelectorAll<HTMLElement>(".splide__arrow");
     arrows.forEach((arrow) => {
       arrow.style.display = "none";
     });
@@ -23,8 +29,6 @@ function ProductSlider({ products, productType }) {
   return (
     <Splide
       className="mx-4 my-8 overflow-hidden lg:mx-20"
-      onMouseOver={handleMouseOver}
-      onMouseLeave={handleMouseLeave}
       options={{
         type: "loop",
         gap: ".9rem",
@@ -42,7 +46,9 @@ function ProductSlider({ products, productType }) {
     >
       {products.map((product, index) => (
         <SplideSlide
-          key={uniqid()}
+        key={uniqid()}
+        onMouseOver={handleMouseOver}
+        onMouseLeave={handleMouseLeave}
           className="productCard mb-7 w-40 flex-none md:w-64 lg:w-[18.5rem]"
         >
           <div className="productCardImg">
