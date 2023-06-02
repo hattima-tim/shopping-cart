@@ -6,6 +6,8 @@ import ImageMagnifier from "./imageMagnifier";
 import NotificationBanner from "./notificationBanner";
 import "../styles/productPage.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { Product as ProductsDataType } from "./products/productsData";
+import { CartProductsDataType } from "./types/productsInCart";
 
 export function Product() {
   return (
@@ -15,13 +17,19 @@ export function Product() {
   );
 }
 
-function ProductPage({ getProductData }) {
+type ProductPageProps = {
+  getProductData: (searchPath: string) => ProductsDataType;
+};
+
+type StateUpdater = (value: string) => void;
+
+function ProductPage({ getProductData }: ProductPageProps) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const params = useParams();
-  const productData = getProductData(params.name);
+  const productData = getProductData(params.name || "");
 
   const [itemNumber, setItemNumber] = useState(1);
   const itemNumberIncrement = () => {
@@ -32,11 +40,10 @@ function ProductPage({ getProductData }) {
       setItemNumber(itemNumber - 1);
     }
   };
-  const handleChange = (e) => {
-    if (e.target.value > 0) {
-      const value = parseInt(e.target.value);
-      setItemNumber(value);
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const targetValue = parseInt(e.target.value);
+    if(targetValue)
+      setItemNumber(targetValue);
   };
 
   const [currentlyShowingAdditionalInfo, setCurrentlyShowingAdditionalInfo] =
@@ -44,10 +51,10 @@ function ProductPage({ getProductData }) {
 
   const styleTabAsActive = () => {
     const descriptionTab = document.querySelector(".description");
-    descriptionTab.classList.toggle("active-tab");
+    descriptionTab?.classList.toggle("active-tab");
 
     const additionalInfoTab = document.querySelector(".additional-info");
-    additionalInfoTab.classList.toggle("active-tab");
+    additionalInfoTab?.classList.toggle("active-tab");
   };
 
   const showDescription = () => {
@@ -59,55 +66,69 @@ function ProductPage({ getProductData }) {
     styleTabAsActive();
   };
 
-  const [productsInCart, setProductsInCart] = useOutletContext();
+  const [productsInCart, setProductsInCart] = useOutletContext() as [
+    CartProductsDataType[],
+    React.Dispatch<React.SetStateAction<CartProductsDataType[]>>
+  ];
 
-  const handleClick = (event, stateUpdater) => {
-    const currentBtn = event.target;
+  const handleClick = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    stateUpdater: StateUpdater
+  ) => {
+    const currentBtn = event.target as HTMLElement;
     const isButtonActive = currentBtn.classList.contains("active");
 
     if (isButtonActive) {
       // means that this button is pressed twice to deselect it
       stateUpdater("");
     } else {
-      stateUpdater(currentBtn.textContent);
+      stateUpdater(currentBtn.textContent || "");
     }
   };
 
   const [selectedFabric, setSelectedFabric] = useState("");
-  const handleFabricBtnClick = (e) => {
+  const handleFabricBtnClick = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     handleClick(e, setSelectedFabric);
   };
 
   const [selectedColor, setSelectedColor] = useState("");
-  const handleColorBtnClick = (e) => {
+  const handleColorBtnClick = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     handleClick(e, setSelectedColor);
   };
 
   const [selectedSize, setSelectedSize] = useState("");
-  const handleSizeBtnClick = (e) => {
+  const handleSizeBtnClick = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     handleClick(e, setSelectedSize);
   };
 
+  const priceWithoutSymbol = productData.price.split("৳")[1];
+  const priceNumber = Number(priceWithoutSymbol);
   let product = {
     id: uniqid(),
     name: productData.name,
     img: productData.imagesForProductPage[0],
     price: productData.price,
     quantity: itemNumber,
-    subTotal: itemNumber * (productData.price.split("৳")[1] * 1),
+    subTotal: itemNumber * (priceNumber * 1),
     fabric: selectedFabric,
     color: selectedColor,
     size: selectedSize,
-    path: params.name,
+    path: params.name || "",
     fullPath: productData.fullPath,
   };
 
-  const productOptionsAvailable = useRef(null);
+  const productOptionsAvailable = useRef(['']);
   useEffect(() => {
     productOptionsAvailable.current = [
       ...document.querySelectorAll(".product-option"),
     ].map((option) => {
-      return option.textContent.toLowerCase();
+      return (option.textContent || "").toLowerCase();
     });
   });
 
@@ -156,8 +177,8 @@ function ProductPage({ getProductData }) {
     window.scrollTo(0, 0);
   };
 
-  const mainRef = useRef(null);
-  const thumbsRef = useRef(null);
+  const mainRef = useRef<Splide | null>(null);
+  const thumbsRef = useRef<Splide | null>(null);
 
   useEffect(() => {
     if (mainRef.current && thumbsRef.current && thumbsRef.current.splide) {
@@ -186,14 +207,14 @@ function ProductPage({ getProductData }) {
   };
 
   const handleMouseOver = () => {
-    const arrows = document.querySelectorAll(".splide__arrow");
+    const arrows = document.querySelectorAll<HTMLElement>(".splide__arrow");
     arrows.forEach((arrow) => {
       arrow.style.display = "block";
     });
   };
 
   const handleMouseLeave = () => {
-    const arrows = document.querySelectorAll(".splide__arrow");
+    const arrows = document.querySelectorAll<HTMLElement>(".splide__arrow");
     arrows.forEach((arrow) => {
       arrow.style.display = "none";
     });
@@ -213,14 +234,17 @@ function ProductPage({ getProductData }) {
         <div className="w-full lg:w-1/2">
           {productData.imagesForProductPage.length > 1 ? (
             <Splide
-              onMouseOver={handleMouseOver}
-              onMouseLeave={handleMouseLeave}
-              ref={mainRef}
+            ref={mainRef}
               options={mainOptions}
             >
               {productData.imagesForProductPage.map((imgSrc) => {
                 return (
-                  <SplideSlide key={uniqid()} className="">
+                  <SplideSlide
+                    key={uniqid()}
+                    onMouseOver={handleMouseOver}
+                    onMouseLeave={handleMouseLeave}
+                    className=""
+                  >
                     <ImageMagnifier src={imgSrc} alt={productData.name} />
                   </SplideSlide>
                 );
@@ -265,7 +289,7 @@ function ProductPage({ getProductData }) {
             })}
           </div>
 
-          <h1 className="mt-2 mb-6 text-xl font-bold text-[#555555] lg:text-3xl">
+          <h1 className="mb-6 mt-2 text-xl font-bold text-[#555555] lg:text-3xl">
             {productData.name}
           </h1>
           <h2 className="mb-4 text-2xl font-bold text-slate-800">
