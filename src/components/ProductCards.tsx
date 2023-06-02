@@ -1,8 +1,14 @@
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import uniqid from "uniqid";
+import { Product } from "./products/productsData";
 
-function ProductCards({productType, products }) {
+type Props = {
+  productType: string;
+  products: Product[];
+};
+
+
+function ProductCards({productType, products }:Props) {
   return (
     <div className="lg:flex lg:justify-center">
       <div className="productCards justify-evenly md:justify-evenly lg:mx-20 lg:w-11/12 lg:justify-start lg:gap-4">
@@ -23,9 +29,5 @@ function ProductCards({productType, products }) {
     </div>
   );
 }
-ProductCards.propTypes = {
-  productType: PropTypes.string.isRequired,
-  products: PropTypes.array.isRequired,
-};
 
 export default ProductCards;
