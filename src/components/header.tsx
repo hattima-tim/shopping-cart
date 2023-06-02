@@ -5,24 +5,34 @@ import SideNav from "./SideNav";
 import SearchBar from "./SearchBar";
 import "../styles/header.css";
 import uniqid from "uniqid";
+import { CartProductsDataType } from "./types/productsInCart";
 
 function Header() {
   const [productsInCart, setProductsInCart] = useState(
-    JSON.parse(localStorage.getItem("productsInCart")) || []
+    JSON.parse(localStorage.getItem("productsInCart") || "[]") || []
   );
 
-  const totalItem = productsInCart.reduce((acc, curr) => {
-    return acc + curr.quantity;
-  }, 0);
+  const totalItem = productsInCart.reduce(
+    (acc: number, curr: CartProductsDataType) => {
+      return acc + curr.quantity;
+    },
+    0
+  );
 
-  const subTotal = productsInCart.reduce((acc, product) => {
-    return acc + product.subTotal;
-  }, 0);
+  const subTotal = productsInCart.reduce(
+    (acc: number, product: CartProductsDataType) => {
+      return acc + product.subTotal;
+    },
+    0
+  );
 
-  const removeItemFromCart = (e) => {
-    const id = Number(e.target.dataset.id);
+  const removeItemFromCart = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    const target = e.target as HTMLElement;
+    const id = Number(target.dataset.id);
     const newProductsInCart = productsInCart.filter(
-      (product, index) => index !== id
+      (product: CartProductsDataType, index: number) => index !== id
     );
     setProductsInCart(newProductsInCart);
     localStorage.setItem("productsInCart", JSON.stringify(newProductsInCart));
@@ -34,29 +44,35 @@ function Header() {
     localStorage.clear();
   };
 
-  const cartDisplayer = useRef(null);
+  const cartDisplayer = useRef<HTMLDivElement>(null);
 
-  const showCartDrawer = (event) => {
-    cartDisplayer.current.style.transform = "translateX(0)";
+  const showCartDrawer = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    if (cartDisplayer.current)
+      cartDisplayer.current.style.transform = "translateX(0)";
     document.body.addEventListener("click", hideCartDrawer);
     event.stopPropagation();
   };
 
   const hideCartDrawer = () => {
-    cartDisplayer.current.style.transform = "translateX(100%)";
+    if (cartDisplayer.current)
+      cartDisplayer.current.style.transform = "translateX(100%)";
     document.body.removeEventListener("click", hideCartDrawer);
   };
 
   const showProductstooltip = () => {
-    cartDisplayer.current.style.visibility = "visible";
+    if (cartDisplayer.current)
+      cartDisplayer.current.style.visibility = "visible";
   };
 
   const hideProductstooltip = () => {
-    cartDisplayer.current.style.visibility = "hidden";
+    if (cartDisplayer.current)
+      cartDisplayer.current.style.visibility = "hidden";
   };
 
-  const headerRef = useRef(null);
-  const [header, setHeader] = useState(null);
+  const headerRef = useRef<HTMLDivElement | null>(null);
+  const [header, setHeader] = useState<HTMLElement | null>();
 
   useEffect(() => {
     setHeader(headerRef.current);
@@ -66,11 +82,12 @@ function Header() {
     let prevScrollpos = window.pageYOffset;
     window.onscroll = function () {
       let currentScrollPos = window.pageYOffset;
-      if (currentScrollPos > prevScrollpos) {
-        header.style.top = "-100%";
-      } else {
-        header.style.top = "0";
-      }
+      if (header)
+        if (currentScrollPos > prevScrollpos) {
+          header.style.top = "-100%";
+        } else {
+          header.style.top = "0";
+        }
       prevScrollpos = currentScrollPos;
     };
   }, [header]);
@@ -79,7 +96,7 @@ function Header() {
     <>
       <div ref={headerRef} className="header-container">
         <div className="header z-10 w-full items-center bg-[#f0f0f0] px-3 md:px-8 lg:justify-between lg:px-8">
-          <SideNav header={header} />
+          {header && <SideNav header={header} />}
           <SearchBar />
 
           <Link to="/" className="my-3 ml-auto mr-[1rem] lg:mr-64">
@@ -97,7 +114,7 @@ function Header() {
             {...(window.innerWidth > 1024
               ? { onMouseLeave: hideProductstooltip }
               : {})}
-            className="shopping-cart-icon ml-auto cursor-pointer py-2 px-2 lg:py-1"
+            className="shopping-cart-icon ml-auto cursor-pointer px-2 py-2 lg:py-1"
           >
             <span
               id="subTotal"
@@ -115,7 +132,7 @@ function Header() {
                 <path d="M96 0C107.5 0 117.4 8.19 119.6 19.51L121.1 32H541.8C562.1 32 578.3 52.25 572.6 72.66L518.6 264.7C514.7 278.5 502.1 288 487.8 288H170.7L179.9 336H488C501.3 336 512 346.7 512 360C512 373.3 501.3 384 488 384H159.1C148.5 384 138.6 375.8 136.4 364.5L76.14 48H24C10.75 48 0 37.25 0 24C0 10.75 10.75 0 24 0H96zM128 464C128 437.5 149.5 416 176 416C202.5 416 224 437.5 224 464C224 490.5 202.5 512 176 512C149.5 512 128 490.5 128 464zM512 464C512 490.5 490.5 512 464 512C437.5 512 416 490.5 416 464C416 437.5 437.5 416 464 416C490.5 416 512 437.5 512 464z" />
               </svg>
               <span
-                className="fa-layers-counter top-[-12px] left-[13px] font-bold"
+                className="fa-layers-counter left-[13px] top-[-12px] font-bold"
                 style={{ background: "black" }}
                 data-testid="cart-item-count"
               >
@@ -148,41 +165,45 @@ function Header() {
             {productsInCart.toString() !== "" && (
               <>
                 <div className="products_container">
-                  {productsInCart.map((product, index) => {
-                    return (
-                      <div className="product_tooltip_item" key={uniqid()}>
-                        <div className="product_tooltip_item_img">
-                          <img src={product.img} alt={product.name} />
-                        </div>
-
-                        <div className="product_tooltip_item_info">
-                          <div className="tooltip_header">
-                            <h3 className="text-[#4e4e4e]">{product.name}</h3>
-                            <button
-                              data-testid="remove-item-btn"
-                              data-id={index}
-                              className="remove_item_btn p-2"
-                              onClick={removeItemFromCart}
-                            >
-                              x
-                            </button>
+                  {productsInCart.map(
+                    (product: CartProductsDataType, index: number) => {
+                      return (
+                        <div className="product_tooltip_item" key={uniqid()}>
+                          <div className="product_tooltip_item_img">
+                            <img src={product.img} alt={product.name} />
                           </div>
 
-                          <p>FABRIC: {product.fabric}</p>
-                          {product.color && (
-                            <p className="uppercase">COLOR: {product.color}</p>
-                          )}
-                          <p>SIZE: {product.size}</p>
-                          <p>
-                            {product.quantity} x{" "}
-                            <span className="font-bold">{product.price}</span>
-                          </p>
+                          <div className="product_tooltip_item_info">
+                            <div className="tooltip_header">
+                              <h3 className="text-[#4e4e4e]">{product.name}</h3>
+                              <button
+                                data-testid="remove-item-btn"
+                                data-id={index}
+                                className="remove_item_btn p-2"
+                                onClick={removeItemFromCart}
+                              >
+                                x
+                              </button>
+                            </div>
+
+                            <p>FABRIC: {product.fabric}</p>
+                            {product.color && (
+                              <p className="uppercase">
+                                COLOR: {product.color}
+                              </p>
+                            )}
+                            <p>SIZE: {product.size}</p>
+                            <p>
+                              {product.quantity} x{" "}
+                              <span className="font-bold">{product.price}</span>
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    }
+                  )}
                 </div>
-                <p className="flex justify-center border-t border-b-2 border-t-[#dcdcdc] border-b-[#dcdcdc] py-3">
+                <p className="flex justify-center border-b-2 border-t border-b-[#dcdcdc] border-t-[#dcdcdc] py-3">
                   <span>Subtotal: ৳</span>
                   <span className="text-black">{subTotal}</span>
                 </p>
