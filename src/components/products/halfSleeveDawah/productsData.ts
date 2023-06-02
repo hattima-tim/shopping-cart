@@ -1,6 +1,6 @@
 import { Product } from "../productsData";
 
-function getAllHalfSleeveDawaTShirtsData():Product[] {
+function getAllHalfSleeveDawaTShirtsData(): Product[] {
   return [
     {
       breadCrumbs: [
@@ -14,7 +14,8 @@ function getAllHalfSleeveDawaTShirtsData():Product[] {
         },
       ],
       pathName: "behind-every-delay-there-is-goodness",
-      fullPath:"/half-sleeve-dawah-tshirts-for-men/product/behind-every-delay-there-is-goodness",
+      fullPath:
+        "/half-sleeve-dawah-tshirts-for-men/product/behind-every-delay-there-is-goodness",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662313395/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd210-turkish-920x920_dbt70q.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663306133/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd210-khaki-scaled-920x920_jpi24r.jpg",
@@ -59,7 +60,8 @@ function getAllHalfSleeveDawaTShirtsData():Product[] {
         },
       ],
       pathName: "assalamu-alaikum-v5-2",
-      fullPath:"/half-sleeve-dawah-tshirts-for-men/product/assalamu-alaikum-v5-2",
+      fullPath:
+        "/half-sleeve-dawah-tshirts-for-men/product/assalamu-alaikum-v5-2",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662352274/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd196-black-920x920_uvta18.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663297313/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd196-turkish-blue-1-920x920_rspmnv.jpg",
@@ -106,7 +108,7 @@ function getAllHalfSleeveDawaTShirtsData():Product[] {
         },
       ],
       pathName: "dua",
-      fullPath:"/half-sleeve-dawah-tshirts-for-men/product/dua",
+      fullPath: "/half-sleeve-dawah-tshirts-for-men/product/dua",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662352456/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd197-turkish-blue-920x920_jfecpp.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663297439/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd197-maroon-scaled-920x920_cmbfte.jpg",
@@ -153,7 +155,7 @@ function getAllHalfSleeveDawaTShirtsData():Product[] {
         },
       ],
       pathName: "made-of-dust",
-      fullPath:"/half-sleeve-dawah-tshirts-for-men/product/made-of-dust",
+      fullPath: "/half-sleeve-dawah-tshirts-for-men/product/made-of-dust",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662352579/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd207-black-920x920_j7btbu.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663297566/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd207-maroon-scaled-920x920_onst1r.jpg",
@@ -200,7 +202,8 @@ function getAllHalfSleeveDawaTShirtsData():Product[] {
         },
       ],
       pathName: "prophet-muhammadsm-my-hero",
-      fullPath:"/half-sleeve-dawah-tshirts-for-men/product/prophet-muhammadsm-my-hero",
+      fullPath:
+        "/half-sleeve-dawah-tshirts-for-men/product/prophet-muhammadsm-my-hero",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662352699/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd31-turkish-blue-920x920_txgt0i.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663297760/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd31-biscuit-scaled-920x920_dhzn7w.jpg",
@@ -247,7 +250,8 @@ function getAllHalfSleeveDawaTShirtsData():Product[] {
         },
       ],
       pathName: "what-you-got-losing-your-rabb",
-      fullPath:"/half-sleeve-dawah-tshirts-for-men/product/what-you-got-losing-your-rabb",
+      fullPath:
+        "/half-sleeve-dawah-tshirts-for-men/product/what-you-got-losing-your-rabb",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662352802/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd209-black-920x920_fteez3.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663297864/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd209-bottle-green-scaled-920x920_hd2o4s.jpg",
@@ -294,7 +298,7 @@ function getAllHalfSleeveDawaTShirtsData():Product[] {
         },
       ],
       pathName: "god-is-one",
-      fullPath:"/half-sleeve-dawah-tshirts-for-men/product/god-is-one",
+      fullPath: "/half-sleeve-dawah-tshirts-for-men/product/god-is-one",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662353127/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd206-navy-920x920_hz64uq.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663297954/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd206-ardoise-920x920_ivrspn.jpg",
@@ -341,7 +345,7 @@ function getAllHalfSleeveDawaTShirtsData():Product[] {
         },
       ],
       pathName: "salaf-ways",
-      fullPath:"/half-sleeve-dawah-tshirts-for-men/product/salaf-ways",
+      fullPath: "/half-sleeve-dawah-tshirts-for-men/product/salaf-ways",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662353213/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd205-black-920x920_xlanng.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663298053/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd205-anthra-920x920_dcu6st.jpg",
@@ -388,7 +392,7 @@ function getAllHalfSleeveDawaTShirtsData():Product[] {
         },
       ],
       pathName: "i-am-muslim-v2",
-      fullPath:"/half-sleeve-dawah-tshirts-for-men/product/i-am-muslim-v2",
+      fullPath: "/half-sleeve-dawah-tshirts-for-men/product/i-am-muslim-v2",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662353375/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd203-navy-920x920_mppb0u.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663298197/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd203-turkish-blue-4-920x920_ql3hbo.jpg",
@@ -435,7 +439,7 @@ function getAllHalfSleeveDawaTShirtsData():Product[] {
         },
       ],
       pathName: "nirob-thaka",
-      fullPath:"/half-sleeve-dawah-tshirts-for-men/product/nirob-thaka",
+      fullPath: "/half-sleeve-dawah-tshirts-for-men/product/nirob-thaka",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662353469/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd202-navy-920x920_xc2vxo.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663298295/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd202-biscuit-920x920_giajma.jpg",
@@ -482,7 +486,8 @@ function getAllHalfSleeveDawaTShirtsData():Product[] {
         },
       ],
       pathName: "assalamu-alaikum-v6-2",
-      fullPath:"/half-sleeve-dawah-tshirts-for-men/product/assalamu-alaikum-v6-2",
+      fullPath:
+        "/half-sleeve-dawah-tshirts-for-men/product/assalamu-alaikum-v6-2",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662353560/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd201-black-920x920_psx59f.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663298393/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd201-Turkish-blue-920x920_q0bmaz.jpg",
@@ -529,7 +534,7 @@ function getAllHalfSleeveDawaTShirtsData():Product[] {
         },
       ],
       pathName: "muslim-24-7",
-      fullPath:"/half-sleeve-dawah-tshirts-for-men/product/muslim-24-7",
+      fullPath: "/half-sleeve-dawah-tshirts-for-men/product/muslim-24-7",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662353640/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd200-Turkish-blue-920x920_kqnlps.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663298490/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd200-deep-ash-1-920x920_twijpm.jpg",
@@ -576,7 +581,8 @@ function getAllHalfSleeveDawaTShirtsData():Product[] {
         },
       ],
       pathName: "people-forgets-and-allah-forgive",
-      fullPath:"/half-sleeve-dawah-tshirts-for-men/product/people-forgets-and-allah-forgive",
+      fullPath:
+        "/half-sleeve-dawah-tshirts-for-men/product/people-forgets-and-allah-forgive",
       imgForProductCard:
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662307441/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd212-ardoise-350x435_nboxaq.jpg",
       imagesForProductPage: [
@@ -623,7 +629,8 @@ function getAllHalfSleeveDawaTShirtsData():Product[] {
         },
       ],
       pathName: "pray-like-its-your-last-day",
-      fullPath:"/half-sleeve-dawah-tshirts-for-men/product/pray-like-its-your-last-day",
+      fullPath:
+        "/half-sleeve-dawah-tshirts-for-men/product/pray-like-its-your-last-day",
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1662312583/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd211-khaki-920x920_dkxgvn.jpg",
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663296889/shopping%20cart/half%20sleeve%20dawa%20t%20shirts/mthrsd211-anthra-scaled-920x920_d1xn7x.jpg",
@@ -656,11 +663,13 @@ function getAllHalfSleeveDawaTShirtsData():Product[] {
 
 export default getAllHalfSleeveDawaTShirtsData;
 
-function getSpecificHalfSleeveDawaTShirtData(searchPath:string) {
-  return getAllHalfSleeveDawaTShirtsData().find((product) => {
-    const productPath = product.pathName;
-    return productPath === searchPath;
-  });
+function getSpecificHalfSleeveDawaTShirtData(searchPath: string) {
+  return (
+    getAllHalfSleeveDawaTShirtsData().find((product) => {
+      const productPath = product.pathName;
+      return productPath === searchPath;
+    }) || getAllHalfSleeveDawaTShirtsData()[0]
+  );
 }
 
 export { getSpecificHalfSleeveDawaTShirtData };
