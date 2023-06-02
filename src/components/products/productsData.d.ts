@@ -1,9 +1,10 @@
 export interface Product {
+  path?:string;
   breadCrumbs: Array<{ name: string; path: string }>;
-  pathName: string;
+  pathName?: string;
   fullPath: string;
   imagesForProductPage: string[];
-  imgForProductCard: string;
+  imgForProductCard?: string;
   name: string;
   price: string;
   details: string[];
