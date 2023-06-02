@@ -1,14 +1,23 @@
-import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
 import "../styles/notificationBanner.css";
 
+interface Props {
+  resultOfUserAction: string;
+  undoProductRemoval?: () => void;
+  closeNotificationBanner: () => void;
+  isCartEmpty?: boolean;
+  userAction?: {
+    current: string | null;
+  } | null;
+}
+
 function NotificationBanner({
   resultOfUserAction,
-  undoProductRemoval = null,
+  undoProductRemoval = () => {},
   closeNotificationBanner,
-  isCartEmpty = null,
+  isCartEmpty = false,
   userAction = null,
-}) {
+}: Props) {
   return (
     <>
       {resultOfUserAction !== "" && (
@@ -20,11 +29,12 @@ function NotificationBanner({
             <span className="success-status text-green-600">
               {resultOfUserAction}.
             </span>
-            {userAction !== null && userAction.current === "product removal" && (
-              <span className="undo-btn" onClick={undoProductRemoval}>
-                Undo?
-              </span>
-            )}
+            {userAction !== null &&
+              userAction.current === "product removal" && (
+                <span className="undo-btn" onClick={undoProductRemoval}>
+                  Undo?
+                </span>
+              )}
           </p>
           <div className="remove-banner-btn" onClick={closeNotificationBanner}>
             x
@@ -33,13 +43,13 @@ function NotificationBanner({
       )}
       {isCartEmpty && (
         <>
-          <div className="my-8 mx-auto w-11/12 border-l-4 border-l-red-500 bg-white p-6 text-center text-slate-700">
+          <div className="mx-auto my-8 w-11/12 border-l-4 border-l-red-500 bg-white p-6 text-center text-slate-700">
             <p>Your cart is currently empty.</p>
           </div>
 
           <Link
             to="/"
-            className="mx-auto my-2 block w-fit bg-black py-2 px-4 text-base font-semibold text-white hover:text-white"
+            className="mx-auto my-2 block w-fit bg-black px-4 py-2 text-base font-semibold text-white hover:text-white"
           >
             RETURN TO SHOP
           </Link>
@@ -47,13 +57,6 @@ function NotificationBanner({
       )}
     </>
   );
-}
-NotificationBanner.propTypes = {
-  resultOfUserAction: PropTypes.string.isRequired,
-  undoProductRemoval: PropTypes.func,
-  closeNotificationBanner: PropTypes.func.isRequired,
-  isCartEmpty: PropTypes.bool,
-  userAction: PropTypes.object
 }
 
 export default NotificationBanner;
