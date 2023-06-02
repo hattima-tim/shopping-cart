@@ -1,10 +1,25 @@
-const products = [
+import { Product } from "../productsData";
+
+const products: Product[] = [
   {
     imgForProductCard:
       "https://res.cloudinary.com/du3oueesv/image/upload/v1659873489/shopping%20cart/half%20sleeve%20cut/mthcssp10-solid-350x435_zvwuma.jpg",
     name: "Half Sleeve Cut and Sew Solid(pattern 10)",
     pathName: "half-sleeve-cut-and-sew-solid-pattern-10",
     price: "৳450",
+    breadCrumbs: [],
+    fullPath: "",
+    imagesForProductPage: [],
+    details: [],
+    fabric: [],
+    color: [],
+    size: [],
+    description: [],
+    additionalInfo: {
+      weight: "",
+      fabric: "",
+      size: "",
+    },
   },
   {
     imgForProductCard:
@@ -12,6 +27,19 @@ const products = [
     name: "Half Sleeve Cut and Sew Solid(pattern 11)",
     pathName: "half-sleeve-cut-and-sew-solid-pattern-11",
     price: "৳450",
+    breadCrumbs: [],
+    fullPath: "",
+    imagesForProductPage: [],
+    details: [],
+    fabric: [],
+    color: [],
+    size: [],
+    description: [],
+    additionalInfo: {
+      weight: "",
+      fabric: "",
+      size: "",
+    },
   },
   {
     imgForProductCard:
@@ -19,6 +47,19 @@ const products = [
     name: "Half Sleeve Cut and Sew Solid(pattern 12)",
     pathName: "half-sleeve-cut-and-sew-solid-pattern-12",
     price: "৳450",
+    breadCrumbs: [],
+    fullPath: "",
+    imagesForProductPage: [],
+    details: [],
+    fabric: [],
+    color: [],
+    size: [],
+    description: [],
+    additionalInfo: {
+      weight: "",
+      fabric: "",
+      size: "",
+    },
   },
   {
     imgForProductCard:
@@ -26,6 +67,19 @@ const products = [
     name: "Half Sleeve Cut and Sew Solid(pattern 13)",
     pathName: "half-sleeve-cut-and-sew-solid-pattern-13",
     price: "৳450",
+    breadCrumbs: [],
+    fullPath: "",
+    imagesForProductPage: [],
+    details: [],
+    fabric: [],
+    color: [],
+    size: [],
+    description: [],
+    additionalInfo: {
+      weight: "",
+      fabric: "",
+      size: "",
+    },
   },
   {
     imgForProductCard:
@@ -33,6 +87,19 @@ const products = [
     name: "Half Sleeve Cut and Sew Solid(pattern 14)",
     pathName: "half-sleeve-cut-and-sew-solid-pattern-14",
     price: "৳450",
+    breadCrumbs: [],
+    fullPath: "",
+    imagesForProductPage: [],
+    details: [],
+    fabric: [],
+    color: [],
+    size: [],
+    description: [],
+    additionalInfo: {
+      weight: "",
+      fabric: "",
+      size: "",
+    },
   },
   {
     imgForProductCard:
@@ -40,6 +107,19 @@ const products = [
     name: "Half Sleeve Cut and Sew Solid(pattern 15)",
     pathName: "half-sleeve-cut-and-sew-solid-pattern-15",
     price: "৳450",
+    breadCrumbs: [],
+    fullPath: "",
+    imagesForProductPage: [],
+    details: [],
+    fabric: [],
+    color: [],
+    size: [],
+    description: [],
+    additionalInfo: {
+      weight: "",
+      fabric: "",
+      size: "",
+    },
   },
 ];
 
