@@ -1,6 +1,6 @@
 import { Product } from "../productsData";
 
-function getAllPoloTShirtsData():Product[] {
+function getAllPoloTShirtsData(): Product[] {
   return [
     {
       breadCrumbs: [
@@ -350,11 +350,13 @@ function getAllPoloTShirtsData():Product[] {
 
 export default getAllPoloTShirtsData;
 
-function getSpecificPoloTShirtData(searchPath:string) {
-  return getAllPoloTShirtsData().find((product) => {
-    const productPath = product.pathName;
-    return productPath === searchPath;
-  });
+function getSpecificPoloTShirtData(searchPath: string) {
+  return (
+    getAllPoloTShirtsData().find((product) => {
+      const productPath = product.pathName;
+      return productPath === searchPath;
+    }) || getAllPoloTShirtsData()[0]
+  );
 }
 
 export { getSpecificPoloTShirtData };
