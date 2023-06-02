@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 import ProductCards from "./ProductCards";
 import "../styles/productsPage.css";
 import "../styles/productCards.css";
+import { Product } from './products/productsData';
 
-const ProductCategoryHomePage = ({productType,products}) => {
+type Props = {
+  productType:string,
+  products:Product[]
+}
+
+const ProductCategoryHomePage = ({productType,products}:Props) => {
   return (
     <>
       <div className="my-4 text-center text-xl font-normal lg:ml-20 lg:text-left">
