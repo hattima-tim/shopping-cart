@@ -3,18 +3,25 @@ import { useOutletContext, Link } from "react-router-dom";
 import uniqid from "uniqid";
 import NotificationBanner from "./notificationBanner";
 import "../styles/cart.css";
+import { CartProductsDataType } from "./types/productsInCart";
 
 function Cart() {
   const [resultOfUserAction, setResultOfUserAction] = useState("");
-  let userAction = useRef(null);
+  let userAction = useRef<null | string>(null);
 
-  const [productsInCart, setProductsInCart] = useOutletContext();
+  const [productsInCart, setProductsInCart] = useOutletContext() as [
+    CartProductsDataType[],
+    React.Dispatch<React.SetStateAction<CartProductsDataType[]>>
+  ];;
   const backup = useRef(productsInCart);
 
-  const removeItemFromCart = (e) => {
+  const removeItemFromCart = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     backup.current = productsInCart;
 
-    const id = e.target.dataset.id;
+    const target = e.target as HTMLElement;
+    const id = target.dataset.id;
     const newProductsInCart = productsInCart.filter(
       (product) => product.id !== id
     );
@@ -22,7 +29,7 @@ function Cart() {
     setProductsInCart(newProductsInCart);
     localStorage.setItem("productsInCart", JSON.stringify(newProductsInCart));
 
-    setResultOfUserAction(`${e.target.dataset.name} removed`);
+    setResultOfUserAction(`${target.dataset.name} removed`);
     userAction.current = "product removal";
     window.scrollTo(0, 0);
   };
@@ -41,7 +48,7 @@ function Cart() {
     userAction.current = null;
   };
 
-  const [productsQuantities, setProductsQuantities] = useState([]);
+  const [productsQuantities, setProductsQuantities] = useState<number[]>([]);
 
   useEffect(() => {
     const allProductsQuantities = productsInCart.map((product) => {
@@ -55,15 +62,17 @@ function Cart() {
     return acc + product.subTotal;
   }, 0);
 
-  const increment = (e) => {
-    const id = e.target.dataset.id;
+  const increment = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const target = e.target as HTMLElement;
+    const id = Number(target.dataset.id);
     const newProductsQuantities = [...productsQuantities];
     newProductsQuantities[id] += 1;
     setProductsQuantities(newProductsQuantities);
   };
 
-  const decrement = (e) => {
-    const id = e.target.dataset.id;
+  const decrement = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const target = e.target as HTMLElement;
+    const id = Number(target.dataset.id);
     const newProductsQuantities = [...productsQuantities];
     if (newProductsQuantities[id] > 1) {
       newProductsQuantities[id] -= 1;
@@ -71,18 +80,20 @@ function Cart() {
     setProductsQuantities(newProductsQuantities);
   };
 
-  const handleInputChange = (e) => {
-    const id = e.target.dataset.id;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const id = Number(e.target.dataset.id);
     const newProductsQuantities = [...productsQuantities];
     newProductsQuantities[id] = Number(e.target.value);
     setProductsQuantities(newProductsQuantities);
   };
 
-  const updateCart = (e) => {
+  const updateCart = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const newProductsInCart = [...productsInCart];
     newProductsInCart.forEach((product, index) => {
       product.quantity = productsQuantities[index];
-      product.subTotal = product.quantity * (product.price.split("৳")[1] * 1);
+      
+      const priceWithoutSymbol =Number(product.price.split("৳")[1]);
+      product.subTotal = product.quantity * (priceWithoutSymbol * 1);
     });
 
     localStorage.setItem("productsInCart", JSON.stringify(newProductsInCart));
@@ -99,7 +110,9 @@ function Cart() {
     setTotalPrice(sumOfAllSubTotal + 45.0);
   }, [sumOfAllSubTotal]);
 
-  const handleShippingMethodChange = (e) => {
+  const handleShippingMethodChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setTotalPrice(sumOfAllSubTotal + Number(e.target.value));
   };
 
@@ -123,7 +136,7 @@ function Cart() {
             <table>
               <thead>
                 <tr>
-                  <th className="product-name" colSpan="3">
+                  <th className="product-name" colSpan={3}>
                     Product
                   </th>
                   <th className="product-price hidden md:table-cell">Price</th>
@@ -204,7 +217,7 @@ function Cart() {
                             max="27"
                             onChange={handleInputChange}
                             value={productsQuantities[index]}
-                            size="4"
+                            size={4}
                             className="w-8 text-center"
                           ></input>
 
