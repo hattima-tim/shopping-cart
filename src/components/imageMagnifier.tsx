@@ -1,7 +1,12 @@
 import { useRef, useState } from "react";
-import PropTypes from "prop-types";
 
-function ImageMagnifier({ src, alt, zoomLevel = 1.7 }) {
+type Props = {
+  src:string,
+  alt:string,
+  zoomLevel?:number
+}
+
+function ImageMagnifier({ src, alt, zoomLevel = 1.7 }:Props) {
   const magnifierWidth = useRef(0);
   const magnifierHeight = useRef(0);
 
@@ -27,7 +32,7 @@ function ImageMagnifier({ src, alt, zoomLevel = 1.7 }) {
         onMouseMove={(e) => {
           // calculate cursor position on the image
           const x = e.clientX - e.currentTarget.getBoundingClientRect().left;
-          const y = e.clientY - e.target.getBoundingClientRect().top;
+          const y = e.clientY - e.currentTarget.getBoundingClientRect().top;
 
           setXY([x, y]);
         }}
@@ -76,9 +81,4 @@ function ImageMagnifier({ src, alt, zoomLevel = 1.7 }) {
   );
 }
 
-ImageMagnifier.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
-  zoomLevel: PropTypes.number,
-};
 export default ImageMagnifier;
