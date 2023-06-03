@@ -11,12 +11,14 @@ function MainBannerCarousel() {
     setActiveIndex(0);
   };
 
-  const navArrowContainer = useRef(null);
+  const navArrowContainer = useRef<HTMLDivElement>(null);
   const showNavArrows = () => {
-    navArrowContainer.current.style.display = "block";
+    if (navArrowContainer.current)
+      navArrowContainer.current.style.display = "block";
   };
   const hideNavArrows = () => {
-    navArrowContainer.current.style.display = "none";
+    if (navArrowContainer.current)
+      navArrowContainer.current.style.display = "none";
   };
 
   let currentImageNumberInSlider = useRef(0);
