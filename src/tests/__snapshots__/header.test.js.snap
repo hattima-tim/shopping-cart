@@ -45,7 +45,7 @@ exports[`header header and product page 1`] = `
                 </a>
               </li>
               <li
-                class="border-b py-2 px-3 hover:bg-[#e8e8e7]"
+                class="border-b px-3 py-2 hover:bg-[#e8e8e7]"
               >
                 <div
                   class="flex cursor-pointer justify-between "
@@ -131,7 +131,7 @@ exports[`header header and product page 1`] = `
                 </div>
               </li>
               <li
-                class="border-b py-2 px-3 hover:bg-[#e8e8e7]"
+                class="border-b px-3 py-2 hover:bg-[#e8e8e7]"
               >
                 <div
                   class="flex cursor-pointer justify-between "
@@ -160,7 +160,7 @@ exports[`header header and product page 1`] = `
                 </div>
               </li>
               <li
-                class="border-b py-2 px-3 hover:bg-[#e8e8e7]"
+                class="border-b px-3 py-2 hover:bg-[#e8e8e7]"
               >
                 <div
                   class="flex cursor-pointer justify-between "
@@ -247,7 +247,7 @@ exports[`header header and product page 1`] = `
           />
         </a>
         <div
-          class="shopping-cart-icon ml-auto cursor-pointer py-2 px-2 lg:py-1"
+          class="shopping-cart-icon ml-auto cursor-pointer px-2 py-2 lg:py-1"
         >
           <span
             class="hidden self-center text-sm text-black lg:inline-block"
@@ -270,7 +270,7 @@ exports[`header header and product page 1`] = `
               />
             </svg>
             <span
-              class="fa-layers-counter top-[-12px] left-[13px] font-bold"
+              class="fa-layers-counter left-[13px] top-[-12px] font-bold"
               data-testid="cart-item-count"
               style="background: black;"
             >
@@ -349,7 +349,7 @@ exports[`header header and product page 1`] = `
             </div>
           </div>
           <p
-            class="flex justify-center border-t border-b-2 border-t-[#dcdcdc] border-b-[#dcdcdc] py-3"
+            class="flex justify-center border-b-2 border-t border-b-[#dcdcdc] border-t-[#dcdcdc] py-3"
           >
             <span>
               Subtotal: ৳
@@ -621,7 +621,7 @@ exports[`header header and product page 1`] = `
             </a>
           </div>
           <h1
-            class="mt-2 mb-6 text-xl font-bold text-[#555555] lg:text-3xl"
+            class="mb-6 mt-2 text-xl font-bold text-[#555555] lg:text-3xl"
           >
             Half Sleeve Cut and Sew Solid(pattern 15)
           </h1>
