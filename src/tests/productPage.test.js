@@ -5,6 +5,7 @@ import { Product } from "../components/ProductPage";
 import ProductPage from "../components/ProductPage";
 import Header from "../components/header";
 import getHalfSleeveCutTShirt from "../components/products/halfSleeveTShirts/productsData";
+import { act } from "react-dom/test-utils";
 
 const setup = () => {
   const { container } = render(
@@ -54,11 +55,19 @@ describe("item counter", () => {
     const incrementBtn = screen.getByRole("button", { name: "+" });
 
     const user = userEvent.setup();
-    await user.click(incrementBtn);
-    await user.click(incrementBtn);
-    await user.click(incrementBtn);
-
-    await user.click(decrementBtn);
+    
+    await act(async () => {
+      await user.click(incrementBtn);
+    });
+    await act(async () => {
+      await user.click(incrementBtn);
+    });
+    await act(async () => {
+      await user.click(incrementBtn);
+    });
+    await act(async () => {
+      await user.click(decrementBtn);
+    });
 
     expect(inputField.value).toBe("3");
   });
@@ -72,11 +81,16 @@ describe("product option buttons", () => {
     const cleanFabricBtn = screen.getByRole("button", {
       name: "COMBED COTTON",
     });
-    await user.click(cleanFabricBtn);
+    await act(async () => {
+      await user.click(cleanFabricBtn);
+    });
+
     const cleanSizeBtn = screen.getByRole("button", {
       name: "M",
     });
-    await user.click(cleanSizeBtn);
+    await act(async () => {
+      await user.click(cleanSizeBtn);
+    });
 
     const clickedFabricBtn = screen.getByRole("button", {
       name: "COMBED COTTON",
@@ -84,6 +98,7 @@ describe("product option buttons", () => {
     const clickedSizeBtn = screen.getByRole("button", {
       name: "M",
     });
+
     expect(clickedFabricBtn).toHaveClass("active");
     expect(clickedSizeBtn).toHaveClass("active");
   });
@@ -95,20 +110,28 @@ describe("product option buttons", () => {
     const cleanFabricBtn = screen.getByRole("button", {
       name: "COMBED COTTON",
     });
-    await user.click(cleanFabricBtn);
+    await act(async () => {
+      await user.click(cleanFabricBtn);
+    });
     const clickedFabricBtn = screen.getByRole("button", {
       name: "COMBED COTTON",
     });
-    await user.click(clickedFabricBtn);
+    await act(async () => {
+      await user.click(clickedFabricBtn);
+    });
 
     const cleanSizeBtn = screen.getByRole("button", {
       name: "M",
     });
-    await user.click(cleanSizeBtn);
+    await act(async () => {
+      await user.click(cleanSizeBtn);
+    });
     const clickedSizeBtn = screen.getByRole("button", {
       name: "M",
     });
-    await user.click(clickedSizeBtn);
+    await act(async () => {
+      await user.click(clickedSizeBtn);
+    });
 
     const doubleClickedFabricBtn = screen.getByRole("button", {
       name: "COMBED COTTON",
@@ -116,6 +139,7 @@ describe("product option buttons", () => {
     const doubleClickedSizeBtn = screen.getByRole("button", {
       name: "M",
     });
+
     expect(doubleClickedFabricBtn).not.toHaveClass("active");
     expect(doubleClickedSizeBtn).not.toHaveClass("active");
   });
@@ -125,9 +149,14 @@ describe("product option buttons", () => {
     const user = userEvent.setup();
 
     const sizeBtn1 = screen.getByRole("button", { name: "M" });
-    await user.click(sizeBtn1);
+    await act(async () => {
+      await user.click(sizeBtn1);
+    });
+
     const sizeBtn2 = screen.getByRole("button", { name: "M" });
-    await user.click(sizeBtn2);
+    await act(async () => {
+      await user.click(sizeBtn2);
+    });
 
     expect(sizeBtn1).not.toHaveClass("active");
     expect(sizeBtn2).toHaveClass("active");
@@ -143,7 +172,9 @@ describe("product option buttons", () => {
       const user = userEvent.setup();
 
       const fabricBtn = screen.getByRole("button", { name: "COMBED COTTON" });
-      await user.click(fabricBtn);
+      await act(async () => {
+        await user.click(fabricBtn);
+      });
       const addToCartBtn = screen.getByRole("button", { name: "Add to Cart" });
       await user.click(addToCartBtn);
 
@@ -154,7 +185,9 @@ describe("product option buttons", () => {
       const user = userEvent.setup();
 
       const sizeBtn = screen.getByRole("button", { name: "M" });
-      await user.click(sizeBtn);
+      await act(async () => {
+        await user.click(sizeBtn);
+      });
       const addToCartBtn = screen.getByRole("button", { name: "Add to Cart" });
       await user.click(addToCartBtn);
 
@@ -171,7 +204,9 @@ describe("description and additional info", () => {
     const additionalInfoBtn = screen.getByRole("button", {
       name: "Additional Information",
     });
-    await user.click(additionalInfoBtn);
+    await act(async () => {
+      await user.click(additionalInfoBtn);
+    });
 
     const additionalInfoTables = screen.getAllByRole("table");
     expect(additionalInfoTables.length).toBe(1);
@@ -197,8 +232,10 @@ describe("description and additional info", () => {
     });
 
     const user = userEvent.setup();
-    await user.click(additionalInfoBtn);
-    await user.click(descriptionBtn);
+    await act(async () => {
+      await user.click(additionalInfoBtn);
+      await user.click(descriptionBtn);
+    });
 
     const para = screen.getByText("Size Measurement (in inch/centimeter):");
 
