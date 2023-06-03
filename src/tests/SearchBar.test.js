@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import Header from "../components/header";
@@ -51,7 +51,10 @@ test("searching is possible with search bar", async () => {
   setupRoute();
   const searchBar = screen.getByRole("searchbox");
   const user = userEvent.setup();
-  await user.type(searchBar, "cut"); // search for cut and sew solid t-shirts
+  await act(async () => {
+    await user.type(searchBar, "cut"); // search for cut and sew solid t-shirts
+  });
+
   const searchResults = screen.getAllByTestId("search-result");
   expect(searchResults.length).toBe(7); // there are 7 cut and sew solid t-shirts
 });
@@ -60,9 +63,14 @@ test("clicking a search result takes you to the product page", async () => {
   setupRoute();
   const searchBar = screen.getByRole("searchbox");
   const user = userEvent.setup();
-  await user.type(searchBar, "cut"); // search for cut and sew solid t-shirts
+  await act(async () => {
+    await user.type(searchBar, "cut"); // search for cut and sew solid t-shirts
+  });
+
   const searchResult = screen.getAllByTestId("search-result");
-  await user.click(searchResult[0]);
+  await act(async () => {
+    await user.click(searchResult[0]);
+  });
 
   const productName = screen.getByRole("heading", {
     name: "Cut and Sew Logo Style 7",
@@ -79,9 +87,14 @@ test("clicking a search result removes all search results from the page", async 
   setupRoute();
   const searchBar = screen.getByRole("searchbox");
   const user = userEvent.setup();
-  await user.type(searchBar, "cut"); // search for cut and sew solid t-shirts
+  await act(async () => {
+    await user.type(searchBar, "cut"); // search for cut and sew solid t-shirts
+  });
+
   const searchResult = screen.getAllByTestId("search-result");
-  await user.click(searchResult[0]);
+  await act(async () => {
+    await user.click(searchResult[0]);
+  });
 
   const searchResults = screen.queryAllByTestId("search-result");
   expect(searchResults.length).toBe(0);
@@ -98,7 +111,10 @@ describe("small screen", () => {
   test("clicking search icon takes user to search page", async () => {
     const user = userEvent.setup();
     const searchIcon = screen.getByAltText("searchIcon");
-    await user.click(searchIcon);
+    await act(async () => {
+      await user.click(searchIcon);
+    });
+
     const searchContainer = screen.getByTestId("searchContainer");
 
     expect(searchContainer).toHaveClass("fixed left-0 bottom-0 w-full h-full");
@@ -108,13 +124,19 @@ describe("small screen", () => {
     const user = userEvent.setup();
 
     const searchIcon = screen.getByAltText("searchIcon");
-    await user.click(searchIcon);
+    await act(async () => {
+      await user.click(searchIcon);
+    });
 
     const searchBar = screen.getByRole("searchbox");
-    await user.type(searchBar, "cut"); // search for cut and sew solid t-shirts
+    await act(async () => {
+      await user.type(searchBar, "cut"); // search for cut and sew solid t-shirts
+    });
 
     const searchResult = screen.getAllByTestId("search-result");
-    await user.click(searchResult[0]);
+    await act(async () => {
+      await user.click(searchResult[0]);
+    });
 
     const searchContainer = screen.getByTestId("searchContainer");
     expect(searchContainer).toHaveClass("search-bar ml-[10px]");
