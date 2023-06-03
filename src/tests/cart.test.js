@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import Header from "../components/header";
@@ -49,19 +49,29 @@ describe("product table", () => {
 
     // we are on product page now
     const fabricBtn = screen.getByRole("button", { name: "COMBED COTTON" });
-    await user.click(fabricBtn);
+    await act(async()=>{
+      await user.click(fabricBtn);
+    })
 
     const sizeBtn = screen.getByRole("button", { name: "M" });
-    await user.click(sizeBtn);
+    await act(async()=>{
+      await user.click(sizeBtn);
+    })
 
     const quantityBtn = screen.getByRole("button", { name: "+" });
-    await user.click(quantityBtn);
+    await act(async()=>{
+      await user.click(quantityBtn);
+    })
 
     const addToCartBtn = screen.getByRole("button", { name: "Add to Cart" });
-    await user.click(addToCartBtn);
+    await act(async()=>{
+      await user.click(addToCartBtn);
+    })
 
     const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
-    await user.click(viewCartBtn);
+    await act(async()=>{
+      await user.click(viewCartBtn);
+    })
     // we are on cart page now
   });
 
@@ -71,7 +81,9 @@ describe("product table", () => {
       "productTableRemoveProductBtn"
     );
     for (let i = 0; i < removeProductBtns.length; i++) {
-      await user.click(removeProductBtns[i]);
+      await act(async()=>{
+        await user.click(removeProductBtns[i]);
+      })
     }
     // this operation is necessary to remove product from local storage
   });
@@ -105,7 +117,9 @@ describe("product table", () => {
     expect(successBannerBeforeBtnClick).not.toBeInTheDocument();
 
     const removeProductBtn = screen.getByTestId("productTableRemoveProductBtn");
-    await user.click(removeProductBtn);
+    await act(async()=>{
+      await user.click(removeProductBtn);
+    })  
 
     const successBannerAfterBtnClick = screen.getByText(
       "Half Sleeve Cut and Sew Solid(pattern 15) removed."
@@ -125,7 +139,9 @@ describe("product table", () => {
     expect(productNameBeforeRemoveBtnClick).toBeInTheDocument();
 
     const removeProductBtn = screen.getByTestId("productTableRemoveProductBtn");
-    await user.click(removeProductBtn);
+    await act(async()=>{
+      await user.click(removeProductBtn);
+    })
 
     const productNameAfterRemoveBtnClick = screen.queryByRole("link", {
       name: "Half Sleeve Cut and Sew Solid(pattern 15)",
@@ -133,7 +149,9 @@ describe("product table", () => {
     expect(productNameAfterRemoveBtnClick).not.toBeInTheDocument();
 
     const undoBtn = screen.getByText("Undo?");
-    await user.click(undoBtn);
+    await act(async()=>{
+      await user.click(undoBtn);
+    })
 
     const productNameAfterUndoClick = screen.getByRole("link", {
       name: "Half Sleeve Cut and Sew Solid(pattern 15)",
@@ -198,10 +216,14 @@ describe("product table", () => {
       expect(subtotalPrice).toBeInTheDocument();
 
       const quantityBtn = screen.getByRole("button", { name: "+" });
-      await user.click(quantityBtn); // increase quantity to 3
+      await act(async()=>{
+        await user.click(quantityBtn); // increase quantity to 3
+      })
 
       const updateCartBtn = screen.getByRole("button", { name: "Update Cart" });
-      await user.click(updateCartBtn);
+      await act(async()=>{
+        await user.click(updateCartBtn);
+      })
 
       const updatedSubtotalPrice = screen.getByRole("cell", { name: "৳1350" });
 
@@ -218,10 +240,14 @@ describe("product table", () => {
       expect(mainPrice).toBeInTheDocument();
 
       const quantityBtn = screen.getByRole("button", { name: "+" });
-      await user.click(quantityBtn);
+      await act(async()=>{
+        await user.click(quantityBtn);
+      })
 
       const updateCartBtn = screen.getByRole("button", { name: "Update Cart" });
-      await user.click(updateCartBtn);
+      await act(async()=>{
+        await user.click(updateCartBtn);
+      })
 
       const updatedMainPrice = screen.getByRole("cell", { name: "৳450.00" });
 
@@ -234,10 +260,14 @@ describe("product table", () => {
       const user = userEvent.setup();
 
       const quantityBtn = screen.getByRole("button", { name: "+" });
-      await user.click(quantityBtn); // quantity 3, beforeEach adds 2
+      await act(async()=>{
+        await user.click(quantityBtn); // quantity 3, beforeEach adds 2
+      })
 
       const updateCartBtn = screen.getByRole("button", { name: "Update Cart" });
-      await user.click(updateCartBtn);
+      await act(async()=>{
+        await user.click(updateCartBtn);
+      })
 
       const inputField = screen.getByRole("spinbutton");
       expect(inputField.value).toBe("3");
@@ -249,24 +279,38 @@ describe("product table", () => {
       const productNameBeforeRemoveBtnClick = screen.getByRole("link", {
         name: "Half Sleeve Cut and Sew Solid(pattern 15)",
       });
-      await user.click(productNameBeforeRemoveBtnClick);
+      await act(async()=>{
+        await user.click(productNameBeforeRemoveBtnClick);
+      })
       // we are on product page now
 
       const sizeBtn = screen.getByRole("button", { name: "M" });
-      await user.click(sizeBtn);
+      await act(async()=>{
+        await user.click(sizeBtn);
+      })
 
       const fabricBtn = screen.getByRole("button", { name: "COMBED COTTON" });
-      await user.click(fabricBtn);
+      await act(async()=>{
+        await user.click(fabricBtn);
+      })
 
       const quantityBtn = screen.getByRole("button", { name: "+" });
-      await user.click(quantityBtn); // quantity 2
-      await user.click(quantityBtn); // quantity 3
+      await act(async()=>{
+        await user.click(quantityBtn); // quantity 2
+      })
+      await act(async()=>{
+        await user.click(quantityBtn); // quantity 3
+      })
 
       const addToCartBtn = screen.getByRole("button", { name: "Add to Cart" });
-      await user.click(addToCartBtn);
+      await act(async()=>{
+        await user.click(addToCartBtn);
+      })
 
       const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
-      await user.click(viewCartBtn);
+      await act(async()=>{
+        await user.click(viewCartBtn);
+      })
       // we are on cart page now
 
       const firstProductSubtotalPrice = screen.getByRole("cell", {
@@ -289,7 +333,9 @@ describe("product table", () => {
       expect(successBannerBeforeBtnClick).not.toBeInTheDocument();
 
       const updateBtn = screen.getByRole("button", { name: "Update Cart" });
-      await user.click(updateBtn);
+      await act(async()=>{
+        await user.click(updateBtn);
+      })
 
       const successBannerAfterBtnClick = screen.getByText(
         "Cart has been updated."
@@ -306,21 +352,31 @@ describe("checkout section", () => {
     setupRoute();
     // we are on product page now
     const fabricBtn = screen.getByRole("button", { name: "COMBED COTTON" });
-    await user.click(fabricBtn);
+    await act(async()=>{
+      await user.click(fabricBtn);
+    })
 
     const sizeBtn = screen.getByRole("button", { name: "M" });
-    await user.click(sizeBtn);
+    await act(async()=>{
+      await user.click(sizeBtn);
+    })
 
     const quantityBtn = screen.getByRole("button", { name: "+" });
-    await user.click(quantityBtn); // quantity 2
+    await act(async()=>{
+      await user.click(quantityBtn); // quantity 2
+    })
 
     const addToCartBtn = screen.getByRole("button", { name: "Add to Cart" });
-    await user.click(addToCartBtn);
+    await act(async()=>{
+      await user.click(addToCartBtn);
+    })
     // only one product is added to cart with a quantity 2.
     //So subTotal for that product is ৳450+৳450=৳900
 
     const viewCartBtn = screen.getByRole("link", { name: "VIEW CART" });
-    await user.click(viewCartBtn);
+    await act(async()=>{
+      await user.click(viewCartBtn);
+    })
   });
 
   afterEach(async () => {
@@ -329,7 +385,9 @@ describe("checkout section", () => {
       "productTableRemoveProductBtn"
     );
     for (let i = 0; i < removeProductBtns.length; i++) {
-      await user.click(removeProductBtns[i]);
+      await act(async()=>{
+        await user.click(removeProductBtns[i]);
+      })
     }
     // this operation is necessary to remove product from local storage
   });
@@ -343,7 +401,9 @@ describe("checkout section", () => {
     const sundarbanCourier = screen.getByRole("radio", {
       name: "Sundarban Courier: ৳ 130.00",
     });
-    await user.click(sundarbanCourier);
+    await act(async()=>{
+      await user.click(sundarbanCourier);
+    })
 
     const totalPrice = screen.getByText("৳1030"); // product subTotal ৳900 + courier ৳130 = ৳1030
     const prevTotalPrice = screen.queryByText("৳945");
@@ -357,7 +417,9 @@ describe("checkout section", () => {
     const sundarbanCourier = screen.getByRole("radio", {
       name: "Sundarban Courier: ৳ 130.00",
     });
-    await user.click(sundarbanCourier);
+    await act(async()=>{
+      await user.click(sundarbanCourier);
+    })
 
     const totalPrice = screen.getByText("৳1030"); // product subTotal ৳900 + courier ৳130 = ৳1030
     expect(totalPrice).toBeInTheDocument();
