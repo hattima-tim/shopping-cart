@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import Header from "../components/header";
@@ -48,13 +48,19 @@ describe("header", () => {
 
     // we are on product page now
     const fabricBtn = screen.getByRole("button", { name: "COMBED COTTON" });
-    await user.click(fabricBtn);
+    await act(async()=>{
+      await user.click(fabricBtn);
+    })
 
     const sizeBtn = screen.getByRole("button", { name: "M" });
-    await user.click(sizeBtn);
+    await act(async()=>{
+      await user.click(sizeBtn);
+    })
 
     const addToCartBtn = screen.getByRole("button", { name: "Add to Cart" });
-    await user.click(addToCartBtn);
+    await act(async()=>{
+      await user.click(addToCartBtn);
+    })
   });
 
   afterEach(() => {
@@ -77,7 +83,9 @@ describe("header", () => {
       { name: "Half Sleeve Cut and Sew Solid(pattern 15)" }
     );
     const user = userEvent.setup();
-    await user.click(productRemoveBtn);
+    await act(async()=>{
+      await user.click(productRemoveBtn);
+    })
 
     expect(productRemoveBtn).not.toBeInTheDocument();
     expect(productName).not.toBeInTheDocument();
@@ -87,8 +95,9 @@ describe("header", () => {
     const user = userEvent.setup();
     const alertMock = jest.spyOn(window, "alert").mockImplementation(() => {});
     const checkoutBtn = screen.getByRole("button", { name: "CHECKOUT" });
-
-    await user.click(checkoutBtn);
+    await act(async()=>{
+      await user.click(checkoutBtn);
+    })
 
     expect(alertMock).toBeCalledTimes(1);
   });
