@@ -50,12 +50,12 @@ describe("item counter", () => {
   test("increment and decrement", async () => {
     setup();
 
-    const inputField = screen.getByDisplayValue("1");
+    const inputField = screen.getByDisplayValue("1") as HTMLInputElement;
     const decrementBtn = screen.getByRole("button", { name: "-" });
     const incrementBtn = screen.getByRole("button", { name: "+" });
 
     const user = userEvent.setup();
-    
+
     await act(async () => {
       await user.click(incrementBtn);
     });
