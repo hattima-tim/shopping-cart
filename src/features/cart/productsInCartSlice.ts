@@ -14,9 +14,13 @@ const productsInCartSlice = createSlice({
       const newProductsInCart = action.payload;
       return newProductsInCart; 
     },
+    updateProductsInCart:(state,action)=>{
+      const backup = action.payload;
+      return backup;
+    }
   },
 });
 
-export const { productAdded, productRemoved } = productsInCartSlice.actions;
+export const { productAdded, productRemoved, updateProductsInCart } = productsInCartSlice.actions;
 
 export default productsInCartSlice.reducer;
