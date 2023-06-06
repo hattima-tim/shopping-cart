@@ -10,9 +10,13 @@ const productsInCartSlice = createSlice({
     productAdded: (state, action) => {
       state.push(action.payload);
     },
+    productRemoved:(state, action)=>{
+      const newProductsInCart = action.payload;
+      return newProductsInCart; 
+    },
   },
 });
 
-export const { productAdded } = productsInCartSlice.actions;
+export const { productAdded, productRemoved } = productsInCartSlice.actions;
 
 export default productsInCartSlice.reducer;
