@@ -2,12 +2,14 @@ import PropTypes from "prop-types";
 import { useState, useEffect, useRef } from "react";
 import { Outlet, useParams, Link, useOutletContext } from "react-router-dom";
 import uniqid from "uniqid";
+import { useDispatch, useSelector } from "react-redux";
 import ImageMagnifier from "./imageMagnifier";
 import NotificationBanner from "./notificationBanner";
 import "../styles/productPage.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Product as ProductsDataType } from "./products/productsData";
-import { CartProductsDataType } from "./types/productsInCart";
+import { RootState } from "../app/store";
+import { productAdded } from "../features/cart/productsInCartSlice";
 
 export function Product() {
   return (
@@ -42,8 +44,7 @@ function ProductPage({ getProductData }: ProductPageProps) {
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const targetValue = parseInt(e.target.value);
-    if(targetValue)
-      setItemNumber(targetValue);
+    if (targetValue) setItemNumber(targetValue);
   };
 
   const [currentlyShowingAdditionalInfo, setCurrentlyShowingAdditionalInfo] =
@@ -66,10 +67,10 @@ function ProductPage({ getProductData }: ProductPageProps) {
     styleTabAsActive();
   };
 
-  const [productsInCart, setProductsInCart] = useOutletContext() as [
-    CartProductsDataType[],
-    React.Dispatch<React.SetStateAction<CartProductsDataType[]>>
-  ];
+  const dispatch = useDispatch();
+  const productsInCart = useSelector(
+    (state: RootState) => state.productsInCart
+  );
 
   const handleClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -123,7 +124,7 @@ function ProductPage({ getProductData }: ProductPageProps) {
     fullPath: productData.fullPath,
   };
 
-  const productOptionsAvailable = useRef(['']);
+  const productOptionsAvailable = useRef([""]);
   useEffect(() => {
     productOptionsAvailable.current = [
       ...document.querySelectorAll(".product-option"),
@@ -172,7 +173,8 @@ function ProductPage({ getProductData }: ProductPageProps) {
       "productsInCart",
       JSON.stringify([...productsInCart, newProduct])
     );
-    setProductsInCart([...productsInCart, newProduct]);
+
+    dispatch(productAdded(newProduct));
     setResultOfUserAction(`"${product.name}" has been added to the cart`);
     window.scrollTo(0, 0);
   };
@@ -233,10 +235,7 @@ function ProductPage({ getProductData }: ProductPageProps) {
       <div className="main mb-12 mt-9 lg:flex">
         <div className="w-full lg:w-1/2">
           {productData.imagesForProductPage.length > 1 ? (
-            <Splide
-            ref={mainRef}
-              options={mainOptions}
-            >
+            <Splide ref={mainRef} options={mainOptions}>
               {productData.imagesForProductPage.map((imgSrc) => {
                 return (
                   <SplideSlide
