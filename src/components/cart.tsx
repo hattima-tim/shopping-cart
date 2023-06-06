@@ -1,18 +1,24 @@
 import { useEffect, useRef, useState } from "react";
-import { useOutletContext, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import uniqid from "uniqid";
 import NotificationBanner from "./notificationBanner";
 import "../styles/cart.css";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../app/store";
+import {
+  productRemoved,
+  updateProductsInCart,
+} from "../features/cart/productsInCartSlice";
 import { CartProductsDataType } from "./types/productsInCart";
 
 function Cart() {
   const [resultOfUserAction, setResultOfUserAction] = useState("");
   let userAction = useRef<null | string>(null);
 
-  const [productsInCart, setProductsInCart] = useOutletContext() as [
-    CartProductsDataType[],
-    React.Dispatch<React.SetStateAction<CartProductsDataType[]>>
-  ];;
+  const dispatch = useDispatch();
+  const productsInCart = useSelector(
+    (state: RootState) => state.productsInCart
+  );
   const backup = useRef(productsInCart);
 
   const removeItemFromCart = (
@@ -23,10 +29,10 @@ function Cart() {
     const target = e.target as HTMLElement;
     const id = target.dataset.id;
     const newProductsInCart = productsInCart.filter(
-      (product) => product.id !== id
+      (product: CartProductsDataType) => product.id !== id
     );
 
-    setProductsInCart(newProductsInCart);
+    dispatch(productRemoved(newProductsInCart));
     localStorage.setItem("productsInCart", JSON.stringify(newProductsInCart));
 
     setResultOfUserAction(`${target.dataset.name} removed`);
@@ -34,8 +40,8 @@ function Cart() {
     window.scrollTo(0, 0);
   };
 
-  const undoProductRemoval = () => {
-    setProductsInCart(backup.current);
+  const handleUndoProductRemoval = () => {
+    dispatch(updateProductsInCart(backup.current));
     localStorage.setItem("productsInCart", JSON.stringify(backup.current));
 
     setResultOfUserAction("");
@@ -51,16 +57,21 @@ function Cart() {
   const [productsQuantities, setProductsQuantities] = useState<number[]>([]);
 
   useEffect(() => {
-    const allProductsQuantities = productsInCart.map((product) => {
-      return product.quantity;
-    });
+    const allProductsQuantities = productsInCart.map(
+      (product: CartProductsDataType) => {
+        return product.quantity;
+      }
+    );
 
     setProductsQuantities(allProductsQuantities);
   }, [productsInCart]);
 
-  const sumOfAllSubTotal = productsInCart.reduce((acc, product) => {
-    return acc + product.subTotal;
-  }, 0);
+  const sumOfAllSubTotal = productsInCart.reduce(
+    (acc: number, product: CartProductsDataType) => {
+      return acc + product.subTotal;
+    },
+    0
+  );
 
   const increment = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const target = e.target as HTMLElement;
@@ -70,7 +81,7 @@ function Cart() {
     setProductsQuantities(newProductsQuantities);
   };
 
-  const decrement = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const decrement = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const target = e.target as HTMLElement;
     const id = Number(target.dataset.id);
     const newProductsQuantities = [...productsQuantities];
@@ -88,16 +99,20 @@ function Cart() {
   };
 
   const updateCart = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const newProductsInCart = [...productsInCart];
-    newProductsInCart.forEach((product, index) => {
-      product.quantity = productsQuantities[index];
-      
-      const priceWithoutSymbol =Number(product.price.split("৳")[1]);
-      product.subTotal = product.quantity * (priceWithoutSymbol * 1);
-    });
+    const newProductsInCart = productsInCart.map(
+      (product: CartProductsDataType, index: number) => {
+        const productCopy = { ...product };
+
+        productCopy.quantity = productsQuantities[index];
+        const priceWithoutSymbol = Number(productCopy.price.split("৳")[1]);
+        productCopy.subTotal = productCopy.quantity * (priceWithoutSymbol * 1);
+
+        return productCopy;
+      }
+    );
 
     localStorage.setItem("productsInCart", JSON.stringify(newProductsInCart));
-    setProductsInCart(newProductsInCart);
+    dispatch(updateProductsInCart(newProductsInCart));
 
     setResultOfUserAction(`Cart has been updated`);
     userAction.current = "cart update";
@@ -121,7 +136,7 @@ function Cart() {
       <div className="m-4 lg:mx-16">
         <NotificationBanner
           resultOfUserAction={resultOfUserAction}
-          undoProductRemoval={undoProductRemoval}
+          undoProductRemoval={handleUndoProductRemoval}
           closeNotificationBanner={closeNotificationBanner}
           isCartEmpty={productsInCart.length === 0}
           userAction={userAction}
@@ -147,97 +162,99 @@ function Cart() {
                 </tr>
               </thead>
 
-              {productsInCart.map((product, index) => {
-                return (
-                  <tbody key={uniqid()}>
-                    <tr>
-                      <td className="absolute left-0 border-b-0 md:static">
-                        <button
-                          className="remove-product-btn"
-                          data-id={product.id}
-                          data-testid="productTableRemoveProductBtn"
-                          data-name={product.name}
-                          onClick={removeItemFromCart}
-                        >
-                          x
-                        </button>
-                      </td>
-
-                      <td className="product-thumbnail">
-                        <img
-                          src={product.img}
-                          alt={product.name}
-                          data-testid="productTableProductImage"
-                        />
-                      </td>
-
-                      <td className="product-name">
-                        <Link
-                          to={`${product.fullPath}`}
-                          className="text-gray-600"
-                          data-testid="productTableProductName"
-                        >
-                          {product.name}
-                        </Link>
-
-                        <dl className="variation">
-                          <dt className="mr-1">FABRIC: </dt>
-                          <dd>{product.fabric}</dd>
-                          <dt className="mr-1">SIZE: </dt>
-                          <dd>{product.size}</dd>
-
-                          <dd className="md:hidden">
-                            {product.quantity}x
-                            <strong className="text-black">
-                              {product.price}
-                            </strong>
-                          </dd>
-                        </dl>
-                      </td>
-
-                      <td className="product-price hidden md:table-cell">
-                        <p className="text-black">{product.price}</p>
-                      </td>
-
-                      <td>
-                        <div className="flex w-fit border-2 border-solid border-slate-200">
+              {productsInCart.map(
+                (product: CartProductsDataType, index: number) => {
+                  return (
+                    <tbody key={uniqid()}>
+                      <tr>
+                        <td className="absolute left-0 border-b-0 md:static">
                           <button
-                            data-id={index}
-                            className="w-5 bg-slate-200 hover:bg-slate-300"
-                            onClick={decrement}
+                            className="remove-product-btn"
+                            data-id={product.id}
+                            data-testid="productTableRemoveProductBtn"
+                            data-name={product.name}
+                            onClick={removeItemFromCart}
                           >
-                            -
+                            x
                           </button>
+                        </td>
 
-                          <input
-                            type="number"
-                            data-id={index}
-                            step="1"
-                            min="0"
-                            max="27"
-                            onChange={handleInputChange}
-                            value={productsQuantities[index]}
-                            size={4}
-                            className="w-8 text-center"
-                          ></input>
+                        <td className="product-thumbnail">
+                          <img
+                            src={product.img}
+                            alt={product.name}
+                            data-testid="productTableProductImage"
+                          />
+                        </td>
 
-                          <button
-                            data-id={index}
-                            className="w-5 bg-slate-200 hover:bg-slate-300"
-                            onClick={increment}
+                        <td className="product-name">
+                          <Link
+                            to={`${product.fullPath}`}
+                            className="text-gray-600"
+                            data-testid="productTableProductName"
                           >
-                            +
-                          </button>
-                        </div>
-                      </td>
+                            {product.name}
+                          </Link>
 
-                      <td className="product-subtotal hidden md:table-cell">
-                        <p>৳{product.subTotal}</p>
-                      </td>
-                    </tr>
-                  </tbody>
-                );
-              })}
+                          <dl className="variation">
+                            <dt className="mr-1">FABRIC: </dt>
+                            <dd>{product.fabric}</dd>
+                            <dt className="mr-1">SIZE: </dt>
+                            <dd>{product.size}</dd>
+
+                            <dd className="md:hidden">
+                              {product.quantity}x
+                              <strong className="text-black">
+                                {product.price}
+                              </strong>
+                            </dd>
+                          </dl>
+                        </td>
+
+                        <td className="product-price hidden md:table-cell">
+                          <p className="text-black">{product.price}</p>
+                        </td>
+
+                        <td>
+                          <div className="flex w-fit border-2 border-solid border-slate-200">
+                            <button
+                              data-id={index}
+                              className="w-5 bg-slate-200 hover:bg-slate-300"
+                              onClick={decrement}
+                            >
+                              -
+                            </button>
+
+                            <input
+                              type="number"
+                              data-id={index}
+                              step="1"
+                              min="0"
+                              max="27"
+                              onChange={handleInputChange}
+                              value={productsQuantities[index]}
+                              size={4}
+                              className="w-8 text-center"
+                            ></input>
+
+                            <button
+                              data-id={index}
+                              className="w-5 bg-slate-200 hover:bg-slate-300"
+                              onClick={increment}
+                            >
+                              +
+                            </button>
+                          </div>
+                        </td>
+
+                        <td className="product-subtotal hidden md:table-cell">
+                          <p>৳{product.subTotal}</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  );
+                }
+              )}
             </table>
 
             <div className="continue-update-btn-container">
@@ -252,7 +269,7 @@ function Cart() {
           </div>
 
           <div id="checkout-section" className="w-full lg:w-2/6">
-            <h3 className="my-4 mx-0 w-full border-2">CART TOTALS</h3>
+            <h3 className="mx-0 my-4 w-full border-2">CART TOTALS</h3>
 
             <div className="subTotal my-4">
               <p>Subtotal</p>
