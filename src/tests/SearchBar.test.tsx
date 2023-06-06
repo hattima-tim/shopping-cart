@@ -2,47 +2,33 @@ import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import Header from "../components/header";
-import { Product } from "../components/ProductPage";
 import ProductPage from "../components/ProductPage";
 import getHalfSleeveCutTShirt from "../components/products/halfSleeveTShirts/productsData";
 import { getSpecificPoloTShirtData } from "../components/products/poloTShirts/productsData";
+import { Provider } from "react-redux";
+import store from "../app/store";
 
 const setupRoute = () => {
   render(
-    <MemoryRouter
-      initialEntries={[
-        "/half-sleeve-cut-and-sew-solid/product/half-sleeve-cut-and-sew-solid-pattern-15",
-      ]}
-    >
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              <Header />
-            </div>
-          }
-        >
+    <Provider store={store}>
+      <MemoryRouter
+        initialEntries={[
+          "/half-sleeve-cut-and-sew-solid/product/half-sleeve-cut-and-sew-solid-pattern-15",
+        ]}
+      >
+        <Header />
+        <Routes>
           <Route
-            path="/half-sleeve-cut-and-sew-solid/product"
-            element={<Product />}
-          >
-            <Route
-              path=":name"
-              element={<ProductPage getProductData={getHalfSleeveCutTShirt} />}
-            />
-          </Route>
-          <Route path="/polo-t-shirt/product" element={<Product />}>
-            <Route
-              path=":name"
-              element={
-                <ProductPage getProductData={getSpecificPoloTShirtData} />
-              }
-            />
-          </Route>
-        </Route>
-      </Routes>
-    </MemoryRouter>
+            path="/half-sleeve-cut-and-sew-solid/product/:name"
+            element={<ProductPage getProductData={getHalfSleeveCutTShirt} />}
+          />
+          <Route
+            path="/polo-t-shirt/product/:name"
+            element={<ProductPage getProductData={getSpecificPoloTShirtData} />}
+          />
+        </Routes>
+      </MemoryRouter>
+    </Provider>
   );
 };
 window.scrollTo = jest.fn();

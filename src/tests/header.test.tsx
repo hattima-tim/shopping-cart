@@ -2,38 +2,28 @@ import { act, render, screen } from "@testing-library/react";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import Header from "../components/header";
-import { Product } from "../components/ProductPage";
 import ProductPage from "../components/ProductPage";
 import getHalfSleeveCutTShirt from "../components/products/halfSleeveTShirts/productsData";
+import { Provider } from "react-redux";
+import store from "../app/store";
 
 const setupRoute = () => {
   const { container } = render(
-    <MemoryRouter
-      initialEntries={[
-        "/half-sleeve-cut-and-sew-solid/product/half-sleeve-cut-and-sew-solid-pattern-15",
-      ]}
-    >
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              <Header />
-            </div>
-          }
-        >
+    <Provider store={store}>
+      <MemoryRouter
+        initialEntries={[
+          "/half-sleeve-cut-and-sew-solid/product/half-sleeve-cut-and-sew-solid-pattern-15",
+        ]}
+      >
+        <Header />
+        <Routes>
           <Route
-            path="/half-sleeve-cut-and-sew-solid/product"
-            element={<Product />}
-          >
-            <Route
-              path=":name"
-              element={<ProductPage getProductData={getHalfSleeveCutTShirt} />}
-            />
-          </Route>
-        </Route>
-      </Routes>
-    </MemoryRouter>
+            path="/half-sleeve-cut-and-sew-solid/product/:name"
+            element={<ProductPage getProductData={getHalfSleeveCutTShirt} />}
+          />
+        </Routes>
+      </MemoryRouter>
+    </Provider>
   );
   return container;
 };
@@ -63,9 +53,17 @@ describe("header", () => {
     });
   });
 
-  afterEach(() => {
+  afterEach(async() => {
     jest.clearAllMocks();
     localStorage.clear();
+    const user = userEvent.setup();
+    const removeProductBtns = screen.queryAllByTestId("remove-item-btn");
+    for (let i = 0; i < removeProductBtns.length; i++) {
+      await act(async () => {
+        await user.click(removeProductBtns[i]);
+      });
+    }
+    // this operation is necessary to remove product from local storage
   });
 
   test("header and product page", () => {

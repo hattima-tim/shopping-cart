@@ -1,40 +1,30 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
-import { Product } from "../components/ProductPage";
 import ProductPage from "../components/ProductPage";
 import Header from "../components/header";
 import getHalfSleeveCutTShirt from "../components/products/halfSleeveTShirts/productsData";
 import { act } from "react-dom/test-utils";
+import { Provider } from "react-redux";
+import store from "../app/store";
 
 const setup = () => {
   const { container } = render(
-    <MemoryRouter
-      initialEntries={[
-        "/half-sleeve-cut-and-sew-solid/product/half-sleeve-cut-and-sew-solid-pattern-15",
-      ]}
-    >
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              <Header />
-            </div>
-          }
-        >
+    <Provider store={store}>
+      <MemoryRouter
+        initialEntries={[
+          "/half-sleeve-cut-and-sew-solid/product/half-sleeve-cut-and-sew-solid-pattern-15",
+        ]}
+      >
+        <Header />
+        <Routes>
           <Route
-            path="/half-sleeve-cut-and-sew-solid/product"
-            element={<Product />}
-          >
-            <Route
-              path=":name"
-              element={<ProductPage getProductData={getHalfSleeveCutTShirt} />}
-            />
-          </Route>
-        </Route>
-      </Routes>
-    </MemoryRouter>
+            path="/half-sleeve-cut-and-sew-solid/product/:name"
+            element={<ProductPage getProductData={getHalfSleeveCutTShirt} />}
+          />
+        </Routes>
+      </MemoryRouter>
+    </Provider>
   );
   return { container };
 };

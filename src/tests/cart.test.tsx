@@ -2,40 +2,31 @@ import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import Header from "../components/header";
-import { Product } from "../components/ProductPage";
 import ProductPage from "../components/ProductPage";
 import Cart from "../components/cart";
 import getHalfSleeveCutTShirt from "../components/products/halfSleeveTShirts/productsData";
+import { Provider } from "react-redux";
+import store from "../app/store";
+
 const setupRoute = () => {
   render(
-    <MemoryRouter
-      initialEntries={[
-        "/half-sleeve-cut-and-sew-solid/product/half-sleeve-cut-and-sew-solid-pattern-15",
-      ]}
-    >
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              <Header />
-            </div>
-          }
-        >
+    <Provider store={store}>
+      <MemoryRouter
+        initialEntries={[
+          "/half-sleeve-cut-and-sew-solid/product/half-sleeve-cut-and-sew-solid-pattern-15",
+        ]}
+      >
+        <Header />
+        <Routes>
           <Route
-            path="/half-sleeve-cut-and-sew-solid/product"
-            element={<Product />}
-          >
-            <Route
-              path=":name"
-              element={<ProductPage getProductData={getHalfSleeveCutTShirt} />}
-            />
-          </Route>
+            path="/half-sleeve-cut-and-sew-solid/product/:name"
+            element={<ProductPage getProductData={getHalfSleeveCutTShirt} />}
+          />
 
           <Route path="/cart" element={<Cart />} />
-        </Route>
-      </Routes>
-    </MemoryRouter>
+        </Routes>
+      </MemoryRouter>
+    </Provider>
   );
 };
 
@@ -206,6 +197,19 @@ describe("product table", () => {
   // but it is not working, so I decided to move on without it
 
   describe("update cart button", () => {
+    afterEach(async () => {
+      const user = userEvent.setup();
+      const removeProductBtns = screen.getAllByTestId(
+        "productTableRemoveProductBtn"
+      );
+      for (let i = 0; i < removeProductBtns.length; i++) {
+        await act(async () => {
+          await user.click(removeProductBtns[i]);
+        });
+      }
+      // this operation is necessary to remove product from local storage
+    });
+
     test("product quantity change, changes Subtotal price on update cart btn click", async () => {
       const user = userEvent.setup();
 
