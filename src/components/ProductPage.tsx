@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useState, useEffect, useRef } from "react";
-import { Outlet, useParams, Link, useOutletContext } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import uniqid from "uniqid";
 import { useDispatch, useSelector } from "react-redux";
 import ImageMagnifier from "./imageMagnifier";
@@ -10,14 +10,6 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Product as ProductsDataType } from "./products/productsData";
 import { RootState } from "../app/store";
 import { productAdded } from "../features/cart/productsInCartSlice";
-
-export function Product() {
-  return (
-    <>
-      <Outlet context={useOutletContext()} />
-    </>
-  );
-}
 
 type ProductPageProps = {
   getProductData: (searchPath: string) => ProductsDataType;
