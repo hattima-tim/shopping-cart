@@ -13,6 +13,7 @@ import getAllHalfSleeveRegularTShirtsData from "./products/halfSleeveRegular/pro
 import { getSpecificHalfSleeveRegularTShirtData } from "./products/halfSleeveRegular/productsData";
 import getAllPoloTShirtsData from "./products/poloTShirts/productsData";
 import { getSpecificPoloTShirtData } from "./products/poloTShirts/productsData";
+import ContactForm from "./formikForm";
 
 function RouteSwitch() {
   return (
@@ -88,6 +89,10 @@ function RouteSwitch() {
             </h1>
           }
         />
+        <Route
+          path='/contact'
+          element={<ContactForm/>}
+          />
       </Routes>
       <Footer />
     </BrowserRouter>
