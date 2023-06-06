@@ -1,15 +1,19 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import TopNavBar from "./TopNavBar";
 import SideNav from "./SideNav";
 import SearchBar from "./SearchBar";
 import "../styles/header.css";
 import uniqid from "uniqid";
 import { CartProductsDataType } from "./types/productsInCart";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../app/store";
+import { productRemoved } from "../features/cart/productsInCartSlice";
 
 function Header() {
-  const [productsInCart, setProductsInCart] = useState(
-    JSON.parse(localStorage.getItem("productsInCart") || "[]") || []
+  const dispatch = useDispatch();
+  const productsInCart = useSelector(
+    (state: RootState) => state.productsInCart
   );
 
   const totalItem = productsInCart.reduce(
@@ -34,13 +38,15 @@ function Header() {
     const newProductsInCart = productsInCart.filter(
       (product: CartProductsDataType, index: number) => index !== id
     );
-    setProductsInCart(newProductsInCart);
+
+    dispatch(productRemoved(newProductsInCart));
     localStorage.setItem("productsInCart", JSON.stringify(newProductsInCart));
   };
 
   const handleCheckout = () => {
     alert("Thank you for your purchase!");
-    setProductsInCart([]);
+    
+    dispatch(productRemoved([]));
     localStorage.clear();
   };
 
@@ -93,7 +99,6 @@ function Header() {
   }, [header]);
 
   return (
-    <>
       <div ref={headerRef} className="header-container">
         <div className="header z-10 w-full items-center bg-[#f0f0f0] px-3 md:px-8 lg:justify-between lg:px-8">
           {header && <SideNav header={header} />}
@@ -225,8 +230,6 @@ function Header() {
 
         <TopNavBar />
       </div>
-      <Outlet context={[productsInCart, setProductsInCart]} />
-    </>
   );
 }
 
