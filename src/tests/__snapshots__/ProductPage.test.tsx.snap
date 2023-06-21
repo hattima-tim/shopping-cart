@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`header header and product page 1`] = `
+exports[`Product page 1`] = `
 <div>
   <div
     class="header-container"
@@ -253,7 +253,7 @@ exports[`header header and product page 1`] = `
           id="subTotal"
         >
           ৳ 
-          450
+          0
           .00
         </span>
         <span
@@ -269,11 +269,11 @@ exports[`header header and product page 1`] = `
             />
           </svg>
           <span
-            class="fa-layers-counter left-[13px] top-[-12px] font-bold"
+            class="fa-layers-counter bottom-0 left-[13px] top-[-12px] flex h-8 w-8 items-center justify-center font-bold"
             data-testid="cart-item-count"
             style="background: black;"
           >
-            1
+            0
           </span>
         </span>
       </div>
@@ -293,83 +293,11 @@ exports[`header header and product page 1`] = `
         <div
           class="mx-auto mb-4  w-16 border-2 bg-[#7f7f7f] lg:hidden"
         />
-        <div
-          class="products_container"
-        >
-          <div
-            class="product_tooltip_item"
-          >
-            <div
-              class="product_tooltip_item_img"
-            >
-              <img
-                alt="Half Sleeve Cut and Sew Solid(pattern 15)"
-                src="https://res.cloudinary.com/du3oueesv/image/upload/v1661588492/shopping%20cart/half%20sleeve%20cut/mthcssp15-solid-920x920_him69g.jpg"
-              />
-            </div>
-            <div
-              class="product_tooltip_item_info"
-            >
-              <div
-                class="tooltip_header"
-              >
-                <h3
-                  class="text-[#4e4e4e]"
-                >
-                  Half Sleeve Cut and Sew Solid(pattern 15)
-                </h3>
-                <button
-                  class="remove_item_btn p-2"
-                  data-id="0"
-                  data-testid="remove-item-btn"
-                >
-                  x
-                </button>
-              </div>
-              <p>
-                FABRIC: 
-                COMBED COTTON
-              </p>
-              <p>
-                SIZE: 
-                M
-              </p>
-              <p>
-                1
-                 x
-                 
-                <span
-                  class="font-bold"
-                >
-                  ৳450.00
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
         <p
-          class="flex justify-center border-b-2 border-t border-b-[#dcdcdc] border-t-[#dcdcdc] py-3"
+          class="empty_cart"
         >
-          <span>
-            Subtotal: ৳
-          </span>
-          <span
-            class="text-black"
-          >
-            450
-          </span>
+          Your cart is empty
         </p>
-        <a
-          class="view_cart"
-          href="/cart"
-        >
-          VIEW CART
-        </a>
-        <button
-          class="checkout_btn"
-        >
-          CHECKOUT
-        </button>
       </div>
     </div>
     <div
