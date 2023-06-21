@@ -2,9 +2,6 @@ import { Link } from "react-router-dom";
 import ProductCards from "../../components/ProductCards";
 import products from "./products";
 
-import "../../../styles/productsPage.css";
-import "../../../styles/productCards.css";
-
 const HalfSleeveCutTShirts = () => {
   return (
     <>
