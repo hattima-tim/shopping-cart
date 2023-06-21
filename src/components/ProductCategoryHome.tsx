@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ProductCards from "./ProductCards";
 import "../styles/productsPage.css";
 import "../styles/productCards.css";
-import { Product } from './products/productsData';
+import { Product } from '../productsData/productsData';
 
 type Props = {
   productType:string,

@@ -3,8 +3,8 @@ import userEvent from "@testing-library/user-event";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import Header from "../components/header";
 import ProductPage from "../components/ProductPage";
-import getHalfSleeveCutTShirt from "../components/products/halfSleeveTShirts/productsData";
-import { getSpecificPoloTShirtData } from "../components/products/poloTShirts/productsData";
+import getHalfSleeveCutTShirt from "../productsData/halfSleeveTShirts/productsData";
+import { getSpecificPoloTShirtData } from "../productsData/poloTShirts/productsData";
 import { Provider } from "react-redux";
 import store from "../app/store";
 

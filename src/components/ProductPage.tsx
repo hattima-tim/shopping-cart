@@ -7,7 +7,7 @@ import ImageMagnifier from "./imageMagnifier";
 import NotificationBanner from "./notificationBanner";
 import "../styles/productPage.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { Product as ProductsDataType } from "./products/productsData";
+import { Product as ProductsDataType} from "../productsData/productsData";
 import { RootState } from "../app/store";
 import { productAdded } from "../features/cart/productsInCartSlice";
 

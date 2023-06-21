@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import getAllHalfSleeveDawaTShirtsData from "./products/halfSleeveDawah/productsData";
-import getAllHalfSleeveRegularTShirtsData from "./products/halfSleeveRegular/productsData";
-import getAllPoloTShirtsData from "./products/poloTShirts/productsData";
+import getAllHalfSleeveDawaTShirtsData from "../productsData/halfSleeveDawah/productsData";
+import getAllHalfSleeveRegularTShirtsData from "../productsData/halfSleeveRegular/productsData";
+import getAllPoloTShirtsData from "../productsData/poloTShirts/productsData";
 import uniqid from "uniqid";
-import { Product } from "./products/productsData";
+import { Product } from "../productsData/productsData";
 
 function SearchBar() {
   const halfSleeveDawahTShirts = getAllHalfSleeveDawaTShirtsData();

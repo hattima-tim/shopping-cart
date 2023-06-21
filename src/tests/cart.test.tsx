@@ -4,7 +4,7 @@ import { MemoryRouter, Routes, Route } from "react-router-dom";
 import Header from "../components/header";
 import ProductPage from "../components/ProductPage";
 import Cart from "../components/cart";
-import getHalfSleeveCutTShirt from "../components/products/halfSleeveTShirts/productsData";
+import getHalfSleeveCutTShirt from "../productsData/halfSleeveTShirts/productsData";
 import { Provider } from "react-redux";
 import store from "../app/store";
 

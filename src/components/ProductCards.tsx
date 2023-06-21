@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import uniqid from "uniqid";
-import { Product } from "./products/productsData";
+import { Product } from "../productsData/productsData";
 
 type Props = {
   productType: string;

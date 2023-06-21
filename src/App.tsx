@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import "./App.css";
 import ProductSlider from "./components/ProductSlider";
 import ProductBanner from "./components/ProductBanner";
-import getAllHalfSleeveDawaTShirtsData from "./components/products/halfSleeveDawah/productsData";
-import getAllHalfSleeveRegularTShirtsData from "./components/products/halfSleeveRegular/productsData";
-import getAllPoloTShirtsData from "./components/products/poloTShirts/productsData";
+import getAllHalfSleeveDawaTShirtsData from "./productsData/halfSleeveDawah/productsData";
+import getAllHalfSleeveRegularTShirtsData from "./productsData/halfSleeveRegular/productsData";
+import getAllPoloTShirtsData from "./productsData/poloTShirts/productsData";
 
 function App() {
   const firstHalfOfAllDawahTShirts = getAllHalfSleeveDawaTShirtsData().slice(

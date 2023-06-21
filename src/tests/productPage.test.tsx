@@ -3,7 +3,7 @@ import { MemoryRouter, Routes, Route } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import ProductPage from "../components/ProductPage";
 import Header from "../components/header";
-import getHalfSleeveCutTShirt from "../components/products/halfSleeveTShirts/productsData";
+import getHalfSleeveCutTShirt from "../productsData/halfSleeveTShirts/productsData";
 import { act } from "react-dom/test-utils";
 import { Provider } from "react-redux";
 import store from "../app/store";

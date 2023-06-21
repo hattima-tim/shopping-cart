@@ -4,7 +4,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "../styles/ProductSlider.css";
 import uniqid from "uniqid";
-import { Product } from './products/productsData';
+import { Product } from '../productsData/productsData';
 
 type ProductSliderProps = {
   products:Product[],

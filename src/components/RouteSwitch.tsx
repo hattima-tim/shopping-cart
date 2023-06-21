@@ -5,14 +5,14 @@ import ProductPage from "./ProductPage";
 import Header from "./header";
 import Footer from "./Footer";
 import Cart from "./cart";
-import {halfSleeveCutSewProductsData} from "./products/halfSleeveTShirts/productsData";
-import getHalfSleeveCutTShirt from "./products/halfSleeveTShirts/productsData";
-import getAllHalfSleeveDawaTShirtsData from "./products/halfSleeveDawah/productsData";
-import { getSpecificHalfSleeveDawaTShirtData } from "./products/halfSleeveDawah/productsData";
-import getAllHalfSleeveRegularTShirtsData from "./products/halfSleeveRegular/productsData";
-import { getSpecificHalfSleeveRegularTShirtData } from "./products/halfSleeveRegular/productsData";
-import getAllPoloTShirtsData from "./products/poloTShirts/productsData";
-import { getSpecificPoloTShirtData } from "./products/poloTShirts/productsData";
+import { halfSleeveCutSewProductsData } from "../productsData/halfSleeveTShirts/productsData";
+import getHalfSleeveCutTShirt from "../productsData/halfSleeveTShirts/productsData";
+import getAllHalfSleeveDawaTShirtsData from "../productsData/halfSleeveDawah/productsData";
+import { getSpecificHalfSleeveDawaTShirtData } from "../productsData/halfSleeveDawah/productsData";
+import getAllHalfSleeveRegularTShirtsData from "../productsData/halfSleeveRegular/productsData";
+import { getSpecificHalfSleeveRegularTShirtData } from "../productsData/halfSleeveRegular/productsData";
+import getAllPoloTShirtsData from "../productsData/poloTShirts/productsData";
+import { getSpecificPoloTShirtData } from "../productsData/poloTShirts/productsData";
 import ContactForm from "./formikForm";
 
 function RouteSwitch() {
