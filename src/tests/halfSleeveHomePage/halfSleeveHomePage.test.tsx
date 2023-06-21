@@ -1,5 +1,5 @@
 import { render,screen } from "@testing-library/react";
-import HalfSleeveHomePage from "../../components/products/halfSleeveTShirts/main";
+import HalfSleeveHomePage from "./main";
 import {MemoryRouter} from "react-router-dom";
 
 test("renders with correct texts", () => {
