@@ -8,6 +8,8 @@ function getHalfSleeveCutSewProductsData(): Product[] {
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1661588492/shopping%20cart/half%20sleeve%20cut/mthcssp15-solid-920x920_him69g.jpg",
       ],
+      imgForProductCard:
+        "https://res.cloudinary.com/du3oueesv/image/upload/v1659873489/shopping%20cart/half%20sleeve%20cut/mthcssp10-solid-350x435_zvwuma.jpg",
       breadCrumbs: [
         {
           name: "HOME",
@@ -43,6 +45,8 @@ function getHalfSleeveCutSewProductsData(): Product[] {
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663328381/shopping%20cart/half%20sleeve%20cut/productPage/mthcssp14-solid-920x920_eguvr2.jpg",
       ],
+      imgForProductCard:
+        "https://res.cloudinary.com/du3oueesv/image/upload/v1659873473/shopping%20cart/half%20sleeve%20cut/mthcssp11-solid-350x435_jooe3k.jpg",
       breadCrumbs: [
         {
           name: "HOME",
@@ -78,6 +82,8 @@ function getHalfSleeveCutSewProductsData(): Product[] {
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663328399/shopping%20cart/half%20sleeve%20cut/productPage/mthcssp13-solid-920x920_meukku.jpg",
       ],
+      imgForProductCard:
+        "https://res.cloudinary.com/du3oueesv/image/upload/v1659873453/shopping%20cart/half%20sleeve%20cut/mthcssp12-solid-350x435_zkricr.jpg",
       breadCrumbs: [
         {
           name: "HOME",
@@ -113,6 +119,8 @@ function getHalfSleeveCutSewProductsData(): Product[] {
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663328549/shopping%20cart/half%20sleeve%20cut/productPage/mthcssp12-solid-920x920_fldnp4.jpg",
       ],
+      imgForProductCard:
+        "https://res.cloudinary.com/du3oueesv/image/upload/v1659873413/shopping%20cart/half%20sleeve%20cut/mthcssp13-solid-350x435_zutbr0.jpg",
       breadCrumbs: [
         {
           name: "HOME",
@@ -148,6 +156,8 @@ function getHalfSleeveCutSewProductsData(): Product[] {
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663328545/shopping%20cart/half%20sleeve%20cut/productPage/mthcssp11-solid-920x920_fk9tcc.jpg",
       ],
+      imgForProductCard:
+        "https://res.cloudinary.com/du3oueesv/image/upload/v1659873393/shopping%20cart/half%20sleeve%20cut/mthcssp14-solid-350x435_sc3l07.jpg",
       breadCrumbs: [
         {
           name: "HOME",
@@ -183,6 +193,8 @@ function getHalfSleeveCutSewProductsData(): Product[] {
       imagesForProductPage: [
         "https://res.cloudinary.com/du3oueesv/image/upload/v1663328541/shopping%20cart/half%20sleeve%20cut/productPage/mthcssp10-solid-920x920_omjbhg.jpg",
       ],
+      imgForProductCard:
+        "https://res.cloudinary.com/du3oueesv/image/upload/v1659873363/shopping%20cart/half%20sleeve%20cut/mthcssp15-solid-350x435_mz8sws.jpg",
       breadCrumbs: [
         {
           name: "HOME",
@@ -225,5 +237,5 @@ function getProductData(searchPath: string) {
 
 const halfSleeveCutSewProductsData = getHalfSleeveCutSewProductsData();
 
-export {halfSleeveCutSewProductsData}
+export { halfSleeveCutSewProductsData };
 export default getProductData;
