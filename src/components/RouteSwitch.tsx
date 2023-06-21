@@ -5,7 +5,7 @@ import ProductPage from "./ProductPage";
 import Header from "./header";
 import Footer from "./Footer";
 import Cart from "./cart";
-import halfSleeveCutTShirts from "./products/halfSleeveTShirts/products";
+import {halfSleeveCutSewProductsData} from "./products/halfSleeveTShirts/productsData";
 import getHalfSleeveCutTShirt from "./products/halfSleeveTShirts/productsData";
 import getAllHalfSleeveDawaTShirtsData from "./products/halfSleeveDawah/productsData";
 import { getSpecificHalfSleeveDawaTShirtData } from "./products/halfSleeveDawah/productsData";
@@ -25,7 +25,7 @@ function RouteSwitch() {
           path="/half-sleeve-cut-and-sew-solid"
           element={
             <ProductCategoryHomePage
-              products={halfSleeveCutTShirts}
+              products={halfSleeveCutSewProductsData}
               productType={"half-sleeve-cut-and-sew-solid"}
             />
           }
