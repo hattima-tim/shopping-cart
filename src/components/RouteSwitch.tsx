@@ -14,6 +14,28 @@ import { getSpecificHalfSleeveRegularTShirtData } from "../productsData/halfSlee
 import getAllPoloTShirtsData from "../productsData/poloTShirts/productsData";
 import { getSpecificPoloTShirtData } from "../productsData/poloTShirts/productsData";
 import ContactForm from "./formikForm";
+import { Product } from "../productsData/productsData";
+
+function createProductRoute(
+  path: string,
+  products: Product[],
+  getProductData: (searchPath: string) => Product
+) {
+  return (
+    <>
+      <Route
+        path={path}
+        element={
+          <ProductCategoryHomePage products={products} productType={path} />
+        }
+      />
+      <Route
+        path={`${path}/product/:name`}
+        element={<ProductPage getProductData={getProductData} />}
+      />
+    </>
+  );
+}
 
 function RouteSwitch() {
   return (
@@ -21,64 +43,28 @@ function RouteSwitch() {
       <Header />
       <Routes>
         <Route path="/" element={<App />} />
-        <Route
-          path="/half-sleeve-cut-and-sew-solid"
-          element={
-            <ProductCategoryHomePage
-              products={halfSleeveCutSewProductsData}
-              productType={"half-sleeve-cut-and-sew-solid"}
-            />
-          }
-        />
-        <Route
-          path="/half-sleeve-cut-and-sew-solid/product/:name"
-          element={<ProductPage getProductData={getHalfSleeveCutTShirt} />}
-        />
-        <Route
-          path="/half-sleeve-dawah-tshirts-for-men"
-          element={
-            <ProductCategoryHomePage
-              products={getAllHalfSleeveDawaTShirtsData()}
-              productType={"half-sleeve-dawah-tshirts-for-men"}
-            />
-          }
-        />
-        <Route
-          path="/half-sleeve-dawah-tshirts-for-men/product/:name"
-          element={
-            <ProductPage getProductData={getSpecificHalfSleeveDawaTShirtData} />
-          }
-        />
-        <Route
-          path="/half-sleeve-regular-tshirts-for-men"
-          element={
-            <ProductCategoryHomePage
-              products={getAllHalfSleeveRegularTShirtsData()}
-              productType={"half-sleeve-regular-tshirts-for-men"}
-            />
-          }
-        />
-        <Route
-          path="/half-sleeve-regular-tshirts-for-men/product/:name"
-          element={
-            <ProductPage
-              getProductData={getSpecificHalfSleeveRegularTShirtData}
-            />
-          }
-        />
-        <Route
-          path="/polo-t-shirt"
-          element={
-            <ProductCategoryHomePage
-              products={getAllPoloTShirtsData()}
-              productType={"polo-t-shirt"}
-            />
-          }
-        />
-        <Route
-          path="/polo-t-shirt/product/:name"
-          element={<ProductPage getProductData={getSpecificPoloTShirtData} />}
-        />
+
+        {createProductRoute(
+          "/half-sleeve-cut-and-sew-solid",
+          halfSleeveCutSewProductsData,
+          getHalfSleeveCutTShirt
+        )}
+        {createProductRoute(
+          "/half-sleeve-dawah-tshirts-for-men",
+          getAllHalfSleeveDawaTShirtsData(),
+          getSpecificHalfSleeveDawaTShirtData
+        )}
+        {createProductRoute(
+          "/half-sleeve-regular-tshirts-for-men",
+          getAllHalfSleeveRegularTShirtsData(),
+          getSpecificHalfSleeveRegularTShirtData
+        )}
+        {createProductRoute(
+          "/polo-t-shirt",
+          getAllPoloTShirtsData(),
+          getSpecificPoloTShirtData
+        )}
+
         <Route path="/cart" element={<Cart />} />
         <Route
           path="*"
@@ -89,10 +75,7 @@ function RouteSwitch() {
             </h1>
           }
         />
-        <Route
-          path='/contact'
-          element={<ContactForm/>}
-          />
+        <Route path="/contact" element={<ContactForm />} />
       </Routes>
       <Footer />
     </BrowserRouter>
