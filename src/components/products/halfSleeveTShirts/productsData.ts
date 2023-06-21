@@ -223,4 +223,7 @@ function getProductData(searchPath: string) {
   );
 }
 
+const halfSleeveCutSewProductsData = getHalfSleeveCutSewProductsData();
+
+export {halfSleeveCutSewProductsData}
 export default getProductData;
