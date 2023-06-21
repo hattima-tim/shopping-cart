@@ -15,7 +15,7 @@ function ProductCards({productType, products }:Props) {
         {products.map((product, index) => (
           <div key={uniqid()} className="productCard mb-7 w-40 md:w-60 lg:w-72">
             <div className="productCardImg">
-              <Link to={`/${productType}/product/${product.pathName}`}>
+              <Link to={`${productType}/product/${product.pathName}`}>
                 <img src={product.imgForProductCard} alt={product.name} />
               </Link>
             </div>
