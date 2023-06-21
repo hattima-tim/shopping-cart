@@ -1,6 +1,6 @@
 import { Product } from "../productsData";
 
-function productsData(): Product[] {
+function getHalfSleeveCutSewProductsData(): Product[] {
   return [
     {
       path: "/half-sleeve-cut-and-sew-solid-pattern-15",
@@ -216,10 +216,10 @@ function productsData(): Product[] {
 
 function getProductData(searchPath: string) {
   return (
-    productsData().find((product) => {
+    getHalfSleeveCutSewProductsData().find((product) => {
       const productPath = product.path?.split("/").pop();
       return productPath === searchPath;
-    }) || productsData()[0]
+    }) || getHalfSleeveCutSewProductsData()[0]
   );
 }
 
